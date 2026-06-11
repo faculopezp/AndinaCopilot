@@ -60,12 +60,12 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 </div>
 <div class="card">
 <h2>Marcas presentes en múltiples países</h2>
-<div class="hint">Una marca en 3 países = más cuentas potenciales, misma apertura. Priorizar para una secuencia regional.</div>
+<div class="hint">Cuántas unidades vende cada marca en cada país (último corte de cada uno) y en cuántos países está presente. Más países = más cuentas potenciales con la misma apertura → priorizar para una secuencia regional. No se muestra un total combinado porque los cortes por país son distintos.</div>
 <table id="tMulti"></table>
 </div>
 </div>
 <div class="panel" id="p-top"><div class="card"><h2 id="topTitle"></h2>
-<div class="hint">Ranking por unidades acumuladas del último período disponible. Clic en encabezados para ordenar. Top marcas → buscar agencias → contactar.</div>
+<div class="hint">Ranking por unidades acumuladas del último período disponible de cada país. Top marcas → buscar agencias → contactar.</div>
 <table id="tTop"></table></div></div>
 <div class="panel" id="p-emerg"><div class="card"><h2>Radar de emergentes 🚀</h2>
 <div class="hint">Marcas con Var.% interanual > 50% y ≥ 300 unidades. Chinas en rampa: contactar antes del pico. Etiqueta <span class="tag">CN</span> = origen China.</div>
@@ -73,10 +73,10 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="panel" id="p-comp"><div class="card"><h2>Comparativa de marcas entre países</h2>
 <div class="hint">Unidades por marca en cada país. Vacío = no aparece en el top reportado. Sirve para ver dónde pega fuerte cada marca y priorizar mercado.</div>
 <table id="tComp"></table>
-<div class="note">Períodos: Chile y Ecuador a Mayo 2026; Perú a Marzo 2026. El volumen absoluto entre países no es 1:1 por el desfase de publicación; el ranking y el % interanual sí son comparables.</div></div></div>
+<div class="note">Cada país tiene su propio corte de publicación (ver fechas en las etiquetas de arriba). El volumen absoluto entre países <b>no</b> es comparable 1:1 por ese desfase; el ranking y el % interanual sí lo son.</div></div></div>
 <div class="panel" id="p-trend"><div class="card">
-<h2>Tendencia mensual · Perú <span style="font-weight:400;font-size:12px;color:var(--grey)">(ene 2025 → mar 2026)</span></h2>
-<div class="hint">Evolución de unidades mes a mes por marca. Chile y Ecuador se suman en la próxima tanda de backfill.</div>
+<h2>Tendencia mensual · Perú <span style="font-weight:400;font-size:12px;color:var(--grey)" id="trRango"></span></h2>
+<div class="hint">Evolución de unidades mes a mes por marca (serie mensual de AAP Perú).</div>
 <div style="margin:6px 0 4px"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase">Marca&nbsp;</label>
 <select id="trBrand" style="padding:8px 10px;border:1px solid var(--line);border-radius:10px;font-size:14px"></select>
 <span id="trMom" style="margin-left:12px;font-size:13px"></span></div>
@@ -126,15 +126,16 @@ function kpis(){
  const wr=r.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
  const top=[...r].sort((a,b)=>b.uc-a.uc)[0];const emerg=r.filter(x=>x.var!=null&&x.var>50&&x.uc>=300).length;
  const v=tp?((tc-tp)/tp*100):null;
+ const combinado=state.pais==='Todos';
  document.getElementById('kpis').innerHTML=[
-  ['Unidades (acum.)',fmt(tot),state.pais==='Todos'?'suma top marcas, 3 países':'top marcas reportadas'],
-  ['Var. interanual',v===null?'n/d':pct(v),'YTD vs año anterior (donde hay dato)'],
+  ['Unidades (acum.)',combinado?'—':fmt(tot),combinado?'elegí un país (no se suma entre países: cortes distintos)':'top marcas · '+state.pais],
+  ['Var. interanual',v===null?'n/d':pct(v),combinado?'YoY donde hay dato (referencial)':'YTD vs año anterior'],
   ['Marca #1',top?top.marca:'—',top?fmt(top.uc)+' u · '+pct(top.var):''],
   ['Emergentes',emerg,'marcas YoY>50%']
  ].map(k=>`<div class="kpi"><div class="lab">${k[0]}</div><div class="val">${k[1]}</div><div class="sub">${k[2]}</div></div>`).join('');}
 function tTop(){
  let r=[...rows()].sort((a,b)=>b.uc-a.uc);const max=Math.max(...r.map(x=>x.uc),1);
- document.getElementById('topTitle').textContent='Top marcas '+(state.pais==='Todos'?'· 3 países combinados':'· '+state.pais);
+ document.getElementById('topTitle').textContent='Top marcas '+(state.pais==='Todos'?'· '+paises().length+' países (ranking por país, no comparar volumen)':'· '+state.pais);
  const showP=state.pais==='Todos';
  const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th class="num">Unidades</th><th class="num">Var.% YoY</th><th>Volumen</th></tr>`;
  const b=r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk">${x.marca}${isCh(x.marca)?'<span class="tag">CN</span>':''}</td>${showP?'<td class="flag">'+x.pais+'</td>':''}<td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${x.uc/max*100}%"></span></div></td></tr>`).join('');
@@ -148,7 +149,7 @@ function tComp(){
  const ps=paises();const marks={};DATA.forEach(d=>{marks[d.marca]=marks[d.marca]||{};marks[d.marca][d.pais]={uc:d.uc,var:d.var}});
  const list=Object.entries(marks).map(([m,o])=>({m,o,tot:Object.values(o).reduce((s,x)=>s+x.uc,0),n:Object.keys(o).length})).sort((a,b)=>b.tot-a.tot);
  const h=`<tr><th>Marca</th>${ps.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th></tr>`;
- const b=list.map(it=>`<tr><td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>${ps.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p].uc)} <span style="font-size:11px">${pill(it.o[p].var)}</span></td>`:'<td class="num dash">—</td>').join('')}<td class="num">${it.n}/3</td></tr>`).join('');
+ const b=list.map(it=>`<tr><td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>${ps.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p].uc)} <span style="font-size:11px">${pill(it.o[p].var)}</span></td>`:'<td class="num dash">—</td>').join('')}<td class="num">${it.n}/${ps.length}</td></tr>`).join('');
  document.getElementById('tComp').innerHTML=h+b;}
 function tRaw(){
  const r=rows();document.getElementById('rawCount').textContent=`(${r.length} filas)`;
@@ -157,7 +158,9 @@ function tRaw(){
  document.getElementById('tRaw').innerHTML=h+b;}
 
 function trendBrandsSorted(){const s=TREND.series;return Object.keys(s).sort((a,b)=>{const sa=s[a].reduce((x,y)=>x+(y.u||0),0),sb=s[b].reduce((x,y)=>x+(y.u||0),0);return sb-sa})}
-function fillTrend(){const sel=document.getElementById('trBrand');sel.innerHTML=trendBrandsSorted().map(m=>`<option>${m}</option>`).join('');sel.onchange=()=>drawTrend(sel.value);drawTrend(sel.value);trendAccel();}
+function fillTrend(){const sel=document.getElementById('trBrand');sel.innerHTML=trendBrandsSorted().map(m=>`<option>${m}</option>`).join('');sel.onchange=()=>drawTrend(sel.value);drawTrend(sel.value);trendAccel();
+ const yms=[];for(const m in TREND.series)TREND.series[m].forEach(p=>yms.push(p.ym));yms.sort();
+ const el=document.getElementById('trRango');if(el&&yms.length)el.textContent=`(${yms[0]} → ${yms[yms.length-1]})`;}
 function drawTrend(brand){
  const s=TREND.series[brand]||[];const max=Math.max(...s.map(p=>p.u||0),1);
  const W=Math.max(640,s.length*42),H=230,pad=28,bw=26;
@@ -272,12 +275,11 @@ function tMulti(){
     .map(([m,o])=>({m,ps:Object.keys(o),tot:Object.values(o).reduce((s,x)=>s+x,0),o}))
     .sort((a,b)=>b.ps.length-a.ps.length||b.tot-a.tot);
   const allPs=uniq(DATA.map(d=>d.pais));
-  const h=`<tr><th>Marca</th>${allPs.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th><th class="num">Total</th></tr>`;
+  const h=`<tr><th>Marca</th>${allPs.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th></tr>`;
   const b=multi.map(it=>`<tr>
     <td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>
     ${allPs.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p])}</td>`:`<td class="num dash" style="color:#ccc">—</td>`).join('')}
     <td class="num" style="font-weight:800;color:${it.ps.length>=3?'var(--green)':'var(--blue)'}">${it.ps.length}</td>
-    <td class="num">${fmt(it.tot)}</td>
   </tr>`).join('');
   document.getElementById('tMulti').innerHTML=h+b;
 }
