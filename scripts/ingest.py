@@ -778,6 +778,57 @@ def rebuild_china_tl(peru_rows: list[dict], chile_rows: list[dict]):
 
 
 # ---------------------------------------------------------------------------
+# Reporte de la corrida (para notificación por email desde el workflow)
+# ---------------------------------------------------------------------------
+
+def _periodos(rows: list[dict]) -> set:
+    return {(int(r["anio"]), int(r["mes"])) for r in rows}
+
+
+def _country_report(rows: list[dict], prev: set) -> dict:
+    cur = _periodos(rows)
+    nuevos = sorted(cur - prev)
+    ultimo = max(cur) if cur else None
+    return {
+        "ejecutado": True,
+        "nuevos": [f"{a}-{m:02d}" for a, m in nuevos],
+        "ultimo_periodo": f"{ultimo[0]}-{ultimo[1]:02d}" if ultimo else None,
+        "total_filas": len(rows),
+    }
+
+
+def _write_report(report: dict):
+    """Escribe run_report.json (máquina) y run_report.txt (cuerpo del email)."""
+    (ROOT / "run_report.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    lines = [f"AndinaCopilot - corrida {report['fecha']}", ""]
+    hubo_nuevos = False
+    for pais, r in report["paises"].items():
+        if r.get("error"):
+            lines.append(f"[ERROR] {pais}: fallo la ingesta - {r['error']}")
+        elif not r.get("ejecutado"):
+            lines.append(f"[----]  {pais}: no ejecutado en esta corrida")
+        elif r["nuevos"]:
+            hubo_nuevos = True
+            lines.append(
+                f"[NUEVO] {pais}: {len(r['nuevos'])} mes(es) nuevo(s) -> "
+                f"{', '.join(r['nuevos'])}  (último: {r['ultimo_periodo']}, {r['total_filas']} filas)")
+        else:
+            lines.append(
+                f"[=]     {pais}: sin datos nuevos  (último: {r['ultimo_periodo']}, {r['total_filas']} filas)")
+
+    lines.append("")
+    lines.append("Resumen: " + ("se actualizó al menos un país." if hubo_nuevos
+                                else "ningún país trajo datos nuevos."))
+    lines.append("")
+    lines.append("Dashboard: https://andina-copilot.vercel.app")
+    (ROOT / "run_report.txt").write_text("\n".join(lines), encoding="utf-8")
+    print("\n=== Reporte ===")
+    print("\n".join(lines))
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -796,20 +847,42 @@ def main():
     chile_rows   = _load_monthly_csv("chile_mensual.csv")
     ecuador_rows = _load_monthly_csv("ecuador_mensual.csv")
 
+    report = {"fecha": datetime.now().strftime("%Y-%m-%d %H:%M"), "paises": {}}
+    prev = {
+        "Peru":    _periodos(peru_rows),
+        "Chile":   _periodos(chile_rows),
+        "Ecuador": _periodos(ecuador_rows),
+    }
+
     if run_peru:
         print("\n=== PERU ===")
-        peru_rows = ingest_peru(backfill=args.backfill)
-        save_monthly_csv(peru_rows, "peru_nacional_mensual.csv")
+        try:
+            peru_rows = ingest_peru(backfill=args.backfill)
+            save_monthly_csv(peru_rows, "peru_nacional_mensual.csv")
+            report["paises"]["Peru"] = _country_report(peru_rows, prev["Peru"])
+        except Exception as e:
+            print(f"  [ERROR] Perú: {e}")
+            report["paises"]["Peru"] = {"ejecutado": True, "error": str(e)}
 
     if run_chile:
         print("\n=== CHILE ===")
-        chile_rows = ingest_chile(backfill=args.backfill)
-        save_monthly_csv(chile_rows, "chile_mensual.csv")
+        try:
+            chile_rows = ingest_chile(backfill=args.backfill)
+            save_monthly_csv(chile_rows, "chile_mensual.csv")
+            report["paises"]["Chile"] = _country_report(chile_rows, prev["Chile"])
+        except Exception as e:
+            print(f"  [ERROR] Chile: {e}")
+            report["paises"]["Chile"] = {"ejecutado": True, "error": str(e)}
 
     if run_ecuador:
         print("\n=== ECUADOR ===")
-        ecuador_rows = ingest_ecuador(backfill=args.backfill)
-        save_monthly_csv(ecuador_rows, "ecuador_mensual.csv")
+        try:
+            ecuador_rows = ingest_ecuador(backfill=args.backfill)
+            save_monthly_csv(ecuador_rows, "ecuador_mensual.csv")
+            report["paises"]["Ecuador"] = _country_report(ecuador_rows, prev["Ecuador"])
+        except Exception as e:
+            print(f"  [ERROR] Ecuador: {e}")
+            report["paises"]["Ecuador"] = {"ejecutado": True, "error": str(e)}
 
     print("\n=== Reconstruyendo JSONs ===")
     rebuild_base_nacional(peru_rows, chile_rows, ecuador_rows)
@@ -820,6 +893,7 @@ def main():
     import subprocess
     subprocess.run([sys.executable, str(SCRIPTS / "build_dashboard.py")], check=True)
 
+    _write_report(report)
     print("\nListo.")
 
 

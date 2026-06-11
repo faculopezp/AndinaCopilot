@@ -15,3 +15,7 @@ tmp/
 
 # Excel — solo ignorar temporales de Office (el generado sí se versiona)
 ~$*.xlsx
+
+# Reporte de cada corrida (se regenera; lo usa el workflow para el email)
+run_report.txt
+run_report.json

@@ -66,5 +66,27 @@ jobs:
           git commit -m "chore: actualización automática $(date +%Y-%m-%d)"
           git push
 
+      - name: Asegurar reporte (fallback si la ingesta murió antes)
+        if: always()
+        run: |
+          if [ ! -f run_report.txt ]; then
+            echo "AndinaCopilot - la corrida FALLÓ antes de generar el reporte." > run_report.txt
+            echo "Revisar los logs del workflow en GitHub Actions." >> run_report.txt
+          fi
+
+      - name: Enviar email resumen
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "AndinaCopilot — actualización de datos"
+          to: facundolopezparadiso@gmail.com
+          from: AndinaCopilot Bot <${{ secrets.MAIL_USERNAME }}>
+          body: file://run_report.txt
+
   # Vercel se auto-deploya al detectar el push que hace el job "ingestar"
   # No hace falta un job separado de deploy.
