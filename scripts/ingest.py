@@ -45,7 +45,11 @@ from sources import (
     MARCAS_CHINAS,
 )
 
-HEADERS = {"User-Agent": "Mozilla/5.0 (AndinaCopilot/1.0; +https://github.com/faculopezp/AndinaCopilot)"}
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+    "Accept": "application/pdf,application/octet-stream,*/*",
+    "Referer": "https://www.aeade.net/",
+}
 SLEEP   = 2  # segundos entre requests para no sobrecargar las fuentes
 
 
@@ -77,63 +81,72 @@ def pdf_to_lines(pdf_bytes: bytes) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
-# PERU — parser de PDF de AAP
+# PERU — parser de PDF de AAP (formato 2026: 2 columnas por fila, pag. 15)
 # ---------------------------------------------------------------------------
 
-PERU_SEG = ["Automóviles, SW", "Pick up, furgonetas", "Camionetas", "SUV, todoterreno"]
-PERU_HDR = re.compile(r"^Rank\. Marca (\d{4}) (\d{4}) Var\.% Part\.%")
-PERU_ROW = re.compile(r"^(\d+)\s+(.+?)\s+([\d,]+)\s+([\d,]+)\s+(-?[\d.]+)%\s+([\d.]+)%$")
+# Una entrada por columna: "1 Toyota 3,723 3,183 -14.5% 27.9%"
+PERU_ENTRY = re.compile(
+    r'(\d+)\s+'                          # rank
+    r'((?:[A-Za-z\xc0-\xff]+\s*)+?)\s+' # marca (puede tener espacios)
+    r'([\d,]+)\s+'                       # año anterior
+    r'([\d,]+)\s+'                       # año actual
+    r'(-?[\d.]+)%\s+'                    # var%
+    r'([\d.]+)%'                         # part%
+)
+
+PERU_HDR   = re.compile(r'Rank\.\s*Marca\s+(\d{4})\s+(\d{4})')
+# Página con el resumen nacional por marca (tiene ranking + "de cada año")
+PERU_PAGE = re.compile(r'Venta de veh[íi]culos livianos a \w+ de cada a', re.IGNORECASE)
 
 
-def parse_peru_pdf(lines: list[str]) -> tuple[list[tuple], int | None]:
-    """Parsea las tablas de segmentos del PDF mensual de AAP.
+def parse_peru_pdf(pdf_bytes: bytes) -> tuple[list[tuple], int | None]:
+    """Parsea las tablas de vehículos livianos del PDF mensual de AAP.
 
-    Devuelve (filas, anio_acum) donde filas = [(segmento, marca, acum_curr, acum_prev), ...].
-    anio_acum es el año del acumulado (columna derecha de la tabla).
+    Busca la página con 'Venta de vehículos livianos a {mes} de cada año'
+    y extrae las 4 tablas (2 columnas) sumando por marca.
+
+    Devuelve ([(marca, acum_curr, acum_prev), ...], anio_acum).
     """
-    # Localizar bloque de segmentos
-    gi = None
-    for i in range(len(lines) - 3):
-        if all(lines[i + k] == PERU_SEG[k] for k in range(4)):
-            gi = i
-            break
-    if gi is None:
+    target_page = None
+    anio_acum = None
+
+    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text(x_tolerance=3, y_tolerance=3) or ""
+            if PERU_PAGE.search(text) and PERU_HDR.search(text):
+                target_page = text
+                break
+
+    if not target_page:
         return [], None
 
-    out = []
-    anio_acum = None
-    si = 0
-    k  = gi + 4
+    lines = [l.strip() for l in target_page.splitlines() if l.strip()]
 
-    while si < 4 and k < len(lines):
-        hm = PERU_HDR.match(lines[k])
+    # Detectar año del acumulado desde la primera cabecera de tabla
+    for line in lines:
+        hm = PERU_HDR.search(line)
         if hm:
             anio_acum = int(hm.group(2))
-            k += 1
-            while k < len(lines):
-                m = PERU_ROW.match(lines[k])
-                if m:
-                    _, marca, prev_s, curr_s, *_ = m.groups()
-                    out.append((
-                        PERU_SEG[si],
-                        marca.strip(),
-                        int(curr_s.replace(",", "")),
-                        int(prev_s.replace(",", "")),
-                    ))
-                    k += 1
-                elif lines[k].startswith("Total"):
-                    k += 1
-                    break
-                elif lines[k].startswith("Otros"):
-                    k += 1
-                else:
-                    if out:
-                        break
-                    k += 1
-            si += 1
-        else:
-            k += 1
+            break
 
+    if not anio_acum:
+        return [], None
+
+    # Acumular unidades por marca (todas las entradas de las 4 tablas)
+    acum: dict[str, list[int]] = {}  # marca -> [curr, prev]
+    for line in lines:
+        if line.startswith(("Total", "Otros", "Fuente", "Rank")):
+            continue
+        for m in PERU_ENTRY.finditer(line):
+            marca = m.group(2).strip().title()
+            prev  = int(m.group(3).replace(",", ""))
+            curr  = int(m.group(4).replace(",", ""))
+            if marca not in acum:
+                acum[marca] = [0, 0]
+            acum[marca][0] += curr
+            acum[marca][1] += prev
+
+    out = [(marca, vals[0], vals[1]) for marca, vals in acum.items() if vals[0] > 0]
     return out, anio_acum
 
 
@@ -172,24 +185,19 @@ def ingest_peru(backfill: bool = False) -> list[dict]:
         if not url:
             print(f"  [SKIP] Perú {anio}-{mes:02d}: URL no conocida (agregar a sources.py)")
             continue
-        print(f"  → Perú {anio}-{mes:02d}  {url}")
+        print(f"  ->Peru {anio}-{mes:02d}  {url}")
         pdf = fetch_pdf(url)
         if not pdf:
             continue
-        lines = pdf_to_lines(pdf)
-        filas, yr = parse_peru_pdf(lines)
+        filas, yr = parse_peru_pdf(pdf)
         if not filas:
-            print(f"  [WARN] Perú {anio}-{mes:02d}: parse sin resultados")
+            print(f"  [WARN] Peru {anio}-{mes:02d}: parse sin resultados")
             continue
         if yr != anio:
-            print(f"  [WARN] Perú {anio}-{mes:02d}: año detectado {yr} ≠ {anio}")
+            print(f"  [WARN] Peru {anio}-{mes:02d}: anio detectado {yr} != {anio}")
             continue
-        # Sumar segmentos -> nacional
-        acum_por_marca: dict[str, int] = defaultdict(int)
-        for _, marca, acum, _ in filas:
-            acum_por_marca[marca] += acum
-        for marca, acum in acum_por_marca.items():
-            new_rows[(anio, mes, marca)] = acum
+        for marca, curr, _ in filas:
+            new_rows[(anio, mes, marca)] = curr
         time.sleep(SLEEP)
 
     if not new_rows:
@@ -209,8 +217,16 @@ def ingest_peru(backfill: bool = False) -> list[dict]:
 # CHILE — parser de PDF de CAVEM
 # ---------------------------------------------------------------------------
 
-CHILE_HDR = re.compile(r"Marca\s+(\d{4})\s+(\d{4})\s+Var\.\s*%", re.IGNORECASE)
-CHILE_ROW = re.compile(r"^(\d+)\s+(.+?)\s+([\d.]+)\s+([\d.]+)\s+(-?[\d.]+)\s*%?$")
+# Formato CAVEM: cada fila = "rank marca mes_curr mes_prev var% part% part%  rank marca acum_curr acum_prev var% part% part%"
+CHILE_PAGE = re.compile(r'RANKING MARCAS', re.IGNORECASE)
+CHILE_HDR  = re.compile(r'Ranking Acumulado', re.IGNORECASE)
+CHILE_ACUM = re.compile(
+    r'(\d+)\s+'
+    r'([A-Z][A-Z0-9 \-]+?)\s+'
+    r'(\d[\d.]*)\s+'
+    r'(\d[\d.]*)\s+'
+    r'-?[\d,]+%'
+)
 
 
 def _chile_pdf_url(anio: int, mes: int, chile_hashes: dict) -> str | None:
@@ -246,31 +262,47 @@ def _discover_chile_hash(anio: int, mes: int) -> str | None:
     return None
 
 
-def parse_chile_pdf(lines: list[str]) -> list[tuple]:
-    """Extrae ranking acumulado del PDF de CAVEM.
+def parse_chile_pdf(pdf_bytes: bytes) -> list[tuple]:
+    """Extrae ranking acumulado de inscripciones del PDF de CAVEM.
 
     Devuelve [(marca, acum_curr, acum_prev), ...].
-    El PDF incluye tablas mensuales y acumuladas; usamos la acumulada
-    (la primera tabla Rank./Marca que aparece con columnas de año).
+    Toma la primera pagina RANKING MARCAS con 'Ranking Acumulado'
+    (inscripciones nuevas, no transferencias).
     """
+    target_page = None
+    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text(x_tolerance=3, y_tolerance=3) or ""
+            if CHILE_PAGE.search(text) and CHILE_HDR.search(text):
+                target_page = text
+                break
+    if not target_page:
+        return []
+
+    lines = [l.strip() for l in target_page.splitlines() if l.strip()]
     out = []
     in_table = False
     for line in lines:
         if CHILE_HDR.search(line):
             in_table = True
             continue
-        if in_table:
-            m = CHILE_ROW.match(line)
-            if m:
-                _, marca, curr_s, prev_s, *_ = m.groups()
-                try:
-                    curr = int(curr_s.replace(".", ""))
-                    prev = int(prev_s.replace(".", ""))
-                    out.append((marca.strip(), curr, prev))
-                except ValueError:
-                    pass
-            elif line.startswith("Total") or line.startswith("TOTAL"):
-                break  # fin de la tabla
+        if not in_table:
+            continue
+        if line.upper().startswith(("TOTAL", "OTRAS", "PARTICIPACI", "MARCA")):
+            if line.upper().startswith("TOTAL"):
+                break
+            continue
+        matches = list(CHILE_ACUM.finditer(line))
+        if len(matches) >= 2:
+            m = matches[1]  # bloque acumulado (lado derecho)
+        elif len(matches) == 1:
+            m = matches[0]
+        else:
+            continue
+        marca = m.group(2).strip().title()
+        curr  = int(m.group(3).replace(".", ""))
+        prev  = int(m.group(4).replace(".", ""))
+        out.append((marca, curr, prev))
     return out
 
 
@@ -290,7 +322,7 @@ def ingest_chile(backfill: bool = False) -> list[dict]:
     # Intentar descubrir hashes que no tenemos
     for anio, mes in candidates:
         if (anio, mes) not in hashes:
-            print(f"  → Chile {anio}-{mes:02d}: descubriendo hash...")
+            print(f"  ->Chile {anio}-{mes:02d}: descubriendo hash...")
             h = _discover_chile_hash(anio, mes)
             if h:
                 hashes[(anio, mes)] = h
@@ -310,12 +342,11 @@ def ingest_chile(backfill: bool = False) -> list[dict]:
         if not url:
             print(f"  [SKIP] Chile {anio}-{mes:02d}: hash no disponible")
             continue
-        print(f"  → Chile {anio}-{mes:02d}  {url}")
+        print(f"  ->Chile {anio}-{mes:02d}  {url}")
         pdf = fetch_pdf(url)
         if not pdf:
             continue
-        lines = pdf_to_lines(pdf)
-        filas = parse_chile_pdf(lines)
+        filas = parse_chile_pdf(pdf)
         if not filas:
             print(f"  [WARN] Chile {anio}-{mes:02d}: parse sin resultados")
             continue
@@ -337,11 +368,178 @@ def _append_chile_hash(anio: int, mes: int, hash_val: str):
 
 
 # ---------------------------------------------------------------------------
-# ECUADOR — parser de PDF de AEADE/CINAE
+# ECUADOR — parser de PDF de AEADE (dos formatos según el año)
 # ---------------------------------------------------------------------------
 
-ECUADOR_HDR = re.compile(r"Marca\s+Cantidad", re.IGNORECASE)
-ECUADOR_ROW = re.compile(r"^(\d+)\s+(.+?)\s+([\d.,]+)\s+([\d.]+)%$")
+# Abreviaciones de meses en español para detectar el período en el PDF
+_EC_MES = {
+    "ene": 1, "feb": 2, "mar": 3, "abr": 4, "may": 5, "jun": 6,
+    "jul": 7, "ago": 8, "sep": 9, "oct": 10, "nov": 11, "dic": 12,
+}
+
+
+def _ec_group_words(words, y_tol=8):
+    from collections import defaultdict as _dd
+    rows = _dd(list)
+    for w in words:
+        rows[round(w["top"] / y_tol) * y_tol].append(w)
+    return {y: sorted(ws, key=lambda w: w["x0"]) for y, ws in sorted(rows.items())}
+
+
+def _ec_merge_rightmost(word_list, col_x_min, x_gap=25):
+    """Toma los fragmentos en x > col_x_min, agrupa por proximidad, devuelve entero del grupo más a la derecha."""
+    frags = [(w["x0"], w["text"]) for w in word_list if w["x0"] >= col_x_min]
+    if not frags:
+        return None
+    groups, cur = [], [frags[0]]
+    for i in range(1, len(frags)):
+        if frags[i][0] - cur[-1][0] <= x_gap:
+            cur.append(frags[i])
+        else:
+            groups.append(cur); cur = [frags[i]]
+    groups.append(cur)
+    token = "".join(t for _, t in groups[-1])
+    try:
+        return int(token.replace(".", "").replace(",", ""))
+    except ValueError:
+        return None
+
+
+_EC_MESES_LONG = {
+    "enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6,
+    "julio": 7, "agosto": 8, "septiembre": 9, "setiembre": 9,
+    "octubre": 10, "noviembre": 11, "diciembre": 12,
+}
+
+
+def _parse_ecuador_old_format(page) -> tuple[list[tuple], int | None, int | None]:
+    """PDF con tabla comparativa y números fragmentados (boletines 2025-01 a ~2025-05).
+
+    Sub-formatos:
+      - Annual (ene-dic): 2 años x 2 cols (mes + acum)
+      - Mensual puro: 2 años x 1 col (sólo ese mes)
+      - Mensual + acum: 2 años x 2 cols (mes + acum-YTD)
+    """
+    text = page.extract_text(x_tolerance=3, y_tolerance=3) or ""
+    words = page.extract_words(x_tolerance=1, y_tolerance=3)
+    row_map = _ec_group_words(words, y_tol=8)
+
+    # Detectar año actual desde fila de cabecera (fila con 2+ patrones 20XX)
+    curr_year = None
+    right_col_x = 700
+    for ws in row_map.values():
+        year_words = [w for w in ws if re.match(r"^20\d\d$", w["text"])]
+        if len(year_words) >= 2:
+            curr_year = int(year_words[-1]["text"])
+            right_col_x = year_words[-1]["x0"] - 30
+            break
+
+    if not curr_year:
+        return [], None, None
+
+    # Detectar mes desde la línea de cabecera de columna:
+    # "Ene - Dic", "Ene - Mar", "Enero Enero" etc.
+    curr_mes = None
+    # Patrón "Ene... - {mes}" indica acumulado hasta ese mes
+    m = re.search(r"Ene(?:ro)?\s*-\s*(\w+)", text, re.IGNORECASE)
+    if m:
+        abbr = m.group(1).lower()[:3]
+        curr_mes = _EC_MES.get(abbr)
+    if not curr_mes:
+        # Fallback: buscar nombre largo de mes en la zona de cabecera (primeras 10 líneas del texto)
+        for line in text.splitlines()[:15]:
+            for nombre, num in _EC_MESES_LONG.items():
+                if nombre in line.lower():
+                    curr_mes = num
+                    break
+            if curr_mes:
+                break
+
+    if not curr_mes:
+        curr_mes = 12  # default conservador
+
+    out = []
+    SKIP = {"MARCAS", "TOTAL", "OTRAS", "FUENTE", "NOTA", "SRI", "ELABORACI"}
+    for ws in row_map.values():
+        brand_words = [w for w in ws if w["x0"] < 400 and re.match(r"^[A-Z][A-Z0-9 \-]*$", w["text"])]
+        if not brand_words:
+            continue
+        brand = " ".join(w["text"] for w in brand_words).strip()
+        if any(brand.startswith(s) for s in SKIP):
+            continue
+        val = _ec_merge_rightmost(ws, right_col_x)
+        if val and val > 0:
+            out.append((brand.title(), val))
+
+    return out, curr_year, curr_mes
+
+
+def _parse_ecuador_new_format(text: str) -> tuple[list[tuple], int | None, int | None]:
+    """PDF exportado desde Power BI con texto limpio (boletines 2025-06+).
+
+    Maneja dos sub-variantes:
+      - 4 columnas: "{mon} {yr1}  {mon} {yr2}  Ene-{mon} {yr1}  Ene-{mon} {yr2}"
+      - 2 columnas: "{mon} {yr1}  {mon} {yr2}"  (comparativo mensual puro)
+    """
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+
+    anio, mes = None, None
+    for line in lines[:20]:
+        # Prioridad: "Ene-{mon} {yy}" = acumulado YTD
+        m = re.search(r"Ene-(\w{3})\s+(\d{2})\s*$", line, re.IGNORECASE)
+        if m:
+            mes_abbr = m.group(1).lower()[:3]
+            mes = _EC_MES.get(mes_abbr)
+            anio = 2000 + int(m.group(2))
+            break
+        # Fallback: "{mon} {yy}" al final (2-columnas mensual)
+        m2 = re.search(r"\b(\w{3,})\s+(\d{2})\s*$", line, re.IGNORECASE)
+        if m2:
+            mes_abbr = m2.group(1).lower()[:3]
+            cand = _EC_MES.get(mes_abbr)
+            if cand:
+                mes = cand
+                anio = 2000 + int(m2.group(2))
+                break
+
+    if not anio:
+        return [], None, None
+
+    out = []
+    header_passed = False
+    for line in lines:
+        if re.match(r"^Marca\s+\w{3}", line, re.IGNORECASE):
+            header_passed = True
+            continue
+        if not header_passed:
+            continue
+        # Fila de datos: MARCA seguido de 2 o 4 números
+        m = re.match(r"^([A-Z][A-Z0-9 \-]+?)\s+((?:[\d]+\s+){1,3}[\d]+)\s*$", line)
+        if m:
+            brand = m.group(1).strip().title()
+            if brand.lower().startswith("otras"):
+                break
+            nums = [int(x) for x in m.group(2).split()]
+            cumul = nums[-1]  # última columna = más reciente
+            if cumul > 0:
+                out.append((brand, cumul))
+        elif header_passed and re.match(r"^\d", line):
+            break
+
+    return out, anio, mes
+
+
+def parse_ecuador_pdf(pdf_bytes: bytes) -> tuple[list[tuple], int | None, int | None]:
+    """Parsea el PDF mensual de AEADE. Devuelve ([(marca, unidades)], anio, mes)."""
+    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text(x_tolerance=3, y_tolerance=3) or ""
+            if "TOP 20" in text and "MARCAS DE VEH" in text:
+                if "Power BI Desktop" in text or re.search(r"Ene-\w{3}\s+\d{2}", text):
+                    return _parse_ecuador_new_format(text)
+                else:
+                    return _parse_ecuador_old_format(page)
+    return [], None, None
 
 
 def _load_ecuador_ids() -> dict[str, int]:
@@ -361,44 +559,11 @@ def _discover_ecuador_ids(known_ids: dict[str, int]) -> dict[str, int]:
             if m:
                 did = int(m.group(1))
                 if did not in known_ids.values():
-                    # Intentar etiquetar por texto del link
                     label = a.get_text(strip=True)
                     new[label] = did
     except Exception as e:
         print(f"  [ERROR] AEADE índice: {e}")
     return new
-
-
-def parse_ecuador_pdf(lines: list[str]) -> tuple[list[tuple], str | None]:
-    """Extrae Top marcas del boletín de AEADE.
-
-    Devuelve ([(marca, unidades), ...], periodo_str).
-    OJO: el boletín del mes M reporta el mes M-1.
-    """
-    periodo = None
-    for line in lines[:30]:
-        m = re.search(r"BOLETÍN DE VENTAS\s+(\w+)\s+(\d{4})", line, re.IGNORECASE)
-        if m:
-            periodo = f"{m.group(1).capitalize()} {m.group(2)}"
-            break
-
-    out = []
-    in_table = False
-    for line in lines:
-        if ECUADOR_HDR.search(line):
-            in_table = True
-            continue
-        if in_table:
-            m = ECUADOR_ROW.match(line)
-            if m:
-                _, marca, cant_s, *_ = m.groups()
-                try:
-                    out.append((marca.strip(), int(cant_s.replace(".", "").replace(",", ""))))
-                except ValueError:
-                    pass
-            elif line.startswith("Total") or line.startswith("TOTAL"):
-                break
-    return out, periodo
 
 
 def ingest_ecuador(backfill: bool = False) -> list[dict]:
@@ -410,8 +575,6 @@ def ingest_ecuador(backfill: bool = False) -> list[dict]:
     new_ids = _discover_ecuador_ids(ids)
     if new_ids:
         print(f"  Ecuador: {len(new_ids)} posibles IDs nuevos encontrados: {list(new_ids.items())}")
-        # No los agregamos automáticamente a sources.py porque requieren validación manual
-        # pero sí los procesamos en esta sesión
         ids.update({k: v for k, v in new_ids.items()})
 
     combined: dict[tuple, int] = {}
@@ -419,32 +582,34 @@ def ingest_ecuador(backfill: bool = False) -> list[dict]:
         combined[(int(r["anio"]), int(r["mes"]), r["marca"])] = int(r["unid_acum"])
 
     for label, did in ids.items():
-        # Parsear etiqueta tipo "2026-01" -> boletin mes M, datos de M-1
+        url = ECUADOR["descarga"].format(download_id=did)
+        # Pre-check si ya tenemos todos los meses (sin backfill)
+        # El período exacto lo extraemos del PDF
         try:
             label_dt = datetime.strptime(label[:7], "%Y-%m")
         except ValueError:
             continue
-        # Datos son del mes M-1
-        if label_dt.month == 1:
-            datos_anio, datos_mes = label_dt.year - 1, 12
-        else:
-            datos_anio, datos_mes = label_dt.year, label_dt.month - 1
 
-        if not backfill and (datos_anio, datos_mes) in known_ym:
+        # Estimado del mes de datos (para check previo sin descargar)
+        est_mes = label_dt.month if label_dt.month <= 6 else label_dt.month - 1
+        est_anio = label_dt.year
+        if not backfill and (est_anio, est_mes) in known_ym:
             continue
 
-        url = ECUADOR["descarga"].format(download_id=did)
-        print(f"  → Ecuador {datos_anio}-{datos_mes:02d}  (boletín {label}) {url}")
+        print(f"  ->Ecuador (boletín {label}) {url}")
         pdf = fetch_pdf(url)
         if not pdf:
             continue
-        lines = pdf_to_lines(pdf)
-        filas, _ = parse_ecuador_pdf(lines)
-        if not filas:
-            print(f"  [WARN] Ecuador {datos_anio}-{datos_mes:02d}: parse sin resultados")
+        filas, anio, mes = parse_ecuador_pdf(pdf)
+        if not filas or not anio or not mes:
+            print(f"  [WARN] Ecuador boletín {label}: parse sin resultados")
+            continue
+        print(f"     periodo detectado: {anio}-{mes:02d}  marcas: {len(filas)}")
+        if not backfill and (anio, mes) in known_ym:
+            print(f"     [SKIP] {anio}-{mes:02d} ya en CSV")
             continue
         for marca, unid in filas:
-            combined[(datos_anio, datos_mes, marca)] = unid
+            combined[(anio, mes, marca)] = unid
         time.sleep(SLEEP)
 
     if not combined:

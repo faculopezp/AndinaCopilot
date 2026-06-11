@@ -1,1 +1,5119 @@
-{"pais": "Peru", "series": {"BMW": [{"ym": "2025-01", "u": 46, "acc": 46}, {"ym": "2025-10", "u": null, "acc": 302}, {"ym": "2025-11", "u": 34, "acc": 336}, {"ym": "2025-12", "u": 23, "acc": 359}], "Changan": [{"ym": "2025-01", "u": 920, "acc": 920}, {"ym": "2025-02", "u": 761, "acc": 1681}, {"ym": "2025-03", "u": 819, "acc": 2500}, {"ym": "2025-04", "u": 771, "acc": 3271}, {"ym": "2025-05", "u": 919, "acc": 4190}, {"ym": "2025-06", "u": 946, "acc": 5136}, {"ym": "2025-07", "u": 934, "acc": 6070}, {"ym": "2025-08", "u": 988, "acc": 7058}, {"ym": "2025-09", "u": 1029, "acc": 8087}, {"ym": "2025-10", "u": 1229, "acc": 9316}, {"ym": "2025-11", "u": 1256, "acc": 10572}, {"ym": "2025-12", "u": 1233, "acc": 11805}, {"ym": "2026-01", "u": 1309, "acc": 1309}, {"ym": "2026-02", "u": 1456, "acc": 2765}, {"ym": "2026-03", "u": 1331, "acc": 4096}], "Chery": [{"ym": "2025-01", "u": 388, "acc": 388}, {"ym": "2025-02", "u": null, "acc": 125}, {"ym": "2025-03", "u": 914, "acc": 1039}, {"ym": "2025-04", "u": 347, "acc": 1386}, {"ym": "2025-05", "u": 360, "acc": 1746}, {"ym": "2025-06", "u": 388, "acc": 2134}, {"ym": "2025-07", "u": 366, "acc": 2500}, {"ym": "2025-08", "u": 428, "acc": 2928}, {"ym": "2025-09", "u": 390, "acc": 3318}, {"ym": "2025-10", "u": 502, "acc": 3820}, {"ym": "2025-11", "u": 488, "acc": 4308}, {"ym": "2025-12", "u": 515, "acc": 4823}, {"ym": "2026-01", "u": 617, "acc": 617}, {"ym": "2026-02", "u": 470, "acc": 1087}, {"ym": "2026-03", "u": 768, "acc": 1855}], "Chevrolet": [{"ym": "2025-01", "u": 791, "acc": 791}, {"ym": "2025-02", "u": 782, "acc": 1573}, {"ym": "2025-03", "u": 819, "acc": 2392}, {"ym": "2025-04", "u": 753, "acc": 3145}, {"ym": "2025-05", "u": 565, "acc": 3710}, {"ym": "2025-06", "u": 602, "acc": 4312}, {"ym": "2025-07", "u": 639, "acc": 4951}, {"ym": "2025-08", "u": null, "acc": 3300}, {"ym": "2025-09", "u": 449, "acc": 3749}, {"ym": "2025-10", "u": 3301, "acc": 7050}, {"ym": "2025-11", "u": 890, "acc": 7940}, {"ym": "2025-12", "u": 827, "acc": 8767}, {"ym": "2026-01", "u": 407, "acc": 407}, {"ym": "2026-02", "u": 480, "acc": 887}, {"ym": "2026-03", "u": 694, "acc": 1581}], "DFSK": [{"ym": "2025-01", "u": 599, "acc": 599}, {"ym": "2025-02", "u": 537, "acc": 1136}, {"ym": "2025-03", "u": 611, "acc": 1747}, {"ym": "2025-04", "u": 553, "acc": 2300}, {"ym": "2025-05", "u": 678, "acc": 2978}, {"ym": "2025-06", "u": 569, "acc": 3547}, {"ym": "2025-07", "u": 507, "acc": 4054}, {"ym": "2025-08", "u": 602, "acc": 4656}, {"ym": "2025-09", "u": 610, "acc": 5266}, {"ym": "2025-10", "u": 560, "acc": 5826}, {"ym": "2025-11", "u": 673, "acc": 6499}, {"ym": "2025-12", "u": 669, "acc": 7168}, {"ym": "2026-03", "u": null, "acc": 1898}], "Dfsk": [{"ym": "2026-01", "u": 690, "acc": 690}, {"ym": "2026-02", "u": 817, "acc": 1507}], "Ford": [{"ym": "2025-01", "u": 317, "acc": 317}, {"ym": "2025-02", "u": 774, "acc": 1091}, {"ym": "2025-03", "u": 615, "acc": 1706}, {"ym": "2025-04", "u": 600, "acc": 2306}, {"ym": "2025-05", "u": 547, "acc": 2853}, {"ym": "2025-06", "u": 487, "acc": 3340}, {"ym": "2025-07", "u": 544, "acc": 3884}, {"ym": "2025-08", "u": 596, "acc": 4480}, {"ym": "2025-09", "u": 662, "acc": 5142}, {"ym": "2025-10", "u": 677, "acc": 5819}, {"ym": "2025-11", "u": 724, "acc": 6543}, {"ym": "2025-12", "u": 768, "acc": 7311}, {"ym": "2026-01", "u": 955, "acc": 955}, {"ym": "2026-02", "u": 786, "acc": 1741}, {"ym": "2026-03", "u": 747, "acc": 2488}], "Forland": [{"ym": "2026-01", "u": 86, "acc": 86}, {"ym": "2026-02", "u": 90, "acc": 176}, {"ym": "2026-03", "u": 97, "acc": 273}], "Foton": [{"ym": "2025-01", "u": 176, "acc": 176}, {"ym": "2025-02", "u": 159, "acc": 335}, {"ym": "2025-03", "u": 153, "acc": 488}, {"ym": "2025-04", "u": 149, "acc": 637}, {"ym": "2025-05", "u": 196, "acc": 833}, {"ym": "2025-06", "u": 178, "acc": 1011}, {"ym": "2025-07", "u": 212, "acc": 1223}, {"ym": "2025-08", "u": 198, "acc": 1421}, {"ym": "2025-09", "u": 198, "acc": 1619}, {"ym": "2025-10", "u": 245, "acc": 1864}, {"ym": "2025-11", "u": 263, "acc": 2127}, {"ym": "2025-12", "u": 228, "acc": 2355}, {"ym": "2026-01", "u": 245, "acc": 245}, {"ym": "2026-02", "u": 279, "acc": 524}, {"ym": "2026-03", "u": 372, "acc": 896}], "GEELY": [{"ym": "2025-01", "u": 313, "acc": 313}, {"ym": "2025-02", "u": 364, "acc": 677}, {"ym": "2025-03", "u": 397, "acc": 1074}, {"ym": "2025-04", "u": 421, "acc": 1495}, {"ym": "2025-05", "u": 468, "acc": 1963}], "Geely": [{"ym": "2025-06", "u": null, "acc": 2477}, {"ym": "2025-07", "u": 423, "acc": 2900}, {"ym": "2025-08", "u": 624, "acc": 3524}, {"ym": "2025-09", "u": 521, "acc": 4045}, {"ym": "2025-10", "u": 635, "acc": 4680}, {"ym": "2025-11", "u": 547, "acc": 5227}, {"ym": "2025-12", "u": 711, "acc": 5938}, {"ym": "2026-01", "u": 746, "acc": 746}, {"ym": "2026-02", "u": 904, "acc": 1650}, {"ym": "2026-03", "u": 964, "acc": 2614}], "Great Wall": [{"ym": "2025-01", "u": 184, "acc": 184}, {"ym": "2025-02", "u": 150, "acc": 334}, {"ym": "2025-03", "u": 220, "acc": 554}, {"ym": "2025-04", "u": 185, "acc": 739}, {"ym": "2025-05", "u": 188, "acc": 927}, {"ym": "2025-06", "u": 230, "acc": 1157}, {"ym": "2025-07", "u": 253, "acc": 1410}, {"ym": "2025-08", "u": 272, "acc": 1682}, {"ym": "2025-09", "u": 207, "acc": 1889}, {"ym": "2025-10", "u": 308, "acc": 2197}, {"ym": "2025-11", "u": 327, "acc": 2524}, {"ym": "2025-12", "u": 303, "acc": 2827}, {"ym": "2026-01", "u": 309, "acc": 309}, {"ym": "2026-03", "u": null, "acc": 983}], "Great wall": [{"ym": "2026-02", "u": null, "acc": 637}], "Hyundai": [{"ym": "2025-01", "u": 1454, "acc": 1454}, {"ym": "2025-02", "u": 1238, "acc": 2692}, {"ym": "2025-03", "u": 1353, "acc": 4045}, {"ym": "2025-04", "u": 1325, "acc": 5370}, {"ym": "2025-05", "u": 1365, "acc": 6735}, {"ym": "2025-06", "u": 1213, "acc": 7948}, {"ym": "2025-07", "u": 1197, "acc": 9145}, {"ym": "2025-08", "u": 1381, "acc": 10526}, {"ym": "2025-09", "u": 1351, "acc": 11877}, {"ym": "2025-10", "u": 1036, "acc": 12913}, {"ym": "2025-11", "u": 1555, "acc": 14468}, {"ym": "2025-12", "u": 1601, "acc": 16069}, {"ym": "2026-01", "u": 1640, "acc": 1640}, {"ym": "2026-02", "u": 1957, "acc": 3597}, {"ym": "2026-03", "u": 1850, "acc": 5447}], "JAC": [{"ym": "2025-01", "u": 303, "acc": 303}, {"ym": "2025-02", "u": 115, "acc": 418}, {"ym": "2025-07", "u": null, "acc": 1504}, {"ym": "2025-08", "u": 2492, "acc": 3996}, {"ym": "2025-09", "u": 1004, "acc": 5000}, {"ym": "2025-10", "u": null, "acc": 2304}, {"ym": "2025-11", "u": 850, "acc": 3154}, {"ym": "2025-12", "u": 368, "acc": 3522}, {"ym": "2026-03", "u": null, "acc": 1273}], "JMC": [{"ym": "2025-01", "u": 146, "acc": 146}, {"ym": "2025-02", "u": 121, "acc": 267}, {"ym": "2025-03", "u": 176, "acc": 443}, {"ym": "2025-04", "u": 148, "acc": 591}, {"ym": "2025-05", "u": 163, "acc": 754}, {"ym": "2025-06", "u": 171, "acc": 925}, {"ym": "2025-07", "u": 204, "acc": 1129}, {"ym": "2025-08", "u": 194, "acc": 1323}, {"ym": "2025-09", "u": 178, "acc": 1501}, {"ym": "2025-10", "u": 186, "acc": 1687}, {"ym": "2025-11", "u": 212, "acc": 1899}, {"ym": "2025-12", "u": 119, "acc": 2018}, {"ym": "2026-03", "u": null, "acc": 667}], "Jac": [{"ym": "2025-03", "u": null, "acc": 605}, {"ym": "2025-04", "u": 389, "acc": 994}, {"ym": "2025-05", "u": 251, "acc": 1245}, {"ym": "2025-06", "u": 308, "acc": 1553}, {"ym": "2026-01", "u": 375, "acc": 375}, {"ym": "2026-02", "u": 439, "acc": 814}], "Jetour": [{"ym": "2025-01", "u": 484, "acc": 484}, {"ym": "2025-02", "u": 389, "acc": 873}, {"ym": "2025-03", "u": 518, "acc": 1391}, {"ym": "2025-04", "u": 459, "acc": 1850}, {"ym": "2025-05", "u": 584, "acc": 2434}, {"ym": "2025-06", "u": 600, "acc": 3034}, {"ym": "2025-07", "u": 563, "acc": 3597}, {"ym": "2025-08", "u": 507, "acc": 4104}, {"ym": "2025-09", "u": 605, "acc": 4709}, {"ym": "2025-10", "u": 681, "acc": 5390}, {"ym": "2025-11", "u": 630, "acc": 6020}, {"ym": "2025-12", "u": 667, "acc": 6687}, {"ym": "2026-01", "u": 1231, "acc": 1231}, {"ym": "2026-02", "u": 1135, "acc": 2366}, {"ym": "2026-03", "u": 947, "acc": 3313}], "Jmc": [{"ym": "2026-01", "u": 201, "acc": 201}, {"ym": "2026-02", "u": 236, "acc": 437}], "KYC": [{"ym": "2025-01", "u": 66, "acc": 66}, {"ym": "2025-02", "u": 47, "acc": 113}, {"ym": "2025-03", "u": 41, "acc": 154}, {"ym": "2025-10", "u": null, "acc": 484}, {"ym": "2025-11", "u": 60, "acc": 544}, {"ym": "2025-12", "u": 47, "acc": 591}, {"ym": "2026-03", "u": null, "acc": 222}], "Kia": [{"ym": "2025-01", "u": 1459, "acc": 1459}, {"ym": "2025-02", "u": 1325, "acc": 2784}, {"ym": "2025-03", "u": 1419, "acc": 4203}, {"ym": "2025-04", "u": 1268, "acc": 5471}, {"ym": "2025-05", "u": 1333, "acc": 6804}, {"ym": "2025-06", "u": 1469, "acc": 8273}, {"ym": "2025-07", "u": 1416, "acc": 9689}, {"ym": "2025-08", "u": 1566, "acc": 11255}, {"ym": "2025-09", "u": 1511, "acc": 12766}, {"ym": "2025-10", "u": 1541, "acc": 14307}, {"ym": "2025-11", "u": 1461, "acc": 15768}, {"ym": "2025-12", "u": 1718, "acc": 17486}, {"ym": "2026-01", "u": 1942, "acc": 1942}, {"ym": "2026-02", "u": 2037, "acc": 3979}, {"ym": "2026-03", "u": 1929, "acc": 5908}], "King Long": [{"ym": "2025-02", "u": null, "acc": 122}, {"ym": "2025-03", "u": 38, "acc": 160}, {"ym": "2025-04", "u": 27, "acc": 187}, {"ym": "2025-05", "u": 77, "acc": 264}, {"ym": "2025-06", "u": 44, "acc": 308}, {"ym": "2025-07", "u": 26, "acc": 334}, {"ym": "2025-08", "u": 47, "acc": 381}, {"ym": "2025-10", "u": null, "acc": 475}, {"ym": "2026-01", "u": 83, "acc": 83}, {"ym": "2026-03", "u": null, "acc": 261}], "King long": [{"ym": "2026-02", "u": null, "acc": 199}], "MG": [{"ym": "2025-02", "u": null, "acc": 148}, {"ym": "2025-03", "u": 87, "acc": 235}, {"ym": "2025-04", "u": 129, "acc": 364}, {"ym": "2025-05", "u": 86, "acc": 450}, {"ym": "2025-06", "u": 87, "acc": 537}, {"ym": "2025-07", "u": 77, "acc": 614}, {"ym": "2025-08", "u": 83, "acc": 697}, {"ym": "2025-09", "u": 27, "acc": 724}, {"ym": "2025-10", "u": 13, "acc": 737}, {"ym": "2025-11", "u": 4, "acc": 741}, {"ym": "2025-12", "u": 2, "acc": 743}], "Mazda": [{"ym": "2025-01", "u": 42, "acc": 42}], "Mitsubishi": [{"ym": "2025-01", "u": 382, "acc": 382}, {"ym": "2025-02", "u": 297, "acc": 679}, {"ym": "2025-03", "u": 329, "acc": 1008}, {"ym": "2025-04", "u": 255, "acc": 1263}, {"ym": "2025-05", "u": 219, "acc": 1482}, {"ym": "2025-06", "u": 210, "acc": 1692}, {"ym": "2025-07", "u": 436, "acc": 2128}, {"ym": "2025-08", "u": 244, "acc": 2372}, {"ym": "2025-09", "u": 304, "acc": 2676}, {"ym": "2025-10", "u": 253, "acc": 2929}, {"ym": "2025-11", "u": 225, "acc": 3154}, {"ym": "2025-12", "u": 222, "acc": 3376}, {"ym": "2026-01", "u": 451, "acc": 451}, {"ym": "2026-02", "u": 365, "acc": 816}, {"ym": "2026-03", "u": 356, "acc": 1172}], "Nissan": [{"ym": "2025-01", "u": 427, "acc": 427}, {"ym": "2025-02", "u": 165, "acc": 592}, {"ym": "2025-03", "u": 182, "acc": 774}, {"ym": "2025-04", "u": 151, "acc": 925}, {"ym": "2025-05", "u": 129, "acc": 1054}, {"ym": "2025-06", "u": 175, "acc": 1229}, {"ym": "2025-07", "u": 106, "acc": 1335}, {"ym": "2025-08", "u": 128, "acc": 1463}, {"ym": "2025-09", "u": 121, "acc": 1584}, {"ym": "2025-10", "u": 118, "acc": 1702}, {"ym": "2025-11", "u": 120, "acc": 1822}, {"ym": "2025-12", "u": 94, "acc": 1916}, {"ym": "2026-01", "u": 52, "acc": 52}, {"ym": "2026-02", "u": 51, "acc": 103}, {"ym": "2026-03", "u": 71, "acc": 174}], "Renault": [{"ym": "2025-02", "u": null, "acc": 70}, {"ym": "2025-03", "u": 39, "acc": 109}, {"ym": "2025-07", "u": null, "acc": 347}, {"ym": "2025-08", "u": 55, "acc": 402}, {"ym": "2025-09", "u": 54, "acc": 456}, {"ym": "2025-10", "u": 74, "acc": 530}, {"ym": "2025-11", "u": 57, "acc": 587}, {"ym": "2025-12", "u": 43, "acc": 630}, {"ym": "2026-01", "u": 37, "acc": 37}, {"ym": "2026-02", "u": 31, "acc": 68}, {"ym": "2026-03", "u": 32, "acc": 100}], "Shineray": [{"ym": "2025-01", "u": 114, "acc": 114}, {"ym": "2025-02", "u": 93, "acc": 207}, {"ym": "2025-03", "u": 88, "acc": 295}, {"ym": "2025-04", "u": 100, "acc": 395}, {"ym": "2025-05", "u": 103, "acc": 498}, {"ym": "2025-06", "u": 89, "acc": 587}, {"ym": "2025-07", "u": 88, "acc": 675}, {"ym": "2025-08", "u": 74, "acc": 749}, {"ym": "2025-09", "u": 93, "acc": 842}, {"ym": "2025-10", "u": 80, "acc": 922}, {"ym": "2025-11", "u": 93, "acc": 1015}, {"ym": "2025-12", "u": 101, "acc": 1116}, {"ym": "2026-01", "u": 121, "acc": 121}, {"ym": "2026-02", "u": 137, "acc": 258}, {"ym": "2026-03", "u": 160, "acc": 418}], "Suzuki": [{"ym": "2025-01", "u": 402, "acc": 402}, {"ym": "2025-02", "u": 308, "acc": 710}, {"ym": "2025-03", "u": null, "acc": 227}, {"ym": "2025-04", "u": 125, "acc": 352}, {"ym": "2025-05", "u": 123, "acc": 475}, {"ym": "2025-06", "u": 137, "acc": 612}, {"ym": "2025-07", "u": 143, "acc": 755}, {"ym": "2025-08", "u": 149, "acc": 904}, {"ym": "2025-09", "u": 115, "acc": 1019}, {"ym": "2025-10", "u": 116, "acc": 1135}, {"ym": "2025-11", "u": 98, "acc": 1233}, {"ym": "2025-12", "u": 198, "acc": 1431}, {"ym": "2026-01", "u": 696, "acc": 696}, {"ym": "2026-02", "u": 775, "acc": 1471}, {"ym": "2026-03", "u": 423, "acc": 1894}], "Toyota": [{"ym": "2025-01", "u": 3731, "acc": 3731}, {"ym": "2025-02", "u": 2897, "acc": 6628}, {"ym": "2025-03", "u": 2692, "acc": 9320}, {"ym": "2025-04", "u": 2899, "acc": 12219}, {"ym": "2025-05", "u": 2965, "acc": 15184}, {"ym": "2025-06", "u": 2960, "acc": 18144}, {"ym": "2025-07", "u": 3287, "acc": 21431}, {"ym": "2025-08", "u": 3779, "acc": 25210}, {"ym": "2025-09", "u": 3110, "acc": 28320}, {"ym": "2025-10", "u": 3328, "acc": 31648}, {"ym": "2025-11", "u": 3054, "acc": 34702}, {"ym": "2025-12", "u": 3685, "acc": 38387}, {"ym": "2026-01", "u": 4089, "acc": 4089}, {"ym": "2026-02", "u": 3771, "acc": 7860}, {"ym": "2026-03", "u": 3519, "acc": 11379}], "Volkswagen": [{"ym": "2025-04", "u": null, "acc": 239}, {"ym": "2025-05", "u": 6, "acc": 245}, {"ym": "2025-06", "u": 10, "acc": 255}, {"ym": "2025-07", "u": 12, "acc": 267}, {"ym": "2025-08", "u": 8, "acc": 275}, {"ym": "2025-09", "u": 12, "acc": 287}]}}
+[
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Changan",
+    "unid": 1051
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Chery",
+    "unid": 469
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Chevrolet",
+    "unid": 1724
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Citroen",
+    "unid": 693
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Ford",
+    "unid": 1393
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Foton",
+    "unid": 452
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Great Wall",
+    "unid": 1033
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Hyundai",
+    "unid": 1667
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Jetour",
+    "unid": 361
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Jmc",
+    "unid": 291
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Kia",
+    "unid": 1838
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Maxus",
+    "unid": 564
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Mazda",
+    "unid": 778
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Mg",
+    "unid": 945
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Mitsubishi",
+    "unid": 1379
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Nissan",
+    "unid": 616
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Omoda",
+    "unid": 343
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Opel",
+    "unid": 366
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Peugeot",
+    "unid": 1409
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Ram",
+    "unid": 356
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Ssangyong",
+    "unid": 283
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Subaru",
+    "unid": 557
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Suzuki",
+    "unid": 1946
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Toyota",
+    "unid": 1842
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Volkswagen",
+    "unid": 511
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Changan",
+    "unid": 828
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Chery",
+    "unid": 704
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Chevrolet",
+    "unid": 1268
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Citroen",
+    "unid": 626
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Ford",
+    "unid": 950
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Foton",
+    "unid": 364
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Great Wall",
+    "unid": 932
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Hyundai",
+    "unid": 1332
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Jetour",
+    "unid": 244
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Kia",
+    "unid": 1342
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Maxus",
+    "unid": 509
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Mazda",
+    "unid": 626
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Mg",
+    "unid": 566
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Mitsubishi",
+    "unid": 896
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Nissan",
+    "unid": 489
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Omoda",
+    "unid": 328
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Opel",
+    "unid": 313
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Peugeot",
+    "unid": 1156
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Ram",
+    "unid": 239
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Ssangyong",
+    "unid": 251
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Subaru",
+    "unid": 475
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Suzuki",
+    "unid": 1790
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Toyota",
+    "unid": 1759
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Volkswagen",
+    "unid": 365
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Changan",
+    "unid": 886
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Chery",
+    "unid": 869
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Chevrolet",
+    "unid": 1481
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Citroen",
+    "unid": 639
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Ford",
+    "unid": 1179
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Foton",
+    "unid": 424
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Great Wall",
+    "unid": 1039
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Hyundai",
+    "unid": 1789
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Jac",
+    "unid": 390
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Jetour",
+    "unid": 266
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Kia",
+    "unid": 1537
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Maxus",
+    "unid": 455
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Mazda",
+    "unid": 784
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Mg",
+    "unid": 636
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Mitsubishi",
+    "unid": 824
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Nissan",
+    "unid": 559
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Omoda",
+    "unid": 393
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Opel",
+    "unid": 340
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Peugeot",
+    "unid": 1382
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Ram",
+    "unid": 398
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Ssangyong",
+    "unid": 246
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Subaru",
+    "unid": 600
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Suzuki",
+    "unid": 1957
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Toyota",
+    "unid": 1811
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Volkswagen",
+    "unid": 518
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Changan",
+    "unid": 931
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Chery",
+    "unid": 715
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Chevrolet",
+    "unid": 1344
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Citroen",
+    "unid": 649
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Ford",
+    "unid": 1541
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Foton",
+    "unid": 566
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Great Wall",
+    "unid": 1123
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Hyundai",
+    "unid": 1730
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Jac",
+    "unid": 468
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Jetour",
+    "unid": 302
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Kia",
+    "unid": 1610
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Maxus",
+    "unid": 915
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Mazda",
+    "unid": 723
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Mg",
+    "unid": 641
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Mitsubishi",
+    "unid": 1141
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Nissan",
+    "unid": 549
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Omoda",
+    "unid": 369
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Opel",
+    "unid": 360
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Peugeot",
+    "unid": 1321
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Ram",
+    "unid": 317
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Ssangyong",
+    "unid": 235
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Subaru",
+    "unid": 595
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Suzuki",
+    "unid": 2016
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Toyota",
+    "unid": 2474
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Volkswagen",
+    "unid": 549
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Changan",
+    "unid": 817
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Chery",
+    "unid": 784
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Chevrolet",
+    "unid": 1602
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Citroen",
+    "unid": 663
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Ford",
+    "unid": 1299
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Foton",
+    "unid": 461
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Great Wall",
+    "unid": 1141
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Hyundai",
+    "unid": 1489
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Jac",
+    "unid": 469
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Jetour",
+    "unid": 294
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Kia",
+    "unid": 1408
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Maxus",
+    "unid": 524
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Mazda",
+    "unid": 750
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Mg",
+    "unid": 640
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Mitsubishi",
+    "unid": 753
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Nissan",
+    "unid": 554
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Omoda",
+    "unid": 455
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Opel",
+    "unid": 314
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Peugeot",
+    "unid": 1415
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Ram",
+    "unid": 391
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Ssangyong",
+    "unid": 225
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Subaru",
+    "unid": 547
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Suzuki",
+    "unid": 1841
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Toyota",
+    "unid": 1850
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Volkswagen",
+    "unid": 394
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Changan",
+    "unid": 979
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Chery",
+    "unid": 871
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Chevrolet",
+    "unid": 1383
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Citroen",
+    "unid": 643
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Ford",
+    "unid": 1066
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Foton",
+    "unid": 577
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Great Wall",
+    "unid": 1122
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Hyundai",
+    "unid": 1585
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Jac",
+    "unid": 452
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Jetour",
+    "unid": 384
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Kia",
+    "unid": 1307
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Maxus",
+    "unid": 458
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Mazda",
+    "unid": 797
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Mg",
+    "unid": 703
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Mitsubishi",
+    "unid": 1104
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Nissan",
+    "unid": 547
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Omoda",
+    "unid": 446
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Opel",
+    "unid": 260
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Peugeot",
+    "unid": 1458
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Ram",
+    "unid": 338
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Ssangyong",
+    "unid": 259
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Subaru",
+    "unid": 529
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Suzuki",
+    "unid": 1638
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Toyota",
+    "unid": 1950
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Volkswagen",
+    "unid": 478
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Changan",
+    "unid": 1170
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Chery",
+    "unid": 823
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Chevrolet",
+    "unid": 1658
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Citroen",
+    "unid": 469
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Ford",
+    "unid": 1326
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Foton",
+    "unid": 518
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Great Wall",
+    "unid": 1406
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Hyundai",
+    "unid": 1806
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Jac",
+    "unid": 552
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Jetour",
+    "unid": 431
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Kia",
+    "unid": 1636
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Maxus",
+    "unid": 522
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Mazda",
+    "unid": 858
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Mg",
+    "unid": 701
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Mitsubishi",
+    "unid": 926
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Nissan",
+    "unid": 684
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Omoda",
+    "unid": 437
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Opel",
+    "unid": 155
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Peugeot",
+    "unid": 1260
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Ram",
+    "unid": 353
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Ssangyong",
+    "unid": 290
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Subaru",
+    "unid": 638
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Suzuki",
+    "unid": 1826
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Toyota",
+    "unid": 2146
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Volkswagen",
+    "unid": 556
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Changan",
+    "unid": 1125
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Chery",
+    "unid": 775
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Chevrolet",
+    "unid": 1435
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Citroen",
+    "unid": 496
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Ford",
+    "unid": 1361
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Foton",
+    "unid": 381
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Geely",
+    "unid": 574
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Great Wall",
+    "unid": 1285
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Hyundai",
+    "unid": 1989
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Jac",
+    "unid": 564
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Jetour",
+    "unid": 270
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Kgm",
+    "unid": 263
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Kia",
+    "unid": 1140
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Maxus",
+    "unid": 464
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Mazda",
+    "unid": 907
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Mg",
+    "unid": 848
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Mitsubishi",
+    "unid": 868
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Nissan",
+    "unid": 188
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Omoda",
+    "unid": 465
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Peugeot",
+    "unid": 1018
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Ram",
+    "unid": 299
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Subaru",
+    "unid": 567
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Suzuki",
+    "unid": 1178
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Toyota",
+    "unid": 1783
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Volkswagen",
+    "unid": 415
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Changan",
+    "unid": 1087
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Chery",
+    "unid": 845
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Chevrolet",
+    "unid": 1586
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Citroen",
+    "unid": 662
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Ford",
+    "unid": 1422
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Foton",
+    "unid": 585
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Geely",
+    "unid": 524
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Great Wall",
+    "unid": 1278
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Hyundai",
+    "unid": 1823
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Jac",
+    "unid": 479
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Jetour",
+    "unid": 311
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Kia",
+    "unid": 1852
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Maxus",
+    "unid": 457
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Mazda",
+    "unid": 828
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Mg",
+    "unid": 1001
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Mitsubishi",
+    "unid": 768
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Nissan",
+    "unid": 213
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Omoda",
+    "unid": 431
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Peugeot",
+    "unid": 1247
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Ram",
+    "unid": 457
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Subaru",
+    "unid": 538
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Suzuki",
+    "unid": 1437
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Toyota",
+    "unid": 1936
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Volkswagen",
+    "unid": 580
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Changan",
+    "unid": 1427
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Chery",
+    "unid": 718
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Chevrolet",
+    "unid": 1831
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Citroen",
+    "unid": 347
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Ford",
+    "unid": 1472
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Foton",
+    "unid": 886
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Geely",
+    "unid": 533
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Great Wall",
+    "unid": 1680
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Hyundai",
+    "unid": 2199
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Jac",
+    "unid": 526
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Jetour",
+    "unid": 543
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Kia",
+    "unid": 1738
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Maxus",
+    "unid": 784
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Mazda",
+    "unid": 971
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Mg",
+    "unid": 996
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Mitsubishi",
+    "unid": 887
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Nissan",
+    "unid": 191
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Omoda",
+    "unid": 400
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Peugeot",
+    "unid": 1271
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Ram",
+    "unid": 280
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Subaru",
+    "unid": 586
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Suzuki",
+    "unid": 1655
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Toyota",
+    "unid": 2309
+  },
+  {
+    "pais": "Chile",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Volkswagen",
+    "unid": 852
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Changan",
+    "unid": 1288
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Chery",
+    "unid": 680
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Chevrolet",
+    "unid": 1332
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Citroen",
+    "unid": 488
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Dfm",
+    "unid": 260
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Ford",
+    "unid": 1311
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Foton",
+    "unid": 460
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Geely",
+    "unid": 521
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Great Wall",
+    "unid": 1541
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Hyundai",
+    "unid": 1544
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Jac",
+    "unid": 625
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Jetour",
+    "unid": 531
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Jmc",
+    "unid": 256
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Kia",
+    "unid": 1584
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Mazda",
+    "unid": 840
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Mg",
+    "unid": 869
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Mitsubishi",
+    "unid": 1168
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Nissan",
+    "unid": 322
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Omoda",
+    "unid": 455
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Peugeot",
+    "unid": 906
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Ram",
+    "unid": 351
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Subaru",
+    "unid": 530
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Suzuki",
+    "unid": 2196
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Toyota",
+    "unid": 1936
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Volkswagen",
+    "unid": 724
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Changan",
+    "unid": 989
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Chery",
+    "unid": 649
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Chevrolet",
+    "unid": 1213
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Citroen",
+    "unid": 251
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Ford",
+    "unid": 1058
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Foton",
+    "unid": 362
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Geely",
+    "unid": 433
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Great Wall",
+    "unid": 1293
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Hyundai",
+    "unid": 1567
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Jac",
+    "unid": 546
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Jetour",
+    "unid": 505
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Jmc",
+    "unid": 185
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Kia",
+    "unid": 1442
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Mazda",
+    "unid": 713
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Mg",
+    "unid": 927
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Mitsubishi",
+    "unid": 890
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Nissan",
+    "unid": 262
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Omoda",
+    "unid": 415
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Peugeot",
+    "unid": 1064
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Ram",
+    "unid": 319
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Subaru",
+    "unid": 411
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Suzuki",
+    "unid": 1632
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Toyota",
+    "unid": 1750
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Volkswagen",
+    "unid": 467
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Changan",
+    "unid": 1221
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Chery",
+    "unid": 898
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Chevrolet",
+    "unid": 1437
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Citroen",
+    "unid": 438
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Ford",
+    "unid": 1470
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Foton",
+    "unid": 521
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Geely",
+    "unid": 432
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Great Wall",
+    "unid": 1462
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Hyundai",
+    "unid": 1742
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Jac",
+    "unid": 580
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Jetour",
+    "unid": 674
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Kia",
+    "unid": 1596
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Maxus",
+    "unid": 599
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Mazda",
+    "unid": 934
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Mg",
+    "unid": 1043
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Mitsubishi",
+    "unid": 850
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Nissan",
+    "unid": 333
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Omoda",
+    "unid": 497
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Peugeot",
+    "unid": 1416
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Ram",
+    "unid": 418
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Subaru",
+    "unid": 532
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Suzuki",
+    "unid": 1922
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Toyota",
+    "unid": 2235
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Volkswagen",
+    "unid": 599
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Changan",
+    "unid": 1457
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Chery",
+    "unid": 737
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Chevrolet",
+    "unid": 1499
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Citroen",
+    "unid": 224
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Ford",
+    "unid": 1369
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Foton",
+    "unid": 582
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Geely",
+    "unid": 610
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Great Wall",
+    "unid": 1357
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Hyundai",
+    "unid": 1769
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Jac",
+    "unid": 561
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Jetour",
+    "unid": 684
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Kia",
+    "unid": 1507
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Maxus",
+    "unid": 751
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Mazda",
+    "unid": 724
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Mg",
+    "unid": 1034
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Mitsubishi",
+    "unid": 976
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Nissan",
+    "unid": 185
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Omoda",
+    "unid": 362
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Peugeot",
+    "unid": 1325
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Ram",
+    "unid": 372
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Subaru",
+    "unid": 507
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Suzuki",
+    "unid": 2169
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Toyota",
+    "unid": 2585
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Volkswagen",
+    "unid": 553
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Changan",
+    "unid": 1166
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Chery",
+    "unid": 654
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Chevrolet",
+    "unid": 1336
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Citroen",
+    "unid": 342
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Ford",
+    "unid": 1167
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Foton",
+    "unid": 544
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Geely",
+    "unid": 487
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Great Wall",
+    "unid": 1154
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Hyundai",
+    "unid": 1718
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Jac",
+    "unid": 530
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Jetour",
+    "unid": 543
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Kia",
+    "unid": 1446
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Maxus",
+    "unid": 474
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Mazda",
+    "unid": 631
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Mg",
+    "unid": 917
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Mitsubishi",
+    "unid": 1017
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Nissan",
+    "unid": 118
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Omoda",
+    "unid": 372
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Peugeot",
+    "unid": 988
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Ram",
+    "unid": 359
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Subaru",
+    "unid": 515
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Suzuki",
+    "unid": 1862
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Toyota",
+    "unid": 1991
+  },
+  {
+    "pais": "Chile",
+    "anio": 2026,
+    "mes": 5,
+    "marca": "Volkswagen",
+    "unid": 826
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "BMW",
+    "unid": 46
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Bmw",
+    "unid": 46
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Changan",
+    "unid": 920
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Chery",
+    "unid": 388
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Chevrolet",
+    "unid": 791
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "DFSK",
+    "unid": 599
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Dfsk",
+    "unid": 599
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Ford",
+    "unid": 317
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Foton",
+    "unid": 176
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "GEELY",
+    "unid": 313
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Geely",
+    "unid": 313
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Great Wall",
+    "unid": 184
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Hyundai",
+    "unid": 1454
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "JAC",
+    "unid": 303
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "JMC",
+    "unid": 146
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Jac",
+    "unid": 303
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Jetour",
+    "unid": 484
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Jmc",
+    "unid": 146
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "KYC",
+    "unid": 66
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Kia",
+    "unid": 1459
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Kyc",
+    "unid": 66
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Mazda",
+    "unid": 42
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Mitsubishi",
+    "unid": 382
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Nissan",
+    "unid": 427
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Shineray",
+    "unid": 114
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Suzuki",
+    "unid": 402
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 1,
+    "marca": "Toyota",
+    "unid": 3731
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Changan",
+    "unid": 761
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Chevrolet",
+    "unid": 782
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "DFSK",
+    "unid": 537
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Dfsk",
+    "unid": 537
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Ford",
+    "unid": 774
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Foton",
+    "unid": 159
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "GEELY",
+    "unid": 364
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Geely",
+    "unid": 364
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Great Wall",
+    "unid": 150
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Hyundai",
+    "unid": 1238
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "JAC",
+    "unid": 115
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "JMC",
+    "unid": 121
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Jac",
+    "unid": 115
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Jetour",
+    "unid": 389
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Jmc",
+    "unid": 121
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "KYC",
+    "unid": 47
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Kia",
+    "unid": 1325
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Kyc",
+    "unid": 47
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Mitsubishi",
+    "unid": 297
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Nissan",
+    "unid": 165
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Shineray",
+    "unid": 93
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Suzuki",
+    "unid": 308
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 2,
+    "marca": "Toyota",
+    "unid": 2897
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Changan",
+    "unid": 819
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Chery",
+    "unid": 914
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Chevrolet",
+    "unid": 819
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "DFSK",
+    "unid": 611
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Dfsk",
+    "unid": 611
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Ford",
+    "unid": 615
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Foton",
+    "unid": 153
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "GEELY",
+    "unid": 397
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Geely",
+    "unid": 397
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Great Wall",
+    "unid": 220
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Hyundai",
+    "unid": 1353
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "JMC",
+    "unid": 176
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Jac",
+    "unid": 187
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Jetour",
+    "unid": 518
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Jmc",
+    "unid": 176
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "KYC",
+    "unid": 41
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Kia",
+    "unid": 1419
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "King Long",
+    "unid": 38
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Kyc",
+    "unid": 41
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "MG",
+    "unid": 87
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Mg",
+    "unid": 87
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Mitsubishi",
+    "unid": 329
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Nissan",
+    "unid": 182
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Renault",
+    "unid": 39
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Shineray",
+    "unid": 88
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 3,
+    "marca": "Toyota",
+    "unid": 2692
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Changan",
+    "unid": 771
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Chery",
+    "unid": 347
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Chevrolet",
+    "unid": 753
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "DFSK",
+    "unid": 553
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Dfsk",
+    "unid": 553
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Ford",
+    "unid": 600
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Foton",
+    "unid": 149
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "GEELY",
+    "unid": 421
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Geely",
+    "unid": 421
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Great Wall",
+    "unid": 185
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Hyundai",
+    "unid": 1325
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "JMC",
+    "unid": 148
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Jac",
+    "unid": 389
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Jetour",
+    "unid": 459
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Jmc",
+    "unid": 148
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Kia",
+    "unid": 1268
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "King Long",
+    "unid": 27
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "MG",
+    "unid": 129
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Mg",
+    "unid": 129
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Mitsubishi",
+    "unid": 255
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Nissan",
+    "unid": 151
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Shineray",
+    "unid": 100
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Suzuki",
+    "unid": 125
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 4,
+    "marca": "Toyota",
+    "unid": 2899
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Changan",
+    "unid": 919
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Chery",
+    "unid": 360
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Chevrolet",
+    "unid": 565
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "DFSK",
+    "unid": 678
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Dfsk",
+    "unid": 678
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Ford",
+    "unid": 547
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Foton",
+    "unid": 196
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "GEELY",
+    "unid": 468
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Geely",
+    "unid": 468
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Great Wall",
+    "unid": 188
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Hyundai",
+    "unid": 1365
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "JMC",
+    "unid": 163
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Jac",
+    "unid": 251
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Jetour",
+    "unid": 584
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Jmc",
+    "unid": 163
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Kia",
+    "unid": 1333
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "King Long",
+    "unid": 77
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "MG",
+    "unid": 86
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Mg",
+    "unid": 86
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Mitsubishi",
+    "unid": 219
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Nissan",
+    "unid": 129
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Shineray",
+    "unid": 103
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Suzuki",
+    "unid": 123
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Toyota",
+    "unid": 2965
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 5,
+    "marca": "Volkswagen",
+    "unid": 6
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Changan",
+    "unid": 946
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Chery",
+    "unid": 388
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Chevrolet",
+    "unid": 602
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "DFSK",
+    "unid": 569
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Dfsk",
+    "unid": 569
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Ford",
+    "unid": 487
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Foton",
+    "unid": 178
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Geely",
+    "unid": 514
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Great Wall",
+    "unid": 230
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Hyundai",
+    "unid": 1213
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "JMC",
+    "unid": 171
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Jac",
+    "unid": 308
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Jetour",
+    "unid": 600
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Jmc",
+    "unid": 171
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Kia",
+    "unid": 1469
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "King Long",
+    "unid": 44
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "MG",
+    "unid": 87
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Mg",
+    "unid": 87
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Mitsubishi",
+    "unid": 210
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Nissan",
+    "unid": 175
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Shineray",
+    "unid": 89
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Suzuki",
+    "unid": 137
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Toyota",
+    "unid": 2960
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 6,
+    "marca": "Volkswagen",
+    "unid": 10
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Changan",
+    "unid": 934
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Chery",
+    "unid": 366
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Chevrolet",
+    "unid": 639
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "DFSK",
+    "unid": 507
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Dfsk",
+    "unid": 507
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Ford",
+    "unid": 544
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Foton",
+    "unid": 212
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Geely",
+    "unid": 423
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Great Wall",
+    "unid": 253
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Hyundai",
+    "unid": 1197
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "JMC",
+    "unid": 204
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Jetour",
+    "unid": 563
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Jmc",
+    "unid": 204
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Kia",
+    "unid": 1416
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "King Long",
+    "unid": 26
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "MG",
+    "unid": 77
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Mg",
+    "unid": 77
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Mitsubishi",
+    "unid": 436
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Nissan",
+    "unid": 106
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Shineray",
+    "unid": 88
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Suzuki",
+    "unid": 143
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Toyota",
+    "unid": 3287
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 7,
+    "marca": "Volkswagen",
+    "unid": 12
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Changan",
+    "unid": 988
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Chery",
+    "unid": 428
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "DFSK",
+    "unid": 602
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Dfsk",
+    "unid": 602
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Ford",
+    "unid": 596
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Foton",
+    "unid": 198
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Geely",
+    "unid": 624
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Great Wall",
+    "unid": 272
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Hyundai",
+    "unid": 1381
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "JAC",
+    "unid": 2492
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "JMC",
+    "unid": 194
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Jac",
+    "unid": 2492
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Jetour",
+    "unid": 507
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Jmc",
+    "unid": 194
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Kia",
+    "unid": 1566
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "King Long",
+    "unid": 47
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "MG",
+    "unid": 83
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Mg",
+    "unid": 83
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Mitsubishi",
+    "unid": 244
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Nissan",
+    "unid": 128
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Renault",
+    "unid": 55
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Shineray",
+    "unid": 74
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Suzuki",
+    "unid": 149
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Toyota",
+    "unid": 3779
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 8,
+    "marca": "Volkswagen",
+    "unid": 8
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Changan",
+    "unid": 1029
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Chery",
+    "unid": 390
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Chevrolet",
+    "unid": 449
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "DFSK",
+    "unid": 610
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Dfsk",
+    "unid": 610
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Ford",
+    "unid": 662
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Foton",
+    "unid": 198
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Geely",
+    "unid": 521
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Great Wall",
+    "unid": 207
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Hyundai",
+    "unid": 1351
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "JAC",
+    "unid": 1004
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "JMC",
+    "unid": 178
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Jac",
+    "unid": 1004
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Jetour",
+    "unid": 605
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Jmc",
+    "unid": 178
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Kia",
+    "unid": 1511
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "MG",
+    "unid": 27
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Mg",
+    "unid": 27
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Mitsubishi",
+    "unid": 304
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Nissan",
+    "unid": 121
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Renault",
+    "unid": 54
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Shineray",
+    "unid": 93
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Suzuki",
+    "unid": 115
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Toyota",
+    "unid": 3110
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 9,
+    "marca": "Volkswagen",
+    "unid": 12
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Changan",
+    "unid": 1229
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Chery",
+    "unid": 502
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Chevrolet",
+    "unid": 3301
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "DFSK",
+    "unid": 560
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Dfsk",
+    "unid": 560
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Ford",
+    "unid": 677
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Foton",
+    "unid": 245
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Geely",
+    "unid": 635
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Great Wall",
+    "unid": 308
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Hyundai",
+    "unid": 1036
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "JMC",
+    "unid": 186
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Jetour",
+    "unid": 681
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Jmc",
+    "unid": 186
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Kia",
+    "unid": 1541
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "MG",
+    "unid": 13
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Mg",
+    "unid": 13
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Mitsubishi",
+    "unid": 253
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Nissan",
+    "unid": 118
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Renault",
+    "unid": 74
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Shineray",
+    "unid": 80
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Suzuki",
+    "unid": 116
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 10,
+    "marca": "Toyota",
+    "unid": 3328
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "BMW",
+    "unid": 34
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Bmw",
+    "unid": 34
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Changan",
+    "unid": 1256
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Chery",
+    "unid": 488
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Chevrolet",
+    "unid": 890
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "DFSK",
+    "unid": 673
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Dfsk",
+    "unid": 673
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Ford",
+    "unid": 724
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Foton",
+    "unid": 263
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Geely",
+    "unid": 547
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Great Wall",
+    "unid": 327
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Hyundai",
+    "unid": 1555
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "JAC",
+    "unid": 850
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "JMC",
+    "unid": 212
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Jac",
+    "unid": 850
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Jetour",
+    "unid": 630
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Jmc",
+    "unid": 212
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "KYC",
+    "unid": 60
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Kia",
+    "unid": 1461
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Kyc",
+    "unid": 60
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "MG",
+    "unid": 4
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Mg",
+    "unid": 4
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Mitsubishi",
+    "unid": 225
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Nissan",
+    "unid": 120
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Renault",
+    "unid": 57
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Shineray",
+    "unid": 93
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Suzuki",
+    "unid": 98
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 11,
+    "marca": "Toyota",
+    "unid": 3054
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "BMW",
+    "unid": 23
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Bmw",
+    "unid": 23
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Changan",
+    "unid": 1233
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Chery",
+    "unid": 515
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Chevrolet",
+    "unid": 827
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "DFSK",
+    "unid": 669
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Dfsk",
+    "unid": 669
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Ford",
+    "unid": 768
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Foton",
+    "unid": 228
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Geely",
+    "unid": 711
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Great Wall",
+    "unid": 303
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Hyundai",
+    "unid": 1601
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "JAC",
+    "unid": 368
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "JMC",
+    "unid": 119
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Jac",
+    "unid": 368
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Jetour",
+    "unid": 667
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Jmc",
+    "unid": 119
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "KYC",
+    "unid": 47
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Kia",
+    "unid": 1718
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Kyc",
+    "unid": 47
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "MG",
+    "unid": 2
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Mg",
+    "unid": 2
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Mitsubishi",
+    "unid": 222
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Nissan",
+    "unid": 94
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Renault",
+    "unid": 43
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Shineray",
+    "unid": 101
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Suzuki",
+    "unid": 198
+  },
+  {
+    "pais": "Peru",
+    "anio": 2025,
+    "mes": 12,
+    "marca": "Toyota",
+    "unid": 3685
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Changan",
+    "unid": 1309
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Chery",
+    "unid": 617
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Chevrolet",
+    "unid": 407
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Dfsk",
+    "unid": 690
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Ford",
+    "unid": 955
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Forland",
+    "unid": 86
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Foton",
+    "unid": 245
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Geely",
+    "unid": 746
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Great Wall",
+    "unid": 309
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Hyundai",
+    "unid": 1640
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Jac",
+    "unid": 375
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Jetour",
+    "unid": 1231
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Jmc",
+    "unid": 201
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Kia",
+    "unid": 1942
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "King Long",
+    "unid": 83
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Mitsubishi",
+    "unid": 451
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Nissan",
+    "unid": 52
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Renault",
+    "unid": 37
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Shineray",
+    "unid": 121
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Suzuki",
+    "unid": 696
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 1,
+    "marca": "Toyota",
+    "unid": 4089
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Changan",
+    "unid": 1456
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Chery",
+    "unid": 470
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Chevrolet",
+    "unid": 480
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Dfsk",
+    "unid": 817
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Ford",
+    "unid": 786
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Forland",
+    "unid": 90
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Foton",
+    "unid": 279
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Geely",
+    "unid": 904
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Great Wall",
+    "unid": 328
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Hyundai",
+    "unid": 1957
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Jac",
+    "unid": 439
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Jetour",
+    "unid": 1135
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Jmc",
+    "unid": 236
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Kia",
+    "unid": 2037
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "King Long",
+    "unid": 116
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Mitsubishi",
+    "unid": 365
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Nissan",
+    "unid": 51
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Renault",
+    "unid": 31
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Shineray",
+    "unid": 137
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Suzuki",
+    "unid": 775
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 2,
+    "marca": "Toyota",
+    "unid": 3771
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Changan",
+    "unid": 1331
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Chery",
+    "unid": 768
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Chevrolet",
+    "unid": 694
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Dfsk",
+    "unid": 391
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Ford",
+    "unid": 747
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Forland",
+    "unid": 97
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Foton",
+    "unid": 372
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Geely",
+    "unid": 964
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Great Wall",
+    "unid": 346
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Hyundai",
+    "unid": 1850
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Jac",
+    "unid": 459
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Jetour",
+    "unid": 947
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Jmc",
+    "unid": 230
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Kia",
+    "unid": 1929
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "King Long",
+    "unid": 62
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Mitsubishi",
+    "unid": 356
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Nissan",
+    "unid": 71
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Renault",
+    "unid": 32
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Shineray",
+    "unid": 160
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Suzuki",
+    "unid": 423
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 3,
+    "marca": "Toyota",
+    "unid": 3519
+  }
+]

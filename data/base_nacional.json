@@ -1,1 +1,821 @@
-[{"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Toyota", "uc": 10497, "up": 9736, "var": 7.8, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Suzuki", "uc": 9781, "up": 9550, "var": 2.4, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Hyundai", "uc": 8340, "up": 8007, "var": 4.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Kia", "uc": 7575, "up": 7735, "var": -2.1, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Chevrolet", "uc": 6817, "up": 7419, "var": -8.1, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Great Wall", "uc": 6807, "up": 5268, "var": 29.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Ford", "uc": 6375, "up": 6362, "var": 0.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Changan", "uc": 6121, "up": 4513, "var": 35.6, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Peugeot", "uc": 5699, "up": 6683, "var": -14.7, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Mitsubishi", "uc": 4901, "up": 4993, "var": -1.8, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Mg", "uc": 4790, "up": 3428, "var": 39.7, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Mazda", "uc": 3842, "up": 3661, "var": 4.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Chery", "uc": 3618, "up": 3541, "var": 2.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Volkswagen", "uc": 3169, "up": 2337, "var": 35.6, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Jetour", "uc": 2937, "up": 1467, "var": 100.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Jac", "uc": 2842, "up": 1961, "var": 44.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Maxus", "uc": 2513, "up": 2967, "var": -15.3, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Subaru", "uc": 2495, "up": 2774, "var": -10.1, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Geely", "uc": 2483, "up": 928, "var": 167.6, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Foton", "uc": 2469, "up": 2267, "var": 8.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Omoda", "uc": 2101, "up": 1888, "var": 11.3, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Ram", "uc": 1819, "up": 1701, "var": 6.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Citroen", "uc": 1743, "up": 3270, "var": -46.7, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Jmc", "uc": 1253, "up": 1195, "var": 4.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Nissan", "uc": 1220, "up": 2767, "var": -55.9, "fuente": "CAVEM"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Kia", "uc": 10235, "up": 7225, "var": 41.7, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Chevrolet", "uc": 7731, "up": 6795, "var": 13.8, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Great Wall", "uc": 3508, "up": 2335, "var": 50.2, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Hyundai", "uc": 3600, "up": 2709, "var": 32.9, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Chery", "uc": 3142, "up": 1991, "var": 57.8, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Toyota", "uc": 3044, "up": 2200, "var": 38.4, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Dongfeng", "uc": 2252, "up": 1123, "var": 100.5, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Sinotruk", "uc": 2086, "up": 1175, "var": 77.5, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Jac", "uc": 2228, "up": 1261, "var": 76.7, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Dfsk", "uc": 1832, "up": 1040, "var": 76.2, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Mazda", "uc": 1456, "up": 1066, "var": 36.6, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Jetour", "uc": 1502, "up": 574, "var": 161.7, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Suzuki", "uc": 1875, "up": 1809, "var": 3.6, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Byd", "uc": 1776, "up": 747, "var": 137.8, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Foton", "uc": 1110, "up": 633, "var": 75.4, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Changan", "uc": 1160, "up": 375, "var": 209.3, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Mg", "uc": 710, "up": 353, "var": 101.1, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Volkswagen", "uc": 1330, "up": 967, "var": 37.5, "fuente": "CINAE"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Kia", "uc": 5908, "up": 4203, "var": 40.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Hyundai", "uc": 5447, "up": 3882, "var": 40.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Toyota", "uc": 11379, "up": 9320, "var": 22.1, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Suzuki", "uc": 1894, "up": 1035, "var": 83.0, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Chevrolet", "uc": 1581, "up": 1401, "var": 12.8, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Chery", "uc": 1855, "up": 1039, "var": 78.5, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Changan", "uc": 4096, "up": 2500, "var": 63.8, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Nissan", "uc": 174, "up": 365, "var": -52.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Geely", "uc": 2614, "up": 1137, "var": 129.9, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Renault", "uc": 100, "up": 109, "var": -8.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Dfsk", "uc": 1898, "up": 1747, "var": 8.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Shineray", "uc": 418, "up": 295, "var": 41.7, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Mitsubishi", "uc": 1172, "up": 1008, "var": 16.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Foton", "uc": 896, "up": 488, "var": 83.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "King Long", "uc": 261, "up": 160, "var": 63.1, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Jac", "uc": 1273, "up": 757, "var": 68.2, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Kyc", "uc": 222, "up": 154, "var": 44.2, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Ford", "uc": 2488, "up": 1706, "var": 45.8, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Great Wall", "uc": 983, "up": 554, "var": 77.4, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Jmc", "uc": 667, "up": 443, "var": 50.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Forland", "uc": 273, "up": 192, "var": 42.2, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Jetour", "uc": 3313, "up": 1391, "var": 138.2, "fuente": "AAP/SUNARP"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Kia", "uc": 17440, "up": 11406, "var": 52.9, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Renault", "uc": 13247, "up": 11560, "var": 14.6, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Toyota", "uc": 9852, "up": 9419, "var": 4.6, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Mazda", "uc": 9786, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Chevrolet", "uc": 9673, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Tesla", "uc": 7735, "up": 6, "var": 128816.7, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Suzuki", "uc": 6896, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Nissan", "uc": 5527, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Hyundai", "uc": 5390, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "BYD", "uc": 5315, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Volkswagen", "uc": 5170, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Ford", "uc": 3624, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Foton", "uc": 3372, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Chery", "uc": 2008, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "JAC", "uc": 1674, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Dongfeng", "uc": 1587, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Mercedes Benz", "uc": 1304, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Citroen", "uc": 1255, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "BMW", "uc": 1234, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Deepal", "uc": 1184, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}]
+[
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Changan",
+    "uc": 4096,
+    "up": 2500,
+    "var": 63.8,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Chery",
+    "uc": 1855,
+    "up": 1039,
+    "var": 78.5,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Chevrolet",
+    "uc": 1581,
+    "up": 2392,
+    "var": -33.9,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "DFSK",
+    "uc": 1898,
+    "up": 1747,
+    "var": 8.6,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Dfsk",
+    "uc": 1898,
+    "up": 1747,
+    "var": 8.6,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Ford",
+    "uc": 2488,
+    "up": 1706,
+    "var": 45.8,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Forland",
+    "uc": 273,
+    "up": null,
+    "var": null,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Foton",
+    "uc": 896,
+    "up": 488,
+    "var": 83.6,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Geely",
+    "uc": 2614,
+    "up": 1074,
+    "var": 143.4,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Great Wall",
+    "uc": 983,
+    "up": 554,
+    "var": 77.4,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Hyundai",
+    "uc": 5447,
+    "up": 4045,
+    "var": 34.7,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "JAC",
+    "uc": 1273,
+    "up": null,
+    "var": null,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "JMC",
+    "uc": 667,
+    "up": 443,
+    "var": 50.6,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Jac",
+    "uc": 1273,
+    "up": 605,
+    "var": 110.4,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Jetour",
+    "uc": 3313,
+    "up": 1391,
+    "var": 138.2,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Jmc",
+    "uc": 667,
+    "up": 443,
+    "var": 50.6,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "KYC",
+    "uc": 222,
+    "up": 154,
+    "var": 44.2,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Kia",
+    "uc": 5908,
+    "up": 4203,
+    "var": 40.6,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "King Long",
+    "uc": 261,
+    "up": 160,
+    "var": 63.1,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Kyc",
+    "uc": 222,
+    "up": 154,
+    "var": 44.2,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Mitsubishi",
+    "uc": 1172,
+    "up": 1008,
+    "var": 16.3,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Nissan",
+    "uc": 174,
+    "up": 774,
+    "var": -77.5,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Renault",
+    "uc": 100,
+    "up": 109,
+    "var": -8.3,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Shineray",
+    "uc": 418,
+    "up": 295,
+    "var": 41.7,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Suzuki",
+    "uc": 1894,
+    "up": 227,
+    "var": 734.4,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Peru",
+    "periodo": "Acum a Marzo 2026",
+    "marca": "Toyota",
+    "uc": 11379,
+    "up": 9320,
+    "var": 22.1,
+    "fuente": "AAP/SUNARP"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Changan",
+    "uc": 6121,
+    "up": 4513,
+    "var": 35.6,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Chery",
+    "uc": 3618,
+    "up": 3541,
+    "var": 2.2,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Chevrolet",
+    "uc": 6817,
+    "up": 7419,
+    "var": -8.1,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Citroen",
+    "uc": 1743,
+    "up": 3270,
+    "var": -46.7,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Ford",
+    "uc": 6375,
+    "up": 6362,
+    "var": 0.2,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Foton",
+    "uc": 2469,
+    "up": 2267,
+    "var": 8.9,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Geely",
+    "uc": 2483,
+    "up": null,
+    "var": null,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Great Wall",
+    "uc": 6807,
+    "up": 5268,
+    "var": 29.2,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Hyundai",
+    "uc": 8340,
+    "up": 8007,
+    "var": 4.2,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Jac",
+    "uc": 2842,
+    "up": 1961,
+    "var": 44.9,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Jetour",
+    "uc": 2937,
+    "up": 1467,
+    "var": 100.2,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Jmc",
+    "uc": 1253,
+    "up": null,
+    "var": null,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Kia",
+    "uc": 7575,
+    "up": 7735,
+    "var": -2.1,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Maxus",
+    "uc": 2513,
+    "up": 2967,
+    "var": -15.3,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mazda",
+    "uc": 3842,
+    "up": 3661,
+    "var": 4.9,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mg",
+    "uc": 4790,
+    "up": 3428,
+    "var": 39.7,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mitsubishi",
+    "uc": 4901,
+    "up": 4993,
+    "var": -1.8,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Nissan",
+    "uc": 1220,
+    "up": 2767,
+    "var": -55.9,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Omoda",
+    "uc": 2101,
+    "up": 1888,
+    "var": 11.3,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Peugeot",
+    "uc": 5699,
+    "up": 6683,
+    "var": -14.7,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Ram",
+    "uc": 1819,
+    "up": 1701,
+    "var": 6.9,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Subaru",
+    "uc": 2495,
+    "up": 2774,
+    "var": -10.1,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Suzuki",
+    "uc": 9781,
+    "up": 9550,
+    "var": 2.4,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Toyota",
+    "uc": 10497,
+    "up": 9736,
+    "var": 7.8,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Chile",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Volkswagen",
+    "uc": 3169,
+    "up": 2337,
+    "var": 35.6,
+    "fuente": "CAVEM"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Byd",
+    "uc": 351,
+    "up": 152,
+    "var": 130.9,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Changan",
+    "uc": 187,
+    "up": null,
+    "var": null,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Chery",
+    "uc": 589,
+    "up": 443,
+    "var": 33.0,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Chevrolet",
+    "uc": 1485,
+    "up": 1363,
+    "var": 9.0,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Dfsk",
+    "uc": 298,
+    "up": 125,
+    "var": 138.4,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Dongfeng",
+    "uc": 419,
+    "up": 171,
+    "var": 145.0,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Ford",
+    "uc": 146,
+    "up": null,
+    "var": null,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Foton",
+    "uc": 200,
+    "up": 122,
+    "var": 63.9,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Gwm",
+    "uc": 584,
+    "up": 317,
+    "var": 84.2,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Hino",
+    "uc": 158,
+    "up": 218,
+    "var": -27.5,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Hyundai",
+    "uc": 686,
+    "up": 528,
+    "var": 29.9,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Jac",
+    "uc": 397,
+    "up": 206,
+    "var": 92.7,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Jetour",
+    "uc": 239,
+    "up": null,
+    "var": null,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Kia",
+    "uc": 1755,
+    "up": 1305,
+    "var": 34.5,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Mazda",
+    "uc": 318,
+    "up": 201,
+    "var": 58.2,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Renault",
+    "uc": 353,
+    "up": 295,
+    "var": 19.7,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Sinotruk",
+    "uc": 324,
+    "up": 148,
+    "var": 118.9,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Suzuki",
+    "uc": 259,
+    "up": 352,
+    "var": -26.4,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Toyota",
+    "uc": 539,
+    "up": 453,
+    "var": 19.0,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Enero 2026",
+    "marca": "Volkswagen",
+    "uc": 266,
+    "up": 185,
+    "var": 43.8,
+    "fuente": "AEADE"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Kia",
+    "uc": 17440,
+    "up": 11406,
+    "var": 52.9,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Renault",
+    "uc": 13247,
+    "up": 11560,
+    "var": 14.6,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Toyota",
+    "uc": 9852,
+    "up": 9419,
+    "var": 4.6,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mazda",
+    "uc": 9786,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Chevrolet",
+    "uc": 9673,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Tesla",
+    "uc": 7735,
+    "up": 6,
+    "var": 128816.7,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Suzuki",
+    "uc": 6896,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Nissan",
+    "uc": 5527,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Hyundai",
+    "uc": 5390,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "BYD",
+    "uc": 5315,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Volkswagen",
+    "uc": 5170,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Ford",
+    "uc": 3624,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Foton",
+    "uc": 3372,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Chery",
+    "uc": 2008,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "JAC",
+    "uc": 1674,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Dongfeng",
+    "uc": 1587,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mercedes Benz",
+    "uc": 1304,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Citroen",
+    "uc": 1255,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "BMW",
+    "uc": 1234,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Deepal",
+    "uc": 1184,
+    "up": null,
+    "var": null,
+    "fuente": "ANDI/Fenalco (La Republica)"
+  }
+]
