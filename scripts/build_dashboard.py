@@ -34,6 +34,8 @@ def main():
 
     out = DASH / "Dashboard_Andino_Ventas_Auto.html"
     out.write_text(html, encoding="utf-8")
+    # index.html para Vercel (outputDirectory: dashboard)
+    (DASH / "index.html").write_text(html, encoding="utf-8")
     print(f"OK -> {out}  ({len(html)/1024:.1f} KB, {len(data)} filas)")
 
 

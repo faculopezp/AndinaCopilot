@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Base Andina · Ventas Automotrices</title><style>
+:root{--navy:#1F3864;--blue:#2E5496;--lblue:#D9E1F2;--ink:#1a1a2e;--grey:#6b7280;--bg:#f4f6fb;--card:#fff;--line:#e5e9f2;--red:#C0392B;--green:#1E8449;--amber:#B9770E}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 18px 60px}
+header{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:16px;padding:22px 26px;box-shadow:0 8px 24px rgba(31,56,100,.18)}
+header h1{font-size:22px;font-weight:700}header p{opacity:.85;font-size:13px;margin-top:4px}
+.badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 11px;border-radius:20px;font-size:12px;font-weight:600}
+.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin:20px 0 6px}.filters .f{display:flex;flex-direction:column;gap:4px}
+.filters label{font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;letter-spacing:.5px}
+.filters select,.filters input{padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px;min-width:150px;color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0 22px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}.kpi .lab{font-size:11px;color:var(--grey);text-transform:uppercase;font-weight:700}
+.kpi .val{font-size:24px;font-weight:800;color:var(--navy);margin-top:4px}.kpi .sub{font-size:12px;color:var(--grey);margin-top:2px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;border-bottom:2px solid var(--line)}
+.tab{padding:10px 16px;cursor:pointer;font-weight:600;font-size:14px;color:var(--grey);border-bottom:2px solid transparent;margin-bottom:-2px}
+.tab.active{color:var(--navy);border-bottom-color:var(--navy)}.panel{display:none}.panel.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+.card h2{font-size:15px;color:var(--navy);margin-bottom:3px}.card .hint{font-size:12px;color:var(--grey);margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th{text-align:left;padding:9px 10px;color:var(--grey);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--line);cursor:pointer;white-space:nowrap}
+th.num,td.num{text-align:right}td{padding:9px 10px;border-bottom:1px solid var(--line)}tr:hover td{background:#fafbff}.mk{font-weight:600}
+.bar{height:8px;border-radius:5px;background:var(--lblue);position:relative;min-width:30px}.bar span{position:absolute;left:0;top:0;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--navy))}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:700}.up{color:var(--green);background:#e8f6ee}.down{color:var(--red);background:#fcebe9}.flat{color:var(--grey);background:#f0f0f3}
+.rank{font-weight:800;color:var(--navy);width:26px}.tag{font-size:10px;font-weight:800;padding:2px 6px;border-radius:6px;background:#fff4e0;color:var(--amber);margin-left:6px}
+.flag{font-weight:700;font-size:12px;color:var(--blue)}
+.note{font-size:12px;color:var(--grey);background:#fff9ec;border:1px solid #f3e2bd;border-radius:10px;padding:11px 14px;margin-top:6px}
+footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.dash{color:#cbd2e0}
+</style></head><body><div class="wrap">
+<header><h1>Base Andina · Ventas Automotrices</h1>
+<p>Proyecto SDR Andino — radar de marcas y mercados para prospección. Datos crudos + tendencias, multipaís.</p>
+<div class="badges" id="badges"></div></header>
+<div class="filters">
+<div class="f"><label>País</label><select id="fPais"></select></div>
+<div class="f"><label>Origen</label><select id="fOrigen"><option>Todas</option><option>Chinas 🇨🇳</option><option>No chinas</option></select></div>
+<div class="f"><label>Buscar marca</label><input id="fMarca" placeholder="Toyota, BYD, Changan…"></div>
+</div>
+<div class="kpis" id="kpis"></div>
+<div class="tabs">
+<div class="tab active" data-p="prosp">🎯 Prospección H2</div>
+<div class="tab" data-p="top">🏆 Top marcas</div>
+<div class="tab" data-p="emerg">🚀 Emergentes</div>
+<div class="tab" data-p="comp">🌎 Comparar países</div>
+<div class="tab" data-p="trend">📈 Tendencia</div>
+<div class="tab" data-p="mercado">📊 Mercado</div>
+<div class="tab" data-p="raw">🗃️ Datos crudos</div></div>
+<div class="panel active" id="p-prosp">
+<div class="card">
+<h2>Radar de prospección H2 2026 🎯</h2>
+<div class="hint">Score compuesto por volumen, crecimiento YoY y presencia multi-país. Las marcas en <b>Alta prioridad</b> son las que tienen más unidades Y están acelerando — contactar primero. Chinas en rampa tienen bonus por potencial de crecimiento sostenido.</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">País</label><select id="prPais" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"></select></div>
+<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">Prioridad</label><select id="prTier" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"><option>Todas</option><option>🔴 Alta</option><option>🟡 Media</option><option>⚪ Seguimiento</option></select></div>
+<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">Origen</label><select id="prOrigen" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"><option>Todas</option><option>Chinas 🇨🇳</option><option>No chinas</option></select></div>
+</div>
+<div id="prSummary" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px"></div>
+<table id="tProsp"></table>
+<div class="note" style="margin-top:12px">
+<b>Cómo usar:</b> Filtrá por país + prioridad → copiá las marcas Alta → buscá sus distribuidores/agencias en LinkedIn/Google → contactar con el contexto de crecimiento como gancho de apertura. Ejemplo: <i>"Vimos que Jetour creció +100% en Chile en H1 — estamos trabajando con marcas en rampa para dar soporte tecnológico a su red."</i>
+</div>
+</div>
+<div class="card">
+<h2>Marcas presentes en múltiples países</h2>
+<div class="hint">Una marca en 3 países = más cuentas potenciales, misma apertura. Priorizar para una secuencia regional.</div>
+<table id="tMulti"></table>
+</div>
+</div>
+<div class="panel" id="p-top"><div class="card"><h2 id="topTitle"></h2>
+<div class="hint">Ranking por unidades acumuladas del último período disponible. Clic en encabezados para ordenar. Top marcas → buscar agencias → contactar.</div>
+<table id="tTop"></table></div></div>
+<div class="panel" id="p-emerg"><div class="card"><h2>Radar de emergentes 🚀</h2>
+<div class="hint">Marcas con Var.% interanual > 50% y ≥ 300 unidades. Chinas en rampa: contactar antes del pico. Etiqueta <span class="tag">CN</span> = origen China.</div>
+<table id="tEmerg"></table></div></div>
+<div class="panel" id="p-comp"><div class="card"><h2>Comparativa de marcas entre países</h2>
+<div class="hint">Unidades por marca en cada país. Vacío = no aparece en el top reportado. Sirve para ver dónde pega fuerte cada marca y priorizar mercado.</div>
+<table id="tComp"></table>
+<div class="note">Períodos: Chile y Ecuador a Mayo 2026; Perú a Marzo 2026. El volumen absoluto entre países no es 1:1 por el desfase de publicación; el ranking y el % interanual sí son comparables.</div></div></div>
+<div class="panel" id="p-trend"><div class="card">
+<h2>Tendencia mensual · Perú <span style="font-weight:400;font-size:12px;color:var(--grey)">(ene 2025 → mar 2026)</span></h2>
+<div class="hint">Evolución de unidades mes a mes por marca. Chile y Ecuador se suman en la próxima tanda de backfill.</div>
+<div style="margin:6px 0 4px"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase">Marca&nbsp;</label>
+<select id="trBrand" style="padding:8px 10px;border:1px solid var(--line);border-radius:10px;font-size:14px"></select>
+<span id="trMom" style="margin-left:12px;font-size:13px"></span></div>
+<div id="trChart" style="overflow-x:auto"></div>
+</div>
+<div class="card"><h2>Ranking de aceleración 🔥</h2>
+<div class="hint">Marcas ordenadas por crecimiento del acumulado Q1-2026 vs Q1-2025. Las de arriba son las que más aceleran: contactar primero.</div>
+<table id="tAccel"></table></div></div>
+<div class="panel" id="p-mercado"><div class="card">
+<h2>Penetración de marcas chinas por país <span style="font-weight:400;font-size:12px;color:var(--grey)">(último dato)</span></h2>
+<div class="hint">% de unidades de marcas chinas sobre el total reportado. El bloque chino ya domina la región — clave para priorizar a quién contactás.</div>
+<table id="tCN"></table></div>
+<div class="card"><h2>Evolución penetración chinas en el tiempo</h2>
+<div class="hint">Chile: % oficial de primeras inscripciones (CAVEM). Perú: % entre marcas top (AAP). Los huecos se completan con el pipeline automatizado.</div>
+<div style="margin:6px 0"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase">País&nbsp;</label>
+<select id="cnPais"><option>Chile</option><option>Peru</option></select></div>
+<div id="cnChart" style="overflow-x:auto"></div></div>
+<div class="card"><h2>Concentración del mercado</h2>
+<div class="hint">Cuánto del mercado acumulan las primeras N marcas. Mercados más concentrados = menos cuentas, tickets más grandes.</div>
+<table id="tConc"></table></div></div>
+<div class="panel" id="p-raw"><div class="card"><h2>BD cruda</h2><div class="hint">Todas las filas tal cual la base. <span id="rawCount"></span></div><table id="tRaw"></table></div></div>
+<footer>Generado desde la base cruda · Fuentes: CAVEM (Chile) · AAP/SUNARP (Perú) · CINAE (Ecuador) · <span id="gen"></span><br>Colombia (ANDEMOS) e histórico mensual: en proceso.</footer>
+</div><script>
+const DATA=[{"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Toyota", "uc": 10497, "up": 9736, "var": 7.8, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Suzuki", "uc": 9781, "up": 9550, "var": 2.4, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Hyundai", "uc": 8340, "up": 8007, "var": 4.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Kia", "uc": 7575, "up": 7735, "var": -2.1, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Chevrolet", "uc": 6817, "up": 7419, "var": -8.1, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Great Wall", "uc": 6807, "up": 5268, "var": 29.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Ford", "uc": 6375, "up": 6362, "var": 0.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Changan", "uc": 6121, "up": 4513, "var": 35.6, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Peugeot", "uc": 5699, "up": 6683, "var": -14.7, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Mitsubishi", "uc": 4901, "up": 4993, "var": -1.8, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Mg", "uc": 4790, "up": 3428, "var": 39.7, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Mazda", "uc": 3842, "up": 3661, "var": 4.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Chery", "uc": 3618, "up": 3541, "var": 2.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Volkswagen", "uc": 3169, "up": 2337, "var": 35.6, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Jetour", "uc": 2937, "up": 1467, "var": 100.2, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Jac", "uc": 2842, "up": 1961, "var": 44.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Maxus", "uc": 2513, "up": 2967, "var": -15.3, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Subaru", "uc": 2495, "up": 2774, "var": -10.1, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Geely", "uc": 2483, "up": 928, "var": 167.6, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Foton", "uc": 2469, "up": 2267, "var": 8.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Omoda", "uc": 2101, "up": 1888, "var": 11.3, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Ram", "uc": 1819, "up": 1701, "var": 6.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Citroen", "uc": 1743, "up": 3270, "var": -46.7, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Jmc", "uc": 1253, "up": 1195, "var": 4.9, "fuente": "CAVEM"}, {"pais": "Chile", "periodo": "Acum a Mayo 2026", "marca": "Nissan", "uc": 1220, "up": 2767, "var": -55.9, "fuente": "CAVEM"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Kia", "uc": 10235, "up": 7225, "var": 41.7, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Chevrolet", "uc": 7731, "up": 6795, "var": 13.8, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Great Wall", "uc": 3508, "up": 2335, "var": 50.2, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Hyundai", "uc": 3600, "up": 2709, "var": 32.9, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Chery", "uc": 3142, "up": 1991, "var": 57.8, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Toyota", "uc": 3044, "up": 2200, "var": 38.4, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Dongfeng", "uc": 2252, "up": 1123, "var": 100.5, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Sinotruk", "uc": 2086, "up": 1175, "var": 77.5, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Jac", "uc": 2228, "up": 1261, "var": 76.7, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Dfsk", "uc": 1832, "up": 1040, "var": 76.2, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Mazda", "uc": 1456, "up": 1066, "var": 36.6, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Jetour", "uc": 1502, "up": 574, "var": 161.7, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Suzuki", "uc": 1875, "up": 1809, "var": 3.6, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Byd", "uc": 1776, "up": 747, "var": 137.8, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Foton", "uc": 1110, "up": 633, "var": 75.4, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Changan", "uc": 1160, "up": 375, "var": 209.3, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Mg", "uc": 710, "up": 353, "var": 101.1, "fuente": "CINAE"}, {"pais": "Ecuador", "periodo": "Acum a Mayo 2026", "marca": "Volkswagen", "uc": 1330, "up": 967, "var": 37.5, "fuente": "CINAE"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Kia", "uc": 5908, "up": 4203, "var": 40.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Hyundai", "uc": 5447, "up": 3882, "var": 40.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Toyota", "uc": 11379, "up": 9320, "var": 22.1, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Suzuki", "uc": 1894, "up": 1035, "var": 83.0, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Chevrolet", "uc": 1581, "up": 1401, "var": 12.8, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Chery", "uc": 1855, "up": 1039, "var": 78.5, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Changan", "uc": 4096, "up": 2500, "var": 63.8, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Nissan", "uc": 174, "up": 365, "var": -52.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Geely", "uc": 2614, "up": 1137, "var": 129.9, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Renault", "uc": 100, "up": 109, "var": -8.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Dfsk", "uc": 1898, "up": 1747, "var": 8.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Shineray", "uc": 418, "up": 295, "var": 41.7, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Mitsubishi", "uc": 1172, "up": 1008, "var": 16.3, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Foton", "uc": 896, "up": 488, "var": 83.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "King Long", "uc": 261, "up": 160, "var": 63.1, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Jac", "uc": 1273, "up": 757, "var": 68.2, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Kyc", "uc": 222, "up": 154, "var": 44.2, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Ford", "uc": 2488, "up": 1706, "var": 45.8, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Great Wall", "uc": 983, "up": 554, "var": 77.4, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Jmc", "uc": 667, "up": 443, "var": 50.6, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Forland", "uc": 273, "up": 192, "var": 42.2, "fuente": "AAP/SUNARP"}, {"pais": "Peru", "periodo": "Acum a Marzo 2026", "marca": "Jetour", "uc": 3313, "up": 1391, "var": 138.2, "fuente": "AAP/SUNARP"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Kia", "uc": 17440, "up": 11406, "var": 52.9, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Renault", "uc": 13247, "up": 11560, "var": 14.6, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Toyota", "uc": 9852, "up": 9419, "var": 4.6, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Mazda", "uc": 9786, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Chevrolet", "uc": 9673, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Tesla", "uc": 7735, "up": 6, "var": 128816.7, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Suzuki", "uc": 6896, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Nissan", "uc": 5527, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Hyundai", "uc": 5390, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "BYD", "uc": 5315, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Volkswagen", "uc": 5170, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Ford", "uc": 3624, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Foton", "uc": 3372, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Chery", "uc": 2008, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "JAC", "uc": 1674, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Dongfeng", "uc": 1587, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Mercedes Benz", "uc": 1304, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Citroen", "uc": 1255, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "BMW", "uc": 1234, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}, {"pais": "Colombia", "periodo": "Acum a Mayo 2026", "marca": "Deepal", "uc": 1184, "up": null, "var": null, "fuente": "ANDI/Fenalco (La Republica)"}];
+const TREND={"pais": "Peru", "series": {"BMW": [{"ym": "2025-01", "u": 46, "acc": 46}, {"ym": "2025-10", "u": null, "acc": 302}, {"ym": "2025-11", "u": 34, "acc": 336}, {"ym": "2025-12", "u": 23, "acc": 359}], "Changan": [{"ym": "2025-01", "u": 920, "acc": 920}, {"ym": "2025-02", "u": 761, "acc": 1681}, {"ym": "2025-03", "u": 819, "acc": 2500}, {"ym": "2025-04", "u": 771, "acc": 3271}, {"ym": "2025-05", "u": 919, "acc": 4190}, {"ym": "2025-06", "u": 946, "acc": 5136}, {"ym": "2025-07", "u": 934, "acc": 6070}, {"ym": "2025-08", "u": 988, "acc": 7058}, {"ym": "2025-09", "u": 1029, "acc": 8087}, {"ym": "2025-10", "u": 1229, "acc": 9316}, {"ym": "2025-11", "u": 1256, "acc": 10572}, {"ym": "2025-12", "u": 1233, "acc": 11805}, {"ym": "2026-01", "u": 1309, "acc": 1309}, {"ym": "2026-02", "u": 1456, "acc": 2765}, {"ym": "2026-03", "u": 1331, "acc": 4096}], "Chery": [{"ym": "2025-01", "u": 388, "acc": 388}, {"ym": "2025-02", "u": null, "acc": 125}, {"ym": "2025-03", "u": 914, "acc": 1039}, {"ym": "2025-04", "u": 347, "acc": 1386}, {"ym": "2025-05", "u": 360, "acc": 1746}, {"ym": "2025-06", "u": 388, "acc": 2134}, {"ym": "2025-07", "u": 366, "acc": 2500}, {"ym": "2025-08", "u": 428, "acc": 2928}, {"ym": "2025-09", "u": 390, "acc": 3318}, {"ym": "2025-10", "u": 502, "acc": 3820}, {"ym": "2025-11", "u": 488, "acc": 4308}, {"ym": "2025-12", "u": 515, "acc": 4823}, {"ym": "2026-01", "u": 617, "acc": 617}, {"ym": "2026-02", "u": 470, "acc": 1087}, {"ym": "2026-03", "u": 768, "acc": 1855}], "Chevrolet": [{"ym": "2025-01", "u": 791, "acc": 791}, {"ym": "2025-02", "u": 782, "acc": 1573}, {"ym": "2025-03", "u": 819, "acc": 2392}, {"ym": "2025-04", "u": 753, "acc": 3145}, {"ym": "2025-05", "u": 565, "acc": 3710}, {"ym": "2025-06", "u": 602, "acc": 4312}, {"ym": "2025-07", "u": 639, "acc": 4951}, {"ym": "2025-08", "u": null, "acc": 3300}, {"ym": "2025-09", "u": 449, "acc": 3749}, {"ym": "2025-10", "u": 3301, "acc": 7050}, {"ym": "2025-11", "u": 890, "acc": 7940}, {"ym": "2025-12", "u": 827, "acc": 8767}, {"ym": "2026-01", "u": 407, "acc": 407}, {"ym": "2026-02", "u": 480, "acc": 887}, {"ym": "2026-03", "u": 694, "acc": 1581}], "DFSK": [{"ym": "2025-01", "u": 599, "acc": 599}, {"ym": "2025-02", "u": 537, "acc": 1136}, {"ym": "2025-03", "u": 611, "acc": 1747}, {"ym": "2025-04", "u": 553, "acc": 2300}, {"ym": "2025-05", "u": 678, "acc": 2978}, {"ym": "2025-06", "u": 569, "acc": 3547}, {"ym": "2025-07", "u": 507, "acc": 4054}, {"ym": "2025-08", "u": 602, "acc": 4656}, {"ym": "2025-09", "u": 610, "acc": 5266}, {"ym": "2025-10", "u": 560, "acc": 5826}, {"ym": "2025-11", "u": 673, "acc": 6499}, {"ym": "2025-12", "u": 669, "acc": 7168}, {"ym": "2026-03", "u": null, "acc": 1898}], "Dfsk": [{"ym": "2026-01", "u": 690, "acc": 690}, {"ym": "2026-02", "u": 817, "acc": 1507}], "Ford": [{"ym": "2025-01", "u": 317, "acc": 317}, {"ym": "2025-02", "u": 774, "acc": 1091}, {"ym": "2025-03", "u": 615, "acc": 1706}, {"ym": "2025-04", "u": 600, "acc": 2306}, {"ym": "2025-05", "u": 547, "acc": 2853}, {"ym": "2025-06", "u": 487, "acc": 3340}, {"ym": "2025-07", "u": 544, "acc": 3884}, {"ym": "2025-08", "u": 596, "acc": 4480}, {"ym": "2025-09", "u": 662, "acc": 5142}, {"ym": "2025-10", "u": 677, "acc": 5819}, {"ym": "2025-11", "u": 724, "acc": 6543}, {"ym": "2025-12", "u": 768, "acc": 7311}, {"ym": "2026-01", "u": 955, "acc": 955}, {"ym": "2026-02", "u": 786, "acc": 1741}, {"ym": "2026-03", "u": 747, "acc": 2488}], "Forland": [{"ym": "2026-01", "u": 86, "acc": 86}, {"ym": "2026-02", "u": 90, "acc": 176}, {"ym": "2026-03", "u": 97, "acc": 273}], "Foton": [{"ym": "2025-01", "u": 176, "acc": 176}, {"ym": "2025-02", "u": 159, "acc": 335}, {"ym": "2025-03", "u": 153, "acc": 488}, {"ym": "2025-04", "u": 149, "acc": 637}, {"ym": "2025-05", "u": 196, "acc": 833}, {"ym": "2025-06", "u": 178, "acc": 1011}, {"ym": "2025-07", "u": 212, "acc": 1223}, {"ym": "2025-08", "u": 198, "acc": 1421}, {"ym": "2025-09", "u": 198, "acc": 1619}, {"ym": "2025-10", "u": 245, "acc": 1864}, {"ym": "2025-11", "u": 263, "acc": 2127}, {"ym": "2025-12", "u": 228, "acc": 2355}, {"ym": "2026-01", "u": 245, "acc": 245}, {"ym": "2026-02", "u": 279, "acc": 524}, {"ym": "2026-03", "u": 372, "acc": 896}], "GEELY": [{"ym": "2025-01", "u": 313, "acc": 313}, {"ym": "2025-02", "u": 364, "acc": 677}, {"ym": "2025-03", "u": 397, "acc": 1074}, {"ym": "2025-04", "u": 421, "acc": 1495}, {"ym": "2025-05", "u": 468, "acc": 1963}], "Geely": [{"ym": "2025-06", "u": null, "acc": 2477}, {"ym": "2025-07", "u": 423, "acc": 2900}, {"ym": "2025-08", "u": 624, "acc": 3524}, {"ym": "2025-09", "u": 521, "acc": 4045}, {"ym": "2025-10", "u": 635, "acc": 4680}, {"ym": "2025-11", "u": 547, "acc": 5227}, {"ym": "2025-12", "u": 711, "acc": 5938}, {"ym": "2026-01", "u": 746, "acc": 746}, {"ym": "2026-02", "u": 904, "acc": 1650}, {"ym": "2026-03", "u": 964, "acc": 2614}], "Great Wall": [{"ym": "2025-01", "u": 184, "acc": 184}, {"ym": "2025-02", "u": 150, "acc": 334}, {"ym": "2025-03", "u": 220, "acc": 554}, {"ym": "2025-04", "u": 185, "acc": 739}, {"ym": "2025-05", "u": 188, "acc": 927}, {"ym": "2025-06", "u": 230, "acc": 1157}, {"ym": "2025-07", "u": 253, "acc": 1410}, {"ym": "2025-08", "u": 272, "acc": 1682}, {"ym": "2025-09", "u": 207, "acc": 1889}, {"ym": "2025-10", "u": 308, "acc": 2197}, {"ym": "2025-11", "u": 327, "acc": 2524}, {"ym": "2025-12", "u": 303, "acc": 2827}, {"ym": "2026-01", "u": 309, "acc": 309}, {"ym": "2026-03", "u": null, "acc": 983}], "Great wall": [{"ym": "2026-02", "u": null, "acc": 637}], "Hyundai": [{"ym": "2025-01", "u": 1454, "acc": 1454}, {"ym": "2025-02", "u": 1238, "acc": 2692}, {"ym": "2025-03", "u": 1353, "acc": 4045}, {"ym": "2025-04", "u": 1325, "acc": 5370}, {"ym": "2025-05", "u": 1365, "acc": 6735}, {"ym": "2025-06", "u": 1213, "acc": 7948}, {"ym": "2025-07", "u": 1197, "acc": 9145}, {"ym": "2025-08", "u": 1381, "acc": 10526}, {"ym": "2025-09", "u": 1351, "acc": 11877}, {"ym": "2025-10", "u": 1036, "acc": 12913}, {"ym": "2025-11", "u": 1555, "acc": 14468}, {"ym": "2025-12", "u": 1601, "acc": 16069}, {"ym": "2026-01", "u": 1640, "acc": 1640}, {"ym": "2026-02", "u": 1957, "acc": 3597}, {"ym": "2026-03", "u": 1850, "acc": 5447}], "JAC": [{"ym": "2025-01", "u": 303, "acc": 303}, {"ym": "2025-02", "u": 115, "acc": 418}, {"ym": "2025-07", "u": null, "acc": 1504}, {"ym": "2025-08", "u": 2492, "acc": 3996}, {"ym": "2025-09", "u": 1004, "acc": 5000}, {"ym": "2025-10", "u": null, "acc": 2304}, {"ym": "2025-11", "u": 850, "acc": 3154}, {"ym": "2025-12", "u": 368, "acc": 3522}, {"ym": "2026-03", "u": null, "acc": 1273}], "JMC": [{"ym": "2025-01", "u": 146, "acc": 146}, {"ym": "2025-02", "u": 121, "acc": 267}, {"ym": "2025-03", "u": 176, "acc": 443}, {"ym": "2025-04", "u": 148, "acc": 591}, {"ym": "2025-05", "u": 163, "acc": 754}, {"ym": "2025-06", "u": 171, "acc": 925}, {"ym": "2025-07", "u": 204, "acc": 1129}, {"ym": "2025-08", "u": 194, "acc": 1323}, {"ym": "2025-09", "u": 178, "acc": 1501}, {"ym": "2025-10", "u": 186, "acc": 1687}, {"ym": "2025-11", "u": 212, "acc": 1899}, {"ym": "2025-12", "u": 119, "acc": 2018}, {"ym": "2026-03", "u": null, "acc": 667}], "Jac": [{"ym": "2025-03", "u": null, "acc": 605}, {"ym": "2025-04", "u": 389, "acc": 994}, {"ym": "2025-05", "u": 251, "acc": 1245}, {"ym": "2025-06", "u": 308, "acc": 1553}, {"ym": "2026-01", "u": 375, "acc": 375}, {"ym": "2026-02", "u": 439, "acc": 814}], "Jetour": [{"ym": "2025-01", "u": 484, "acc": 484}, {"ym": "2025-02", "u": 389, "acc": 873}, {"ym": "2025-03", "u": 518, "acc": 1391}, {"ym": "2025-04", "u": 459, "acc": 1850}, {"ym": "2025-05", "u": 584, "acc": 2434}, {"ym": "2025-06", "u": 600, "acc": 3034}, {"ym": "2025-07", "u": 563, "acc": 3597}, {"ym": "2025-08", "u": 507, "acc": 4104}, {"ym": "2025-09", "u": 605, "acc": 4709}, {"ym": "2025-10", "u": 681, "acc": 5390}, {"ym": "2025-11", "u": 630, "acc": 6020}, {"ym": "2025-12", "u": 667, "acc": 6687}, {"ym": "2026-01", "u": 1231, "acc": 1231}, {"ym": "2026-02", "u": 1135, "acc": 2366}, {"ym": "2026-03", "u": 947, "acc": 3313}], "Jmc": [{"ym": "2026-01", "u": 201, "acc": 201}, {"ym": "2026-02", "u": 236, "acc": 437}], "KYC": [{"ym": "2025-01", "u": 66, "acc": 66}, {"ym": "2025-02", "u": 47, "acc": 113}, {"ym": "2025-03", "u": 41, "acc": 154}, {"ym": "2025-10", "u": null, "acc": 484}, {"ym": "2025-11", "u": 60, "acc": 544}, {"ym": "2025-12", "u": 47, "acc": 591}, {"ym": "2026-03", "u": null, "acc": 222}], "Kia": [{"ym": "2025-01", "u": 1459, "acc": 1459}, {"ym": "2025-02", "u": 1325, "acc": 2784}, {"ym": "2025-03", "u": 1419, "acc": 4203}, {"ym": "2025-04", "u": 1268, "acc": 5471}, {"ym": "2025-05", "u": 1333, "acc": 6804}, {"ym": "2025-06", "u": 1469, "acc": 8273}, {"ym": "2025-07", "u": 1416, "acc": 9689}, {"ym": "2025-08", "u": 1566, "acc": 11255}, {"ym": "2025-09", "u": 1511, "acc": 12766}, {"ym": "2025-10", "u": 1541, "acc": 14307}, {"ym": "2025-11", "u": 1461, "acc": 15768}, {"ym": "2025-12", "u": 1718, "acc": 17486}, {"ym": "2026-01", "u": 1942, "acc": 1942}, {"ym": "2026-02", "u": 2037, "acc": 3979}, {"ym": "2026-03", "u": 1929, "acc": 5908}], "King Long": [{"ym": "2025-02", "u": null, "acc": 122}, {"ym": "2025-03", "u": 38, "acc": 160}, {"ym": "2025-04", "u": 27, "acc": 187}, {"ym": "2025-05", "u": 77, "acc": 264}, {"ym": "2025-06", "u": 44, "acc": 308}, {"ym": "2025-07", "u": 26, "acc": 334}, {"ym": "2025-08", "u": 47, "acc": 381}, {"ym": "2025-10", "u": null, "acc": 475}, {"ym": "2026-01", "u": 83, "acc": 83}, {"ym": "2026-03", "u": null, "acc": 261}], "King long": [{"ym": "2026-02", "u": null, "acc": 199}], "MG": [{"ym": "2025-02", "u": null, "acc": 148}, {"ym": "2025-03", "u": 87, "acc": 235}, {"ym": "2025-04", "u": 129, "acc": 364}, {"ym": "2025-05", "u": 86, "acc": 450}, {"ym": "2025-06", "u": 87, "acc": 537}, {"ym": "2025-07", "u": 77, "acc": 614}, {"ym": "2025-08", "u": 83, "acc": 697}, {"ym": "2025-09", "u": 27, "acc": 724}, {"ym": "2025-10", "u": 13, "acc": 737}, {"ym": "2025-11", "u": 4, "acc": 741}, {"ym": "2025-12", "u": 2, "acc": 743}], "Mazda": [{"ym": "2025-01", "u": 42, "acc": 42}], "Mitsubishi": [{"ym": "2025-01", "u": 382, "acc": 382}, {"ym": "2025-02", "u": 297, "acc": 679}, {"ym": "2025-03", "u": 329, "acc": 1008}, {"ym": "2025-04", "u": 255, "acc": 1263}, {"ym": "2025-05", "u": 219, "acc": 1482}, {"ym": "2025-06", "u": 210, "acc": 1692}, {"ym": "2025-07", "u": 436, "acc": 2128}, {"ym": "2025-08", "u": 244, "acc": 2372}, {"ym": "2025-09", "u": 304, "acc": 2676}, {"ym": "2025-10", "u": 253, "acc": 2929}, {"ym": "2025-11", "u": 225, "acc": 3154}, {"ym": "2025-12", "u": 222, "acc": 3376}, {"ym": "2026-01", "u": 451, "acc": 451}, {"ym": "2026-02", "u": 365, "acc": 816}, {"ym": "2026-03", "u": 356, "acc": 1172}], "Nissan": [{"ym": "2025-01", "u": 427, "acc": 427}, {"ym": "2025-02", "u": 165, "acc": 592}, {"ym": "2025-03", "u": 182, "acc": 774}, {"ym": "2025-04", "u": 151, "acc": 925}, {"ym": "2025-05", "u": 129, "acc": 1054}, {"ym": "2025-06", "u": 175, "acc": 1229}, {"ym": "2025-07", "u": 106, "acc": 1335}, {"ym": "2025-08", "u": 128, "acc": 1463}, {"ym": "2025-09", "u": 121, "acc": 1584}, {"ym": "2025-10", "u": 118, "acc": 1702}, {"ym": "2025-11", "u": 120, "acc": 1822}, {"ym": "2025-12", "u": 94, "acc": 1916}, {"ym": "2026-01", "u": 52, "acc": 52}, {"ym": "2026-02", "u": 51, "acc": 103}, {"ym": "2026-03", "u": 71, "acc": 174}], "Renault": [{"ym": "2025-02", "u": null, "acc": 70}, {"ym": "2025-03", "u": 39, "acc": 109}, {"ym": "2025-07", "u": null, "acc": 347}, {"ym": "2025-08", "u": 55, "acc": 402}, {"ym": "2025-09", "u": 54, "acc": 456}, {"ym": "2025-10", "u": 74, "acc": 530}, {"ym": "2025-11", "u": 57, "acc": 587}, {"ym": "2025-12", "u": 43, "acc": 630}, {"ym": "2026-01", "u": 37, "acc": 37}, {"ym": "2026-02", "u": 31, "acc": 68}, {"ym": "2026-03", "u": 32, "acc": 100}], "Shineray": [{"ym": "2025-01", "u": 114, "acc": 114}, {"ym": "2025-02", "u": 93, "acc": 207}, {"ym": "2025-03", "u": 88, "acc": 295}, {"ym": "2025-04", "u": 100, "acc": 395}, {"ym": "2025-05", "u": 103, "acc": 498}, {"ym": "2025-06", "u": 89, "acc": 587}, {"ym": "2025-07", "u": 88, "acc": 675}, {"ym": "2025-08", "u": 74, "acc": 749}, {"ym": "2025-09", "u": 93, "acc": 842}, {"ym": "2025-10", "u": 80, "acc": 922}, {"ym": "2025-11", "u": 93, "acc": 1015}, {"ym": "2025-12", "u": 101, "acc": 1116}, {"ym": "2026-01", "u": 121, "acc": 121}, {"ym": "2026-02", "u": 137, "acc": 258}, {"ym": "2026-03", "u": 160, "acc": 418}], "Suzuki": [{"ym": "2025-01", "u": 402, "acc": 402}, {"ym": "2025-02", "u": 308, "acc": 710}, {"ym": "2025-03", "u": null, "acc": 227}, {"ym": "2025-04", "u": 125, "acc": 352}, {"ym": "2025-05", "u": 123, "acc": 475}, {"ym": "2025-06", "u": 137, "acc": 612}, {"ym": "2025-07", "u": 143, "acc": 755}, {"ym": "2025-08", "u": 149, "acc": 904}, {"ym": "2025-09", "u": 115, "acc": 1019}, {"ym": "2025-10", "u": 116, "acc": 1135}, {"ym": "2025-11", "u": 98, "acc": 1233}, {"ym": "2025-12", "u": 198, "acc": 1431}, {"ym": "2026-01", "u": 696, "acc": 696}, {"ym": "2026-02", "u": 775, "acc": 1471}, {"ym": "2026-03", "u": 423, "acc": 1894}], "Toyota": [{"ym": "2025-01", "u": 3731, "acc": 3731}, {"ym": "2025-02", "u": 2897, "acc": 6628}, {"ym": "2025-03", "u": 2692, "acc": 9320}, {"ym": "2025-04", "u": 2899, "acc": 12219}, {"ym": "2025-05", "u": 2965, "acc": 15184}, {"ym": "2025-06", "u": 2960, "acc": 18144}, {"ym": "2025-07", "u": 3287, "acc": 21431}, {"ym": "2025-08", "u": 3779, "acc": 25210}, {"ym": "2025-09", "u": 3110, "acc": 28320}, {"ym": "2025-10", "u": 3328, "acc": 31648}, {"ym": "2025-11", "u": 3054, "acc": 34702}, {"ym": "2025-12", "u": 3685, "acc": 38387}, {"ym": "2026-01", "u": 4089, "acc": 4089}, {"ym": "2026-02", "u": 3771, "acc": 7860}, {"ym": "2026-03", "u": 3519, "acc": 11379}], "Volkswagen": [{"ym": "2025-04", "u": null, "acc": 239}, {"ym": "2025-05", "u": 6, "acc": 245}, {"ym": "2025-06", "u": 10, "acc": 255}, {"ym": "2025-07", "u": 12, "acc": 267}, {"ym": "2025-08", "u": 8, "acc": 275}, {"ym": "2025-09", "u": 12, "acc": 287}]}};
+const CN_TL={"Chile": [{"ym": "2025-01", "pct": 27.9}, {"ym": "2025-02", "pct": 29.3}, {"ym": "2025-03", "pct": 28.4}, {"ym": "2025-04", "pct": 29.8}, {"ym": "2025-05", "pct": 30.3}, {"ym": "2025-06", "pct": 32.3}, {"ym": "2025-07", "pct": 33.0}, {"ym": "2026-05", "pct": 34.7}], "Peru": [{"ym": "2025-01", "pct": 17.8}, {"ym": "2025-02", "pct": 14.8}, {"ym": "2025-03", "pct": 23.9}, {"ym": "2025-04", "pct": 22.0}, {"ym": "2025-05", "pct": 23.6}, {"ym": "2025-06", "pct": 25.6}, {"ym": "2025-07", "pct": 25.1}, {"ym": "2025-08", "pct": 21.8}, {"ym": "2025-09", "pct": 24.2}, {"ym": "2025-10", "pct": 24.7}, {"ym": "2025-11", "pct": 26.5}, {"ym": "2025-12", "pct": 26.6}, {"ym": "2026-01", "pct": 36.9}, {"ym": "2026-02", "pct": 36.8}, {"ym": "2026-03", "pct": 32.5}]};
+const fmt=n=>n.toLocaleString('es-PE');const pct=v=>(v>=0?'+':'')+v.toFixed(1)+'%';
+const pill=v=>v===null||v===undefined?'<span class="pill flat">n/d</span>':`<span class="pill ${v>1?'up':v<-1?'down':'flat'}">${v>1000?'>+1000%':pct(v)}</span>`;
+const CN=['Changan','Jetour','Geely','Chery','Dfsk','Shineray','Jac','Foton','Great Wall','Haval','Byd','Jmc','Forland','Kyc','King Long','Dongfeng','Gac','Mg','Baic','Jaecoo','Omoda','Sinotruk','Maxus','Dfm','Kaiyi','Leapmotor','Zeekr','Neta','Wuling','Riddara'];
+const isCh=m=>CN.includes(m);
+let state={pais:'Todos',marca:'',origen:'Todas'};
+const uniq=a=>[...new Set(a)];
+function paises(){return uniq(DATA.map(d=>d.pais))}
+function matchOrigen(m){return state.origen==='Todas'||(state.origen.startsWith('Chinas')&&isCh(m))||(state.origen==='No chinas'&&!isCh(m))}
+function rows(){return DATA.filter(d=>(state.pais==='Todos'||d.pais===state.pais)&&matchOrigen(d.marca)&&(state.marca===''||d.marca.toLowerCase().includes(state.marca.toLowerCase())))}
+function badges(){
+ const per={};DATA.forEach(d=>per[d.pais]=d.periodo);
+ document.getElementById('badges').innerHTML=paises().map(p=>`<span class="badge">📍 ${p}: ${per[p]}</span>`).join('')+`<span class="badge">🏷️ ${uniq(DATA.map(d=>d.marca)).length} marcas</span><span class="badge">📊 ${DATA.length} filas</span>`;
+ document.getElementById('gen').textContent='actualizado '+new Date().toLocaleDateString('es-PE');}
+function fillFilters(){
+ const fp=document.getElementById('fPais');fp.innerHTML=['Todos',...paises()].map(x=>`<option>${x}</option>`).join('');
+ fp.onchange=e=>{state.pais=e.target.value;render()};
+ document.getElementById('fMarca').oninput=e=>{state.marca=e.target.value;render()};
+ document.getElementById('fOrigen').onchange=e=>{state.origen=e.target.value;render()};}
+function kpis(){
+ const r=rows();const tot=r.reduce((s,x)=>s+x.uc,0);
+ const wr=r.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
+ const top=[...r].sort((a,b)=>b.uc-a.uc)[0];const emerg=r.filter(x=>x.var!=null&&x.var>50&&x.uc>=300).length;
+ const v=tp?((tc-tp)/tp*100):null;
+ document.getElementById('kpis').innerHTML=[
+  ['Unidades (acum.)',fmt(tot),state.pais==='Todos'?'suma top marcas, 3 países':'top marcas reportadas'],
+  ['Var. interanual',v===null?'n/d':pct(v),'YTD vs año anterior (donde hay dato)'],
+  ['Marca #1',top?top.marca:'—',top?fmt(top.uc)+' u · '+pct(top.var):''],
+  ['Emergentes',emerg,'marcas YoY>50%']
+ ].map(k=>`<div class="kpi"><div class="lab">${k[0]}</div><div class="val">${k[1]}</div><div class="sub">${k[2]}</div></div>`).join('');}
+function tTop(){
+ let r=[...rows()].sort((a,b)=>b.uc-a.uc);const max=Math.max(...r.map(x=>x.uc),1);
+ document.getElementById('topTitle').textContent='Top marcas '+(state.pais==='Todos'?'· 3 países combinados':'· '+state.pais);
+ const showP=state.pais==='Todos';
+ const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th class="num">Unidades</th><th class="num">Var.% YoY</th><th>Volumen</th></tr>`;
+ const b=r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk">${x.marca}${isCh(x.marca)?'<span class="tag">CN</span>':''}</td>${showP?'<td class="flag">'+x.pais+'</td>':''}<td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${x.uc/max*100}%"></span></div></td></tr>`).join('');
+ document.getElementById('tTop').innerHTML=h+b;}
+function tEmerg(){
+ let r=rows().filter(x=>x.var!=null&&x.var>50&&x.uc>=300).sort((a,b)=>b.var-a.var);const cap=v=>Math.min(v,300);const max=Math.max(...r.map(x=>cap(x.var)),1);
+ const h=`<tr><th>#</th><th>Marca</th><th>País</th><th class="num">Unidades</th><th class="num">Var.% YoY</th><th>Crecimiento</th></tr>`;
+ const b=r.length?r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk">${x.marca}${isCh(x.marca)?'<span class="tag">CN</span>':''}</td><td class="flag">${x.pais}</td><td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${cap(x.var)/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join(''):`<tr><td colspan="6" style="color:var(--grey);padding:18px">Sin marcas sobre el umbral con el filtro actual.</td></tr>`;
+ document.getElementById('tEmerg').innerHTML=h+b;}
+function tComp(){
+ const ps=paises();const marks={};DATA.forEach(d=>{marks[d.marca]=marks[d.marca]||{};marks[d.marca][d.pais]={uc:d.uc,var:d.var}});
+ const list=Object.entries(marks).map(([m,o])=>({m,o,tot:Object.values(o).reduce((s,x)=>s+x.uc,0),n:Object.keys(o).length})).sort((a,b)=>b.tot-a.tot);
+ const h=`<tr><th>Marca</th>${ps.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th></tr>`;
+ const b=list.map(it=>`<tr><td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>${ps.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p].uc)} <span style="font-size:11px">${pill(it.o[p].var)}</span></td>`:'<td class="num dash">—</td>').join('')}<td class="num">${it.n}/3</td></tr>`).join('');
+ document.getElementById('tComp').innerHTML=h+b;}
+function tRaw(){
+ const r=rows();document.getElementById('rawCount').textContent=`(${r.length} filas)`;
+ const h=`<tr><th>País</th><th>Período</th><th>Marca</th><th class="num">Unid. actual</th><th class="num">Unid. previo</th><th class="num">Var%</th><th>Fuente</th></tr>`;
+ const b=r.map(d=>`<tr><td>${d.pais}</td><td>${d.periodo}</td><td class="mk">${d.marca}</td><td class="num">${fmt(d.uc)}</td><td class="num">${d.up==null?'—':fmt(d.up)}</td><td class="num">${pill(d.var)}</td><td style="font-size:12px;color:var(--grey)">${d.fuente}</td></tr>`).join('');
+ document.getElementById('tRaw').innerHTML=h+b;}
+
+function trendBrandsSorted(){const s=TREND.series;return Object.keys(s).sort((a,b)=>{const sa=s[a].reduce((x,y)=>x+(y.u||0),0),sb=s[b].reduce((x,y)=>x+(y.u||0),0);return sb-sa})}
+function fillTrend(){const sel=document.getElementById('trBrand');sel.innerHTML=trendBrandsSorted().map(m=>`<option>${m}</option>`).join('');sel.onchange=()=>drawTrend(sel.value);drawTrend(sel.value);trendAccel();}
+function drawTrend(brand){
+ const s=TREND.series[brand]||[];const max=Math.max(...s.map(p=>p.u||0),1);
+ const W=Math.max(640,s.length*42),H=230,pad=28,bw=26;
+ let bars='';s.forEach((p,i)=>{const x=pad+i*((W-pad*2)/s.length);const h=(p.u||0)/max*(H-60);const y=H-30-h;const c=p.ym.startsWith('2026')?'#C0392B':'#2E5496';
+  bars+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="3" fill="${c}"></rect>`;
+  bars+=`<text x="${x+bw/2}" y="${y-4}" font-size="9" text-anchor="middle" fill="#444">${p.u!=null?p.u.toLocaleString('es-PE'):''}</text>`;
+  bars+=`<text x="${x+bw/2}" y="${H-16}" font-size="8.5" text-anchor="middle" fill="#888" transform="rotate(0 ${x+bw/2} ${H-16})">${p.ym.slice(2)}</text>`;});
+ document.getElementById('trChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><line x1="${pad-6}" y1="${H-30}" x2="${W-6}" y2="${H-30}" stroke="#ddd"/>${bars}</svg>`;
+ // momentum: Q1 2026 vs Q1 2025 (acum mar)
+ const a26=(s.find(p=>p.ym==='2026-03')||{}).acc, a25=(s.find(p=>p.ym==='2025-03')||{}).acc;
+ let mom='';if(a26&&a25){const g=(a26-a25)/a25*100;mom=`Q1-2026: <b>${a26.toLocaleString('es-PE')}</b> u · YoY ${pill(g)}`;}
+ document.getElementById('trMom').innerHTML=mom;}
+function trendAccel(){
+ const s=TREND.series;const list=[];
+ for(const m in s){const a26=(s[m].find(p=>p.ym==='2026-03')||{}).acc,a25=(s[m].find(p=>p.ym==='2025-03')||{}).acc;
+  if(a26&&a25&&a26>=300){list.push({m,a26,a25,g:(a26-a25)/a25*100})}}
+ list.sort((a,b)=>b.g-a.g);const max=Math.max(...list.map(x=>Math.min(x.g,300)),1);
+ const h=`<tr><th>#</th><th>Marca</th><th class="num">Q1-2025</th><th class="num">Q1-2026</th><th class="num">Var.% YoY</th><th>Aceleración</th></tr>`;
+ const b=list.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk">${x.m}${isCh(x.m)?'<span class="tag">CN</span>':''}</td><td class="num">${x.a25.toLocaleString('es-PE')}</td><td class="num">${x.a26.toLocaleString('es-PE')}</td><td class="num">${pill(x.g)}</td><td><div class="bar"><span style="width:${Math.min(x.g,300)/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join('');
+ document.getElementById('tAccel').innerHTML=h+b;}
+
+
+function mercadoCN(){
+ const ps=paises();const out=ps.map(p=>{const r=DATA.filter(d=>d.pais===p);const tot=r.reduce((s,x)=>s+x.uc,0);const cn=r.filter(x=>isCh(x.marca)).reduce((s,x)=>s+x.uc,0);return{p,pct:tot?cn/tot*100:0,cn,tot}}).sort((a,b)=>b.pct-a.pct);
+ const max=Math.max(...out.map(x=>x.pct),1);
+ const h=`<tr><th>País</th><th class="num">% chinas</th><th class="num">Unid. chinas</th><th>Peso</th></tr>`;
+ const b=out.map(x=>`<tr><td class="flag">${x.p}</td><td class="num"><b>${x.pct.toFixed(1)}%</b></td><td class="num">${fmt(x.cn)}</td><td><div class="bar"><span style="width:${x.pct/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join('');
+ document.getElementById('tCN').innerHTML=h+b;}
+function cnChart(){
+ const pais=document.getElementById('cnPais').value;const s=CN_TL[pais]||[];
+ const max=Math.max(...s.map(p=>p.pct),1),min=Math.min(...s.map(p=>p.pct),0);
+ const W=Math.max(560,s.length*70),H=200,pad=34;
+ const x=i=>pad+i*((W-pad*2)/Math.max(s.length-1,1));
+ const y=v=>H-28-((v-min)/((max-min)||1))*(H-56);
+ let pts=s.map((p,i)=>`${x(i)},${y(p.pct)}`).join(' ');
+ let dots=s.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p.pct)}" r="3.5" fill="#C0392B"></circle><text x="${x(i)}" y="${y(p.pct)-8}" font-size="10" text-anchor="middle" fill="#444">${p.pct}%</text><text x="${x(i)}" y="${H-10}" font-size="8.5" text-anchor="middle" fill="#888">${p.ym.slice(2)}</text>`).join('');
+ document.getElementById('cnChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><polyline points="${pts}" fill="none" stroke="#C0392B" stroke-width="2"></polyline>${dots}</svg>`;}
+function mercadoConc(){
+ const ps=paises();const rowsH=ps.map(p=>{const r=DATA.filter(d=>d.pais===p).sort((a,b)=>b.uc-a.uc);const tot=r.reduce((s,x)=>s+x.uc,0)||1;const cum=n=>r.slice(0,n).reduce((s,x)=>s+x.uc,0)/tot*100;
+  return `<tr><td class="flag">${p}</td><td class="num">${cum(5).toFixed(0)}%</td><td class="num">${cum(10).toFixed(0)}%</td><td class="num">${cum(20).toFixed(0)}%</td><td class="num">${r.length}</td></tr>`}).join('');
+ document.getElementById('tConc').innerHTML=`<tr><th>País</th><th class="num">Top 5</th><th class="num">Top 10</th><th class="num">Top 20</th><th class="num"># marcas</th></tr>`+rowsH;}
+
+function render(){kpis();tTop();tEmerg();tComp();tRaw();mercadoCN();mercadoConc();cnChart();}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById('p-'+t.dataset.p).classList.add('active')});
+badges();fillFilters();render();fillTrend();document.getElementById('cnPais').onchange=cnChart;
+
+// ---- PROSPECCIÓN H2 -------------------------------------------------------
+function scoreData(){
+  // Por país, calcular rank de volumen normalizado (0-100)
+  const ps=uniq(DATA.map(d=>d.pais));
+  const volScore={};
+  ps.forEach(p=>{
+    const r=[...DATA.filter(d=>d.pais===p)].sort((a,b)=>b.uc-a.uc);
+    const max=r[0]?r[0].uc:1;
+    r.forEach(d=>{volScore[p+'|'+d.marca]=d.uc/max*100;});
+  });
+  // Presencia multi-país: cuántos países tiene cada marca
+  const paisCount={};
+  DATA.forEach(d=>{if(!paisCount[d.marca])paisCount[d.marca]=new Set();paisCount[d.marca].add(d.pais);});
+  // Score final por fila
+  return DATA.map(d=>{
+    const vs=volScore[d.pais+'|'+d.marca]||0;
+    const varCap=d.var!=null?Math.min(Math.max(d.var,0),250):0;
+    const gs=varCap/250*100;
+    const mp=(paisCount[d.marca].size-1)/3*100; // 0-100
+    const cnBonus=isCh(d.marca)?12:0;
+    const score=Math.round(vs*0.40+gs*0.38+mp*0.22+cnBonus);
+    const tier=score>=60?'🔴 Alta':score>=38?'🟡 Media':'⚪ Seguimiento';
+    return{...d,score,tier,npaises:paisCount[d.marca].size};
+  }).sort((a,b)=>b.score-a.score);
+}
+
+function tProsp(){
+  const paisFil=document.getElementById('prPais').value;
+  const tierFil=document.getElementById('prTier').value;
+  const origenFil=document.getElementById('prOrigen').value;
+  let rows=scoreData();
+  if(paisFil!=='Todos')rows=rows.filter(r=>r.pais===paisFil);
+  if(tierFil!=='Todas')rows=rows.filter(r=>r.tier===tierFil);
+  if(origenFil==='Chinas 🇨🇳')rows=rows.filter(r=>isCh(r.marca));
+  else if(origenFil==='No chinas')rows=rows.filter(r=>!isCh(r.marca));
+
+  // Summary chips
+  const alta=rows.filter(r=>r.tier==='🔴 Alta').length;
+  const media=rows.filter(r=>r.tier==='🟡 Media').length;
+  document.getElementById('prSummary').innerHTML=
+    `<span class="pill up" style="font-size:12px">🔴 Alta: ${alta}</span>`+
+    `<span class="pill flat" style="font-size:12px;background:#fff9ec;color:#B9770E">🟡 Media: ${media}</span>`+
+    `<span class="pill flat" style="font-size:12px">Total: ${rows.length} targets</span>`;
+
+  const showP=paisFil==='Todos';
+  const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th>Prioridad</th><th class="num">Score</th><th class="num">Unidades</th><th class="num">Var% YoY</th><th class="num">Países</th></tr>`;
+  const b=rows.map((r,i)=>`<tr>
+    <td class="rank">${i+1}</td>
+    <td class="mk">${r.marca}${isCh(r.marca)?'<span class="tag">CN</span>':''}</td>
+    ${showP?`<td class="flag">${r.pais}</td>`:''}
+    <td><span style="font-size:13px;font-weight:700">${r.tier}</span></td>
+    <td class="num"><b>${r.score}</b></td>
+    <td class="num">${fmt(r.uc)}</td>
+    <td class="num">${pill(r.var)}</td>
+    <td class="num" style="color:${r.npaises>=3?'var(--green)':r.npaises===2?'var(--blue)':'var(--grey)'}">${r.npaises}/4</td>
+  </tr>`).join('');
+  document.getElementById('tProsp').innerHTML=h+(b||'<tr><td colspan="8" style="color:var(--grey);padding:18px">Sin resultados con ese filtro.</td></tr>');
+}
+
+function tMulti(){
+  const paisCount={};
+  DATA.forEach(d=>{if(!paisCount[d.marca])paisCount[d.marca]={};paisCount[d.marca][d.pais]=d.uc;});
+  const multi=Object.entries(paisCount).filter(([,o])=>Object.keys(o).length>=2)
+    .map(([m,o])=>({m,ps:Object.keys(o),tot:Object.values(o).reduce((s,x)=>s+x,0),o}))
+    .sort((a,b)=>b.ps.length-a.ps.length||b.tot-a.tot);
+  const allPs=uniq(DATA.map(d=>d.pais));
+  const h=`<tr><th>Marca</th>${allPs.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th><th class="num">Total</th></tr>`;
+  const b=multi.map(it=>`<tr>
+    <td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>
+    ${allPs.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p])}</td>`:`<td class="num dash" style="color:#ccc">—</td>`).join('')}
+    <td class="num" style="font-weight:800;color:${it.ps.length>=3?'var(--green)':'var(--blue)'}">${it.ps.length}</td>
+    <td class="num">${fmt(it.tot)}</td>
+  </tr>`).join('');
+  document.getElementById('tMulti').innerHTML=h+b;
+}
+
+function initProsp(){
+  const sel=document.getElementById('prPais');
+  sel.innerHTML=['Todos',...uniq(DATA.map(d=>d.pais))].map(x=>`<option>${x}</option>`).join('');
+  sel.onchange=tProsp;
+  document.getElementById('prTier').onchange=tProsp;
+  document.getElementById('prOrigen').onchange=tProsp;
+  tProsp();tMulti();
+}
+initProsp();
+</script></body></html>

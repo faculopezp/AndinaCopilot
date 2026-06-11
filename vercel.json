@@ -1,7 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/dashboard/Dashboard_Andino_Ventas_Auto.html" }
-  ]
+  "outputDirectory": "dashboard"
 }
