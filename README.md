@@ -1,8 +1,5 @@
 # AndinaCopilot
 
-Base de datos + dashboard de **ventas automotrices de la Región Andina** (Chile, Perú, Ecuador, Colombia) para el proyecto SDR Andino de Tecnom.
-
-El objetivo: reunir en un solo lugar las ventas por marca de cada país, ver **top marcas**, **emergentes** (chinas en rampa) y **tendencias**, y usar eso para decidir a qué agencias/concesionarios contactar.
 
 ---
 
