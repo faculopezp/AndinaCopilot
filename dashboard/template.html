@@ -31,6 +31,8 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="badges" id="badges"></div></header>
 <div class="filters">
 <div class="f"><label>País</label><select id="fPais"></select></div>
+<div class="f"><label>Período</label><select id="fPeriodo"></select></div>
+<div class="f"><label>Vista</label><select id="fVista"><option value="acc">Acumulado del año</option><option value="mes">Solo ese mes</option></select></div>
 <div class="f"><label>Origen</label><select id="fOrigen"><option>Todas</option><option>Chinas 🇨🇳</option><option>No chinas</option></select></div>
 <div class="f"><label>Buscar marca</label><input id="fMarca" placeholder="Toyota, BYD, Changan…"></div>
 </div>
@@ -103,12 +105,29 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 const DATA=__DATA__;
 const TREND=__TREND__;
 const CN_TL=__CNTL__;
+const MENSUAL=__MENSUAL__;
+const SNAP=DATA.slice();   // snapshot original (último corte por país, incluye Colombia)
 const fmt=n=>n.toLocaleString('es-PE');const pct=v=>(v>=0?'+':'')+v.toFixed(1)+'%';
 const pill=v=>v===null||v===undefined?'<span class="pill flat">n/d</span>':`<span class="pill ${v>1?'up':v<-1?'down':'flat'}">${v>1000?'>+1000%':pct(v)}</span>`;
 const CN=['Changan','Jetour','Geely','Chery','Dfsk','Shineray','Jac','Foton','Great Wall','Haval','Byd','Jmc','Forland','Kyc','King Long','Dongfeng','Gac','Mg','Baic','Jaecoo','Omoda','Sinotruk','Maxus','Dfm','Kaiyi','Leapmotor','Zeekr','Neta','Wuling','Riddara'];
 const isCh=m=>CN.includes(m);
-let state={pais:'Todos',marca:'',origen:'Todas'};
+let state={pais:'Todos',marca:'',origen:'Todas',periodo:'ultimo',vista:'acc'};
 const uniq=a=>[...new Set(a)];
+// Reemplaza el contenido de DATA in-place (DATA es const pero mutable) y re-renderiza todo
+function setDATA(arr){DATA.length=0;arr.forEach(x=>DATA.push(x));}
+function applyPeriodo(){
+  if(state.periodo==='ultimo'){setDATA(SNAP);}
+  else{
+    const acc=state.vista==='acc';
+    const rs=MENSUAL.rows.filter(r=>r.ym===state.periodo).map(r=>({
+      pais:r.pais, periodo:(acc?'Acum a ':'Mes ')+r.ym, marca:r.marca,
+      uc:acc?r.acc:r.mes, up:null, var:acc?r.accVar:r.mesVar
+    })).filter(r=>r.uc!=null && r.uc>0);
+    setDATA(rs);
+  }
+  badges();render();
+  try{tProsp();tMulti();}catch(e){console.error('prosp',e);}
+}
 function paises(){return uniq(DATA.map(d=>d.pais))}
 function matchOrigen(m){return state.origen==='Todas'||(state.origen.startsWith('Chinas')&&isCh(m))||(state.origen==='No chinas'&&!isCh(m))}
 function rows(){return DATA.filter(d=>(state.pais==='Todos'||d.pais===state.pais)&&matchOrigen(d.marca)&&(state.marca===''||d.marca.toLowerCase().includes(state.marca.toLowerCase())))}
@@ -121,6 +140,13 @@ function fillFilters(){
  fp.onchange=e=>{state.pais=e.target.value;render()};
  document.getElementById('fMarca').oninput=e=>{state.marca=e.target.value;render()};
  document.getElementById('fOrigen').onchange=e=>{state.origen=e.target.value;render()};}
+function initPeriodo(){
+ const fp=document.getElementById('fPeriodo');
+ const ops=['<option value="ultimo">Último (por país)</option>']
+   .concat(MENSUAL.periodos.slice().reverse().map(p=>`<option value="${p}">${p}</option>`));
+ fp.innerHTML=ops.join('');
+ fp.onchange=e=>{state.periodo=e.target.value;applyPeriodo();};
+ document.getElementById('fVista').onchange=e=>{state.vista=e.target.value;if(state.periodo!=='ultimo')applyPeriodo();};}
 function kpis(){
  const r=rows();const tot=r.reduce((s,x)=>s+x.uc,0);
  const wr=r.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
@@ -130,7 +156,7 @@ function kpis(){
  document.getElementById('kpis').innerHTML=[
   ['Unidades (acum.)',combinado?'—':fmt(tot),combinado?'elegí un país (no se suma entre países: cortes distintos)':'top marcas · '+state.pais],
   ['Var. interanual',v===null?'n/d':pct(v),combinado?'YoY donde hay dato (referencial)':'YTD vs año anterior'],
-  ['Marca #1',top?top.marca:'—',top?fmt(top.uc)+' u · '+pct(top.var):''],
+  ['Marca #1',top?top.marca:'—',top?fmt(top.uc)+' u'+(top.var!=null?' · '+pct(top.var):''):''],
   ['Emergentes',emerg,'marcas YoY>50%']
  ].map(k=>`<div class="kpi"><div class="lab">${k[0]}</div><div class="val">${k[1]}</div><div class="sub">${k[2]}</div></div>`).join('');}
 function tTop(){
@@ -205,7 +231,7 @@ function mercadoConc(){
 
 function render(){kpis();tTop();tEmerg();tComp();tRaw();mercadoCN();mercadoConc();cnChart();}
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById('p-'+t.dataset.p).classList.add('active')});
-badges();fillFilters();render();
+badges();fillFilters();initPeriodo();render();
 try{fillTrend();}catch(e){console.error('Tendencia falló:',e);}
 document.getElementById('cnPais').onchange=cnChart;
 
