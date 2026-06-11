@@ -119,9 +119,10 @@ function applyPeriodo(){
   if(state.periodo==='ultimo'){setDATA(SNAP);}
   else{
     const acc=state.vista==='acc';
+    const FUENTE={Peru:'AAP/SUNARP',Chile:'CAVEM',Ecuador:'AEADE'};
     const rs=MENSUAL.rows.filter(r=>r.ym===state.periodo).map(r=>({
       pais:r.pais, periodo:(acc?'Acum a ':'Mes ')+r.ym, marca:r.marca,
-      uc:acc?r.acc:r.mes, up:null, var:acc?r.accVar:r.mesVar
+      uc:acc?r.acc:r.mes, up:null, var:acc?r.accVar:r.mesVar, fuente:FUENTE[r.pais]||''
     })).filter(r=>r.uc!=null && r.uc>0);
     setDATA(rs);
   }

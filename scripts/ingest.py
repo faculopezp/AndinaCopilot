@@ -311,6 +311,84 @@ def parse_chile_pdf(pdf_bytes: bytes) -> list[tuple]:
     return out
 
 
+# Lista COMPLETA de marcas (livianos nuevos), unidades del mes. Página titulada
+# "RANKING DE MARCAS CHINAS {mes}" pero lista las ~70 marcas en 2 columnas.
+# Trae solo unidades del mes (sin acumulado ni interanual) -> sirve para la cola larga.
+CHILE_FULL_HDR = re.compile(r"MARCA\s+UNIDADES\s+PARTICIPACI", re.IGNORECASE)
+CHILE_FULL_ROW = re.compile(r"(\d+)\s+([A-Z][A-Z0-9 .\-]+?)\s+([\d.]+)\s+[\d,]+%")
+
+
+def parse_chile_full_pdf(pdf_bytes: bytes) -> dict[str, int]:
+    """Devuelve {marca: unidades_del_mes} con TODAS las marcas de livianos nuevos.
+
+    Elige la página de la lista completa (no usados ni transferencias).
+    """
+    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text(x_tolerance=3, y_tolerance=3) or ""
+            if not CHILE_FULL_HDR.search(text):
+                continue
+            low = text.lower()
+            if "usados" in low or "transferencias" in low or "mercado total" in low:
+                continue
+            out: dict[str, int] = {}
+            for line in text.splitlines():
+                for m in CHILE_FULL_ROW.finditer(line):
+                    marca = m.group(2).strip().title()
+                    if marca.upper() in ("TOTAL", "OTRAS", "MARCA"):
+                        continue
+                    out[marca] = int(m.group(3).replace(".", ""))
+            if out:
+                return out
+    return {}
+
+
+def ingest_chile_full(backfill: bool = False) -> list[dict]:
+    """Serie mensual de la lista COMPLETA de marcas de Chile (unidades del mes).
+
+    Aislada de chile_mensual (top-25 acumulado oficial). Reutiliza los hashes ya
+    descubiertos. Solo unidades del mes; el acumulado se calcula por cumsum aguas abajo.
+    """
+    existing = _load_monthly_csv("chile_full_mensual.csv")
+    known    = {(int(r["anio"]), int(r["mes"])) for r in existing}
+    hashes   = _load_chile_hashes()
+
+    candidates = []
+    for anio in [2025, 2026]:
+        for mes in range(1, 13):
+            if datetime(anio, mes, 1) > datetime.now():
+                break
+            candidates.append((anio, mes))
+    if not backfill:
+        candidates = [(a, m) for a, m in candidates if (a, m) not in known]
+
+    # filas previas como {(anio,mes,marca): unid_mes}
+    out_rows = {(int(r["anio"]), int(r["mes"]), r["marca"]): r["unid_mes"]
+                for r in existing}
+
+    for anio, mes in candidates:
+        url = _chile_pdf_url(anio, mes, hashes)
+        if not url:
+            continue
+        pdf = fetch_pdf(url)
+        if not pdf:
+            continue
+        marcas = parse_chile_full_pdf(pdf)
+        if not marcas:
+            print(f"  [WARN] Chile full {anio}-{mes:02d}: sin lista completa (formato viejo)")
+            continue
+        for marca, unid in marcas.items():
+            out_rows[(anio, mes, marca)] = unid
+        print(f"  ->Chile full {anio}-{mes:02d}: {len(marcas)} marcas")
+        time.sleep(SLEEP)
+
+    rows = [{"pais": "Chile", "anio": a, "mes": m, "marca": mk,
+             "unid_acum": "", "unid_mes": u}
+            for (a, m, mk), u in out_rows.items()]
+    rows.sort(key=lambda r: (r["anio"], r["mes"], r["marca"]))
+    return rows
+
+
 def ingest_chile(backfill: bool = False) -> list[dict]:
     existing   = _load_monthly_csv("chile_mensual.csv")
     known      = {(int(r["anio"]), int(r["mes"])) for r in existing}
@@ -881,6 +959,12 @@ def main():
         except Exception as e:
             print(f"  [ERROR] Chile: {e}")
             report["paises"]["Chile"] = {"ejecutado": True, "error": str(e)}
+        # Lista completa de marcas (cola larga), aislada: si falla no afecta lo de arriba
+        try:
+            chile_full = ingest_chile_full(backfill=args.backfill)
+            save_monthly_csv(chile_full, "chile_full_mensual.csv")
+        except Exception as e:
+            print(f"  [WARN] Chile lista completa: {e}")
 
     if run_ecuador:
         print("\n=== ECUADOR ===")

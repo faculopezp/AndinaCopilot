@@ -55,9 +55,11 @@ def build_mensual():
     mes_idx = {(r["pais"], r["marca"], r["anio"], r["mes"]): r["mes_u"] for r in raw}
 
     rows, periodos = [], set()
+    seen = set()  # (pais,marca,anio,mes) ya cubiertos por las series acumuladas oficiales
     for r in raw:
         ym = f'{r["anio"]}-{r["mes"]:02d}'
         periodos.add(ym)
+        seen.add((r["pais"], r["marca"], r["anio"], r["mes"]))
         pacc = acc_idx.get((r["pais"], r["marca"], r["anio"] - 1, r["mes"]))
         pmes = mes_idx.get((r["pais"], r["marca"], r["anio"] - 1, r["mes"]))
         acc_var = round((r["acc"] - pacc) / pacc * 100, 1) if pacc else None
@@ -68,7 +70,58 @@ def build_mensual():
             "acc": r["acc"], "mes": r["mes_u"],
             "accVar": acc_var, "mesVar": mes_var,
         })
+
+    # Cola larga de Chile: marcas fuera del top-25 oficial. Solo unidades del mes;
+    # el acumulado se calcula por suma corrida dentro del año (cumsum).
+    rows += _chile_tail_rows(seen, periodos)
     return {"periodos": sorted(periodos), "rows": rows}
+
+
+def _chile_tail_rows(seen: set, periodos: set) -> list:
+    """Filas mensuales de marcas de Chile que NO están en el top-25 oficial.
+
+    Lee chile_full_mensual.csv (unidades del mes, todas las marcas). Reconstruye el
+    acumulado por cumsum dentro del año y el % interanual donde hay año anterior.
+    """
+    path = DATA / "chile_full_mensual.csv"
+    if not path.exists():
+        return []
+    full = []
+    with open(path, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            mu = r["unid_mes"]
+            full.append({
+                "anio": int(r["anio"]), "mes": int(r["mes"]), "marca": r["marca"],
+                "mes_u": int(mu) if mu not in ("", None) else None,
+            })
+
+    # cumsum por (marca, año) y lookup de mes para YoY
+    mes_lk = {(x["marca"], x["anio"], x["mes"]): x["mes_u"] for x in full}
+    acc_run: dict = {}
+    acc_lk: dict = {}
+    for x in sorted(full, key=lambda z: (z["marca"], z["anio"], z["mes"])):
+        key = (x["marca"], x["anio"])
+        acc_run[key] = acc_run.get(key, 0) + (x["mes_u"] or 0)
+        acc_lk[(x["marca"], x["anio"], x["mes"])] = acc_run[key]
+
+    out = []
+    for x in full:
+        # saltar las que ya están en el top-25 oficial (mismo pais/marca/anio/mes)
+        if ("Chile", x["marca"], x["anio"], x["mes"]) in seen:
+            continue
+        ym = f'{x["anio"]}-{x["mes"]:02d}'
+        periodos.add(ym)
+        acc = acc_lk[(x["marca"], x["anio"], x["mes"])]
+        pacc = acc_lk.get((x["marca"], x["anio"] - 1, x["mes"]))
+        pmes = mes_lk.get((x["marca"], x["anio"] - 1, x["mes"]))
+        out.append({
+            "pais": "Chile", "ym": ym, "marca": x["marca"],
+            "acc": acc, "mes": x["mes_u"],
+            "accVar": round((acc - pacc) / pacc * 100, 1) if pacc else None,
+            "mesVar": (round((x["mes_u"] - pmes) / pmes * 100, 1)
+                       if (pmes and x["mes_u"] is not None) else None),
+        })
+    return out
 
 
 def main():
