@@ -16,8 +16,6 @@ on:
 
 permissions:
   contents: write      # para commitear datos actualizados
-  pages: write         # para publicar en GitHub Pages
-  id-token: write      # requerido por actions/deploy-pages
 
 jobs:
   ingestar:
@@ -68,27 +66,5 @@ jobs:
           git commit -m "chore: actualización automática $(date +%Y-%m-%d)"
           git push
 
-  publicar:
-    needs: ingestar
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: master       # siempre tomar el commit más fresco (con datos actualizados)
-
-      - name: Preparar carpeta para Pages
-        run: |
-          mkdir -p _site
-          cp dashboard/Dashboard_Andino_Ventas_Auto.html _site/index.html
-
-      - name: Subir artefacto Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - name: Deploy a GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
+  # Vercel se auto-deploya al detectar el push que hace el job "ingestar"
+  # No hace falta un job separado de deploy.
