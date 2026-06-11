@@ -1,0 +1,4 @@
+# Pipeline AndinaCopilot
+pdfplumber>=0.11      # extracción de texto de los PDFs (AAP, CAVEM, AEADE)
+openpyxl>=3.1         # generación del Excel
+requests>=2.31        # descarga de informes (en la notebook; no en el sandbox)

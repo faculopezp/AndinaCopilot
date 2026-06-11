@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PDFs descargados (se regeneran; no versionar)
+*.pdf
+downloads/
+tmp/
+
+# Excel temporales de Office
+~$*.xlsx
