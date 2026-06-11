@@ -13,5 +13,5 @@ Thumbs.db
 downloads/
 tmp/
 
-# Excel temporales de Office
+# Excel — solo ignorar temporales de Office (el generado sí se versiona)
 ~$*.xlsx

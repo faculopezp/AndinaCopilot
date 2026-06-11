@@ -3,11 +3,27 @@ name: Actualizar AndinaCopilot
 on:
   schedule:
     - cron: "0 12 1,15 * *"   # días 1 y 15 de cada mes, 12:00 UTC
-  workflow_dispatch:           # correrlo a mano desde Actions
+  workflow_dispatch:
+    inputs:
+      pais:
+        description: "País a procesar (all / chile / peru / ecuador)"
+        required: false
+        default: "all"
+      backfill:
+        description: "Backfill completo (true/false)"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write      # para commitear datos actualizados
+  pages: write         # para publicar en GitHub Pages
+  id-token: write      # requerido por actions/deploy-pages
 
 jobs:
-  actualizar:
+  ingestar:
     runs-on: ubuntu-latest
+    outputs:
+      hay_cambios: ${{ steps.check.outputs.hay_cambios }}
     steps:
       - uses: actions/checkout@v4
 
@@ -19,12 +35,60 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Ingesta de informes nuevos
-        run: python scripts/ingest.py --pais all
+        run: |
+          PAIS="${{ github.event.inputs.pais || 'all' }}"
+          BACKFILL="${{ github.event.inputs.backfill || 'false' }}"
+          ARGS="--pais $PAIS"
+          [ "$BACKFILL" = "true" ] && ARGS="$ARGS --backfill"
+          python scripts/ingest.py $ARGS
+        continue-on-error: true   # si una fuente falla, el resto igual corre
 
-      - name: Commitear cambios si hay datos nuevos
+      - name: Regenerar dashboard y Excel
+        run: |
+          python scripts/build_dashboard.py
+          python scripts/build_excel.py
+
+      - name: Verificar si hay cambios
+        id: check
+        run: |
+          git add data/ dashboard/ Base_Andina_Ventas_Auto.xlsx
+          if git diff --staged --quiet; then
+            echo "hay_cambios=false" >> $GITHUB_OUTPUT
+            echo "Sin datos nuevos."
+          else
+            echo "hay_cambios=true" >> $GITHUB_OUTPUT
+            echo "Hay datos nuevos para commitear."
+          fi
+
+      - name: Commitear datos actualizados
+        if: steps.check.outputs.hay_cambios == 'true'
         run: |
           git config user.name "andina-bot"
           git config user.email "bot@andinacopilot.local"
-          git add data/ dashboard/
-          git diff --staged --quiet || git commit -m "chore: actualización automática $(date +%Y-%m-%d)"
+          git commit -m "chore: actualización automática $(date +%Y-%m-%d)"
           git push
+
+  publicar:
+    needs: ingestar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master       # siempre tomar el commit más fresco (con datos actualizados)
+
+      - name: Preparar carpeta para Pages
+        run: |
+          mkdir -p _site
+          cp dashboard/Dashboard_Andino_Ventas_Auto.html _site/index.html
+
+      - name: Subir artefacto Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy a GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
