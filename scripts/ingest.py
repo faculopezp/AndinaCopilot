@@ -734,22 +734,29 @@ def rebuild_base_nacional(
 
 
 def rebuild_trend_json(peru_rows: list[dict], chile_rows: list[dict]):
-    """Reconstruye trend.json con la serie mensual (Perú + Chile)."""
-    trend = []
-    for r in peru_rows + chile_rows:
-        if r["unid_mes"] == "" or r["unid_mes"] is None:
-            continue
-        trend.append({
-            "pais":  r["pais"],
-            "anio":  int(r["anio"]),
-            "mes":   int(r["mes"]),
-            "marca": r["marca"],
-            "unid":  int(r["unid_mes"]),
+    """Reconstruye trend.json con la forma que espera el dashboard:
+        {"series": {marca: [{"ym": "YYYY-MM", "u": unid_mes, "acc": unid_acum}, ...]}}
+
+    La tab Tendencia del dashboard es de Perú; se arma desde peru_rows.
+    `u` = unidades del mes (puede ser None si no se pudo calcular el delta);
+    `acc` = acumulado del año (siempre presente; lo usa el momentum Q1 YoY).
+    """
+    series: dict[str, list[dict]] = {}
+    for r in peru_rows:
+        um = r["unid_mes"]
+        u_val = int(um) if um not in ("", None) else None
+        ym = f'{int(r["anio"])}-{int(r["mes"]):02d}'
+        series.setdefault(r["marca"], []).append({
+            "ym": ym,
+            "u": u_val,
+            "acc": int(r["unid_acum"]),
         })
-    trend.sort(key=lambda x: (x["pais"], x["anio"], x["mes"], x["marca"]))
+    for marca in series:
+        series[marca].sort(key=lambda p: p["ym"])
+
     with open(DATA / "trend.json", "w", encoding="utf-8") as f:
-        json.dump(trend, f, ensure_ascii=False, indent=2)
-    print(f"  trend.json: {len(trend)} puntos")
+        json.dump({"series": series}, f, ensure_ascii=False, indent=2)
+    print(f"  trend.json: {len(series)} marcas (Perú)")
 
 
 def rebuild_china_tl(peru_rows: list[dict], chile_rows: list[dict]):
@@ -767,14 +774,15 @@ def rebuild_china_tl(peru_rows: list[dict], chile_rows: list[dict]):
         if r["marca"] in MARCAS_CHINAS:
             data[key]["chinas"] += unid
 
-    result = []
+    # Forma que espera el dashboard: {pais: [{"ym": "YYYY-MM", "pct": n}, ...]}
+    result: dict[str, list[dict]] = {}
     for (pais, anio, mes), v in sorted(data.items()):
         pct = round(v["chinas"] / v["total"] * 100, 1) if v["total"] else 0
-        result.append({"pais": pais, "anio": anio, "mes": mes,
-                        "total": v["total"], "chinas": v["chinas"], "pct_chinas": pct})
+        result.setdefault(pais, []).append({"ym": f"{anio}-{mes:02d}", "pct": pct})
     with open(DATA / "china_tl.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
-    print(f"  china_tl.json: {len(result)} puntos")
+    npts = sum(len(v) for v in result.values())
+    print(f"  china_tl.json: {npts} puntos en {len(result)} países")
 
 
 # ---------------------------------------------------------------------------
