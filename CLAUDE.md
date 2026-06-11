@@ -11,13 +11,14 @@ Base de datos + dashboard de **ventas automotrices de la Región Andina** (Chile
 El usuario (Facu) es SDR, no necesariamente dev. Preferencias: respuestas directas, en bullets, sin relleno; español neutro; marcar agujeros lógicos; no inventar datos (si no está verificado → vacío/null).
 
 ## Estado actual (jun-2026)
-Lo construido hasta ahora (en una sesión de Cowork, ahora migrado a este repo):
-- **Perú**: serie mensual completa ene-2025 → mar-2026, parseada del PDF de AAP. ✅
-- **Chile**: fuente validada (CAVEM), 17 hashes de PDF descubiertos (ene2025–may2026), formato confirmado. Backfill mensual **pendiente**.
-- **Ecuador**: fuente validada (AEADE, vía download_id, PDF texto). Backfill **pendiente**.
-- **Colombia**: top-20 acumulado a may-2026 cargado (ANDI/Fenalco vía prensa). Sin serie histórica.
-- **Dashboard** HTML autocontenido con filtros (País, Origen) + tabs Top / Emergentes / Comparar países / Tendencia (Perú) / Mercado (penetración chinas + concentración) / Datos crudos.
+- **Perú**: serie mensual ene-2025 → **abr-2026**, parseada del PDF de AAP (410 filas). ✅
+- **Chile**: backfill ene-2025 → may-2026 (400 filas). ✅ Falta solo ago-2025 (hash `68b9a0c6a710a` da 404 en CAVEM).
+- **Ecuador**: backfill **dic-2024 → ene-2026** + historia hasta 2023 (503 filas). ✅ 3 formatos de PDF cubiertos. Falta abr-2025 (gap de la fuente).
+- **Colombia**: top-20 acumulado a may-2026 (ANDI/Fenalco vía prensa). Sin serie histórica.
+- **Discovery automático** (`scripts/discover.py`): resuelve la URL del último informe de Perú (índice AAP) y Ecuador (índice AEADE) en vivo, sin URLs hardcodeadas. Chile descubre hash por slug. ✅ El pipeline es **desatendido**.
+- **Dashboard** HTML autocontenido con filtros (País, Origen) + tabs Prospección H2 / Top / Emergentes / Comparar países / Tendencia / Mercado / Datos crudos.
 - **Excel** equivalente.
+- **Login**: ninguno por ahora (data pública). Activar Cloudflare Access cuando se integre prospección propia.
 
 ## Estructura del repo
 ```
@@ -67,11 +68,15 @@ vercel.json                     # deploy del dashboard
 - El parser de Perú: las columnas del PDF cambian de año (2024/2025 vs 2025/2026); detectar el año desde el header `Rank. Marca {y1} {y2}`.
 
 ## Próximos pasos (roadmap, prioridad)
-1. **`scripts/ingest.py`** — scraper que, usando `sources.py`: descubre informes nuevos, descarga el PDF, lo parsea (pdfplumber) y actualiza `data/`. Es lo que falta para cerrar el backfill y la automatización.
-2. **Backfill mensual** Chile + Ecuador (ene-2025 → actual) con ese scraper.
-3. **Colombia con marcas** (ANDEMOS/ANDI; probablemente requiera navegador/headless).
-4. **Automatización quincenal**: completar `.github/workflows/update.yml` con el paso de ingesta.
-5. **Deploy a Vercel** con acceso compartido para el equipo (`vercel.json` ya está).
+1. **Notificación de fallo** en `.github/workflows/update.yml` (mail/Telegram si un país queda sin datos nuevos en la corrida quincenal).
+2. **Colombia con marcas** (ANDEMOS/ANDI; probablemente requiera navegador/headless).
+3. **Mejoras dashboard**: fecha de última actualización por país, link "buscar agencias de esta marca", badge cuando una china salta de tier.
+4. **Cuando se integre prospección/CRM**: repo privado + login (Cloudflare Access) + posible migración a Supabase.
+
+### Ya hecho
+- ✅ `scripts/ingest.py` + `scripts/discover.py`: pipeline desatendido (descubre, descarga, parsea, reconstruye JSONs, regenera dashboard).
+- ✅ Backfill Perú/Chile/Ecuador.
+- ✅ Automatización quincenal (cron días 1 y 15) + deploy Vercel.
 
 ## Cómo correr
 ```bash

@@ -32,7 +32,6 @@ from pathlib import Path
 
 import pdfplumber
 import requests
-from bs4 import BeautifulSoup
 
 ROOT   = Path(__file__).resolve().parents[1]
 DATA   = ROOT / "data"
@@ -44,6 +43,7 @@ from sources import (
     MESES_ES, MESES_PE,
     MARCAS_CHINAS,
 )
+from discover import discover_peru_urls, discover_ecuador_ids
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
@@ -167,13 +167,18 @@ def ingest_peru(backfill: bool = False) -> list[dict]:
     existing = _load_monthly_csv("peru_nacional_mensual.csv")
     known    = {(int(r["anio"]), int(r["mes"])) for r in existing}
 
-    # Meses con URL conocida
+    # URL map = descubrimiento en vivo (prioridad) + fallback hardcodeado de sources.py
+    url_map = discover_peru_urls()
+    print(f"  Perú: {len(url_map)} informes descubiertos en el índice de AAP")
+
+    # Candidatos: todos los meses con URL conocida (descubierta o hardcodeada)
     candidates = []
     for anio in [2025, 2026]:
         for mes in range(1, 13):
             if datetime(anio, mes, 1) > datetime.now():
                 break
-            candidates.append((anio, mes))
+            if (anio, mes) in url_map or peru_url(anio, mes):
+                candidates.append((anio, mes))
 
     if not backfill:
         candidates = [(a, m) for a, m in candidates if (a, m) not in known]
@@ -181,9 +186,9 @@ def ingest_peru(backfill: bool = False) -> list[dict]:
     new_rows: dict[tuple, dict] = {}  # (anio,mes,marca) -> {acum}
 
     for anio, mes in candidates:
-        url = peru_url(anio, mes)
+        url = url_map.get((anio, mes)) or peru_url(anio, mes)
         if not url:
-            print(f"  [SKIP] Perú {anio}-{mes:02d}: URL no conocida (agregar a sources.py)")
+            print(f"  [SKIP] Perú {anio}-{mes:02d}: URL no conocida")
             continue
         print(f"  ->Peru {anio}-{mes:02d}  {url}")
         pdf = fetch_pdf(url)
@@ -546,68 +551,42 @@ def _load_ecuador_ids() -> dict[str, int]:
     return dict(ECUADOR["download_ids"])
 
 
-def _discover_ecuador_ids(known_ids: dict[str, int]) -> dict[str, int]:
-    """Scrapea el índice de AEADE para encontrar download_ids nuevos."""
-    new = {}
-    try:
-        r = requests.get(ECUADOR["indice"], headers=HEADERS, timeout=20)
-        r.raise_for_status()
-        soup = BeautifulSoup(r.text, "html.parser")
-        for a in soup.find_all("a", href=True):
-            href = a["href"]
-            m = re.search(r"download_id=(\d+)", href)
-            if m:
-                did = int(m.group(1))
-                if did not in known_ids.values():
-                    label = a.get_text(strip=True)
-                    new[label] = did
-    except Exception as e:
-        print(f"  [ERROR] AEADE índice: {e}")
-    return new
-
-
 def ingest_ecuador(backfill: bool = False) -> list[dict]:
     existing  = _load_monthly_csv("ecuador_mensual.csv")
     known_ym  = {(int(r["anio"]), int(r["mes"])) for r in existing}
-    ids       = _load_ecuador_ids()
 
-    # Descubrir IDs nuevos
-    new_ids = _discover_ecuador_ids(ids)
-    if new_ids:
-        print(f"  Ecuador: {len(new_ids)} posibles IDs nuevos encontrados: {list(new_ids.items())}")
-        ids.update({k: v for k, v in new_ids.items()})
+    # IDs en vivo desde el índice de AEADE (más nuevo primero) + fallback hardcodeado
+    discovered = discover_ecuador_ids()
+    hardcoded  = list(_load_ecuador_ids().values())
+    # Unión preservando orden (descubiertos primero, luego hardcodeados no vistos)
+    seen = set()
+    ids: list[int] = []
+    for did in discovered + hardcoded:
+        if did not in seen:
+            seen.add(did)
+            ids.append(did)
+    print(f"  Ecuador: {len(discovered)} IDs en índice AEADE ({len(ids)} totales con fallback)")
+
+    # Sin backfill: solo revisar los más nuevos (evita descargar 60+ PDFs cada quincena)
+    if not backfill:
+        ids = ids[:4]
 
     combined: dict[tuple, int] = {}
     for r in existing:
         combined[(int(r["anio"]), int(r["mes"]), r["marca"])] = int(r["unid_acum"])
 
-    for label, did in ids.items():
+    for did in ids:
         url = ECUADOR["descarga"].format(download_id=did)
-        # Pre-check si ya tenemos todos los meses (sin backfill)
-        # El período exacto lo extraemos del PDF
-        try:
-            label_dt = datetime.strptime(label[:7], "%Y-%m")
-        except ValueError:
-            continue
-
-        # Estimado del mes de datos (para check previo sin descargar)
-        est_mes = label_dt.month if label_dt.month <= 6 else label_dt.month - 1
-        est_anio = label_dt.year
-        if not backfill and (est_anio, est_mes) in known_ym:
-            continue
-
-        print(f"  ->Ecuador (boletín {label}) {url}")
         pdf = fetch_pdf(url)
         if not pdf:
             continue
         filas, anio, mes = parse_ecuador_pdf(pdf)
         if not filas or not anio or not mes:
-            print(f"  [WARN] Ecuador boletín {label}: parse sin resultados")
+            print(f"  [WARN] Ecuador id={did}: parse sin resultados")
             continue
-        print(f"     periodo detectado: {anio}-{mes:02d}  marcas: {len(filas)}")
         if not backfill and (anio, mes) in known_ym:
-            print(f"     [SKIP] {anio}-{mes:02d} ya en CSV")
-            continue
+            continue  # ya lo tenemos; en orden nuevo->viejo el resto también
+        print(f"  ->Ecuador id={did}  periodo {anio}-{mes:02d}  marcas: {len(filas)}")
         for marca, unid in filas:
             combined[(anio, mes, marca)] = unid
         time.sleep(SLEEP)

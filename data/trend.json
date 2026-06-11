@@ -5115,5 +5115,152 @@
     "mes": 3,
     "marca": "Toyota",
     "unid": 3519
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Changan",
+    "unid": 1402
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Chery",
+    "unid": 790
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Chevrolet",
+    "unid": 694
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Ford",
+    "unid": 869
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Forland",
+    "unid": 56
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Foton",
+    "unid": 319
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Geely",
+    "unid": 974
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Great Wall",
+    "unid": 362
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Hyundai",
+    "unid": 1783
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Jac",
+    "unid": 1731
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Jetour",
+    "unid": 949
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Jmc",
+    "unid": 221
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Kia",
+    "unid": 1648
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "King Long",
+    "unid": 81
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Kyc",
+    "unid": 63
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Mitsubishi",
+    "unid": 304
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Nissan",
+    "unid": 54
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Renault",
+    "unid": 314
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Shineray",
+    "unid": 118
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Suzuki",
+    "unid": 718
+  },
+  {
+    "pais": "Peru",
+    "anio": 2026,
+    "mes": 4,
+    "marca": "Toyota",
+    "unid": 3299
   }
 ]
