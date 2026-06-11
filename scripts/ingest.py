@@ -533,9 +533,9 @@ def rebuild_base_nacional(
             var    = round((curr - prev_u) / prev_u * 100, 1) if prev_u else None
             snapshots.append({
                 "pais": pais, "periodo": periodo, "marca": r["marca"],
-                "unidades_curr": curr,
-                "unidades_prev": prev_u if prev_u else "",
-                "var_yoy_pct":   var if var is not None else "",
+                "uc": curr,
+                "up": prev_u if prev_u else None,
+                "var": var,
                 "fuente": fuente,
             })
 
@@ -549,16 +549,42 @@ def rebuild_base_nacional(
         all_rows = list(csv.DictReader(f))
     colombia_rows = [r for r in all_rows if r["pais"] == "Colombia"]
 
-    final = snapshots + colombia_rows
+    # Colombia rows come from CSV (long keys) — normalize to short keys for JSON
+    colombia_json = []
+    for r in colombia_rows:
+        uc = int(r.get("unidades_curr") or r.get("uc") or 0)
+        up_raw = r.get("unidades_prev") or r.get("up")
+        up = int(up_raw) if up_raw not in (None, "", "n/d") else None
+        var_raw = r.get("var_yoy_pct") or r.get("var")
+        var = float(var_raw) if var_raw not in (None, "", "n/d") else None
+        colombia_json.append({
+            "pais": r["pais"], "periodo": r["periodo"], "marca": r["marca"],
+            "uc": uc, "up": up, "var": var, "fuente": r["fuente"],
+        })
+
+    final_json = snapshots + colombia_json
+
+    # CSV keeps long field names for human readability
+    csv_rows = []
+    for r in final_json:
+        csv_rows.append({
+            "pais": r["pais"], "periodo": r["periodo"], "marca": r["marca"],
+            "unidades_curr": r["uc"],
+            "unidades_prev": r["up"] if r["up"] is not None else "",
+            "var_yoy_pct":   r["var"] if r["var"] is not None else "",
+            "fuente": r["fuente"],
+        })
     fields = ["pais", "periodo", "marca", "unidades_curr", "unidades_prev", "var_yoy_pct", "fuente"]
     with open(DATA / "base_nacional.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
-        w.writerows(final)
+        w.writerows(csv_rows)
 
-    # JSON para el dashboard
+    # JSON para el dashboard (short keys)
     with open(DATA / "base_nacional.json", "w", encoding="utf-8") as f:
-        json.dump(final, f, ensure_ascii=False, indent=2)
+        json.dump(final_json, f, ensure_ascii=False, indent=2)
+
+    final = final_json  # for the print below
 
     print(f"  base_nacional: {len(final)} filas ({len(snapshots)} actualizadas + {len(colombia_rows)} Colombia)")
 

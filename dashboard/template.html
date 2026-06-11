@@ -36,13 +36,35 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 </div>
 <div class="kpis" id="kpis"></div>
 <div class="tabs">
-<div class="tab active" data-p="top">🏆 Top marcas</div>
+<div class="tab active" data-p="prosp">🎯 Prospección H2</div>
+<div class="tab" data-p="top">🏆 Top marcas</div>
 <div class="tab" data-p="emerg">🚀 Emergentes</div>
 <div class="tab" data-p="comp">🌎 Comparar países</div>
 <div class="tab" data-p="trend">📈 Tendencia</div>
 <div class="tab" data-p="mercado">📊 Mercado</div>
 <div class="tab" data-p="raw">🗃️ Datos crudos</div></div>
-<div class="panel active" id="p-top"><div class="card"><h2 id="topTitle"></h2>
+<div class="panel active" id="p-prosp">
+<div class="card">
+<h2>Radar de prospección H2 2026 🎯</h2>
+<div class="hint">Score compuesto por volumen, crecimiento YoY y presencia multi-país. Las marcas en <b>Alta prioridad</b> son las que tienen más unidades Y están acelerando — contactar primero. Chinas en rampa tienen bonus por potencial de crecimiento sostenido.</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">País</label><select id="prPais" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"></select></div>
+<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">Prioridad</label><select id="prTier" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"><option>Todas</option><option>🔴 Alta</option><option>🟡 Media</option><option>⚪ Seguimiento</option></select></div>
+<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">Origen</label><select id="prOrigen" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"><option>Todas</option><option>Chinas 🇨🇳</option><option>No chinas</option></select></div>
+</div>
+<div id="prSummary" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px"></div>
+<table id="tProsp"></table>
+<div class="note" style="margin-top:12px">
+<b>Cómo usar:</b> Filtrá por país + prioridad → copiá las marcas Alta → buscá sus distribuidores/agencias en LinkedIn/Google → contactar con el contexto de crecimiento como gancho de apertura. Ejemplo: <i>"Vimos que Jetour creció +100% en Chile en H1 — estamos trabajando con marcas en rampa para dar soporte tecnológico a su red."</i>
+</div>
+</div>
+<div class="card">
+<h2>Marcas presentes en múltiples países</h2>
+<div class="hint">Una marca en 3 países = más cuentas potenciales, misma apertura. Priorizar para una secuencia regional.</div>
+<table id="tMulti"></table>
+</div>
+</div>
+<div class="panel" id="p-top"><div class="card"><h2 id="topTitle"></h2>
 <div class="hint">Ranking por unidades acumuladas del último período disponible. Clic en encabezados para ordenar. Top marcas → buscar agencias → contactar.</div>
 <table id="tTop"></table></div></div>
 <div class="panel" id="p-emerg"><div class="card"><h2>Radar de emergentes 🚀</h2>
@@ -181,4 +203,90 @@ function mercadoConc(){
 function render(){kpis();tTop();tEmerg();tComp();tRaw();mercadoCN();mercadoConc();cnChart();}
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById('p-'+t.dataset.p).classList.add('active')});
 badges();fillFilters();render();fillTrend();document.getElementById('cnPais').onchange=cnChart;
+
+// ---- PROSPECCIÓN H2 -------------------------------------------------------
+function scoreData(){
+  // Por país, calcular rank de volumen normalizado (0-100)
+  const ps=uniq(DATA.map(d=>d.pais));
+  const volScore={};
+  ps.forEach(p=>{
+    const r=[...DATA.filter(d=>d.pais===p)].sort((a,b)=>b.uc-a.uc);
+    const max=r[0]?r[0].uc:1;
+    r.forEach(d=>{volScore[p+'|'+d.marca]=d.uc/max*100;});
+  });
+  // Presencia multi-país: cuántos países tiene cada marca
+  const paisCount={};
+  DATA.forEach(d=>{if(!paisCount[d.marca])paisCount[d.marca]=new Set();paisCount[d.marca].add(d.pais);});
+  // Score final por fila
+  return DATA.map(d=>{
+    const vs=volScore[d.pais+'|'+d.marca]||0;
+    const varCap=d.var!=null?Math.min(Math.max(d.var,0),250):0;
+    const gs=varCap/250*100;
+    const mp=(paisCount[d.marca].size-1)/3*100; // 0-100
+    const cnBonus=isCh(d.marca)?12:0;
+    const score=Math.round(vs*0.40+gs*0.38+mp*0.22+cnBonus);
+    const tier=score>=60?'🔴 Alta':score>=38?'🟡 Media':'⚪ Seguimiento';
+    return{...d,score,tier,npaises:paisCount[d.marca].size};
+  }).sort((a,b)=>b.score-a.score);
+}
+
+function tProsp(){
+  const paisFil=document.getElementById('prPais').value;
+  const tierFil=document.getElementById('prTier').value;
+  const origenFil=document.getElementById('prOrigen').value;
+  let rows=scoreData();
+  if(paisFil!=='Todos')rows=rows.filter(r=>r.pais===paisFil);
+  if(tierFil!=='Todas')rows=rows.filter(r=>r.tier===tierFil);
+  if(origenFil==='Chinas 🇨🇳')rows=rows.filter(r=>isCh(r.marca));
+  else if(origenFil==='No chinas')rows=rows.filter(r=>!isCh(r.marca));
+
+  // Summary chips
+  const alta=rows.filter(r=>r.tier==='🔴 Alta').length;
+  const media=rows.filter(r=>r.tier==='🟡 Media').length;
+  document.getElementById('prSummary').innerHTML=
+    `<span class="pill up" style="font-size:12px">🔴 Alta: ${alta}</span>`+
+    `<span class="pill flat" style="font-size:12px;background:#fff9ec;color:#B9770E">🟡 Media: ${media}</span>`+
+    `<span class="pill flat" style="font-size:12px">Total: ${rows.length} targets</span>`;
+
+  const showP=paisFil==='Todos';
+  const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th>Prioridad</th><th class="num">Score</th><th class="num">Unidades</th><th class="num">Var% YoY</th><th class="num">Países</th></tr>`;
+  const b=rows.map((r,i)=>`<tr>
+    <td class="rank">${i+1}</td>
+    <td class="mk">${r.marca}${isCh(r.marca)?'<span class="tag">CN</span>':''}</td>
+    ${showP?`<td class="flag">${r.pais}</td>`:''}
+    <td><span style="font-size:13px;font-weight:700">${r.tier}</span></td>
+    <td class="num"><b>${r.score}</b></td>
+    <td class="num">${fmt(r.uc)}</td>
+    <td class="num">${pill(r.var)}</td>
+    <td class="num" style="color:${r.npaises>=3?'var(--green)':r.npaises===2?'var(--blue)':'var(--grey)'}">${r.npaises}/4</td>
+  </tr>`).join('');
+  document.getElementById('tProsp').innerHTML=h+(b||'<tr><td colspan="8" style="color:var(--grey);padding:18px">Sin resultados con ese filtro.</td></tr>');
+}
+
+function tMulti(){
+  const paisCount={};
+  DATA.forEach(d=>{if(!paisCount[d.marca])paisCount[d.marca]={};paisCount[d.marca][d.pais]=d.uc;});
+  const multi=Object.entries(paisCount).filter(([,o])=>Object.keys(o).length>=2)
+    .map(([m,o])=>({m,ps:Object.keys(o),tot:Object.values(o).reduce((s,x)=>s+x,0),o}))
+    .sort((a,b)=>b.ps.length-a.ps.length||b.tot-a.tot);
+  const allPs=uniq(DATA.map(d=>d.pais));
+  const h=`<tr><th>Marca</th>${allPs.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th><th class="num">Total</th></tr>`;
+  const b=multi.map(it=>`<tr>
+    <td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>
+    ${allPs.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p])}</td>`:`<td class="num dash" style="color:#ccc">—</td>`).join('')}
+    <td class="num" style="font-weight:800;color:${it.ps.length>=3?'var(--green)':'var(--blue)'}">${it.ps.length}</td>
+    <td class="num">${fmt(it.tot)}</td>
+  </tr>`).join('');
+  document.getElementById('tMulti').innerHTML=h+b;
+}
+
+function initProsp(){
+  const sel=document.getElementById('prPais');
+  sel.innerHTML=['Todos',...uniq(DATA.map(d=>d.pais))].map(x=>`<option>${x}</option>`).join('');
+  sel.onchange=tProsp;
+  document.getElementById('prTier').onchange=tProsp;
+  document.getElementById('prOrigen').onchange=tProsp;
+  tProsp();tMulti();
+}
+initProsp();
 </script></body></html>
