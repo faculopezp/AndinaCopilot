@@ -1,0 +1,89 @@
+pais,marca,grupo,tipo,confianza,as_of,fuente,nota
+Chile,Suzuki,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,
+Chile,Mazda,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,
+Chile,Changan,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,
+Chile,Great Wall,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,incluye Haval y GWM
+Chile,Jac,Derco (Inchcape),distribuidor,media,2026-06,dercocenter.cl,Derco lo comercializa
+Chile,Renault,Astara,importador,alta,2026-06,theclinic/mercado.com.ar,paso de Derco a Astara en jun-2026
+Chile,Mitsubishi,Astara,importador,alta,2026-06,df.cl,
+Chile,Chery,Astara,importador,alta,2026-06,df.cl,Omoda/Jaecoo operan aparte
+Chile,Omoda,Omoda Chile (grupo Chery),importador,alta,2026-06,df.cl,independiente de Astara
+Chile,Kia,Indumotora,importador,alta,2026-06,indumotoraone.cl,
+Chile,Subaru,Inchcape,importador,alta,2026-06,latercera.com,ex Indumotora (venta 2016)
+Chile,Hyundai,Gildemeister,importador,alta,2026-06,autocosmos.cl,autos (camiones/buses via Indumotora)
+Chile,Maxus,Kaufmann,importador,media,2026-06,autocosmos.cl,conflicto con SAIC; verificar
+Chile,Foton,Andes Motor (Kaufmann),importador,baja,2026-06,-,verificar
+Chile,Jmc,Indumotora,importador,baja,2026-06,indumotora,conflicto Astara/Indumotora; verificar
+Chile,Chevrolet,General Motors Chile,directo,alta,2026-06,autocosmos.cl,
+Chile,Toyota,Toyota Chile,directo,alta,2026-06,autocosmos.cl,
+Chile,Nissan,Nissan Chile,directo,alta,2026-06,autocosmos.cl,
+Chile,Ford,Ford Chile,directo,alta,2026-06,autocosmos.cl,
+Chile,Peugeot,Stellantis Chile,directo,alta,2026-06,autocosmos.cl,
+Chile,Citroen,Stellantis Chile,directo,alta,2026-06,autocosmos.cl,
+Chile,Ram,Stellantis Chile,directo,alta,2026-06,df.cl,directo desde 2026 (antes Astara)
+Chile,Volkswagen,Porsche Chile / Ditec (Inchcape),importador,alta,2026-06,autocosmos.cl,grupo VW
+Chile,Mg,SAIC Motor Chile,directo,media,2026-06,autocosmos.cl,
+Chile,Geely,Geely Chile,importador,baja,2026-06,-,verificar importador local
+Chile,Jetour,Jetour Chile,importador,baja,2026-06,-,verificar
+Chile,Byd,BYD Chile,directo,media,2026-06,autocosmos.cl,directo desde dic-2025 (antes Indumotora)
+Peru,Toyota,Toyota del Peru (Mitsui),importador,alta,2026-06,gestion.pe,incluye Hino y Lexus
+Peru,Suzuki,Derco Peru (Inchcape),importador,alta,2026-06,gestion.pe,
+Peru,Mazda,Derco Peru (Inchcape),importador,media,2026-06,-,
+Peru,Changan,Derco Peru (Inchcape),importador,media,2026-06,-,
+Peru,Renault,Derco Peru (Inchcape),importador,media,2026-06,-,verificar
+Peru,Great Wall,Derco Peru (Inchcape),importador,baja,2026-06,-,verificar
+Peru,Hyundai,Automotores Gildemeister Peru,importador,alta,2026-06,gestion.pe,red dealer Automotores Inka
+Peru,Kia,Kia Import Peru,importador,alta,2026-06,veritrade,red dealer Interamericana
+Peru,Chery,Corporacion Alese,distribuidor,media,2026-06,grupoalese.com,
+Peru,Jetour,Corporacion Alese / Jetour Peru,distribuidor,media,2026-06,jetour.com.pe,
+Peru,Chevrolet,GM Peru,directo,media,2026-06,perumotor,red dealer Perumotor/Alese
+Peru,Nissan,Nissan Maquinarias,importador,media,2026-06,-,verificar
+Peru,Mitsubishi,MC Autos del Peru / Diveimport,importador,baja,2026-06,-,verificar
+Peru,Geely,(verificar),importador,baja,2026-06,-,
+Peru,Foton,(verificar),importador,baja,2026-06,-,
+Peru,Jac,(verificar),importador,baja,2026-06,-,
+Peru,Jmc,(verificar),importador,baja,2026-06,-,
+Peru,Dfsk,Derco Peru (Inchcape),importador,baja,2026-06,-,verificar
+Peru,Shineray,(verificar),importador,baja,2026-06,-,
+Peru,Forland,(verificar),importador,baja,2026-06,-,
+Peru,King Long,(verificar),importador,baja,2026-06,-,
+Peru,Kyc,(verificar),importador,baja,2026-06,-,
+Ecuador,Kia,Aekia (Grupo Eljuri),importador,alta,2026-06,f1latam/aekia,mejor distribuidor Kia Centro-Sudamerica
+Ecuador,Chevrolet,General Motors del Ecuador (Omnibus BB),importador,alta,2026-06,wikipedia/gm,ensamblaje historico
+Ecuador,Hyundai,Neohyundai,importador,alta,2026-06,hyundai.com.ec,
+Ecuador,Gwm,Ambacar,importador,alta,2026-06,ambacar.ec,incluye Haval/SWM/Shineray/KYC/DFSK/King Long
+Ecuador,Toyota,Toyota del Ecuador,importador,alta,2026-06,toyota.com.ec,dealers Casabaca e Imp. Tomebamba
+Ecuador,Chery,EcuaAuto,distribuidor,media,2026-06,eluniverso.com,alianza; tambien Maresa
+Ecuador,Dongfeng,EcuaAuto / Ambacar,distribuidor,media,2026-06,eluniverso.com,
+Ecuador,Dfsk,Ambacar,distribuidor,media,2026-06,ambacar.ec,
+Ecuador,Hino,Teojama,distribuidor,media,2026-06,-,verificar
+Ecuador,Mazda,(verificar),importador,baja,2026-06,-,
+Ecuador,Jac,(verificar),importador,baja,2026-06,-,
+Ecuador,Byd,(verificar),importador,baja,2026-06,-,
+Ecuador,Renault,(verificar),importador,baja,2026-06,-,
+Ecuador,Foton,(verificar),importador,baja,2026-06,-,
+Ecuador,Suzuki,(verificar),importador,baja,2026-06,-,
+Ecuador,Sinotruk,(verificar),importador,baja,2026-06,-,
+Ecuador,Changan,(verificar),importador,baja,2026-06,-,
+Ecuador,Jetour,(verificar),importador,baja,2026-06,-,
+Ecuador,Volkswagen,(verificar),importador,baja,2026-06,-,
+Colombia,Renault,Renault-Sofasa,importador,alta,2026-06,elcarrocolombiano.com,ensambla en Envigado
+Colombia,Toyota,Automotores Toyota Colombia (Distoyota),importador,alta,2026-06,toyota.com.co,
+Colombia,Kia,Kia Colombia (Metrokia),importador,alta,2026-06,motor.com.co,
+Colombia,Chevrolet,GM Colmotores,importador,alta,2026-06,chevrolet.com.co,ensamblaje historico
+Colombia,Byd,Motorysa,importador,alta,2026-06,bydauto.com.co,
+Colombia,Foton,Motorysa,importador,alta,2026-06,autosdeprimera.com,tambien Forland (grupo Foton)
+Colombia,Suzuki,Inchcape,importador,media,2026-06,motor.com.co,ex Derco (grupo Falabella)
+Colombia,Hyundai,Astara Colombia,importador,media,2026-06,motor.com.co,reciente
+Colombia,Nissan,Distribuidora Nissan Colombia,importador,media,2026-06,-,verificar
+Colombia,Bmw,Autogermana,importador,media,2026-06,-,BMW Colombia
+Colombia,Mercedes Benz,Daimler Colombia,importador,media,2026-06,-,verificar
+Colombia,Citroen,Stellantis Colombia,directo,media,2026-06,-,
+Colombia,Ford,Ford Colombia,importador,media,2026-06,-,dealer Casa Toro; verificar
+Colombia,Mazda,Mazda de Colombia,importador,media,2026-06,-,dealer Casa Toro; verificar
+Colombia,Chery,(verificar),importador,baja,2026-06,eltiempo.com,en negociaciones de fabricacion
+Colombia,Dongfeng,(verificar),importador,baja,2026-06,-,
+Colombia,Jac,(verificar),importador,baja,2026-06,-,
+Colombia,Deepal,(verificar),importador,baja,2026-06,-,marca de Changan
+Colombia,Volkswagen,(verificar),importador,baja,2026-06,-,
+Colombia,Tesla,Sin importador oficial,n/a,alta,2026-06,-,importacion gris; explica el dato anomalo de ventas
