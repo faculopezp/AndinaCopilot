@@ -25,10 +25,24 @@ th.num,td.num{text-align:right}td{padding:9px 10px;border-bottom:1px solid var(-
 .flag{font-weight:700;font-size:12px;color:var(--blue)}
 .note{font-size:12px;color:var(--grey);background:#fff9ec;border:1px solid #f3e2bd;border-radius:10px;padding:11px 14px;margin-top:6px}
 footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.dash{color:#cbd2e0}
+.hero-kpis{display:flex;gap:30px;flex-wrap:wrap;margin-top:16px}
+.hero-kpi .hv{font-size:27px;font-weight:800;line-height:1}.hero-kpi .hl{font-size:10.5px;opacity:.82;text-transform:uppercase;font-weight:600;letter-spacing:.4px;margin-top:5px}
+.hero-upd{margin-top:14px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.ctx{font-size:12px;color:var(--grey);margin:2px 0 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ctx .c{background:#fff;border:1px solid var(--line);border-radius:16px;padding:3px 10px;font-weight:600}
+.alerts{display:flex;gap:8px;flex-wrap:wrap}
+.alert{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:12.5px;font-weight:600}
+.alert.up{border-color:#bfe3cc;background:#f0faf3}.alert.star{border-color:#cfe0f6;background:#f2f7ff}.alert.down{border-color:#f3cfca;background:#fdf2f1}
+.clk{cursor:pointer;border-bottom:1px dotted var(--blue)}.clk:hover{color:var(--blue)}
+.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:flex-start;justify-content:center;z-index:50;padding:38px 16px;overflow:auto}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:16px;max-width:760px;width:100%;padding:22px 26px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.modal h3{font-size:19px;color:var(--navy)}.modal .x{float:right;cursor:pointer;font-size:22px;color:var(--grey);border:none;background:none;line-height:1}
 </style></head><body><div class="wrap">
-<header><h1>Base Andina · Ventas Automotrices</h1>
-<p>Proyecto SDR Andino — radar de marcas y mercados para prospección. Datos crudos + tendencias, multipaís.</p>
-<div class="badges" id="badges"></div></header>
+<header><h1>Mercado Andino · Ventas Automotrices</h1>
+<p>Ventas por marca en Chile, Perú, Ecuador y Colombia para priorizar prospección.</p>
+<div class="hero-kpis" id="heroKpis"></div>
+<div class="hero-upd" id="heroUpd"></div></header>
 <div class="filters">
 <div class="f"><label>País</label><select id="fPais"></select></div>
 <div class="f"><label>Período</label><select id="fPeriodo"></select></div>
@@ -36,6 +50,7 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="f"><label>Origen</label><select id="fOrigen"><option>Todas</option><option>Chinas 🇨🇳</option><option>No chinas</option></select></div>
 <div class="f"><label>Buscar marca</label><input id="fMarca" placeholder="Toyota, BYD, Changan…"></div>
 </div>
+<div class="ctx" id="ctx"></div>
 <div class="kpis" id="kpis"></div>
 <div class="tabs">
 <div class="tab active" data-p="prosp">🎯 Prospección H2</div>
@@ -47,8 +62,13 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="tab" data-p="raw">🗃️ Datos crudos</div></div>
 <div class="panel active" id="p-prosp">
 <div class="card">
+<h2>Alertas del mes ⚡</h2>
+<div class="hint">Movimientos del último mes con dato, derivados de la serie mensual. Priorizá los chips de marcas chinas en rampa.</div>
+<div class="alerts" id="alertas"></div>
+</div>
+<div class="card">
 <h2>Radar de prospección H2 2026 🎯</h2>
-<div class="hint">Score compuesto por volumen, crecimiento YoY y presencia multi-país. Las marcas en <b>Alta prioridad</b> son las que tienen más unidades Y están acelerando — contactar primero. Chinas en rampa tienen bonus por potencial de crecimiento sostenido.</div>
+<div class="hint">Score compuesto = <b>40% volumen</b> (rank dentro del país) + <b>38% crecimiento YoY</b> + <b>22% presencia regional</b> (en cuántos países está) + <b>bonus 12 pts</b> si es marca china. <b>Alta</b> = más unidades Y acelerando → contactar primero. Clic en una marca para ver su detalle.</div>
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
 <div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">País</label><select id="prPais" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"></select></div>
 <div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">Prioridad</label><select id="prTier" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"><option>Todas</option><option>🔴 Alta</option><option>🟡 Media</option><option>⚪ Seguimiento</option></select></div>
@@ -100,13 +120,42 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="hint">Cuánto del mercado acumulan las primeras N marcas. Mercados más concentrados = menos cuentas, tickets más grandes.</div>
 <table id="tConc"></table></div></div>
 <div class="panel" id="p-raw"><div class="card"><h2>BD cruda</h2><div class="hint">Todas las filas tal cual la base. <span id="rawCount"></span></div><table id="tRaw"></table></div></div>
-<footer>Generado desde la base cruda · Fuentes: CAVEM (Chile) · AAP/SUNARP (Perú) · CINAE (Ecuador) · <span id="gen"></span><br>Colombia (ANDEMOS) e histórico mensual: en proceso.</footer>
-</div><script>
+<footer>Generado desde la base cruda · Fuentes: CAVEM (Chile) · AAP/SUNARP (Perú) · AEADE (Ecuador) · ANDI/Fenalco (Colombia) · <span id="gen"></span><br>Series mensuales de Chile, Perú y Ecuador hasta el último informe publicado. Colombia: último acumulado por prensa (sin serie mensual).</footer>
+</div>
+<div class="modal-bg" id="modalBg"><div class="modal"><button class="x" onclick="closeMarca()">✕</button><div id="modalBody"></div></div></div>
+<script>
 const DATA=__DATA__;
 const TREND=__TREND__;
 const CN_TL=__CNTL__;
 const MENSUAL=__MENSUAL__;
 const SNAP=DATA.slice();   // snapshot original (último corte por país, incluye Colombia)
+const CC={Peru:'PE',Chile:'CL',Ecuador:'EC',Colombia:'CO'};
+const FUENTE_PAIS={Peru:'AAP/SUNARP',Chile:'CAVEM',Ecuador:'AEADE',Colombia:'ANDI/Fenalco'};
+const MES_ABBR={enero:'ene',febrero:'feb',marzo:'mar',abril:'abr',mayo:'may',junio:'jun',julio:'jul',agosto:'ago',septiembre:'sep',setiembre:'sep',octubre:'oct',noviembre:'nov',diciembre:'dic'};
+// Índice de la serie mensual: pais|ym|marca -> fila, y último ym por país
+const MIDX={};const ULT_YM={};
+MENSUAL.rows.forEach(r=>{MIDX[r.pais+'|'+r.ym+'|'+r.marca]=r;if(!ULT_YM[r.pais]||r.ym>ULT_YM[r.pais])ULT_YM[r.pais]=r.ym;});
+// Mes anterior de un "YYYY-MM"
+function prevYm(ym){const a=ym.split('-').map(Number);return a[1]===1?(a[0]-1)+'-12':a[0]+'-'+String(a[1]-1).padStart(2,'0');}
+// Var% MoM real (mes vs mes anterior) de una marca/país en un ym dado
+function momOf(pais,ym,marca){
+  if(!ym)return null;
+  const cur=MIDX[pais+'|'+ym+'|'+marca],prev=MIDX[pais+'|'+prevYm(ym)+'|'+marca];
+  if(!cur||cur.mes==null||!prev||prev.mes==null||prev.mes===0)return null;
+  return (cur.mes-prev.mes)/prev.mes*100;
+}
+// YoY (acumulado) y MoM real de una fila, según la vista activa
+function yoyMom(d){
+  const ym=state.periodo==='ultimo'?ULT_YM[d.pais]:state.periodo;
+  if(state.periodo==='ultimo')return {yoy:d.var, mom:momOf(d.pais,ym,d.marca)};
+  const row=MIDX[d.pais+'|'+ym+'|'+d.marca];
+  return {yoy:row?row.accVar:null, mom:momOf(d.pais,ym,d.marca)};
+}
+function periodoCorto(periodo){ // "Acum a Mayo 2026" -> "may-26"
+  const m=(periodo||'').toLowerCase().match(/(\w+)\s+(\d{4})/);
+  if(!m)return periodo||'';
+  return (MES_ABBR[m[1]]||m[1].slice(0,3))+'-'+m[2].slice(2);
+}
 const fmt=n=>n.toLocaleString('es-PE');const pct=v=>(v>=0?'+':'')+v.toFixed(1)+'%';
 const pill=v=>v===null||v===undefined?'<span class="pill flat">n/d</span>':`<span class="pill ${v>1?'up':v<-1?'down':'flat'}">${v>1000?'>+1000%':pct(v)}</span>`;
 const CN=['Changan','Jetour','Geely','Chery','Dfsk','Shineray','Jac','Foton','Great Wall','Haval','Byd','Jmc','Forland','Kyc','King Long','Dongfeng','Gac','Mg','Baic','Jaecoo','Omoda','Sinotruk','Maxus','Dfm','Kaiyi','Leapmotor','Zeekr','Neta','Wuling','Riddara'];
@@ -132,10 +181,42 @@ function applyPeriodo(){
 function paises(){return uniq(DATA.map(d=>d.pais))}
 function matchOrigen(m){return state.origen==='Todas'||(state.origen.startsWith('Chinas')&&isCh(m))||(state.origen==='No chinas'&&!isCh(m))}
 function rows(){return DATA.filter(d=>(state.pais==='Todos'||d.pais===state.pais)&&matchOrigen(d.marca)&&(state.marca===''||d.marca.toLowerCase().includes(state.marca.toLowerCase())))}
-function badges(){
+function badges(){ // contexto dinámico de la vista activa (debajo de los filtros)
  const per={};DATA.forEach(d=>per[d.pais]=d.periodo);
- document.getElementById('badges').innerHTML=paises().map(p=>`<span class="badge">📍 ${p}: ${per[p]}</span>`).join('')+`<span class="badge">🏷️ ${uniq(DATA.map(d=>d.marca)).length} marcas</span><span class="badge">📊 ${DATA.length} filas</span>`;
+ const vista=state.periodo==='ultimo'?'Último por país':(state.periodo+' · '+(state.vista==='acc'?'acumulado':'solo ese mes'));
+ document.getElementById('ctx').innerHTML=`<span class="c">Vista: ${vista}</span><span class="c">${uniq(DATA.map(d=>d.marca)).length} marcas</span><span class="c">${DATA.length} filas</span>`+paises().map(p=>`<span class="c">${CC[p]||p}: ${periodoCorto(per[p])}</span>`).join('');
  document.getElementById('gen').textContent='actualizado '+new Date().toLocaleDateString('es-PE');}
+function heroBand(){ // banda fija de escala de mercado, siempre sobre el último corte (SNAP)
+ const ps=uniq(SNAP.map(d=>d.pais));
+ const tot=SNAP.reduce((s,x)=>s+x.uc,0);
+ const wr=SNAP.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
+ const yoy=tp?((tc-tp)/tp*100):null;
+ const cn=SNAP.filter(x=>isCh(x.marca)).reduce((s,x)=>s+x.uc,0);const cnpct=tot?cn/tot*100:0;
+ const hk=[['Unidades acum.',fmt(tot)],['Var. interanual',yoy===null?'n/d':pct(yoy)],['Marcas chinas',cnpct.toFixed(1)+'%'],['Cobertura',ps.length+'/4 países']];
+ document.getElementById('heroKpis').innerHTML=hk.map(k=>`<div class="hero-kpi"><div class="hv">${k[1]}</div><div class="hl">${k[0]}</div></div>`).join('');
+ const per={};SNAP.forEach(d=>per[d.pais]=d.periodo);
+ document.getElementById('heroUpd').innerHTML='<span class="badge">📅 Dato a:</span>'+ps.map(p=>`<span class="badge">${CC[p]||p} ${periodoCorto(per[p])}</span>`).join('')+'<span class="badge" style="opacity:.65">suma de cortes distintos por país</span>';}
+function alertasMes(){ // movimientos del último mes con dato, por país
+ const byPais={};
+ MENSUAL.rows.forEach(r=>{(byPais[r.pais]=byPais[r.pais]||{});(byPais[r.pais][r.ym]=byPais[r.pais][r.ym]||[]).push(r);});
+ const out=[];
+ Object.keys(byPais).forEach(p=>{
+  const yms=Object.keys(byPais[p]).sort();const cur=yms[yms.length-1],prev=yms[yms.length-2];
+  const cR=byPais[p][cur]||[];const pMap={};(byPais[p][prev]||[]).forEach(r=>pMap[r.marca]=r.mes);
+  // crecimiento MoM real, exigiendo base previa razonable para evitar ruido
+  cR.map(r=>{const pb=pMap[r.marca];const mom=(pb&&pb>0&&r.mes!=null)?(r.mes-pb)/pb*100:null;return {...r,mom,pb};})
+    .filter(r=>r.mom!=null&&r.mom>=40&&r.mes>=120&&r.pb>=30)
+    .sort((a,b)=>b.mom-a.mom).slice(0,3)
+    .forEach(r=>out.push({t:'up',cn:isCh(r.marca),txt:`${r.marca} +${Math.round(r.mom)}% MoM en ${CC[p]}`}));
+  if(prev){
+   const rank=rs=>{const s=[...rs].sort((a,b)=>(b.mes||0)-(a.mes||0));const m={};s.forEach((r,i)=>m[r.marca]=i+1);return m;};
+   const rc=rank(cR),rp=rank(byPais[p][prev]||[]);
+   cR.forEach(r=>{if(rc[r.marca]<=10&&(rp[r.marca]>10||rp[r.marca]===undefined))out.push({t:'star',cn:isCh(r.marca),txt:`${r.marca} entró al top 10 en ${CC[p]}`});});
+  }
+ });
+ out.sort((a,b)=>(b.cn-a.cn));
+ const top=out.slice(0,10);
+ document.getElementById('alertas').innerHTML=top.length?top.map(a=>`<span class="alert ${a.t}">${a.t==='up'?'📈':'⭐'} ${a.txt}${a.cn?' <span class="tag">CN</span>':''}</span>`).join(''):'<span class="hint">Sin movimientos destacados este mes.</span>';}
 function fillFilters(){
  const fp=document.getElementById('fPais');fp.innerHTML=['Todos',...paises()].map(x=>`<option>${x}</option>`).join('');
  fp.onchange=e=>{state.pais=e.target.value;render()};
@@ -165,12 +246,12 @@ function tTop(){
  document.getElementById('topTitle').textContent='Top marcas '+(state.pais==='Todos'?'· '+paises().length+' países (ranking por país, no comparar volumen)':'· '+state.pais);
  const showP=state.pais==='Todos';
  const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th class="num">Unidades</th><th class="num">Var.% YoY</th><th>Volumen</th></tr>`;
- const b=r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk">${x.marca}${isCh(x.marca)?'<span class="tag">CN</span>':''}</td>${showP?'<td class="flag">'+x.pais+'</td>':''}<td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${x.uc/max*100}%"></span></div></td></tr>`).join('');
+ const b=r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk"><span class="clk" onclick="openMarca('${x.marca}')">${x.marca}</span>${isCh(x.marca)?'<span class="tag">CN</span>':''}</td>${showP?'<td class="flag">'+x.pais+'</td>':''}<td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${x.uc/max*100}%"></span></div></td></tr>`).join('');
  document.getElementById('tTop').innerHTML=h+b;}
 function tEmerg(){
  let r=rows().filter(x=>x.var!=null&&x.var>50&&x.uc>=300).sort((a,b)=>b.var-a.var);const cap=v=>Math.min(v,300);const max=Math.max(...r.map(x=>cap(x.var)),1);
  const h=`<tr><th>#</th><th>Marca</th><th>País</th><th class="num">Unidades</th><th class="num">Var.% YoY</th><th>Crecimiento</th></tr>`;
- const b=r.length?r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk">${x.marca}${isCh(x.marca)?'<span class="tag">CN</span>':''}</td><td class="flag">${x.pais}</td><td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${cap(x.var)/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join(''):`<tr><td colspan="6" style="color:var(--grey);padding:18px">Sin marcas sobre el umbral con el filtro actual.</td></tr>`;
+ const b=r.length?r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk"><span class="clk" onclick="openMarca('${x.marca}')">${x.marca}</span>${isCh(x.marca)?'<span class="tag">CN</span>':''}</td><td class="flag">${x.pais}</td><td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${cap(x.var)/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join(''):`<tr><td colspan="6" style="color:var(--grey);padding:18px">Sin marcas sobre el umbral con el filtro actual.</td></tr>`;
  document.getElementById('tEmerg').innerHTML=h+b;}
 function tComp(){
  const ps=paises();const marks={};DATA.forEach(d=>{marks[d.marca]=marks[d.marca]||{};marks[d.marca][d.pais]={uc:d.uc,var:d.var}});
@@ -232,8 +313,40 @@ function mercadoConc(){
 
 function render(){kpis();tTop();tEmerg();tComp();tRaw();mercadoCN();mercadoConc();cnChart();}
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById('p-'+t.dataset.p).classList.add('active')});
+
+// ---- DRILL-DOWN POR MARCA -------------------------------------------------
+function sparkMarca(serie){ // serie=[{ym,mes}] ordenada
+ const s=serie.slice(-14);if(!s.length)return '<span class="hint">sin serie mensual</span>';
+ const max=Math.max(...s.map(p=>p.mes||0),1);const W=s.length*20+6,H=44;
+ const bars=s.map((p,i)=>{const h=(p.mes||0)/max*32;return `<rect x="${i*20+4}" y="${36-h}" width="13" height="${h}" rx="2" fill="${p.ym.startsWith('2026')?'#C0392B':'#2E5496'}"><title>${p.ym}: ${fmt(p.mes||0)}</title></rect>`;}).join('');
+ const lbl=`<text x="4" y="${H}" font-size="8" fill="#888">${s[0].ym}</text><text x="${W-2}" y="${H}" font-size="8" fill="#888" text-anchor="end">${s[s.length-1].ym}</text>`;
+ return `<svg width="${W}" height="${H}">${bars}${lbl}</svg>`;}
+function openMarca(marca){
+ const snap=SNAP.filter(d=>d.marca===marca);
+ const totPais={};SNAP.forEach(d=>totPais[d.pais]=(totPais[d.pais]||0)+d.uc);
+ const ev=MENSUAL.rows.filter(r=>r.marca===marca);
+ const evByPais={};ev.forEach(r=>{(evByPais[r.pais]=evByPais[r.pais]||[]).push(r);});
+ Object.values(evByPais).forEach(a=>a.sort((x,y)=>x.ym<y.ym?-1:1));
+ const filas=snap.sort((a,b)=>b.uc-a.uc).map(d=>{
+   const mm=MIDX[d.pais+'|'+ULT_YM[d.pais]+'|'+d.marca];
+   const share=totPais[d.pais]?(d.uc/totPais[d.pais]*100):null;
+   const sp=evByPais[d.pais]?sparkMarca(evByPais[d.pais].map(r=>({ym:r.ym,mes:r.mes}))):'<span class="hint">—</span>';
+   return `<tr><td class="flag">${d.pais}</td><td class="num">${fmt(d.uc)}</td><td class="num">${pill(d.var)}</td><td class="num">${pill(mm?mm.mesVar:null)}</td><td class="num">${share!=null?share.toFixed(1)+'%':'—'}</td><td>${sp}</td></tr>`;
+ }).join('');
+ const npais=snap.length;const cn=isCh(marca);
+ document.getElementById('modalBody').innerHTML=
+   `<h3>${marca}${cn?' <span class="tag">CN</span>':''}</h3>`+
+   `<div class="hint">Presente en ${npais} de 4 países · ${cn?'origen China':'no china'}. Unidades del último corte de cada país, YoY, MoM, share y evolución mensual.</div>`+
+   `<table><tr><th>País</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Evolución mensual</th></tr>${filas}</table>`+
+   `<div class="note" style="margin-top:12px">Share = unidades de la marca sobre el total de marcas reportadas de ese país (referencial, top por fuente). Barras rojas = 2026.</div>`;
+ document.getElementById('modalBg').classList.add('show');}
+function closeMarca(){document.getElementById('modalBg').classList.remove('show');}
+document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeMarca();});
+
+heroBand();
 badges();fillFilters();initPeriodo();render();
 try{fillTrend();}catch(e){console.error('Tendencia falló:',e);}
+try{alertasMes();}catch(e){console.error('Alertas falló:',e);}
 document.getElementById('cnPais').onchange=cnChart;
 
 // ---- PROSPECCIÓN H2 -------------------------------------------------------
@@ -281,18 +394,19 @@ function tProsp(){
     `<span class="pill flat" style="font-size:12px">Total: ${rows.length} targets</span>`;
 
   const showP=paisFil==='Todos';
-  const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th>Prioridad</th><th class="num">Score</th><th class="num">Unidades</th><th class="num">Var% YoY</th><th class="num">Países</th></tr>`;
-  const b=rows.map((r,i)=>`<tr>
+  const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th>Prioridad</th><th class="num">Score</th><th class="num">Unidades</th><th class="num">Var% YoY</th><th class="num">Var% MoM</th><th class="num">Países</th></tr>`;
+  const b=rows.map((r,i)=>{const m=yoyMom(r);return `<tr>
     <td class="rank">${i+1}</td>
-    <td class="mk">${r.marca}${isCh(r.marca)?'<span class="tag">CN</span>':''}</td>
+    <td class="mk"><span class="clk" onclick="openMarca('${r.marca}')">${r.marca}</span>${isCh(r.marca)?'<span class="tag">CN</span>':''}</td>
     ${showP?`<td class="flag">${r.pais}</td>`:''}
     <td><span style="font-size:13px;font-weight:700">${r.tier}</span></td>
     <td class="num"><b>${r.score}</b></td>
     <td class="num">${fmt(r.uc)}</td>
-    <td class="num">${pill(r.var)}</td>
+    <td class="num">${pill(m.yoy)}</td>
+    <td class="num">${pill(m.mom)}</td>
     <td class="num" style="color:${r.npaises>=3?'var(--green)':r.npaises===2?'var(--blue)':'var(--grey)'}">${r.npaises}/4</td>
-  </tr>`).join('');
-  document.getElementById('tProsp').innerHTML=h+(b||'<tr><td colspan="8" style="color:var(--grey);padding:18px">Sin resultados con ese filtro.</td></tr>');
+  </tr>`}).join('');
+  document.getElementById('tProsp').innerHTML=h+(b||'<tr><td colspan="9" style="color:var(--grey);padding:18px">Sin resultados con ese filtro.</td></tr>');
 }
 
 function tMulti(){
