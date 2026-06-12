@@ -59,6 +59,7 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="tab" data-p="comp">🌎 Comparar países</div>
 <div class="tab" data-p="trend">📈 Tendencia</div>
 <div class="tab" data-p="mercado">📊 Mercado</div>
+<div class="tab" data-p="grupos">🏢 Importadoras</div>
 <div class="tab" data-p="raw">🗃️ Datos crudos</div></div>
 <div class="panel active" id="p-prosp">
 <div class="card">
@@ -119,6 +120,19 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="card"><h2>Concentración del mercado</h2>
 <div class="hint">Cuánto del mercado acumulan las primeras N marcas. Mercados más concentrados = menos cuentas, tickets más grandes.</div>
 <table id="tConc"></table></div></div>
+<div class="panel" id="p-grupos">
+<div class="card">
+<h2>Grupos importadores / distribuidores 🏢</h2>
+<div class="hint">La cuenta a prospectar es el <b>grupo</b>, no la marca: un grupo suele manejar varias marcas. Priorizá los que concentran <b>varias marcas en rampa</b> (📈). Filtrá por país arriba. Clic en una marca para su detalle. Cruzado con el último corte de ventas de cada país.</div>
+<table id="tGrupos"></table>
+<div class="note" style="margin-top:12px">Fuente: investigación web (ANAC/AAP/CINAE + webs oficiales), jun-2026. <b>Confianza</b>: 🟢 alta · 🟡 media · ⚪ baja/verificar. Las marcas en rampa se cuentan por Var% YoY &gt; 50%.</div>
+</div>
+<div class="card">
+<h2>Detalle marca → importadora</h2>
+<div class="hint">Una fila por marca-país con su importador/distribuidor, tipo y confianza del dato.</div>
+<table id="tMarcaImport"></table>
+</div>
+</div>
 <div class="panel" id="p-raw"><div class="card"><h2>BD cruda</h2><div class="hint">Todas las filas tal cual la base. <span id="rawCount"></span></div><table id="tRaw"></table></div></div>
 <footer>Generado desde la base cruda · Fuentes: CAVEM (Chile) · AAP/SUNARP (Perú) · AEADE (Ecuador) · ANDI/Fenalco (Colombia) · <span id="gen"></span><br>Series mensuales de Chile, Perú y Ecuador hasta el último informe publicado. Colombia: último acumulado por prensa (sin serie mensual).</footer>
 </div>
@@ -128,7 +142,10 @@ const DATA=__DATA__;
 const TREND=__TREND__;
 const CN_TL=__CNTL__;
 const MENSUAL=__MENSUAL__;
+const GRUPOS=__GRUPOS__;   // mapeo marca->grupo importador por país
 const SNAP=DATA.slice();   // snapshot original (último corte por país, incluye Colombia)
+const GIDX={};GRUPOS.forEach(g=>{GIDX[g.pais+'|'+g.marca]=g;});
+const CONF_ICON={alta:'🟢',media:'🟡',baja:'⚪'};
 const CC={Peru:'PE',Chile:'CL',Ecuador:'EC',Colombia:'CO'};
 const FUENTE_PAIS={Peru:'AAP/SUNARP',Chile:'CAVEM',Ecuador:'AEADE',Colombia:'ANDI/Fenalco'};
 const MES_ABBR={enero:'ene',febrero:'feb',marzo:'mar',abril:'abr',mayo:'may',junio:'jun',julio:'jul',agosto:'ago',septiembre:'sep',setiembre:'sep',octubre:'oct',noviembre:'nov',diciembre:'dic'};
@@ -311,7 +328,33 @@ function mercadoConc(){
   return `<tr><td class="flag">${p}</td><td class="num">${cum(5).toFixed(0)}%</td><td class="num">${cum(10).toFixed(0)}%</td><td class="num">${cum(20).toFixed(0)}%</td><td class="num">${r.length}</td></tr>`}).join('');
  document.getElementById('tConc').innerHTML=`<tr><th>País</th><th class="num">Top 5</th><th class="num">Top 10</th><th class="num">Top 20</th><th class="num"># marcas</th></tr>`+rowsH;}
 
-function render(){kpis();tTop();tEmerg();tComp();tRaw();mercadoCN();mercadoConc();cnChart();}
+function tGrupos(){
+ const sIdx={};SNAP.forEach(d=>sIdx[d.pais+'|'+d.marca]=d);
+ const agg={};
+ GRUPOS.forEach(g=>{
+  if(state.pais!=='Todos'&&g.pais!==state.pais)return;
+  if(g.grupo.indexOf('verificar')>=0)return;
+  const k=g.pais+'|'+g.grupo;
+  if(!agg[k])agg[k]={pais:g.pais,grupo:g.grupo,marcas:[],uc:0,rampa:0};
+  const s=sIdx[g.pais+'|'+g.marca]||{};const uc=s.uc||0;const vr=(s.var==null?null:s.var);const rampa=vr!=null&&vr>50;
+  agg[k].marcas.push({marca:g.marca,uc,rampa,cn:isCh(g.marca)});agg[k].uc+=uc;if(rampa)agg[k].rampa++;
+ });
+ const list=Object.values(agg).sort((a,b)=>b.rampa-a.rampa||b.uc-a.uc);
+ const showP=state.pais==='Todos';
+ const h=`<tr><th>Grupo</th>${showP?'<th>País</th>':''}<th class="num"># marcas</th><th class="num">📈 rampa</th><th class="num">Unid. acum</th><th>Marcas que maneja</th></tr>`;
+ const b=list.map(it=>{
+  const chips=it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 8px;border:1px solid var(--line);border-radius:10px;font-size:12px;${m.rampa?'background:#f0faf3;border-color:#bfe3cc':''}">${m.marca}${m.cn?' 🇨🇳':''}${m.rampa?' 📈':''}</span>`).join('');
+  return `<tr><td class="mk">${it.grupo}</td>${showP?'<td class="flag">'+(CC[it.pais]||it.pais)+'</td>':''}<td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td><td class="num">${it.uc?fmt(it.uc):'—'}</td><td>${chips}</td></tr>`;
+ }).join('');
+ document.getElementById('tGrupos').innerHTML=h+(b||'<tr><td colspan="6" style="padding:16px;color:var(--grey)">Sin datos para ese país.</td></tr>');}
+function tMarcaImport(){
+ const sIdx={};SNAP.forEach(d=>sIdx[d.pais+'|'+d.marca]=d);
+ const rows=GRUPOS.filter(g=>state.pais==='Todos'||g.pais===state.pais)
+   .sort((a,b)=>a.pais<b.pais?-1:a.pais>b.pais?1:(a.marca<b.marca?-1:1));
+ const h=`<tr><th>País</th><th>Marca</th><th>Importador / grupo</th><th>Tipo</th><th class="num">Unid.</th><th>Conf.</th></tr>`;
+ const b=rows.map(g=>{const s=sIdx[g.pais+'|'+g.marca]||{};return `<tr><td class="flag">${CC[g.pais]||g.pais}</td><td class="mk"><span class="clk" onclick="openMarca('${g.marca}')">${g.marca}</span>${isCh(g.marca)?'<span class="tag">CN</span>':''}</td><td>${g.grupo}${g.nota?' <span style="color:var(--grey);font-size:11px">· '+g.nota+'</span>':''}</td><td style="font-size:12px;color:var(--grey)">${g.tipo}</td><td class="num">${s.uc?fmt(s.uc):'—'}</td><td title="${g.confianza}">${CONF_ICON[g.confianza]||''}</td></tr>`;}).join('');
+ document.getElementById('tMarcaImport').innerHTML=h+b;}
+function render(){kpis();tTop();tEmerg();tComp();tRaw();mercadoCN();mercadoConc();cnChart();tGrupos();tMarcaImport();}
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById('p-'+t.dataset.p).classList.add('active')});
 
 // ---- DRILL-DOWN POR MARCA -------------------------------------------------
@@ -331,14 +374,16 @@ function openMarca(marca){
    const mm=MIDX[d.pais+'|'+ULT_YM[d.pais]+'|'+d.marca];
    const share=totPais[d.pais]?(d.uc/totPais[d.pais]*100):null;
    const sp=evByPais[d.pais]?sparkMarca(evByPais[d.pais].map(r=>({ym:r.ym,mes:r.mes}))):'<span class="hint">—</span>';
-   return `<tr><td class="flag">${d.pais}</td><td class="num">${fmt(d.uc)}</td><td class="num">${pill(d.var)}</td><td class="num">${pill(mm?mm.mesVar:null)}</td><td class="num">${share!=null?share.toFixed(1)+'%':'—'}</td><td>${sp}</td></tr>`;
+   const g=GIDX[d.pais+'|'+d.marca];
+   const imp=g?`${g.grupo} ${CONF_ICON[g.confianza]||''}`:'<span style="color:#bbb">s/d</span>';
+   return `<tr><td class="flag">${CC[d.pais]||d.pais}</td><td>${imp}</td><td class="num">${fmt(d.uc)}</td><td class="num">${pill(d.var)}</td><td class="num">${pill(mm?mm.mesVar:null)}</td><td class="num">${share!=null?share.toFixed(1)+'%':'—'}</td><td>${sp}</td></tr>`;
  }).join('');
  const npais=snap.length;const cn=isCh(marca);
  document.getElementById('modalBody').innerHTML=
    `<h3>${marca}${cn?' <span class="tag">CN</span>':''}</h3>`+
-   `<div class="hint">Presente en ${npais} de 4 países · ${cn?'origen China':'no china'}. Unidades del último corte de cada país, YoY, MoM, share y evolución mensual.</div>`+
-   `<table><tr><th>País</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Evolución mensual</th></tr>${filas}</table>`+
-   `<div class="note" style="margin-top:12px">Share = unidades de la marca sobre el total de marcas reportadas de ese país (referencial, top por fuente). Barras rojas = 2026.</div>`;
+   `<div class="hint">Presente en ${npais} de 4 países · ${cn?'origen China':'no china'}. Importadora/grupo que la trabaja en cada país, unidades del último corte, YoY, MoM, share y evolución mensual.</div>`+
+   `<table><tr><th>País</th><th>Importadora / grupo</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Evolución mensual</th></tr>${filas}</table>`+
+   `<div class="note" style="margin-top:12px">Importadora: 🟢 alta · 🟡 media confianza (fuente: investigación web jun-2026). Share = unidades de la marca sobre el total reportado del país. Barras rojas = 2026.</div>`;
  document.getElementById('modalBg').classList.add('show');}
 function closeMarca(){document.getElementById('modalBg').classList.remove('show');}
 document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeMarca();});

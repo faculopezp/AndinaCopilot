@@ -124,18 +124,36 @@ def _chile_tail_rows(seen: set, periodos: set) -> list:
     return out
 
 
+def load_grupos():
+    """Carga el mapeo marca->grupo importador (data/grupos_importadores.csv)."""
+    path = DATA / "grupos_importadores.csv"
+    if not path.exists():
+        return []
+    out = []
+    with open(path, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            out.append({
+                "pais": r["pais"], "marca": r["marca"], "grupo": r["grupo"],
+                "tipo": r["tipo"], "confianza": r["confianza"],
+                "web": r.get("fuente", ""), "nota": r.get("nota", ""),
+            })
+    return out
+
+
 def main():
     data = json.loads((DATA / "base_nacional.json").read_text(encoding="utf-8"))
     trend = json.loads((DATA / "trend.json").read_text(encoding="utf-8"))
     cntl = json.loads((DATA / "china_tl.json").read_text(encoding="utf-8"))
     mensual = build_mensual()
+    grupos = load_grupos()
 
     html = (DASH / "template.html").read_text(encoding="utf-8")
     html = (html
             .replace("__DATA__", json.dumps(data, ensure_ascii=False))
             .replace("__TREND__", json.dumps(trend, ensure_ascii=False))
             .replace("__CNTL__", json.dumps(cntl, ensure_ascii=False))
-            .replace("__MENSUAL__", json.dumps(mensual, ensure_ascii=False)))
+            .replace("__MENSUAL__", json.dumps(mensual, ensure_ascii=False))
+            .replace("__GRUPOS__", json.dumps(grupos, ensure_ascii=False)))
 
     out = DASH / "Dashboard_Andino_Ventas_Auto.html"
     out.write_text(html, encoding="utf-8")
