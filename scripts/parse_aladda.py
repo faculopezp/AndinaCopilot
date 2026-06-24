@@ -173,6 +173,77 @@ def fetch_pdf_text(year: int, month: int) -> str:
         return "\n".join((p.extract_text() or "") for p in pdf.pages)
 
 
+def fetch_pdf_bytes(year: int, month: int) -> bytes:
+    import requests
+    r = requests.get(_pdf_url_for(year, month), timeout=60)
+    r.raise_for_status()
+    return r.content
+
+
+_CANON_ALIAS = {"GWM": "Great Wall", "GREAT WALL": "Great Wall", "MMC": "Mitsubishi"}
+
+
+def _canon_marca(m: str) -> str:
+    k = _strip_accents(m).strip().upper()
+    return _CANON_ALIAS.get(k, m.strip().title())
+
+
+def parse_marca_tables(pdf_bytes: bytes) -> dict:
+    """Extrae {pais: {marca: acum_anio_actual}} usando extract_tables() (robusto entre meses).
+
+    Cada página de país tiene su nombre como título y una grilla de marcas con
+    columnas (Cantidad, Participación) x4: mes año previo, mes año actual,
+    acumulado año previo, acumulado año actual. Tomamos la 4ª 'Cantidad'.
+    Maneja números partidos por la extracción (concatena tokens no-% en cada par).
+    """
+    import io
+    import pdfplumber
+    out: dict = {}
+    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        for page in pdf.pages:
+            txt = page.extract_text() or ""
+            pais = None
+            for ln in txt.splitlines()[:8]:
+                c = _norm_country(ln)
+                if c:
+                    pais = c
+                    break
+            if not pais:
+                continue
+            marcas: dict = {}
+            for tbl in (page.extract_tables() or []):
+                for row in tbl:
+                    cells = [str(c).strip() for c in row if c not in (None, "")]
+                    if not cells:
+                        continue
+                    mtoks, rest = [], []
+                    for c in cells:
+                        if not rest and not re.search(r"\d", c):
+                            mtoks.append(c)
+                        else:
+                            rest.append(c)
+                    marca = " ".join(mtoks).strip()
+                    mu = marca.upper()
+                    if not marca or mu.startswith(("MARCA", "TOTAL", "PAIS", "PAÍS")):
+                        continue
+                    pairs, cur = [], ""
+                    for tk in " ".join(rest).split():
+                        if "%" in tk:
+                            if cur:
+                                pairs.append(cur)
+                                cur = ""
+                        elif re.fullmatch(r"[\d.]+", tk):
+                            cur += tk
+                    if len(pairs) >= 4:
+                        try:
+                            marcas[_canon_marca(marca)] = int(pairs[3].replace(".", ""))
+                        except ValueError:
+                            pass
+            if marcas:
+                out.setdefault(pais, {}).update(marcas)
+    return out
+
+
 def write_csvs(parsed: dict, periodo_label: str) -> None:
     DATA.mkdir(exist_ok=True)
     with open(DATA / "aladda_country_totals.csv", "w", newline="", encoding="utf-8") as f:

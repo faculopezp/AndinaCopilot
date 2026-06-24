@@ -746,6 +746,87 @@ def ingest_aladda():
         print(f"  ALADDA: uso el CSV existente (no pude refrescar: {e})")
 
 
+# Países sin serie mensual propia: su Tendencia/MoM sale de ALADDA histórico.
+ALADDA_SOLO_MENSUAL = {"Colombia", "Costa Rica", "Guatemala", "Panama", "Rep. Dominicana"}
+
+
+def ingest_aladda_mensual(backfill: bool = False, anios=(2026,)):
+    """Serie mensual de los países SIN parser propio, desde el histórico de ALADDA.
+
+    Cada informe ALADDA trae el acumulado Ene-{mes} por marca; juntando meses y
+    restando se obtiene la unidad mensual (igual lógica que CAVEM/AAP). Sólo cubre
+    Colombia/Costa Rica/Guatemala/Panamá/Rep. Dominicana (CL/PE/EC usan su parser,
+    más profundo). Incremental: salta los meses ya presentes salvo --backfill.
+    """
+    import parse_aladda as pa
+    existing = _load_monthly_csv("aladda_mensual.csv")
+    known = {(int(r["anio"]), int(r["mes"])) for r in existing}
+
+    # Meses candidatos: ene..(último disponible) de cada año pedido
+    try:
+        ly, lm = pa.discover_latest()
+    except Exception:
+        ly, lm = 2026, 5
+    candidates = []
+    for y in anios:
+        last = lm if y == ly else 12
+        for m in range(1, last + 1):
+            if datetime(y, m, 1) > datetime.now():
+                break
+            candidates.append((y, m))
+    if not backfill:
+        candidates = [(y, m) for y, m in candidates if (y, m) not in known]
+
+    # combinado por país: {(anio,mes,marca): acum}
+    combined = {p: {} for p in ALADDA_SOLO_MENSUAL}
+    for r in existing:  # arranco con lo ya bajado
+        if r["pais"] in combined:
+            combined[r["pais"]][(int(r["anio"]), int(r["mes"]), r["marca"])] = int(r["unid_acum"])
+
+    import io as _io
+    import pdfplumber as _pp
+    for (y, m) in candidates:
+        try:
+            pdf_bytes = pa.fetch_pdf_bytes(y, m)
+        except Exception as e:
+            print(f"  [WARN] ALADDA mensual {y}-{m:02d}: {e}")
+            continue
+        # Hibrido: tablas (extract_tables) + texto (parse_text). Cada mes uno u otro
+        # funciona mejor; unimos para maximizar cobertura de los 5 países objetivo.
+        mes_data = {p: {} for p in ALADDA_SOLO_MENSUAL}  # pais -> {marca: acum}
+        try:
+            for pais, marcas in pa.parse_marca_tables(pdf_bytes).items():
+                if pais in mes_data:
+                    for marca, acum in marcas.items():
+                        mes_data[pais][canon(marca)] = acum
+        except Exception as e:
+            print(f"  [WARN] tablas {y}-{m:02d}: {e}")
+        try:
+            with _pp.open(_io.BytesIO(pdf_bytes)) as _pdf:
+                _txt = "\n".join((p.extract_text() or "") for p in _pdf.pages)
+            for r in pa.parse_text(_txt)["top10"]:
+                if r["pais"] in mes_data:
+                    mes_data[r["pais"]].setdefault(canon(r["marca"]), r["acum_2026"])
+        except Exception as e:
+            print(f"  [WARN] texto {y}-{m:02d}: {e}")
+        n = 0
+        for pais, marcas in mes_data.items():
+            for marca, acum in marcas.items():
+                combined[pais][(y, m, marca)] = acum
+                n += 1
+        cubiertos = sum(1 for p, mk in mes_data.items() if mk)
+        print(f"  ->ALADDA mensual {y}-{m:02d}: {n} filas, {cubiertos}/5 países objetivo")
+        time.sleep(SLEEP)
+
+    rows = []
+    for pais, comb in combined.items():
+        if comb:
+            rows += _build_monthly_series(comb, pais)
+    rows.sort(key=lambda r: (r["pais"], r["anio"], r["mes"], r["marca"]))
+    save_monthly_csv(rows, "aladda_mensual.csv")
+    return rows
+
+
 def rebuild_base_nacional(*_ignored):
     """Reconstruye base_nacional.csv/.json desde ALADDA (8 países, último corte).
 
@@ -956,6 +1037,10 @@ def main():
 
     print("\n=== ALADDA (regional, 8 países) ===")
     ingest_aladda()
+    try:
+        ingest_aladda_mensual(backfill=args.backfill)   # serie mensual CO/CR/GT/PA/RD (incremental)
+    except Exception as e:
+        print(f"  [WARN] ALADDA mensual: {e}")
 
     print("\n=== Reconstruyendo JSONs ===")
     rebuild_base_nacional()  # snapshot desde ALADDA (8 países)
