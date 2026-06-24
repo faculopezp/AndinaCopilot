@@ -36,7 +36,8 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 .clk{cursor:pointer;border-bottom:1px dotted var(--blue)}.clk:hover{color:var(--blue)}
 .modal-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:flex-start;justify-content:center;z-index:50;padding:38px 16px;overflow:auto}
 .modal-bg.show{display:flex}
-.modal{background:#fff;border-radius:16px;max-width:760px;width:100%;padding:22px 26px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.modal{background:#fff;border-radius:16px;max-width:760px;width:100%;padding:22px 26px;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden}
+.modal .tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}.modal .tbl table{min-width:520px}
 .modal h3{font-size:19px;color:var(--navy)}.modal .x{float:right;cursor:pointer;font-size:22px;color:var(--grey);border:none;background:none;line-height:1}
 </style></head><body><div class="wrap">
 <header><h1>Mercado Andino+ · Ventas Automotrices</h1>
@@ -399,7 +400,7 @@ function openMarca(marca){
  document.getElementById('modalBody').innerHTML=
    `<h3>${marca}${cn?' <span class="tag">CN</span>':''}</h3>`+
    `<div class="hint">Presente en ${npais} de ${paises().length} países · ${cn?'origen China':'no china'}. Importadora/grupo que la trabaja en cada país, unidades del último corte, YoY, MoM, share y evolución mensual.</div>`+
-   `<table><tr><th>País</th><th>Importadora / grupo</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Evolución mensual</th></tr>${filas}</table>`+
+   `<div class="tbl"><table><tr><th>País</th><th>Importadora / grupo</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Evolución mensual</th></tr>${filas}</table></div>`+
    `<div class="note" style="margin-top:12px">Importadora: 🟢 alta · 🟡 media confianza (fuente: investigación web jun-2026). Share = unidades de la marca sobre el total reportado del país. Barras rojas = 2026.</div>`;
  document.getElementById('modalBg').classList.add('show');}
 function closeMarca(){document.getElementById('modalBg').classList.remove('show');}
