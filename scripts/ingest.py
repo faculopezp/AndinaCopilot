@@ -58,17 +58,33 @@ SLEEP   = 2  # segundos entre requests para no sobrecargar las fuentes
 # Utilidades
 # ---------------------------------------------------------------------------
 
-def fetch_pdf(url: str) -> bytes | None:
-    """Descarga un PDF y devuelve los bytes, o None si falla."""
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=30)
-        r.raise_for_status()
-        if "pdf" not in r.headers.get("Content-Type", "").lower() and not url.endswith(".pdf"):
-            print(f"  [WARN] Content-Type inesperado en {url}: {r.headers.get('Content-Type')}")
-        return r.content
-    except Exception as e:
-        print(f"  [ERROR] No se pudo descargar {url}: {e}")
-        return None
+def fetch_pdf(url: str, retries: int = 3) -> bytes | None:
+    """Descarga un PDF y devuelve los bytes, o None si falla.
+
+    Reintenta ante errores transitorios (conexión cortada/timeout). No reintenta
+    en 404 (URL inexistente).
+    """
+    for intento in range(1, retries + 1):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=40)
+            r.raise_for_status()
+            if "pdf" not in r.headers.get("Content-Type", "").lower() and not url.endswith(".pdf"):
+                print(f"  [WARN] Content-Type inesperado en {url}: {r.headers.get('Content-Type')}")
+            return r.content
+        except requests.HTTPError as e:
+            code = getattr(e.response, "status_code", None)
+            if code == 404:
+                print(f"  [ERROR] 404 (no existe): {url}")
+                return None
+            if intento == retries:
+                print(f"  [ERROR] HTTP {code} tras {retries} intentos: {url}")
+                return None
+        except Exception as e:
+            if intento == retries:
+                print(f"  [ERROR] No se pudo descargar {url}: {e}")
+                return None
+        time.sleep(2 * intento)
+    return None
 
 
 def pdf_to_lines(pdf_bytes: bytes) -> list[str]:
@@ -678,6 +694,108 @@ def ingest_ecuador(backfill: bool = False) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# COLOMBIA — boletín mensual ANDI (Cámara Industria Automotriz, fuente RUNT)
+# ---------------------------------------------------------------------------
+# PDF con "TOP 20 marcas": unidades del mes + mismo mes año anterior + var%.
+import urllib.parse as _urlparse
+
+CO_MMM = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
+          "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
+CO_MESES = {m: i + 1 for i, m in enumerate(
+    ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+     "agosto", "septiembre", "octubre", "noviembre", "diciembre"])}
+# fila: "1 RENAULT 2.582 1.653 14,1% 56,2%"
+CO_ROW = re.compile(
+    r"^\d+\s+([A-Za-z\xc0-\xff][A-Za-z\xc0-\xff .\-]+?)\s+([\d.]+)\s+([\d.]+)\s+"
+    r"[\d.,]+\s*%\s+-?[\d.,]+\s*%")
+CO_PERIODO = re.compile(r"\b(" + "|".join(CO_MESES) + r")\s+(\d{4})", re.IGNORECASE)
+
+
+def _co_url(anio: int, mes: int) -> str:
+    f = f"{mes:02d}. INFORME SECTOR AUTOMOTOR {CO_MMM[mes - 1]}_PRENSA-INDUSTRIA {anio}.pdf"
+    return "https://www.andi.com.co/Uploads/" + _urlparse.quote(f)
+
+
+def parse_colombia_andi(pdf_bytes: bytes) -> tuple[list[tuple], int | None, int | None]:
+    """Top-20 marcas del boletín ANDI. Devuelve ([(marca, unid_mes)], anio, mes)."""
+    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text(x_tolerance=2) or ""
+            up = text.upper()
+            if "TOP 20" not in up or "MARCAS" not in up:
+                continue
+            anio = mes = None
+            for line in text.splitlines()[:8]:
+                m = CO_PERIODO.search(line)
+                if m:
+                    mes = CO_MESES[m.group(1).lower()]
+                    anio = int(m.group(2))
+                    break
+            out = []
+            for line in text.splitlines():
+                if line.upper().startswith(("OTRAS", "TOTAL")):
+                    continue
+                m = CO_ROW.match(line.strip())
+                if m:
+                    marca = canon(m.group(1).strip())
+                    out.append((marca, int(m.group(2).replace(".", ""))))
+            if out:
+                return out, anio, mes
+    return [], None, None
+
+
+def ingest_colombia(backfill: bool = False) -> list[dict]:
+    """Serie mensual de Colombia desde el boletín ANDI (unidades del mes -> acum cumsum)."""
+    existing = _load_monthly_csv("colombia_mensual.csv")
+    known = {(int(r["anio"]), int(r["mes"])) for r in existing}
+    mensual = {(int(r["anio"]), int(r["mes"]), r["marca"]): int(r["unid_mes"])
+               for r in existing if r.get("unid_mes") not in ("", None)}
+
+    candidates = []
+    for anio in (2025, 2026):
+        for mes in range(1, 13):
+            if datetime(anio, mes, 1) > datetime.now():
+                break
+            candidates.append((anio, mes))
+    if not backfill:
+        candidates = [(a, m) for a, m in candidates if (a, m) not in known]
+
+    for anio, mes in candidates:
+        pdf = fetch_pdf(_co_url(anio, mes))
+        if not pdf:
+            continue
+        filas, y, mo = parse_colombia_andi(pdf)
+        if not filas:
+            print(f"  [WARN] Colombia {anio}-{mes:02d}: sin tabla de marcas")
+            continue
+        if y and mo and (y, mo) != (anio, mes):
+            print(f"  [WARN] Colombia {anio}-{mes:02d}: período detectado {y}-{mo:02d} != esperado")
+        for marca, unid in filas:
+            mensual[(anio, mes, marca)] = unid
+        print(f"  ->Colombia {anio}-{mes:02d}: {len(filas)} marcas (ANDI)")
+        time.sleep(SLEEP)
+
+    if not mensual:
+        print("  Colombia: sin datos.")
+        return existing
+
+    # unid_mes directo de ANDI; unid_acum = suma corrida dentro del año
+    by_marca = defaultdict(list)
+    for (a, m, marca), um in mensual.items():
+        by_marca[marca].append((a, m, um))
+    rows = []
+    for marca, pts in by_marca.items():
+        pts.sort()
+        run = {}
+        for a, m, um in pts:
+            run[a] = run.get(a, 0) + um
+            rows.append({"pais": "Colombia", "anio": a, "mes": m, "marca": marca,
+                         "unid_acum": run[a], "unid_mes": um})
+    rows.sort(key=lambda r: (r["anio"], r["mes"], r["marca"]))
+    return rows
+
+
+# ---------------------------------------------------------------------------
 # Helpers de CSV / series
 # ---------------------------------------------------------------------------
 
@@ -747,7 +865,8 @@ def ingest_aladda():
 
 
 # Países sin serie mensual propia: su Tendencia/MoM sale de ALADDA histórico.
-ALADDA_SOLO_MENSUAL = {"Colombia", "Costa Rica", "Guatemala", "Panama", "Rep. Dominicana"}
+# (Colombia ya no: tiene fuente propia, el boletín mensual de ANDI.)
+ALADDA_SOLO_MENSUAL = {"Costa Rica", "Guatemala", "Panama", "Rep. Dominicana"}
 
 
 def ingest_aladda_mensual(backfill: bool = False, anios=(2026,)):
@@ -979,13 +1098,14 @@ def _write_report(report: dict):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pais", default="all", choices=["chile", "peru", "ecuador", "all"])
+    ap.add_argument("--pais", default="all", choices=["chile", "peru", "ecuador", "colombia", "all"])
     ap.add_argument("--backfill", action="store_true", help="Reprocesar todos los meses conocidos")
     args = ap.parse_args()
 
-    run_peru    = args.pais in ("peru",    "all")
-    run_chile   = args.pais in ("chile",   "all")
-    run_ecuador = args.pais in ("ecuador", "all")
+    run_peru     = args.pais in ("peru",     "all")
+    run_chile    = args.pais in ("chile",    "all")
+    run_ecuador  = args.pais in ("ecuador",  "all")
+    run_colombia = args.pais in ("colombia", "all")
 
     # Cargar series existentes (para los países que no se actualizan en esta corrida)
     peru_rows    = _load_monthly_csv("peru_nacional_mensual.csv")
@@ -1034,6 +1154,17 @@ def main():
         except Exception as e:
             print(f"  [ERROR] Ecuador: {e}")
             report["paises"]["Ecuador"] = {"ejecutado": True, "error": str(e)}
+
+    if run_colombia:
+        print("\n=== COLOMBIA (ANDI) ===")
+        co_prev = _periodos(_load_monthly_csv("colombia_mensual.csv"))
+        try:
+            colombia_rows = ingest_colombia(backfill=args.backfill)
+            save_monthly_csv(colombia_rows, "colombia_mensual.csv")
+            report["paises"]["Colombia"] = _country_report(colombia_rows, co_prev)
+        except Exception as e:
+            print(f"  [ERROR] Colombia: {e}")
+            report["paises"]["Colombia"] = {"ejecutado": True, "error": str(e)}
 
     print("\n=== ALADDA (regional, 8 países) ===")
     ingest_aladda()

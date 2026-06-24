@@ -38,7 +38,8 @@ def build_mensual():
         ("peru_nacional_mensual.csv", "Peru"),
         ("chile_mensual.csv", "Chile"),
         ("ecuador_mensual.csv", "Ecuador"),
-        ("aladda_mensual.csv", None),   # Colombia/CR/GT/PA/RD desde ALADDA histórico
+        ("colombia_mensual.csv", "Colombia"),  # boletín mensual ANDI (RUNT)
+        ("aladda_mensual.csv", None),   # CR/GT/PA/RD desde ALADDA histórico
     ]
     raw = []
     for fn, _pais in files:
