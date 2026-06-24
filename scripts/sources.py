@@ -63,6 +63,37 @@ MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
 MESES_PE = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
             "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"]  # AAP usa "Setiembre"
 
+# ---- Normalizacion de nombres de marca (canon) --------------------------
+# Distintas fuentes nombran la misma marca distinto (ALADDA usa "GWM"/"Gwm",
+# CAVEM/AAP usan "Great Wall"). canon() unifica para que el join entre
+# base_nacional, series mensuales y grupos_importadores no se rompa.
+import unicodedata as _ud
+
+ALIAS = {
+    "GWM": "Great Wall", "GREAT WALL": "Great Wall", "GREATWALL": "Great Wall",
+    "MMC": "Mitsubishi", "MITSUBISHI MOTORS": "Mitsubishi",
+    "VW": "Volkswagen",
+    "MERCEDES-BENZ": "Mercedes Benz", "MERCEDES BENZ": "Mercedes Benz",
+    "DFM": "Dfsk", "SAIC MAXUS": "Maxus", "KGM": "Kgm", "SSANGYONG": "Kgm",
+    "LAND ROVER": "Land Rover", "ZX AUTO": "Zx Auto", "ZXAUTO": "Zx Auto",
+    "GREAT WALL MOTORS": "Great Wall",
+}
+
+
+def _strip_accents(s: str) -> str:
+    return "".join(c for c in _ud.normalize("NFD", s) if _ud.category(c) != "Mn")
+
+
+def canon(marca: str) -> str:
+    """Forma canonica de un nombre de marca (Title Case + alias unificados)."""
+    if not marca:
+        return marca
+    k = _strip_accents(str(marca)).strip().upper()
+    if k in ALIAS:
+        return ALIAS[k]
+    return str(marca).strip().title()
+
+
 # Marcas de origen chino (para el filtro "Origen" y la penetracion china)
 MARCAS_CHINAS = {
     "Changan", "Jetour", "Geely", "Chery", "Dfsk", "Shineray", "Jac", "Foton",

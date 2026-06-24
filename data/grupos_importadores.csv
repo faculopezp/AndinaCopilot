@@ -1,90 +1,90 @@
-pais,marca,grupo,tipo,confianza,as_of,fuente,nota
-Chile,Suzuki,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,
-Chile,Mazda,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,
-Chile,Changan,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,
-Chile,Great Wall,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,incluye Haval y GWM
-Chile,Jac,Derco (Inchcape),distribuidor,media,2026-06,dercocenter.cl,Derco lo comercializa
-Chile,Renault,Astara,importador,alta,2026-06,theclinic/mercado.com.ar,paso de Derco a Astara en jun-2026
-Chile,Mitsubishi,Astara,importador,alta,2026-06,df.cl,
-Chile,Chery,Astara,importador,alta,2026-06,df.cl,Omoda/Jaecoo operan aparte
-Chile,Omoda,Omoda Chile (grupo Chery),importador,alta,2026-06,df.cl,independiente de Astara
-Chile,Kia,Indumotora,importador,alta,2026-06,indumotoraone.cl,
-Chile,Subaru,Inchcape,importador,alta,2026-06,latercera.com,ex Indumotora (venta 2016)
-Chile,Hyundai,Gildemeister,importador,alta,2026-06,autocosmos.cl,autos (camiones/buses via Indumotora)
-Chile,Maxus,Andes Motor (Kaufmann),importador,alta,2026-06,autonoticias.cl,
-Chile,Foton,Andes Motor (Kaufmann),importador,alta,2026-06,autonoticias.cl,
-Chile,Jmc,Astara,importador,alta,2026-06,jmcchile.cl,ex SKC (Sigdo Koppers)
-Chile,Chevrolet,General Motors Chile,directo,alta,2026-06,autocosmos.cl,
-Chile,Toyota,Toyota Chile,directo,alta,2026-06,autocosmos.cl,
-Chile,Nissan,Nissan Chile,directo,alta,2026-06,autocosmos.cl,
-Chile,Ford,Ford Chile,directo,alta,2026-06,autocosmos.cl,
-Chile,Peugeot,Stellantis Chile,directo,alta,2026-06,autocosmos.cl,
-Chile,Citroen,Stellantis Chile,directo,alta,2026-06,autocosmos.cl,
-Chile,Ram,Stellantis Chile,directo,alta,2026-06,df.cl,directo desde 2026 (antes Astara)
-Chile,Volkswagen,Porsche Chile / Ditec (Inchcape),importador,alta,2026-06,autocosmos.cl,grupo VW
-Chile,Mg,SAIC Motor Chile,directo,media,2026-06,autocosmos.cl,
-Chile,Geely,Geely Auto Chile,directo,media,2026-06,geely.cl,representacion directa
-Chile,Jetour,Andes Motor (Kaufmann),importador,alta,2026-06,autonoticias.cl,cambio de representante en 2023
-Chile,Byd,BYD Chile,directo,media,2026-06,autocosmos.cl,directo desde dic-2025 (antes Indumotora)
-Peru,Toyota,Toyota del Peru (Mitsui),importador,alta,2026-06,gestion.pe,incluye Hino y Lexus
-Peru,Suzuki,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,
-Peru,Mazda,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,
-Peru,Changan,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,
-Peru,Renault,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,
-Peru,Jac,Derco Peru (Inchcape),distribuidor,media,2026-06,store.derco.com.pe,JAC Peru tambien opera la marca
-Peru,Great Wall,GWM Peru,directo,media,2026-06,gwm.com.pe,Derco tambien comercializa
-Peru,Dfsk,(verificar),importador,baja,2026-06,-,
-Peru,Hyundai,Automotores Gildemeister Peru,importador,alta,2026-06,gestion.pe,red dealer Automotores Inka
-Peru,Kia,Kia Import Peru,importador,alta,2026-06,veritrade,red dealer Interamericana
-Peru,Chery,Corporacion Alese,distribuidor,media,2026-06,grupoalese.com,
-Peru,Jetour,Corporacion Alese / Jetour Peru,distribuidor,media,2026-06,jetour.com.pe,
-Peru,Chevrolet,GM Peru,directo,media,2026-06,perumotor.com.pe,red dealer Perumotor/Alese
-Peru,Nissan,Maquinarias S.A.,importador,alta,2026-06,maquinarias.pe,
-Peru,Mitsubishi,MC Autos del Peru (Astara/SKBerge),importador,alta,2026-06,mitsubishi-motors.com.pe,
-Peru,Foton,Maquinarias S.A.,distribuidor,media,2026-06,maquinarias.pe,
-Peru,Jmc,Maquinarias S.A. / Perumotor,distribuidor,media,2026-06,maquinarias.pe,
-Peru,Shineray,Maquinarias S.A.,distribuidor,media,2026-06,maquinarias.pe,
-Peru,King Long,Maquinarias S.A.,distribuidor,media,2026-06,maquinarias.pe,
-Peru,Geely,Geely Peru,directo,media,2026-06,geely.pe,dealer Perumotor
-Peru,Forland,(verificar),importador,baja,2026-06,-,sub-marca de Foton
-Peru,Kyc,(verificar),importador,baja,2026-06,-,
-Ecuador,Kia,Aekia (Grupo Eljuri),importador,alta,2026-06,f1latam/aekia,mejor distribuidor Kia Centro-Sudamerica
-Ecuador,Chevrolet,General Motors del Ecuador (Omnibus BB),importador,alta,2026-06,wikipedia/gm,ensamblaje historico
-Ecuador,Hyundai,Neohyundai,importador,alta,2026-06,hyundai.com.ec,
-Ecuador,Gwm,Ambacar,importador,alta,2026-06,ambacar.ec,incluye Haval/SWM/Shineray/KYC/DFSK/King Long
-Ecuador,Toyota,Toyota del Ecuador,importador,alta,2026-06,toyota.com.ec,dealers Casabaca e Imp. Tomebamba
-Ecuador,Chery,EcuaAuto,distribuidor,media,2026-06,eluniverso.com,alianza; tambien Maresa
-Ecuador,Dongfeng,EcuaAuto / Ambacar,distribuidor,media,2026-06,eluniverso.com,
-Ecuador,Dfsk,Ambacar,distribuidor,media,2026-06,ambacar.ec,
-Ecuador,Hino,Teojama,distribuidor,media,2026-06,-,verificar
-Ecuador,Mazda,Corporacion Maresa,importador,alta,2026-06,mazda.com.ec,dealer Auto Delta
-Ecuador,Jac,Grupo Palacios,distribuidor,alta,2026-06,grupopalacios.com.ec,tambien Jetour y Karry
-Ecuador,Byd,BYD Ecuador,directo,alta,2026-06,cinae.org.ec,
-Ecuador,Renault,AYASA (Automotores y Anexos),importador,alta,2026-06,automagazine.ec,
-Ecuador,Foton,Foton del Ecuador (Grupo AYASA),importador,alta,2026-06,automotoresyanexos.com.ec,desde 2013
-Ecuador,Suzuki,SZK del Ecuador,importador,alta,2026-06,acelerando.com.ec,ingreso reciente al mercado
-Ecuador,Sinotruk,(verificar),importador,baja,2026-06,-,
-Ecuador,Changan,Changan Ecuador,directo,media,2026-06,changanecuador.com,
-Ecuador,Jetour,Grupo Palacios,distribuidor,alta,2026-06,grupopalacios.com.ec,tambien JAC y Karry
-Ecuador,Volkswagen,Impoventura,importador,alta,2026-06,impoventura.com.ec,representante VW livianos desde 2019
-Ecuador,Ford,Quito Motors,importador,media,2026-06,-,importador historico de Ford; verificar
-Colombia,Renault,Renault-Sofasa,importador,alta,2026-06,elcarrocolombiano.com,ensambla en Envigado
-Colombia,Toyota,Automotores Toyota Colombia (Distoyota),importador,alta,2026-06,toyota.com.co,
-Colombia,Kia,Metrokia / Distrikia,importador,alta,2026-06,motor.com.co,empresa colombo-ecuatoriana
-Colombia,Chevrolet,GM Colmotores,importador,alta,2026-06,chevrolet.com.co,ensamblaje historico
-Colombia,Byd,Motorysa,importador,alta,2026-06,bydauto.com.co,tambien Mitsubishi y Forland
-Colombia,Foton,Grupo Corbeta,importador,media,2026-06,motor.com.co,ensambla; Forland via Motorysa
-Colombia,Suzuki,Inchcape,importador,alta,2026-06,motor.com.co,adquirido de Derco (Falabella)
-Colombia,Hyundai,Astara Colombia,importador,alta,2026-06,motor.com.co,con socio ecuatoriano; ex Autocolombiana
-Colombia,Nissan,Grupo Vardi,importador,alta,2026-06,motor.com.co,
-Colombia,Bmw,Autogermana,importador,alta,2026-06,motor.com.co,
-Colombia,Mercedes Benz,Inchcape,importador,alta,2026-06,motor.com.co,
-Colombia,Citroen,Inchcape,importador,media,2026-06,motor.com.co,
-Colombia,Ford,Ford Colombia,directo,media,2026-06,motor.com.co,dealer Casa Toro
-Colombia,Mazda,Mazda de Colombia,importador,media,2026-06,motor.com.co,dealers Casa Toro/Vardi/Automontana
-Colombia,Volkswagen,Volkswagen Colombia,directo,media,2026-06,motor.com.co,Autoelite=Audi/Seat/Porsche
-Colombia,Dongfeng,Corautos Andino,importador,media,2026-06,carroya.com,comerciales via DFAC/Jiangling
-Colombia,Chery,Grupo Vardi,importador,alta,2026-06,f1latam.com,tambien Nissan y Changan
-Colombia,Jac,(verificar),importador,baja,2026-06,-,
-Colombia,Deepal,Grupo Vardi,importador,media,2026-06,f1latam.com,sub-marca de Changan (Vardi)
-Colombia,Tesla,Sin importador oficial,n/a,alta,2026-06,-,importacion gris; explica el dato anomalo de ventas
+pais,marca,grupo,tipo,confianza,as_of,fuente,nota,grupo_url
+Chile,Suzuki,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,,https://www.dercocenter.cl
+Chile,Mazda,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,,https://www.dercocenter.cl
+Chile,Changan,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,,https://www.dercocenter.cl
+Chile,Great Wall,Derco (Inchcape),importador,alta,2026-06,dercocenter.cl,incluye Haval y GWM,https://www.dercocenter.cl
+Chile,Jac,Derco (Inchcape),distribuidor,media,2026-06,dercocenter.cl,Derco lo comercializa,https://www.dercocenter.cl
+Chile,Renault,Astara,importador,alta,2026-06,theclinic/mercado.com.ar,paso de Derco a Astara en jun-2026,https://astararetail.cl
+Chile,Mitsubishi,Astara,importador,alta,2026-06,df.cl,,https://astararetail.cl
+Chile,Chery,Astara,importador,alta,2026-06,df.cl,Omoda/Jaecoo operan aparte,https://astararetail.cl
+Chile,Omoda,Omoda Chile (grupo Chery),importador,alta,2026-06,df.cl,independiente de Astara,https://www.omoda.cl
+Chile,Kia,Indumotora,importador,alta,2026-06,indumotoraone.cl,,https://www.indumotoraone.cl
+Chile,Subaru,Inchcape,importador,alta,2026-06,latercera.com,ex Indumotora (venta 2016),
+Chile,Hyundai,Gildemeister,importador,alta,2026-06,autocosmos.cl,autos (camiones/buses via Indumotora),https://www.gildemeister.cl
+Chile,Maxus,Andes Motor (Kaufmann),importador,alta,2026-06,autonoticias.cl,,https://www.andesmotor.cl
+Chile,Foton,Andes Motor (Kaufmann),importador,alta,2026-06,autonoticias.cl,,https://www.andesmotor.cl
+Chile,Jmc,Astara,importador,alta,2026-06,jmcchile.cl,ex SKC (Sigdo Koppers),https://astararetail.cl
+Chile,Chevrolet,General Motors Chile,directo,alta,2026-06,autocosmos.cl,,https://www.chevrolet.cl
+Chile,Toyota,Toyota Chile,directo,alta,2026-06,autocosmos.cl,,https://www.toyota.cl
+Chile,Nissan,Nissan Chile,directo,alta,2026-06,autocosmos.cl,,https://www.nissan.cl
+Chile,Ford,Ford Chile,directo,alta,2026-06,autocosmos.cl,,https://www.ford.cl
+Chile,Peugeot,Stellantis Chile,directo,alta,2026-06,autocosmos.cl,,
+Chile,Citroen,Stellantis Chile,directo,alta,2026-06,autocosmos.cl,,
+Chile,Ram,Stellantis Chile,directo,alta,2026-06,df.cl,directo desde 2026 (antes Astara),
+Chile,Volkswagen,Porsche Chile / Ditec (Inchcape),importador,alta,2026-06,autocosmos.cl,grupo VW,https://www.volkswagen.cl
+Chile,Mg,SAIC Motor Chile,directo,media,2026-06,autocosmos.cl,,
+Chile,Geely,Geely Auto Chile,directo,media,2026-06,geely.cl,representacion directa,https://www.geely.cl
+Chile,Jetour,Andes Motor (Kaufmann),importador,alta,2026-06,autonoticias.cl,cambio de representante en 2023,https://www.andesmotor.cl
+Chile,Byd,BYD Chile,directo,media,2026-06,autocosmos.cl,directo desde dic-2025 (antes Indumotora),
+Peru,Toyota,Toyota del Peru (Mitsui),importador,alta,2026-06,gestion.pe,incluye Hino y Lexus,https://www.toyotaperu.com.pe
+Peru,Suzuki,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,,https://www.derco.com.pe
+Peru,Mazda,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,,https://www.derco.com.pe
+Peru,Changan,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,,https://www.derco.com.pe
+Peru,Renault,Derco Peru (Inchcape),importador,alta,2026-06,store.derco.com.pe,,https://www.derco.com.pe
+Peru,Jac,Derco Peru (Inchcape),distribuidor,media,2026-06,store.derco.com.pe,JAC Peru tambien opera la marca,https://www.derco.com.pe
+Peru,Great Wall,GWM Peru,directo,media,2026-06,gwm.com.pe,Derco tambien comercializa,https://www.gwm.com.pe
+Peru,Dfsk,(verificar),importador,baja,2026-06,-,,
+Peru,Hyundai,Automotores Gildemeister Peru,importador,alta,2026-06,gestion.pe,red dealer Automotores Inka,https://gildemeister-retail.pe
+Peru,Kia,Kia Import Peru,importador,alta,2026-06,veritrade,red dealer Interamericana,https://www.kia.com/pe
+Peru,Chery,Corporacion Alese,distribuidor,media,2026-06,grupoalese.com,,https://www.grupoalese.com
+Peru,Jetour,Corporacion Alese / Jetour Peru,distribuidor,media,2026-06,jetour.com.pe,,https://www.jetour.com.pe
+Peru,Chevrolet,GM Peru,directo,media,2026-06,perumotor.com.pe,red dealer Perumotor/Alese,https://www.chevrolet.com.pe
+Peru,Nissan,Maquinarias S.A.,importador,alta,2026-06,maquinarias.pe,,https://maquinarias.pe
+Peru,Mitsubishi,MC Autos del Peru (Astara/SKBerge),importador,alta,2026-06,mitsubishi-motors.com.pe,,https://www.mitsubishi-motors.com.pe
+Peru,Foton,Maquinarias S.A.,distribuidor,media,2026-06,maquinarias.pe,,https://maquinarias.pe
+Peru,Jmc,Maquinarias S.A. / Perumotor,distribuidor,media,2026-06,maquinarias.pe,,
+Peru,Shineray,Maquinarias S.A.,distribuidor,media,2026-06,maquinarias.pe,,https://maquinarias.pe
+Peru,King Long,Maquinarias S.A.,distribuidor,media,2026-06,maquinarias.pe,,https://maquinarias.pe
+Peru,Geely,Geely Peru,directo,media,2026-06,geely.pe,dealer Perumotor,https://geely.pe
+Peru,Forland,(verificar),importador,baja,2026-06,-,sub-marca de Foton,
+Peru,Kyc,(verificar),importador,baja,2026-06,-,,
+Ecuador,Kia,Aekia (Grupo Eljuri),importador,alta,2026-06,f1latam/aekia,mejor distribuidor Kia Centro-Sudamerica,https://www.kia.com/ec
+Ecuador,Chevrolet,General Motors del Ecuador (Omnibus BB),importador,alta,2026-06,wikipedia/gm,ensamblaje historico,https://www.chevrolet.com.ec
+Ecuador,Hyundai,Neohyundai,importador,alta,2026-06,hyundai.com.ec,,https://www.hyundai.com.ec
+Ecuador,Gwm,Ambacar,importador,alta,2026-06,ambacar.ec,incluye Haval/SWM/Shineray/KYC/DFSK/King Long,https://ambacar.ec
+Ecuador,Toyota,Toyota del Ecuador,importador,alta,2026-06,toyota.com.ec,dealers Casabaca e Imp. Tomebamba,https://www.toyota.com.ec
+Ecuador,Chery,EcuaAuto,distribuidor,media,2026-06,eluniverso.com,alianza; tambien Maresa,
+Ecuador,Dongfeng,EcuaAuto / Ambacar,distribuidor,media,2026-06,eluniverso.com,,
+Ecuador,Dfsk,Ambacar,distribuidor,media,2026-06,ambacar.ec,,https://ambacar.ec
+Ecuador,Hino,Teojama,distribuidor,media,2026-06,-,verificar,https://www.teojama.com
+Ecuador,Mazda,Corporacion Maresa,importador,alta,2026-06,mazda.com.ec,dealer Auto Delta,https://www.maresacenter.com
+Ecuador,Jac,Grupo Palacios,distribuidor,alta,2026-06,grupopalacios.com.ec,tambien Jetour y Karry,https://grupopalacios.com.ec
+Ecuador,Byd,BYD Ecuador,directo,alta,2026-06,cinae.org.ec,,
+Ecuador,Renault,AYASA (Automotores y Anexos),importador,alta,2026-06,automagazine.ec,,https://automotoresyanexos.com.ec
+Ecuador,Foton,Foton del Ecuador (Grupo AYASA),importador,alta,2026-06,automotoresyanexos.com.ec,desde 2013,https://www.fotonecuador.com
+Ecuador,Suzuki,SZK del Ecuador,importador,alta,2026-06,acelerando.com.ec,ingreso reciente al mercado,https://suzukiecuador.com
+Ecuador,Sinotruk,(verificar),importador,baja,2026-06,-,,
+Ecuador,Changan,Changan Ecuador,directo,media,2026-06,changanecuador.com,,https://changanecuador.com
+Ecuador,Jetour,Grupo Palacios,distribuidor,alta,2026-06,grupopalacios.com.ec,tambien JAC y Karry,https://grupopalacios.com.ec
+Ecuador,Volkswagen,Impoventura,importador,alta,2026-06,impoventura.com.ec,representante VW livianos desde 2019,https://impoventura.com.ec
+Ecuador,Ford,Quito Motors,importador,media,2026-06,-,importador historico de Ford; verificar,
+Colombia,Renault,Renault-Sofasa,importador,alta,2026-06,elcarrocolombiano.com,ensambla en Envigado,https://www.renault.com.co
+Colombia,Toyota,Automotores Toyota Colombia (Distoyota),importador,alta,2026-06,toyota.com.co,,https://www.toyota.com.co
+Colombia,Kia,Metrokia / Distrikia,importador,alta,2026-06,motor.com.co,empresa colombo-ecuatoriana,https://www.kia.com.co
+Colombia,Chevrolet,GM Colmotores,importador,alta,2026-06,chevrolet.com.co,ensamblaje historico,https://www.chevrolet.com.co
+Colombia,Byd,Motorysa,importador,alta,2026-06,bydauto.com.co,tambien Mitsubishi y Forland,https://www.motorysa.com
+Colombia,Foton,Grupo Corbeta,importador,media,2026-06,motor.com.co,ensambla; Forland via Motorysa,
+Colombia,Suzuki,Inchcape,importador,alta,2026-06,motor.com.co,adquirido de Derco (Falabella),
+Colombia,Hyundai,Astara Colombia,importador,alta,2026-06,motor.com.co,con socio ecuatoriano; ex Autocolombiana,https://astara.co
+Colombia,Nissan,Grupo Vardi,importador,alta,2026-06,motor.com.co,,
+Colombia,Bmw,Autogermana,importador,alta,2026-06,motor.com.co,,https://www.autogermana.com.co
+Colombia,Mercedes Benz,Inchcape,importador,alta,2026-06,motor.com.co,,
+Colombia,Citroen,Inchcape,importador,media,2026-06,motor.com.co,,
+Colombia,Ford,Ford Colombia,directo,media,2026-06,motor.com.co,dealer Casa Toro,https://www.ford.com.co
+Colombia,Mazda,Mazda de Colombia,importador,media,2026-06,motor.com.co,dealers Casa Toro/Vardi/Automontana,https://www.mazda.com.co
+Colombia,Volkswagen,Volkswagen Colombia,directo,media,2026-06,motor.com.co,Autoelite=Audi/Seat/Porsche,https://www.vw.com.co
+Colombia,Dongfeng,Corautos Andino,importador,media,2026-06,carroya.com,comerciales via DFAC/Jiangling,
+Colombia,Chery,Grupo Vardi,importador,alta,2026-06,f1latam.com,tambien Nissan y Changan,
+Colombia,Jac,(verificar),importador,baja,2026-06,-,,
+Colombia,Deepal,Grupo Vardi,importador,media,2026-06,f1latam.com,sub-marca de Changan (Vardi),
+Colombia,Tesla,Sin importador oficial,n/a,alta,2026-06,-,importacion gris; explica el dato anomalo de ventas,

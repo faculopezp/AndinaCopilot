@@ -16,10 +16,13 @@ Escribe:
 import csv
 import json
 import pathlib
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DASH = ROOT / "dashboard"
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from sources import canon  # noqa: E402  (normalización de nombres de marca)
 
 
 def build_mensual():
@@ -46,7 +49,7 @@ def build_mensual():
                 anio, mes = int(r["anio"]), int(r["mes"])
                 mu = r["unid_mes"]
                 raw.append({
-                    "pais": r["pais"], "anio": anio, "mes": mes, "marca": r["marca"],
+                    "pais": r["pais"], "anio": anio, "mes": mes, "marca": canon(r["marca"]),
                     "acc": int(r["unid_acum"]),
                     "mes_u": int(mu) if mu not in ("", None) else None,
                 })
@@ -91,7 +94,7 @@ def _chile_tail_rows(seen: set, periodos: set) -> list:
         for r in csv.DictReader(f):
             mu = r["unid_mes"]
             full.append({
-                "anio": int(r["anio"]), "mes": int(r["mes"]), "marca": r["marca"],
+                "anio": int(r["anio"]), "mes": int(r["mes"]), "marca": canon(r["marca"]),
                 "mes_u": int(mu) if mu not in ("", None) else None,
             })
 
@@ -133,9 +136,10 @@ def load_grupos():
     with open(path, newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             out.append({
-                "pais": r["pais"], "marca": r["marca"], "grupo": r["grupo"],
+                "pais": r["pais"], "marca": canon(r["marca"]), "grupo": r["grupo"],
                 "tipo": r["tipo"], "confianza": r["confianza"],
                 "web": r.get("fuente", ""), "nota": r.get("nota", ""),
+                "grupo_url": (r.get("grupo_url") or "").strip(),
             })
     return out
 

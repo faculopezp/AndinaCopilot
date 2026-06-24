@@ -42,6 +42,7 @@ from sources import (
     PERU, CHILE, ECUADOR,
     MESES_ES, MESES_PE,
     MARCAS_CHINAS,
+    canon,
 )
 from discover import discover_peru_urls, discover_ecuador_ids
 
@@ -727,88 +728,65 @@ def save_monthly_csv(rows: list[dict], filename: str):
 # Reconstrucción de base_nacional + JSONs para el dashboard
 # ---------------------------------------------------------------------------
 
-def rebuild_base_nacional(
-    peru_rows: list[dict],
-    chile_rows: list[dict],
-    ecuador_rows: list[dict],
-):
-    """Reconstruye base_nacional.csv/.json con el último acumulado de cada país."""
-    snapshots = []
+def ingest_aladda():
+    """Refresca data/aladda_top10.csv desde el PDF regional de ALADDA (si hay red).
 
-    def last_snapshot(rows: list[dict], pais: str, fuente: str):
-        if not rows:
-            return
-        # Último mes disponible
-        last_anio = max(int(r["anio"]) for r in rows)
-        last_mes  = max(int(r["mes"]) for r in rows if int(r["anio"]) == last_anio)
-        periodo   = f"Acum a {MESES_ES[last_mes - 1].capitalize()} {last_anio}"
-        subset    = [r for r in rows if int(r["anio"]) == last_anio and int(r["mes"]) == last_mes]
-        for r in subset:
-            # Buscar acum mismo mes año anterior
-            prev = next(
-                (x for x in rows if int(x["anio"]) == last_anio - 1
-                 and int(x["mes"]) == last_mes and x["marca"] == r["marca"]),
-                None
-            )
-            curr  = int(r["unid_acum"])
-            prev_u = int(prev["unid_acum"]) if prev else None
-            var    = round((curr - prev_u) / prev_u * 100, 1) if prev_u else None
-            snapshots.append({
-                "pais": pais, "periodo": periodo, "marca": r["marca"],
-                "uc": curr,
-                "up": prev_u if prev_u else None,
-                "var": var,
-                "fuente": fuente,
-            })
+    Si la descarga falla (sandbox sin red, índice caído), se mantiene el CSV
+    existente. El merge a base_nacional usa ese CSV igual.
+    """
+    try:
+        import parse_aladda as pa
+        year, month = pa.discover_latest()
+        text = pa.fetch_pdf_text(year, month)
+        parsed = pa.parse_text(text)
+        label = f"{pa.MMM[month - 1].capitalize()} {year}"
+        pa.write_csvs(parsed, periodo_label=label)
+        print(f"  ALADDA actualizado: {label} ({len(parsed['totals'])} países)")
+    except Exception as e:
+        print(f"  ALADDA: uso el CSV existente (no pude refrescar: {e})")
 
-    last_snapshot(peru_rows,    "Peru",    "AAP/SUNARP")
-    last_snapshot(chile_rows,   "Chile",   "CAVEM")
-    last_snapshot(ecuador_rows, "Ecuador", "AEADE")
 
-    # Colombia: mantener filas existentes (se actualizan a mano)
-    existing = _load_monthly_csv("base_nacional.csv") if False else []  # no toca Colombia
-    with open(DATA / "base_nacional.csv", newline="", encoding="utf-8") as f:
-        all_rows = list(csv.DictReader(f))
-    colombia_rows = [r for r in all_rows if r["pais"] == "Colombia"]
+def rebuild_base_nacional(*_ignored):
+    """Reconstruye base_nacional.csv/.json desde ALADDA (8 países, último corte).
 
-    # Colombia rows come from CSV (long keys) — normalize to short keys for JSON
-    colombia_json = []
-    for r in colombia_rows:
-        uc = int(r.get("unidades_curr") or r.get("uc") or 0)
-        up_raw = r.get("unidades_prev") or r.get("up")
-        up = int(up_raw) if up_raw not in (None, "", "n/d") else None
-        var_raw = r.get("var_yoy_pct") or r.get("var")
-        var = float(var_raw) if var_raw not in (None, "", "n/d") else None
-        colombia_json.append({
-            "pais": r["pais"], "periodo": r["periodo"], "marca": r["marca"],
-            "uc": uc, "up": up, "var": var, "fuente": r["fuente"],
+    ALADDA = amplitud (top-10 por país, 8 países objetivo, fresco). Las series
+    mensuales propias (CAVEM/AAP/AEADE) se mantienen para Tendencia/H2/filtro de
+    período; este snapshot es el "Último (por país)". Aplica canon() a las marcas.
+    Acepta args posicionales por compatibilidad con la firma vieja (se ignoran).
+    """
+    aladda = _load_monthly_csv("aladda_top10.csv")  # reusa el lector de CSV
+    final_json = []
+    for r in aladda:
+        up_raw = r.get("unidades_prev")
+        var_raw = r.get("var_yoy_pct")
+        final_json.append({
+            "pais": r["pais"],
+            "periodo": r["periodo"],
+            "marca": canon(r["marca"]),
+            "uc": int(r["unidades_curr"]),
+            "up": int(up_raw) if up_raw not in (None, "", "n/d") else None,
+            "var": float(var_raw) if var_raw not in (None, "", "n/d") else None,
+            "fuente": r.get("fuente", "ALADDA (AMDA)"),
         })
 
-    final_json = snapshots + colombia_json
-
-    # CSV keeps long field names for human readability
-    csv_rows = []
-    for r in final_json:
-        csv_rows.append({
-            "pais": r["pais"], "periodo": r["periodo"], "marca": r["marca"],
-            "unidades_curr": r["uc"],
-            "unidades_prev": r["up"] if r["up"] is not None else "",
-            "var_yoy_pct":   r["var"] if r["var"] is not None else "",
-            "fuente": r["fuente"],
-        })
+    # CSV legible (claves largas) + JSON para el dashboard (claves cortas)
     fields = ["pais", "periodo", "marca", "unidades_curr", "unidades_prev", "var_yoy_pct", "fuente"]
     with open(DATA / "base_nacional.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
-        w.writerows(csv_rows)
-
-    # JSON para el dashboard (short keys)
+        for r in final_json:
+            w.writerow({
+                "pais": r["pais"], "periodo": r["periodo"], "marca": r["marca"],
+                "unidades_curr": r["uc"],
+                "unidades_prev": r["up"] if r["up"] is not None else "",
+                "var_yoy_pct": r["var"] if r["var"] is not None else "",
+                "fuente": r["fuente"],
+            })
     with open(DATA / "base_nacional.json", "w", encoding="utf-8") as f:
         json.dump(final_json, f, ensure_ascii=False, indent=2)
 
-    final = final_json  # for the print below
-
-    print(f"  base_nacional: {len(final)} filas ({len(snapshots)} actualizadas + {len(colombia_rows)} Colombia)")
+    paises = sorted({r["pais"] for r in final_json})
+    print(f"  base_nacional: {len(final_json)} filas · {len(paises)} países ({', '.join(paises)})")
 
 
 def rebuild_trend_json(peru_rows: list[dict], chile_rows: list[dict]):
@@ -976,9 +954,12 @@ def main():
             print(f"  [ERROR] Ecuador: {e}")
             report["paises"]["Ecuador"] = {"ejecutado": True, "error": str(e)}
 
+    print("\n=== ALADDA (regional, 8 países) ===")
+    ingest_aladda()
+
     print("\n=== Reconstruyendo JSONs ===")
-    rebuild_base_nacional(peru_rows, chile_rows, ecuador_rows)
-    rebuild_trend_json(peru_rows, chile_rows)
+    rebuild_base_nacional()  # snapshot desde ALADDA (8 países)
+    rebuild_trend_json(peru_rows, chile_rows)   # series mensuales propias (Tendencia/H2)
     rebuild_china_tl(peru_rows, chile_rows)
 
     print("\n=== Regenerando dashboard ===")

@@ -77,6 +77,9 @@ vercel.json                     # deploy del dashboard
 - ✅ `scripts/ingest.py` + `scripts/discover.py`: pipeline desatendido (descubre, descarga, parsea, reconstruye JSONs, regenera dashboard).
 - ✅ Backfill Perú/Chile/Ecuador.
 - ✅ Automatización quincenal (cron días 1 y 15) + deploy Vercel.
+- ✅ **ALADDA (AMDA) como fuente primaria regional**: `scripts/parse_aladda.py` (PDF mensual, 14 países, top-10). `base_nacional` ahora son **8 países** al mismo corte (Chile, Perú, Ecuador, Colombia, Costa Rica, Guatemala, Panamá, Rep. Dominicana). CAVEM/AAP/AEADE quedan como **profundidad** (series mensuales para Tendencia/Radar H2 + cola larga Chile). `ingest.py:ingest_aladda()` refresca `data/aladda_top10.csv`; si no hay red, usa el CSV existente.
+- ✅ **`canon()` (sources.py)**: normaliza nombres de marca entre fuentes (GWM/Great Wall, etc.). Se aplica a base_nacional, MENSUAL y grupos_importadores; el template tiene su espejo JS. Arregla el match de `openMarca`.
+- ✅ Dashboard: vista **Importadoras** (grupo con link `grupo_url`), drill-down por marca robusto, BD cruda completa (8 países, ordenable), hero 8/8 con fecha por país.
 
 ## Cómo correr
 ```bash

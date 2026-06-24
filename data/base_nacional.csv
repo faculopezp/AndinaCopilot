@@ -1,88 +1,81 @@
 pais,periodo,marca,unidades_curr,unidades_prev,var_yoy_pct,fuente
-Peru,Acum a Abril 2026,Changan,5498,3271,68.1,AAP/SUNARP
-Peru,Acum a Abril 2026,Chery,2645,1386,90.8,AAP/SUNARP
-Peru,Acum a Abril 2026,Chevrolet,2275,3145,-27.7,AAP/SUNARP
-Peru,Acum a Abril 2026,Dfsk,724,2300,-68.5,AAP/SUNARP
-Peru,Acum a Abril 2026,Ford,3357,2306,45.6,AAP/SUNARP
-Peru,Acum a Abril 2026,Forland,329,,,AAP/SUNARP
-Peru,Acum a Abril 2026,Foton,1215,637,90.7,AAP/SUNARP
-Peru,Acum a Abril 2026,Geely,3588,1495,140.0,AAP/SUNARP
-Peru,Acum a Abril 2026,Great Wall,1345,739,82.0,AAP/SUNARP
-Peru,Acum a Abril 2026,Hyundai,7230,5370,34.6,AAP/SUNARP
-Peru,Acum a Abril 2026,Jac,3004,994,202.2,AAP/SUNARP
-Peru,Acum a Abril 2026,Jetour,4262,1850,130.4,AAP/SUNARP
-Peru,Acum a Abril 2026,Jmc,888,591,50.3,AAP/SUNARP
-Peru,Acum a Abril 2026,Kia,7556,5471,38.1,AAP/SUNARP
-Peru,Acum a Abril 2026,King Long,342,187,82.9,AAP/SUNARP
-Peru,Acum a Abril 2026,Kyc,285,,,AAP/SUNARP
-Peru,Acum a Abril 2026,Mitsubishi,1476,1263,16.9,AAP/SUNARP
-Peru,Acum a Abril 2026,Nissan,228,925,-75.4,AAP/SUNARP
-Peru,Acum a Abril 2026,Renault,414,,,AAP/SUNARP
-Peru,Acum a Abril 2026,Shineray,536,395,35.7,AAP/SUNARP
-Peru,Acum a Abril 2026,Suzuki,2612,352,642.0,AAP/SUNARP
-Peru,Acum a Abril 2026,Toyota,14678,12219,20.1,AAP/SUNARP
-Chile,Acum a Mayo 2026,Changan,6121,4513,35.6,CAVEM
-Chile,Acum a Mayo 2026,Chery,3618,3541,2.2,CAVEM
-Chile,Acum a Mayo 2026,Chevrolet,6817,7419,-8.1,CAVEM
-Chile,Acum a Mayo 2026,Citroen,1743,3270,-46.7,CAVEM
-Chile,Acum a Mayo 2026,Ford,6375,6362,0.2,CAVEM
-Chile,Acum a Mayo 2026,Foton,2469,2267,8.9,CAVEM
-Chile,Acum a Mayo 2026,Geely,2483,,,CAVEM
-Chile,Acum a Mayo 2026,Great Wall,6807,5268,29.2,CAVEM
-Chile,Acum a Mayo 2026,Hyundai,8340,8007,4.2,CAVEM
-Chile,Acum a Mayo 2026,Jac,2842,1961,44.9,CAVEM
-Chile,Acum a Mayo 2026,Jetour,2937,1467,100.2,CAVEM
-Chile,Acum a Mayo 2026,Jmc,1253,,,CAVEM
-Chile,Acum a Mayo 2026,Kia,7575,7735,-2.1,CAVEM
-Chile,Acum a Mayo 2026,Maxus,2513,2967,-15.3,CAVEM
-Chile,Acum a Mayo 2026,Mazda,3842,3661,4.9,CAVEM
-Chile,Acum a Mayo 2026,Mg,4790,3428,39.7,CAVEM
-Chile,Acum a Mayo 2026,Mitsubishi,4901,4993,-1.8,CAVEM
-Chile,Acum a Mayo 2026,Nissan,1220,2767,-55.9,CAVEM
-Chile,Acum a Mayo 2026,Omoda,2101,1888,11.3,CAVEM
-Chile,Acum a Mayo 2026,Peugeot,5699,6683,-14.7,CAVEM
-Chile,Acum a Mayo 2026,Ram,1819,1701,6.9,CAVEM
-Chile,Acum a Mayo 2026,Subaru,2495,2774,-10.1,CAVEM
-Chile,Acum a Mayo 2026,Suzuki,9781,9550,2.4,CAVEM
-Chile,Acum a Mayo 2026,Toyota,10497,9736,7.8,CAVEM
-Chile,Acum a Mayo 2026,Volkswagen,3169,2337,35.6,CAVEM
-Ecuador,Acum a Enero 2026,Byd,351,152,130.9,AEADE
-Ecuador,Acum a Enero 2026,Changan,187,,,AEADE
-Ecuador,Acum a Enero 2026,Chery,589,443,33.0,AEADE
-Ecuador,Acum a Enero 2026,Chevrolet,1485,1363,9.0,AEADE
-Ecuador,Acum a Enero 2026,Dfsk,298,125,138.4,AEADE
-Ecuador,Acum a Enero 2026,Dongfeng,419,171,145.0,AEADE
-Ecuador,Acum a Enero 2026,Ford,146,,,AEADE
-Ecuador,Acum a Enero 2026,Foton,200,122,63.9,AEADE
-Ecuador,Acum a Enero 2026,Gwm,584,317,84.2,AEADE
-Ecuador,Acum a Enero 2026,Hino,158,218,-27.5,AEADE
-Ecuador,Acum a Enero 2026,Hyundai,686,528,29.9,AEADE
-Ecuador,Acum a Enero 2026,Jac,397,206,92.7,AEADE
-Ecuador,Acum a Enero 2026,Jetour,239,,,AEADE
-Ecuador,Acum a Enero 2026,Kia,1755,1305,34.5,AEADE
-Ecuador,Acum a Enero 2026,Mazda,318,201,58.2,AEADE
-Ecuador,Acum a Enero 2026,Renault,353,295,19.7,AEADE
-Ecuador,Acum a Enero 2026,Sinotruk,324,148,118.9,AEADE
-Ecuador,Acum a Enero 2026,Suzuki,259,352,-26.4,AEADE
-Ecuador,Acum a Enero 2026,Toyota,539,453,19.0,AEADE
-Ecuador,Acum a Enero 2026,Volkswagen,266,185,43.8,AEADE
-Colombia,Acum a Mayo 2026,Kia,17440,11406,52.9,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Renault,13247,11560,14.6,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Toyota,9852,9419,4.6,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Mazda,9786,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Chevrolet,9673,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Tesla,7735,6,128816.7,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Suzuki,6896,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Nissan,5527,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Hyundai,5390,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,BYD,5315,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Volkswagen,5170,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Ford,3624,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Foton,3372,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Chery,2008,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,JAC,1674,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Dongfeng,1587,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Mercedes Benz,1304,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Citroen,1255,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,BMW,1234,,,ANDI/Fenalco (La Republica)
-Colombia,Acum a Mayo 2026,Deepal,1184,,,ANDI/Fenalco (La Republica)
+Chile,Acum a Mayo 2026,Toyota,10497,9736,7.8,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Suzuki,9781,9550,2.4,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Hyundai,8405,8099,3.8,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Kia,7575,7735,-2.1,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Chevrolet,7189,7947,-9.5,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Great Wall,6807,5268,29.2,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Ford,6375,6362,0.2,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Changan,6121,4513,35.6,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Peugeot,5699,6683,-14.7,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Mitsubishi,4922,5255,-6.3,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Toyota,18587,15184,22.4,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Hyundai,9630,7173,34.3,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Kia,9595,6809,40.9,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Changan,6840,4342,57.5,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Jetour,5830,2434,139.5,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Jac,4879,3118,56.5,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Chevrolet,4862,3973,22.4,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Geely,4398,2035,116.1,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Ford,4323,2864,50.9,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Chery,3668,1746,110.1,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Kia,10241,7370,39.0,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Chevrolet,7732,6884,12.3,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Hyundai,3602,2738,31.6,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Great Wall,3508,2335,50.2,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Chery,3142,2086,50.6,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Toyota,3044,2226,36.7,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Dongfeng,2247,1135,98.0,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Jac,2228,1268,75.7,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Sinotruk,2086,1176,77.4,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Suzuki,1875,1810,3.6,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Kia,17462,11411,53.0,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Renault,13267,11564,14.7,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Toyota,9861,9423,4.6,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Mazda,9799,8303,18.0,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Chevrolet,9710,7131,36.2,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Tesla,7739,6,128883.3,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Suzuki,6904,4327,59.6,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Nissan,5530,4844,14.2,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Hyundai,5392,4042,33.4,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Byd,5323,3395,56.8,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Toyota,4810,6277,-23.4,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Nissan,2609,2938,-11.2,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Suzuki,2361,2228,6.0,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Mitsubishi,2011,1572,27.9,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Geely,1948,1872,4.1,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Hyundai,1655,1679,-1.4,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Chery,1394,904,54.2,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Byd,1302,1230,5.9,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Isuzu,1111,773,43.7,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Dongfeng,999,320,212.2,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Toyota,7530,6502,15.8,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Isuzu,3045,2052,48.4,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Mitsubishi,1891,1585,19.3,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Jac,1850,1404,31.8,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Suzuki,1647,1042,58.1,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Kia,1568,1616,-3.0,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Changan,1514,1246,21.5,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Hino,1250,1189,5.1,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Foton,1229,846,45.3,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Volkswagen,811,1177,-31.1,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Toyota,4852,5032,-3.6,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Hyundai,3282,2916,12.6,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Kia,3219,2999,7.3,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Suzuki,1322,1179,12.1,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Geely,1297,1208,7.4,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Jetour,1151,789,45.9,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Changan,1034,655,57.9,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Mitsubishi,946,820,15.4,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Isuzu,791,626,26.4,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Nissan,705,855,-17.5,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Toyota,2304,3116,-26.1,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Hyundai,1618,2021,-19.9,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Kia,1566,3156,-50.4,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Isuzu,1292,1947,-33.6,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Changan,1155,579,99.5,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Suzuki,831,929,-10.5,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Chevrolet,728,666,9.3,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Nissan,657,627,4.8,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Honda,475,623,-23.8,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Jetour,469,278,68.7,ALADDA (AMDA) may-2026
