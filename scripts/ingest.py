@@ -744,8 +744,47 @@ def parse_colombia_andi(pdf_bytes: bytes) -> tuple[list[tuple], int | None, int 
     return [], None, None
 
 
+FENALCO_INDEX = "https://www.fenalco.com.co/blog/gremial-4"
+
+
+def _fenalco_posts() -> list[str]:
+    """URLs de posts 'Informe del Sector Automotor' del blog de Fenalco (más nuevos primero)."""
+    from urllib.parse import urljoin
+    try:
+        r = requests.get(FENALCO_INDEX, headers=HEADERS, timeout=25)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  [CO discover] índice Fenalco falló: {e}")
+        return []
+    seen, urls = set(), []
+    for m in re.finditer(r'href="([^"]*informe-del-sector-automotor-a-[^"]+)"', r.text, re.I):
+        u = urljoin(FENALCO_INDEX, m.group(1))
+        if u not in seen and "vehiculos-electricos" not in u and "motocicletas" not in u:
+            seen.add(u)
+            urls.append(u)
+    return urls
+
+
+def _drive_pdf_from_post(post_url: str) -> bytes | None:
+    """Extrae el ID de Google Drive del post de Fenalco y baja el PDF."""
+    try:
+        r = requests.get(post_url, headers=HEADERS, timeout=25)
+        m = re.search(r"drive\.google\.com/file/d/([\w-]+)", r.text)
+        if not m:
+            return None
+    except Exception as e:
+        print(f"  [CO discover] post {post_url}: {e}")
+        return None
+    return fetch_pdf(f"https://drive.google.com/uc?export=download&id={m.group(1)}")
+
+
 def ingest_colombia(backfill: bool = False) -> list[dict]:
-    """Serie mensual de Colombia desde el boletín ANDI (unidades del mes -> acum cumsum)."""
+    """Serie mensual de Colombia desde el boletín ANDI (unidades del mes -> acum cumsum).
+
+    Dos fuentes del mismo boletín:
+      1) URL directa andi.com.co/Uploads (patrón estable, 2025 + ene-2026).
+      2) Posts recientes de Fenalco que alojan el PDF en Google Drive (2026+).
+    """
     existing = _load_monthly_csv("colombia_mensual.csv")
     known = {(int(r["anio"]), int(r["mes"])) for r in existing}
     mensual = {(int(r["anio"]), int(r["mes"]), r["marca"]): int(r["unid_mes"])
@@ -760,6 +799,7 @@ def ingest_colombia(backfill: bool = False) -> list[dict]:
     if not backfill:
         candidates = [(a, m) for a, m in candidates if (a, m) not in known]
 
+    # 1) Patrón de URL directa (andi.com.co/Uploads) — meses con archivo en ese path
     for anio, mes in candidates:
         pdf = fetch_pdf(_co_url(anio, mes))
         if not pdf:
@@ -772,7 +812,27 @@ def ingest_colombia(backfill: bool = False) -> list[dict]:
             print(f"  [WARN] Colombia {anio}-{mes:02d}: período detectado {y}-{mo:02d} != esperado")
         for marca, unid in filas:
             mensual[(anio, mes, marca)] = unid
-        print(f"  ->Colombia {anio}-{mes:02d}: {len(filas)} marcas (ANDI)")
+        print(f"  ->Colombia {anio}-{mes:02d}: {len(filas)} marcas (ANDI/Uploads)")
+        time.sleep(SLEEP)
+
+    # 2) Sweep de posts recientes de Fenalco (PDF en Google Drive) para los que faltan.
+    #    El período real se lee del PDF (los slugs a veces están mal etiquetados).
+    covered = {(a, m) for (a, m, _) in mensual}
+    for post in _fenalco_posts()[:8]:
+        pdf = _drive_pdf_from_post(post)
+        if not pdf:
+            continue
+        filas, y, mo = parse_colombia_andi(pdf)
+        if not (filas and y and mo):
+            continue
+        if (y, mo) in covered:
+            if not backfill:
+                break  # más nuevos primero: si éste ya está, los siguientes también
+            continue
+        for marca, unid in filas:
+            mensual[(y, mo, marca)] = unid
+        covered.add((y, mo))
+        print(f"  ->Colombia {y}-{mo:02d}: {len(filas)} marcas (Fenalco/Drive)")
         time.sleep(SLEEP)
 
     if not mensual:
