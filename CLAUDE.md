@@ -80,6 +80,7 @@ vercel.json                     # deploy del dashboard
 - ✅ **ALADDA (AMDA) como fuente primaria regional**: `scripts/parse_aladda.py` (PDF mensual, 14 países, top-10). `base_nacional` ahora son **8 países** al mismo corte (Chile, Perú, Ecuador, Colombia, Costa Rica, Guatemala, Panamá, Rep. Dominicana). CAVEM/AAP/AEADE quedan como **profundidad** (series mensuales para Tendencia/Radar H2 + cola larga Chile). `ingest.py:ingest_aladda()` refresca `data/aladda_top10.csv`; si no hay red, usa el CSV existente.
 - ✅ **`canon()` (sources.py)**: normaliza nombres de marca entre fuentes (GWM/Great Wall, etc.). Se aplica a base_nacional, MENSUAL y grupos_importadores; el template tiene su espejo JS. Arregla el match de `openMarca`.
 - ✅ Dashboard: vista **Importadoras** (grupo con link `grupo_url`), drill-down por marca robusto, BD cruda completa (8 países, ordenable), hero 8/8 con fecha por país.
+- ✅ **Colombia con serie mensual propia** (`ingest_colombia`, `data/colombia_mensual.csv`): boletín ANDI (RUNT, "TOP 20 marcas"), ene-2025 → may-2026. Dos fuentes del mismo PDF: URL directa `andi.com.co/Uploads/{NN}. INFORME SECTOR AUTOMOTOR {MMM}_PRENSA-INDUSTRIA {YYYY}.pdf` (2025+ene-2026) y, para 2026 reciente, posts del blog de Fenalco (`/blog/gremial-4`) que alojan el PDF en Google Drive → `_fenalco_posts()` + `_drive_pdf_from_post()`. Falta solo sep-2025 (post viejo fuera del sweep). `fetch_pdf` ahora reintenta ante cortes transitorios. ANDEMOS quedó descartado (solo Power BI).
 
 ## Cómo correr
 ```bash
