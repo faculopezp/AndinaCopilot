@@ -373,15 +373,17 @@ function renderPais(){
  const sIdx={};SNAP.forEach(d=>sIdx[d.pais+'|'+d.marca]=d);
  const agg={};
  GRUPOS.filter(g=>g.pais===p&&g.grupo.indexOf('verificar')<0).forEach(g=>{
-  const k=g.grupo;if(!agg[k])agg[k]={grupo:k,marcas:[],uc:0,rampa:0};
+  const k=g.grupo;if(!agg[k])agg[k]={grupo:k,marcas:[],uc:0,rampa:0,ptos:0};
   const s=sIdx[p+'|'+g.marca]||{};const vr=s.var==null?null:s.var;const ram=vr!=null&&vr>50;
-  agg[k].marcas.push({marca:g.marca,uc:s.uc||0,ram,cn:isCh(g.marca)});agg[k].uc+=(s.uc||0);if(ram)agg[k].rampa++;
+  const rr=RIDX[p+'|'+g.marca];const pt=rr?rr.puntos:null;
+  agg[k].marcas.push({marca:g.marca,uc:s.uc||0,ram,cn:isCh(g.marca),pt});agg[k].uc+=(s.uc||0);if(ram)agg[k].rampa++;if(pt)agg[k].ptos+=pt;
  });
  const gl=Object.values(agg).sort((a,b)=>b.rampa-a.rampa||b.uc-a.uc);
  const redTot=(RED.items||[]).filter(r=>r.pais===p);
+ const hayRed=gl.some(it=>it.ptos>0);
  document.getElementById('pImpHint').innerHTML=redTot.length?`Red relevada: <b>${redTot.reduce((s,x)=>s+x.puntos,0)} puntos de venta</b> en ${redTot.length} marcas · ${(RED.sheets&&RED.sheets[p])?`<a class="ext" href="${RED.sheets[p]}" target="_blank" rel="noopener">📋 planilla de agencias</a>`:''}`:'Grupos que operan en el país (clic en marca para detalle).';
- document.getElementById('pImp').innerHTML=`<tr><th>Grupo</th><th class="num">Marcas</th><th class="num">📈 rampa</th><th>Cartera</th></tr>`+
-  (gl.map(it=>`<tr><td class="mk">${grupoLink(p,it.grupo)}</td><td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td><td>${it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 7px;border:1px solid var(--line);border-radius:9px;font-size:11.5px;${m.ram?'background:#F0FAF3;border-color:#BFE3CC':''}">${m.marca}${m.ram?' 📈':''}</span>`).join('')}</td></tr>`).join('')||'<tr><td colspan="4" style="color:var(--grey);padding:14px">Sin mapeo de importadoras para este país todavía.</td></tr>');
+ document.getElementById('pImp').innerHTML=`<tr><th>Grupo</th><th class="num">Marcas</th><th class="num">📈 rampa</th>${hayRed?'<th class="num" title="Suma de puntos relevados por marca">Red (ptos)</th>':''}<th>Cartera</th></tr>`+
+  (gl.map(it=>`<tr><td class="mk">${grupoLink(p,it.grupo)}</td><td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td>${hayRed?`<td class="num">${it.ptos?`<b>${it.ptos}</b>`:'—'}</td>`:''}<td>${it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 7px;border:1px solid var(--line);border-radius:9px;font-size:11.5px;${m.ram?'background:#F0FAF3;border-color:#BFE3CC':''}">${m.marca}${m.pt?` <span style="color:var(--accent);font-weight:700">${m.pt}p</span>`:''}${m.ram?' 📈':''}</span>`).join('')}</td></tr>`).join('')||'<tr><td colspan="5" style="color:var(--grey);padding:14px">Sin mapeo de importadoras para este país todavía.</td></tr>');
 }
 function drawPaisTrend(){
  const p=V.pais,marca=document.getElementById('pTrMarca').value;
@@ -408,14 +410,15 @@ function renderImp(){
   if(st.pais!=='Todos'&&g.pais!==st.pais)return;
   if(g.grupo.indexOf('verificar')>=0)return;
   const k=g.pais+'|'+g.grupo;
-  if(!agg[k])agg[k]={pais:g.pais,grupo:g.grupo,marcas:[],uc:0,rampa:0};
+  if(!agg[k])agg[k]={pais:g.pais,grupo:g.grupo,marcas:[],uc:0,rampa:0,ptos:0};
   const s=sIdx[g.pais+'|'+g.marca]||{};const vr=s.var==null?null:s.var;const ram=vr!=null&&vr>50;
-  agg[k].marcas.push({marca:g.marca,uc:s.uc||0,ram,cn:isCh(g.marca)});agg[k].uc+=(s.uc||0);if(ram)agg[k].rampa++;
+  const rr=RIDX[g.pais+'|'+g.marca];const pt=rr?rr.puntos:null;
+  agg[k].marcas.push({marca:g.marca,uc:s.uc||0,ram,cn:isCh(g.marca),pt});agg[k].uc+=(s.uc||0);if(ram)agg[k].rampa++;if(pt)agg[k].ptos+=pt;
  });
  const list=Object.values(agg).sort((a,b)=>b.rampa-a.rampa||b.uc-a.uc);
  const showP=st.pais==='Todos';
- document.getElementById('iGrupos').innerHTML=`<tr><th>Grupo</th>${showP?'<th>País</th>':''}<th class="num"># marcas</th><th class="num">📈 rampa</th><th class="num">Unid.</th><th>Marcas</th></tr>`+
-  list.map(it=>`<tr><td class="mk">${grupoLink(it.pais,it.grupo)}</td>${showP?'<td>'+(CC[it.pais]||it.pais)+'</td>':''}<td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td><td class="num">${it.uc?fmt(it.uc):'—'}</td><td>${it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 7px;border:1px solid var(--line);border-radius:9px;font-size:11.5px;${m.ram?'background:#F0FAF3;border-color:#BFE3CC':''}">${m.marca}${m.cn?' 🇨🇳':''}${m.ram?' 📈':''}</span>`).join('')}</td></tr>`).join('');
+ document.getElementById('iGrupos').innerHTML=`<tr><th>Grupo</th>${showP?'<th>País</th>':''}<th class="num"># marcas</th><th class="num">📈 rampa</th><th class="num">Unid.</th><th class="num" title="Suma de puntos de venta relevados por marca (planillas PE/CL); un local puede vender varias marcas del grupo">Red (ptos)</th><th>Marcas</th></tr>`+
+  list.map(it=>{const sheet=RED.sheets&&RED.sheets[it.pais];return`<tr><td class="mk">${grupoLink(it.pais,it.grupo)}</td>${showP?'<td>'+(CC[it.pais]||it.pais)+'</td>':''}<td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td><td class="num">${it.uc?fmt(it.uc):'—'}</td><td class="num">${it.ptos?`<b>${it.ptos}</b>${sheet?` <a href="${sheet}" target="_blank" rel="noopener" title="Planilla de agencias">📋</a>`:''}`:'—'}</td><td>${it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 7px;border:1px solid var(--line);border-radius:9px;font-size:11.5px;${m.ram?'background:#F0FAF3;border-color:#BFE3CC':''}">${m.marca}${m.pt?` <span style="color:var(--accent);font-weight:700">${m.pt}p</span>`:''}${m.cn?' 🇨🇳':''}${m.ram?' 📈':''}</span>`).join('')}</td></tr>`;}).join('');
  const det=GRUPOS.filter(g=>st.pais==='Todos'||g.pais===st.pais).sort((a,b)=>a.pais<b.pais?-1:a.pais>b.pais?1:(a.marca<b.marca?-1:1));
  document.getElementById('iDetalle').innerHTML=`<tr><th>País</th><th>Marca</th><th>Importador / grupo</th><th>Tipo</th><th class="num">Unid.</th><th>Conf.</th></tr>`+
   det.map(g=>{const s=sIdx[g.pais+'|'+g.marca]||{};return`<tr><td>${CC[g.pais]||g.pais}</td><td class="mk"><span class="clk" onclick="openMarca('${g.marca}')">${g.marca}</span>${isCh(g.marca)?'<span class="tag">CN</span>':''}</td><td>${grupoLink(g.pais,g.grupo)}${g.nota?` <span style="color:var(--grey);font-size:11px">· ${g.nota}</span>`:''}</td><td style="font-size:11.5px;color:var(--grey)">${g.tipo}</td><td class="num">${s.uc?fmt(s.uc):'—'}</td><td title="${g.confianza}">${CONF_ICON[g.confianza]||''}</td></tr>`;}).join('');
