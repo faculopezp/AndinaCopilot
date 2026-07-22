@@ -124,7 +124,7 @@ footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.das
 <div class="panel" id="p-grupos">
 <div class="card">
 <h2>Grupos importadores / distribuidores 🏢</h2>
-<div class="hint">La cuenta a prospectar es el <b>grupo</b>, no la marca: un grupo suele manejar varias marcas. Priorizá los que concentran <b>varias marcas en rampa</b> (📈). Filtrá por país arriba. Clic en una marca para su detalle. Cruzado con el último corte de ventas de cada país.</div>
+<div class="hint">La cuenta a prospectar es el <b>grupo</b>, no la marca: un grupo suele manejar varias marcas. Priorizá los que concentran <b>varias marcas en rampa</b> (📈). Filtrá por país arriba. Clic en una marca para su detalle. Red comercial relevada: <a href="https://docs.google.com/spreadsheets/d/1ZcGJMM3-1Zkr1-l49lK-CKgsu1t22Sx13SgYwHSfbDw/edit?gid=1080200214#gid=1080200214" target="_blank" rel="noopener">📋 Agencias Perú</a> · <a href="https://docs.google.com/spreadsheets/d/1JlgS9l07XRyT8Ej0DbTna-H-1TKhH1-8Uwa6XLu26OM/edit?gid=385394837#gid=385394837" target="_blank" rel="noopener">📋 Agencias Chile</a>.</div>
 <table id="tGrupos"></table>
 <div class="note" style="margin-top:12px">Fuente: investigación web (ANAC/AAP/CINAE + webs oficiales), jun-2026. <b>Confianza</b>: 🟢 alta · 🟡 media · ⚪ baja/verificar. Las marcas en rampa se cuentan por Var% YoY &gt; 50%.</div>
 </div>
@@ -144,6 +144,8 @@ const TREND=__TREND__;
 const CN_TL=__CNTL__;
 const MENSUAL=__MENSUAL__;
 const GRUPOS=__GRUPOS__;   // mapeo marca->grupo importador por país
+const RED=__RED__;         // red comercial relevada (puntos/grupos por marca-país + sheets)
+const RIDX={};(RED.items||[]).forEach(r=>{RIDX[r.pais+'|'+r.marca]=r;});
 const SNAP=DATA.slice();   // snapshot original (último corte por país, incluye Colombia)
 const GIDX={};GRUPOS.forEach(g=>{GIDX[g.pais+'|'+g.marca]=g;});
 const GURL={};GRUPOS.forEach(g=>{if(g.grupo_url)GURL[g.pais+'|'+g.grupo]=g.grupo_url;});
@@ -394,14 +396,17 @@ function openMarca(marca){
    const sp=evByPais[d.pais]?sparkMarca(evByPais[d.pais].map(r=>({ym:r.ym,mes:r.mes}))):'<span class="hint">—</span>';
    const g=GIDX[d.pais+'|'+d.marca];
    const imp=g?`${g.grupo} ${CONF_ICON[g.confianza]||''}`:'<span style="color:#bbb">s/d</span>';
-   return `<tr><td class="flag">${CC[d.pais]||d.pais}</td><td>${imp}</td><td class="num">${fmt(d.uc)}</td><td class="num">${pill(d.var)}</td><td class="num">${pill(mm?mm.mesVar:null)}</td><td class="num">${share!=null?share.toFixed(1)+'%':'—'}</td><td>${sp}</td></tr>`;
+   const rr=RIDX[d.pais+'|'+d.marca];
+   const sheet=RED.sheets&&RED.sheets[d.pais];
+   const red=rr?`<span${(rr.top&&rr.top.length)?` title="Principales grupos: ${rr.top.join(', ')}"`:''}>${rr.puntos} ptos · ${rr.grupos} grupos</span>${sheet?` <a href="${sheet}" target="_blank" rel="noopener" title="Ver planilla de agencias">📋</a>`:''}`:'<span style="color:#bbb">—</span>';
+   return `<tr><td class="flag">${CC[d.pais]||d.pais}</td><td>${imp}</td><td class="num">${fmt(d.uc)}</td><td class="num">${pill(d.var)}</td><td class="num">${pill(mm?mm.mesVar:null)}</td><td class="num">${share!=null?share.toFixed(1)+'%':'—'}</td><td style="white-space:nowrap;font-size:12.5px">${red}</td><td>${sp}</td></tr>`;
  }).join('');
  const npais=snap.length;const cn=isCh(marca);
  document.getElementById('modalBody').innerHTML=
    `<h3>${marca}${cn?' <span class="tag">CN</span>':''}</h3>`+
-   `<div class="hint">Presente en ${npais} de ${paises().length} países · ${cn?'origen China':'no china'}. Importadora/grupo que la trabaja en cada país, unidades del último corte, YoY, MoM, share y evolución mensual.</div>`+
-   `<div class="tbl"><table><tr><th>País</th><th>Importadora / grupo</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Evolución mensual</th></tr>${filas}</table></div>`+
-   `<div class="note" style="margin-top:12px">Importadora: 🟢 alta · 🟡 media confianza (fuente: investigación web jun-2026). Share = unidades de la marca sobre el total reportado del país. Barras rojas = 2026.</div>`;
+   `<div class="hint">Presente en ${npais} de ${paises().length} países · ${cn?'origen China':'no china'}. Importadora, red comercial relevada (puntos de venta · grupos concesionarios) y performance por país.</div>`+
+   `<div class="tbl"><table><tr><th>País</th><th>Importadora / grupo</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Red comercial</th><th>Evolución mensual</th></tr>${filas}</table></div>`+
+   `<div class="note" style="margin-top:12px">Importadora: 🟢 alta · 🟡 media confianza. <b>Red comercial</b>: relevamiento propio jun-2026 (📋 abre la planilla con cada agencia: dirección y teléfono) — hover para ver los grupos principales. Barras rojas = 2026.</div>`;
  document.getElementById('modalBg').classList.add('show');}
 function closeMarca(){document.getElementById('modalBg').classList.remove('show');}
 document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeMarca();});

@@ -1,0 +1,31 @@
+pais,marca,marca_original,puntos,grupos,estado
+Peru,Toyota,Toyota,60,41,Relevado
+Peru,Kia,Kia,48,14,Relevado
+Peru,Hyundai,Hyundai,29,10,Relevado
+Peru,Changan,Changan,50,24,Relevado
+Peru,Jetour,Jetour,38,23,Relevado
+Peru,Geely,Geely,32,14,Relevado
+Peru,Ford,Ford,0,0,Pendiente (API gateada)
+Peru,Jac,JAC,55,22,Relevado
+Peru,Chery,Chery,23,9,Relevado
+Peru,Suzuki,Suzuki,49,18,Relevado
+Peru,Chevrolet,Chevrolet,0,0,Pendiente (API gateada)
+Peru,Mitsubishi,Mitsubishi,37,16,Relevado
+Peru,Great Wall,Great Wall,44,20,Relevado
+Peru,Foton,Foton,25,1,Relevado
+Peru,Jmc,JMC,34,18,Relevado
+Peru,Dfsk,DFSK,37,25,Relevado
+Peru,Ambacar (Shineray/Swm/Rely),Ambacar (Shineray/SWM/RELY),23,11,Relevado
+Peru,Renault,Renault,38,27,Relevado
+Peru,Altos Andes (Jetour/Kyc),Altos Andes (Jetour/KYC),1,1,Mapeado (red Jetour)
+Peru,Nissan,Nissan,23,16,Relevado
+Chile,Toyota,Toyota,68,25,Relevado
+Chile,Suzuki,Suzuki,96,30,Relevado
+Chile,Hyundai,Hyundai,95,46,Relevado
+Chile,Kia,Kia,124,14,Relevado
+Chile,Chevrolet,Chevrolet,58,10,Relevado
+Chile,Great Wall,Great Wall,102,30,Relevado
+Chile,Ford,Ford,37,9,Relevado
+Chile,Changan,Changan,65,21,Relevado
+Chile,Peugeot,Peugeot,51,22,Relevado
+Chile,Mitsubishi,Mitsubishi,77,20,Relevado

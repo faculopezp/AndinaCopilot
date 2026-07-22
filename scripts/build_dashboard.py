@@ -146,12 +146,48 @@ def load_grupos():
     return out
 
 
+RED_SHEETS = {
+    "Peru": "https://docs.google.com/spreadsheets/d/1ZcGJMM3-1Zkr1-l49lK-CKgsu1t22Sx13SgYwHSfbDw/edit?gid=1080200214#gid=1080200214",
+    "Chile": "https://docs.google.com/spreadsheets/d/1JlgS9l07XRyT8Ej0DbTna-H-1TKhH1-8Uwa6XLu26OM/edit?gid=385394837#gid=385394837",
+}
+
+
+def load_red():
+    """Red comercial relevada (planillas del Drive importadas a data/).
+
+    Devuelve {"items": [{pais, marca, puntos, grupos, estado, top}], "sheets": {...}}.
+    `top` = principales grupos concesionarios de esa marca-país (por # de puntos).
+    """
+    res_path = DATA / "concesionarios_resumen.csv"
+    if not res_path.exists():
+        return {"items": [], "sheets": RED_SHEETS}
+    from collections import Counter
+    tops: dict = {}
+    pts_path = DATA / "concesionarios_puntos.csv"
+    if pts_path.exists():
+        with open(pts_path, newline="", encoding="utf-8") as f:
+            for p in csv.DictReader(f):
+                tops.setdefault((p["pais"], p["marca"]), Counter())[p["grupo_concesionario"]] += 1
+    items = []
+    with open(res_path, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            k = (r["pais"], r["marca"])
+            items.append({
+                "pais": r["pais"], "marca": canon(r["marca"]),
+                "puntos": int(r["puntos"]), "grupos": int(r["grupos"]),
+                "estado": r["estado"],
+                "top": [g for g, _ in tops.get(k, Counter()).most_common(3)],
+            })
+    return {"items": items, "sheets": RED_SHEETS}
+
+
 def main():
     data = json.loads((DATA / "base_nacional.json").read_text(encoding="utf-8"))
     trend = json.loads((DATA / "trend.json").read_text(encoding="utf-8"))
     cntl = json.loads((DATA / "china_tl.json").read_text(encoding="utf-8"))
     mensual = build_mensual()
     grupos = load_grupos()
+    red = load_red()
 
     html = (DASH / "template.html").read_text(encoding="utf-8")
     html = (html
@@ -159,7 +195,8 @@ def main():
             .replace("__TREND__", json.dumps(trend, ensure_ascii=False))
             .replace("__CNTL__", json.dumps(cntl, ensure_ascii=False))
             .replace("__MENSUAL__", json.dumps(mensual, ensure_ascii=False))
-            .replace("__GRUPOS__", json.dumps(grupos, ensure_ascii=False)))
+            .replace("__GRUPOS__", json.dumps(grupos, ensure_ascii=False))
+            .replace("__RED__", json.dumps(red, ensure_ascii=False)))
 
     out = DASH / "Dashboard_Andino_Ventas_Auto.html"
     out.write_text(html, encoding="utf-8")
