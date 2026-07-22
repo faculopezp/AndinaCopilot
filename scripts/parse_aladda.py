@@ -258,9 +258,11 @@ def write_csvs(parsed: dict, periodo_label: str) -> None:
         w = csv.writer(f)
         w.writerow(["pais", "periodo", "marca", "unidades_curr", "unidades_prev",
                     "var_yoy_pct", "origen", "fuente"])
+        vistos = set()  # el texto del PDF puede repetir tablas -> dedupe (pais, marca)
         for r in parsed["top10"]:
-            if r["pais"] not in EN_ALCANCE:
+            if r["pais"] not in EN_ALCANCE or (r["pais"], r["marca"]) in vistos:
                 continue
+            vistos.add((r["pais"], r["marca"]))
             w.writerow([r["pais"], f"Acum {periodo_label}", r["marca"],
                         r["acum_2026"], r["acum_2025"],
                         "" if r["var_acum_pct"] is None else r["var_acum_pct"],

@@ -909,17 +909,36 @@ def save_monthly_csv(rows: list[dict], filename: str):
 def ingest_aladda():
     """Refresca data/aladda_top10.csv desde el PDF regional de ALADDA (si hay red).
 
-    Si la descarga falla (sandbox sin red, índice caído), se mantiene el CSV
-    existente. El merge a base_nacional usa ese CSV igual.
+    VALIDA el parseo antes de escribir: los 8 países en alcance presentes con
+    >=8 marcas cada uno (deduplicado). El formato del PDF varía por mes; si el
+    parseo sale incompleto, NO pisa el CSV existente (que es la fuente del
+    snapshot base_nacional). Si la descarga falla, ídem.
     """
     try:
         import parse_aladda as pa
         year, month = pa.discover_latest()
         text = pa.fetch_pdf_text(year, month)
         parsed = pa.parse_text(text)
+
+        # Validación: por país en alcance, marcas únicas
+        conteo: dict = {}
+        vistos = set()
+        for r in parsed["top10"]:
+            if r["pais"] in pa.EN_ALCANCE and (r["pais"], r["marca"]) not in vistos:
+                vistos.add((r["pais"], r["marca"]))
+                conteo[r["pais"]] = conteo.get(r["pais"], 0) + 1
+        faltantes = pa.EN_ALCANCE - set(conteo)
+        flacos = {p: n for p, n in conteo.items() if n < 8}
+        if faltantes or flacos:
+            print(f"  [WARN] ALADDA {year}-{month:02d}: parseo incompleto "
+                  f"(faltan: {sorted(faltantes)} | pocas marcas: {flacos}). "
+                  f"Mantengo el CSV existente.")
+            return
+
         label = f"{pa.MMM[month - 1].capitalize()} {year}"
         pa.write_csvs(parsed, periodo_label=label)
-        print(f"  ALADDA actualizado: {label} ({len(parsed['totals'])} países)")
+        print(f"  ALADDA actualizado: {label} ({len(conteo)} países en alcance, "
+              f"{len(vistos)} marcas)")
     except Exception as e:
         print(f"  ALADDA: uso el CSV existente (no pude refrescar: {e})")
 
@@ -1016,7 +1035,12 @@ def rebuild_base_nacional(*_ignored):
     """
     aladda = _load_monthly_csv("aladda_top10.csv")  # reusa el lector de CSV
     final_json = []
+    vistos = set()  # dedupe defensivo por (pais, marca)
     for r in aladda:
+        clave = (r["pais"], canon(r["marca"]))
+        if clave in vistos:
+            continue
+        vistos.add(clave)
         up_raw = r.get("unidades_prev")
         var_raw = r.get("var_yoy_pct")
         final_json.append({

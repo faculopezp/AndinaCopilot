@@ -1,121 +1,81 @@
 pais,periodo,marca,unidades_curr,unidades_prev,var_yoy_pct,origen,fuente
-Chile,Acum May 2026,Toyota,10497,9736,7.8,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Suzuki,9781,9550,2.4,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Hyundai,8405,8099,3.8,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Kia,7575,7735,-2.1,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Chevrolet,7189,7947,-9.5,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Gwm,6807,5268,29.2,China,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Ford,6375,6362,0.2,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Changan,6121,4513,35.6,China,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Peugeot,5699,6683,-14.7,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Mitsubishi,4922,5255,-6.3,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Toyota,10497,9736,7.8,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Suzuki,9781,9550,2.4,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Hyundai,8405,8099,3.8,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Kia,7575,7735,-2.1,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Chevrolet,7189,7947,-9.5,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Gwm,6807,5268,29.2,China,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Ford,6375,6362,0.2,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Changan,6121,4513,35.6,China,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Peugeot,5699,6683,-14.7,No china,ALADDA (AMDA) May 2026
-Chile,Acum May 2026,Mitsubishi,4922,5255,-6.3,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Kia,17462,11411,53.0,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Renault,13267,11564,14.7,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Toyota,9861,9423,4.6,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Mazda,9799,8303,18.0,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Chevrolet,9710,7131,36.2,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Tesla,7739,6,128883.3,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Suzuki,6904,4327,59.6,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Nissan,5530,4844,14.2,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Hyundai,5392,4042,33.4,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Byd,5323,3395,56.8,China,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Kia,17462,11411,53.0,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Renault,13267,11564,14.7,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Toyota,9861,9423,4.6,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Mazda,9799,8303,18.0,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Chevrolet,9710,7131,36.2,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Tesla,7739,6,128883.3,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Suzuki,6904,4327,59.6,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Nissan,5530,4844,14.2,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Hyundai,5392,4042,33.4,No china,ALADDA (AMDA) May 2026
-Colombia,Acum May 2026,Byd,5323,3395,56.8,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Kia,10241,7370,39.0,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Chevrolet,7732,6884,12.3,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Hyundai,3602,2738,31.6,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Gwm,3508,2335,50.2,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Chery,3142,2086,50.6,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Toyota,3044,2226,36.7,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Dongfeng,2247,1135,98.0,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Jac,2228,1268,75.7,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Sinotruk,2086,1176,77.4,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Suzuki,1875,1810,3.6,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Kia,10241,7370,39.0,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Chevrolet,7732,6884,12.3,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Hyundai,3602,2738,31.6,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Gwm,3508,2335,50.2,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Chery,3142,2086,50.6,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Toyota,3044,2226,36.7,No china,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Dongfeng,2247,1135,98.0,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Jac,2228,1268,75.7,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Sinotruk,2086,1176,77.4,China,ALADDA (AMDA) May 2026
-Ecuador,Acum May 2026,Suzuki,1875,1810,3.6,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Toyota,7530,6502,15.8,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Isuzu,3045,2052,48.4,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Mitsubishi,1891,1585,19.3,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Jac,1850,1404,31.8,China,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Suzuki,1647,1042,58.1,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Kia,1568,1616,-3.0,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Changan,1514,1246,21.5,China,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Hino,1250,1189,5.1,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Foton,1229,846,45.3,China,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Volkswagen,811,1177,-31.1,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Toyota,7530,6502,15.8,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Isuzu,3045,2052,48.4,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Mitsubishi,1891,1585,19.3,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Jac,1850,1404,31.8,China,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Suzuki,1647,1042,58.1,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Kia,1568,1616,-3.0,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Changan,1514,1246,21.5,China,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Hino,1250,1189,5.1,No china,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Foton,1229,846,45.3,China,ALADDA (AMDA) May 2026
-Guatemala,Acum May 2026,Volkswagen,811,1177,-31.1,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Toyota,18587,15184,22.4,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Hyundai,9630,7173,34.3,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Kia,9595,6809,40.9,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Changan,6840,4342,57.5,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Jetour,5830,2434,139.5,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Jac,4879,3118,56.5,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Chevrolet,4862,3973,22.4,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Geely,4398,2035,116.1,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Ford,4323,2864,50.9,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Chery,3668,1746,110.1,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Toyota,18587,15184,22.4,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Hyundai,9630,7173,34.3,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Kia,9595,6809,40.9,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Changan,6840,4342,57.5,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Jetour,5830,2434,139.5,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Jac,4879,3118,56.5,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Chevrolet,4862,3973,22.4,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Geely,4398,2035,116.1,China,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Ford,4323,2864,50.9,No china,ALADDA (AMDA) May 2026
-Peru,Acum May 2026,Chery,3668,1746,110.1,China,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Toyota,2304,3116,-26.1,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Hyundai,1618,2021,-19.9,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Kia,1566,3156,-50.4,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Isuzu,1292,1947,-33.6,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Changan,1155,579,99.5,China,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Suzuki,831,929,-10.5,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Chevrolet,728,666,9.3,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Nissan,657,627,4.8,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Honda,475,623,-23.8,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Jetour,469,278,68.7,China,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Toyota,2304,3116,-26.1,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Hyundai,1618,2021,-19.9,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Kia,1566,3156,-50.4,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Isuzu,1292,1947,-33.6,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Changan,1155,579,99.5,China,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Suzuki,831,929,-10.5,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Chevrolet,728,666,9.3,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Nissan,657,627,4.8,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Honda,475,623,-23.8,No china,ALADDA (AMDA) May 2026
-Rep. Dominicana,Acum May 2026,Jetour,469,278,68.7,China,ALADDA (AMDA) May 2026
+Chile,Acum a Mayo 2026,Toyota,10497,9736,7.8,No china,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Suzuki,9781,9550,2.4,No china,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Hyundai,8405,8099,3.8,No china,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Kia,7575,7735,-2.1,No china,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Chevrolet,7189,7947,-9.5,No china,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Gwm,6807,5268,29.2,China,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Ford,6375,6362,0.2,No china,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Changan,6121,4513,35.6,China,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Peugeot,5699,6683,-14.7,No china,ALADDA (AMDA) may-2026
+Chile,Acum a Mayo 2026,Mitsubishi,4922,5255,-6.3,No china,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Toyota,18587,15184,22.4,No china,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Hyundai,9630,7173,34.3,No china,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Kia,9595,6809,40.9,No china,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Changan,6840,4342,57.5,China,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Jetour,5830,2434,139.5,China,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Jac,4879,3118,56.5,China,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Chevrolet,4862,3973,22.4,No china,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Geely,4398,2035,116.1,China,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Ford,4323,2864,50.9,No china,ALADDA (AMDA) may-2026
+Peru,Acum a Mayo 2026,Chery,3668,1746,110.1,China,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Kia,10241,7370,39.0,No china,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Chevrolet,7732,6884,12.3,No china,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Hyundai,3602,2738,31.6,No china,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Gwm,3508,2335,50.2,China,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Chery,3142,2086,50.6,China,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Toyota,3044,2226,36.7,No china,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Dongfeng,2247,1135,98.0,China,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Jac,2228,1268,75.7,China,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Sinotruk,2086,1176,77.4,China,ALADDA (AMDA) may-2026
+Ecuador,Acum a Mayo 2026,Suzuki,1875,1810,3.6,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Kia,17462,11411,53.0,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Renault,13267,11564,14.7,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Toyota,9861,9423,4.6,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Mazda,9799,8303,18.0,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Chevrolet,9710,7131,36.2,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Tesla,7739,6,128883.3,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Suzuki,6904,4327,59.6,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Nissan,5530,4844,14.2,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Hyundai,5392,4042,33.4,No china,ALADDA (AMDA) may-2026
+Colombia,Acum a Mayo 2026,Byd,5323,3395,56.8,China,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Toyota,4810,6277,-23.4,No china,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Nissan,2609,2938,-11.2,No china,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Suzuki,2361,2228,6.0,No china,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Mitsubishi,2011,1572,27.9,No china,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Geely,1948,1872,4.1,China,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Hyundai,1655,1679,-1.4,No china,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Chery,1394,904,54.2,China,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Byd,1302,1230,5.9,China,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Isuzu,1111,773,43.7,No china,ALADDA (AMDA) may-2026
+Costa Rica,Acum a Mayo 2026,Dongfeng,999,320,212.2,China,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Toyota,7530,6502,15.8,No china,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Isuzu,3045,2052,48.4,No china,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Mitsubishi,1891,1585,19.3,No china,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Jac,1850,1404,31.8,China,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Suzuki,1647,1042,58.1,No china,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Kia,1568,1616,-3.0,No china,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Changan,1514,1246,21.5,China,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Hino,1250,1189,5.1,No china,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Foton,1229,846,45.3,China,ALADDA (AMDA) may-2026
+Guatemala,Acum a Mayo 2026,Volkswagen,811,1177,-31.1,No china,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Toyota,4852,5032,-3.6,No china,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Hyundai,3282,2916,12.6,No china,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Kia,3219,2999,7.3,No china,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Suzuki,1322,1179,12.1,No china,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Geely,1297,1208,7.4,China,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Jetour,1151,789,45.9,China,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Changan,1034,655,57.9,China,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Mitsubishi,946,820,15.4,No china,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Isuzu,791,626,26.4,No china,ALADDA (AMDA) may-2026
+Panama,Acum a Mayo 2026,Nissan,705,855,-17.5,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Toyota,2304,3116,-26.1,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Hyundai,1618,2021,-19.9,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Kia,1566,3156,-50.4,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Isuzu,1292,1947,-33.6,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Changan,1155,579,99.5,China,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Suzuki,831,929,-10.5,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Chevrolet,728,666,9.3,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Nissan,657,627,4.8,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Honda,475,623,-23.8,No china,ALADDA (AMDA) may-2026
+Rep. Dominicana,Acum a Mayo 2026,Jetour,469,278,68.7,China,ALADDA (AMDA) may-2026

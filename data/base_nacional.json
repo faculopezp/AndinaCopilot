@@ -1,1082 +1,722 @@
 [
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Toyota",
     "uc": 10497,
     "up": 9736,
     "var": 7.8,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Suzuki",
     "uc": 9781,
     "up": 9550,
     "var": 2.4,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Hyundai",
     "uc": 8405,
     "up": 8099,
     "var": 3.8,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Kia",
     "uc": 7575,
     "up": 7735,
     "var": -2.1,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Chevrolet",
     "uc": 7189,
     "up": 7947,
     "var": -9.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Great Wall",
     "uc": 6807,
     "up": 5268,
     "var": 29.2,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Ford",
     "uc": 6375,
     "up": 6362,
     "var": 0.2,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Changan",
     "uc": 6121,
     "up": 4513,
     "var": 35.6,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Peugeot",
     "uc": 5699,
     "up": 6683,
     "var": -14.7,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Chile",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Mitsubishi",
     "uc": 4922,
     "up": 5255,
     "var": -6.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 10497,
-    "up": 9736,
-    "var": 7.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 9781,
-    "up": 9550,
-    "var": 2.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Hyundai",
-    "uc": 8405,
-    "up": 8099,
-    "var": 3.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 7575,
-    "up": 7735,
-    "var": -2.1,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Chevrolet",
-    "uc": 7189,
-    "up": 7947,
-    "var": -9.5,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Great Wall",
-    "uc": 6807,
-    "up": 5268,
-    "var": 29.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Ford",
-    "uc": 6375,
-    "up": 6362,
-    "var": 0.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Changan",
-    "uc": 6121,
-    "up": 4513,
-    "var": 35.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Peugeot",
-    "uc": 5699,
-    "up": 6683,
-    "var": -14.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Chile",
-    "periodo": "Acum May 2026",
-    "marca": "Mitsubishi",
-    "uc": 4922,
-    "up": 5255,
-    "var": -6.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 17462,
-    "up": 11411,
-    "var": 53.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Renault",
-    "uc": 13267,
-    "up": 11564,
-    "var": 14.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 9861,
-    "up": 9423,
-    "var": 4.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Mazda",
-    "uc": 9799,
-    "up": 8303,
-    "var": 18.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Chevrolet",
-    "uc": 9710,
-    "up": 7131,
-    "var": 36.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Tesla",
-    "uc": 7739,
-    "up": 6,
-    "var": 128883.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 6904,
-    "up": 4327,
-    "var": 59.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Nissan",
-    "uc": 5530,
-    "up": 4844,
-    "var": 14.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Hyundai",
-    "uc": 5392,
-    "up": 4042,
-    "var": 33.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Byd",
-    "uc": 5323,
-    "up": 3395,
-    "var": 56.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 17462,
-    "up": 11411,
-    "var": 53.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Renault",
-    "uc": 13267,
-    "up": 11564,
-    "var": 14.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 9861,
-    "up": 9423,
-    "var": 4.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Mazda",
-    "uc": 9799,
-    "up": 8303,
-    "var": 18.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Chevrolet",
-    "uc": 9710,
-    "up": 7131,
-    "var": 36.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Tesla",
-    "uc": 7739,
-    "up": 6,
-    "var": 128883.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 6904,
-    "up": 4327,
-    "var": 59.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Nissan",
-    "uc": 5530,
-    "up": 4844,
-    "var": 14.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Hyundai",
-    "uc": 5392,
-    "up": 4042,
-    "var": 33.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Colombia",
-    "periodo": "Acum May 2026",
-    "marca": "Byd",
-    "uc": 5323,
-    "up": 3395,
-    "var": 56.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 10241,
-    "up": 7370,
-    "var": 39.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Chevrolet",
-    "uc": 7732,
-    "up": 6884,
-    "var": 12.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Hyundai",
-    "uc": 3602,
-    "up": 2738,
-    "var": 31.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Great Wall",
-    "uc": 3508,
-    "up": 2335,
-    "var": 50.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Chery",
-    "uc": 3142,
-    "up": 2086,
-    "var": 50.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 3044,
-    "up": 2226,
-    "var": 36.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Dongfeng",
-    "uc": 2247,
-    "up": 1135,
-    "var": 98.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Jac",
-    "uc": 2228,
-    "up": 1268,
-    "var": 75.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Sinotruk",
-    "uc": 2086,
-    "up": 1176,
-    "var": 77.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 1875,
-    "up": 1810,
-    "var": 3.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 10241,
-    "up": 7370,
-    "var": 39.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Chevrolet",
-    "uc": 7732,
-    "up": 6884,
-    "var": 12.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Hyundai",
-    "uc": 3602,
-    "up": 2738,
-    "var": 31.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Great Wall",
-    "uc": 3508,
-    "up": 2335,
-    "var": 50.2,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Chery",
-    "uc": 3142,
-    "up": 2086,
-    "var": 50.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 3044,
-    "up": 2226,
-    "var": 36.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Dongfeng",
-    "uc": 2247,
-    "up": 1135,
-    "var": 98.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Jac",
-    "uc": 2228,
-    "up": 1268,
-    "var": 75.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Sinotruk",
-    "uc": 2086,
-    "up": 1176,
-    "var": 77.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Ecuador",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 1875,
-    "up": 1810,
-    "var": 3.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 7530,
-    "up": 6502,
-    "var": 15.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Isuzu",
-    "uc": 3045,
-    "up": 2052,
-    "var": 48.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Mitsubishi",
-    "uc": 1891,
-    "up": 1585,
-    "var": 19.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Jac",
-    "uc": 1850,
-    "up": 1404,
-    "var": 31.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 1647,
-    "up": 1042,
-    "var": 58.1,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 1568,
-    "up": 1616,
-    "var": -3.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Changan",
-    "uc": 1514,
-    "up": 1246,
-    "var": 21.5,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Hino",
-    "uc": 1250,
-    "up": 1189,
-    "var": 5.1,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Foton",
-    "uc": 1229,
-    "up": 846,
-    "var": 45.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Volkswagen",
-    "uc": 811,
-    "up": 1177,
-    "var": -31.1,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 7530,
-    "up": 6502,
-    "var": 15.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Isuzu",
-    "uc": 3045,
-    "up": 2052,
-    "var": 48.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Mitsubishi",
-    "uc": 1891,
-    "up": 1585,
-    "var": 19.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Jac",
-    "uc": 1850,
-    "up": 1404,
-    "var": 31.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 1647,
-    "up": 1042,
-    "var": 58.1,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 1568,
-    "up": 1616,
-    "var": -3.0,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Changan",
-    "uc": 1514,
-    "up": 1246,
-    "var": 21.5,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Hino",
-    "uc": 1250,
-    "up": 1189,
-    "var": 5.1,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Foton",
-    "uc": 1229,
-    "up": 846,
-    "var": 45.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Guatemala",
-    "periodo": "Acum May 2026",
-    "marca": "Volkswagen",
-    "uc": 811,
-    "up": 1177,
-    "var": -31.1,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Toyota",
     "uc": 18587,
     "up": 15184,
     "var": 22.4,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Hyundai",
     "uc": 9630,
     "up": 7173,
     "var": 34.3,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Kia",
     "uc": 9595,
     "up": 6809,
     "var": 40.9,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Changan",
     "uc": 6840,
     "up": 4342,
     "var": 57.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Jetour",
     "uc": 5830,
     "up": 2434,
     "var": 139.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Jac",
     "uc": 4879,
     "up": 3118,
     "var": 56.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Chevrolet",
     "uc": 4862,
     "up": 3973,
     "var": 22.4,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Geely",
     "uc": 4398,
     "up": 2035,
     "var": 116.1,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Ford",
     "uc": 4323,
     "up": 2864,
     "var": 50.9,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Chery",
     "uc": 3668,
     "up": 1746,
     "var": 110.1,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 18587,
-    "up": 15184,
-    "var": 22.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
-    "marca": "Hyundai",
-    "uc": 9630,
-    "up": 7173,
-    "var": 34.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Kia",
-    "uc": 9595,
-    "up": 6809,
-    "var": 40.9,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "uc": 10241,
+    "up": 7370,
+    "var": 39.0,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
-    "marca": "Changan",
-    "uc": 6840,
-    "up": 4342,
-    "var": 57.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Chevrolet",
+    "uc": 7732,
+    "up": 6884,
+    "var": 12.3,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
-    "marca": "Jetour",
-    "uc": 5830,
-    "up": 2434,
-    "var": 139.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Hyundai",
+    "uc": 3602,
+    "up": 2738,
+    "var": 31.6,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Great Wall",
+    "uc": 3508,
+    "up": 2335,
+    "var": 50.2,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Chery",
+    "uc": 3142,
+    "up": 2086,
+    "var": 50.6,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Toyota",
+    "uc": 3044,
+    "up": 2226,
+    "var": 36.7,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Dongfeng",
+    "uc": 2247,
+    "up": 1135,
+    "var": 98.0,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Jac",
-    "uc": 4879,
-    "up": 3118,
-    "var": 56.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "uc": 2228,
+    "up": 1268,
+    "var": 75.7,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Sinotruk",
+    "uc": 2086,
+    "up": 1176,
+    "var": 77.4,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Ecuador",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Suzuki",
+    "uc": 1875,
+    "up": 1810,
+    "var": 3.6,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Kia",
+    "uc": 17462,
+    "up": 11411,
+    "var": 53.0,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Renault",
+    "uc": 13267,
+    "up": 11564,
+    "var": 14.7,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Toyota",
+    "uc": 9861,
+    "up": 9423,
+    "var": 4.6,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mazda",
+    "uc": 9799,
+    "up": 8303,
+    "var": 18.0,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Chevrolet",
-    "uc": 4862,
-    "up": 3973,
-    "var": 22.4,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "uc": 9710,
+    "up": 7131,
+    "var": 36.2,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Tesla",
+    "uc": 7739,
+    "up": 6,
+    "var": 128883.3,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Suzuki",
+    "uc": 6904,
+    "up": 4327,
+    "var": 59.6,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Nissan",
+    "uc": 5530,
+    "up": 4844,
+    "var": 14.2,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Hyundai",
+    "uc": 5392,
+    "up": 4042,
+    "var": 33.4,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Colombia",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Byd",
+    "uc": 5323,
+    "up": 3395,
+    "var": 56.8,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Toyota",
+    "uc": 4810,
+    "up": 6277,
+    "var": -23.4,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Nissan",
+    "uc": 2609,
+    "up": 2938,
+    "var": -11.2,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Suzuki",
+    "uc": 2361,
+    "up": 2228,
+    "var": 6.0,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mitsubishi",
+    "uc": 2011,
+    "up": 1572,
+    "var": 27.9,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Geely",
-    "uc": 4398,
-    "up": 2035,
-    "var": 116.1,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "uc": 1948,
+    "up": 1872,
+    "var": 4.1,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
-    "marca": "Ford",
-    "uc": 4323,
-    "up": 2864,
-    "var": 50.9,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Hyundai",
+    "uc": 1655,
+    "up": 1679,
+    "var": -1.4,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
-    "pais": "Peru",
-    "periodo": "Acum May 2026",
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Chery",
-    "uc": 3668,
-    "up": 1746,
-    "var": 110.1,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "uc": 1394,
+    "up": 904,
+    "var": 54.2,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Byd",
+    "uc": 1302,
+    "up": 1230,
+    "var": 5.9,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Isuzu",
+    "uc": 1111,
+    "up": 773,
+    "var": 43.7,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Costa Rica",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Dongfeng",
+    "uc": 999,
+    "up": 320,
+    "var": 212.2,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Toyota",
+    "uc": 7530,
+    "up": 6502,
+    "var": 15.8,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Isuzu",
+    "uc": 3045,
+    "up": 2052,
+    "var": 48.4,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mitsubishi",
+    "uc": 1891,
+    "up": 1585,
+    "var": 19.3,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Jac",
+    "uc": 1850,
+    "up": 1404,
+    "var": 31.8,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Suzuki",
+    "uc": 1647,
+    "up": 1042,
+    "var": 58.1,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Kia",
+    "uc": 1568,
+    "up": 1616,
+    "var": -3.0,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Changan",
+    "uc": 1514,
+    "up": 1246,
+    "var": 21.5,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Hino",
+    "uc": 1250,
+    "up": 1189,
+    "var": 5.1,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Foton",
+    "uc": 1229,
+    "up": 846,
+    "var": 45.3,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Guatemala",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Volkswagen",
+    "uc": 811,
+    "up": 1177,
+    "var": -31.1,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Toyota",
+    "uc": 4852,
+    "up": 5032,
+    "var": -3.6,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Hyundai",
+    "uc": 3282,
+    "up": 2916,
+    "var": 12.6,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Kia",
+    "uc": 3219,
+    "up": 2999,
+    "var": 7.3,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Suzuki",
+    "uc": 1322,
+    "up": 1179,
+    "var": 12.1,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Geely",
+    "uc": 1297,
+    "up": 1208,
+    "var": 7.4,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Jetour",
+    "uc": 1151,
+    "up": 789,
+    "var": 45.9,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Changan",
+    "uc": 1034,
+    "up": 655,
+    "var": 57.9,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Mitsubishi",
+    "uc": 946,
+    "up": 820,
+    "var": 15.4,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Isuzu",
+    "uc": 791,
+    "up": 626,
+    "var": 26.4,
+    "fuente": "ALADDA (AMDA) may-2026"
+  },
+  {
+    "pais": "Panama",
+    "periodo": "Acum a Mayo 2026",
+    "marca": "Nissan",
+    "uc": 705,
+    "up": 855,
+    "var": -17.5,
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Toyota",
     "uc": 2304,
     "up": 3116,
     "var": -26.1,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Hyundai",
     "uc": 1618,
     "up": 2021,
     "var": -19.9,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Kia",
     "uc": 1566,
     "up": 3156,
     "var": -50.4,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Isuzu",
     "uc": 1292,
     "up": 1947,
     "var": -33.6,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Changan",
     "uc": 1155,
     "up": 579,
     "var": 99.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Suzuki",
     "uc": 831,
     "up": 929,
     "var": -10.5,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Chevrolet",
     "uc": 728,
     "up": 666,
     "var": 9.3,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Nissan",
     "uc": 657,
     "up": 627,
     "var": 4.8,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Honda",
     "uc": 475,
     "up": 623,
     "var": -23.8,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   },
   {
     "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
+    "periodo": "Acum a Mayo 2026",
     "marca": "Jetour",
     "uc": 469,
     "up": 278,
     "var": 68.7,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Toyota",
-    "uc": 2304,
-    "up": 3116,
-    "var": -26.1,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Hyundai",
-    "uc": 1618,
-    "up": 2021,
-    "var": -19.9,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Kia",
-    "uc": 1566,
-    "up": 3156,
-    "var": -50.4,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Isuzu",
-    "uc": 1292,
-    "up": 1947,
-    "var": -33.6,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Changan",
-    "uc": 1155,
-    "up": 579,
-    "var": 99.5,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Suzuki",
-    "uc": 831,
-    "up": 929,
-    "var": -10.5,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Chevrolet",
-    "uc": 728,
-    "up": 666,
-    "var": 9.3,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Nissan",
-    "uc": 657,
-    "up": 627,
-    "var": 4.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Honda",
-    "uc": 475,
-    "up": 623,
-    "var": -23.8,
-    "fuente": "ALADDA (AMDA) May 2026"
-  },
-  {
-    "pais": "Rep. Dominicana",
-    "periodo": "Acum May 2026",
-    "marca": "Jetour",
-    "uc": 469,
-    "up": 278,
-    "var": 68.7,
-    "fuente": "ALADDA (AMDA) May 2026"
+    "fuente": "ALADDA (AMDA) may-2026"
   }
 ]
