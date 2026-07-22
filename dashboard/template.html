@@ -1,506 +1,497 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Base Andina · Ventas Automotrices</title><style>
-:root{--navy:#1F3864;--blue:#2E5496;--lblue:#D9E1F2;--ink:#1a1a2e;--grey:#6b7280;--bg:#f4f6fb;--card:#fff;--line:#e5e9f2;--red:#C0392B;--green:#1E8449;--amber:#B9770E}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
-.wrap{max-width:1180px;margin:0 auto;padding:24px 18px 60px}
-header{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:16px;padding:22px 26px;box-shadow:0 8px 24px rgba(31,56,100,.18)}
-header h1{font-size:22px;font-weight:700}header p{opacity:.85;font-size:13px;margin-top:4px}
-.badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 11px;border-radius:20px;font-size:12px;font-weight:600}
-.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin:20px 0 6px}.filters .f{display:flex;flex-direction:column;gap:4px}
-.filters label{font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;letter-spacing:.5px}
-.filters select,.filters input{padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px;min-width:150px;color:var(--ink)}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0 22px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}.kpi .lab{font-size:11px;color:var(--grey);text-transform:uppercase;font-weight:700}
-.kpi .val{font-size:24px;font-weight:800;color:var(--navy);margin-top:4px}.kpi .sub{font-size:12px;color:var(--grey);margin-top:2px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;border-bottom:2px solid var(--line)}
-.tab{padding:10px 16px;cursor:pointer;font-weight:600;font-size:14px;color:var(--grey);border-bottom:2px solid transparent;margin-bottom:-2px}
-.tab.active{color:var(--navy);border-bottom-color:var(--navy)}.panel{display:none}.panel.active{display:block}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
-.card h2{font-size:15px;color:var(--navy);margin-bottom:3px}.card .hint{font-size:12px;color:var(--grey);margin-bottom:14px}
-table{width:100%;border-collapse:collapse;font-size:13.5px}th{text-align:left;padding:9px 10px;color:var(--grey);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--line);cursor:pointer;white-space:nowrap}
-th.num,td.num{text-align:right}td{padding:9px 10px;border-bottom:1px solid var(--line)}tr:hover td{background:#fafbff}.mk{font-weight:600}
-.bar{height:8px;border-radius:5px;background:var(--lblue);position:relative;min-width:30px}.bar span{position:absolute;left:0;top:0;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--navy))}
-.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:700}.up{color:var(--green);background:#e8f6ee}.down{color:var(--red);background:#fcebe9}.flat{color:var(--grey);background:#f0f0f3}
-.rank{font-weight:800;color:var(--navy);width:26px}.tag{font-size:10px;font-weight:800;padding:2px 6px;border-radius:6px;background:#fff4e0;color:var(--amber);margin-left:6px}
-.flag{font-weight:700;font-size:12px;color:var(--blue)}
-.note{font-size:12px;color:var(--grey);background:#fff9ec;border:1px solid #f3e2bd;border-radius:10px;padding:11px 14px;margin-top:6px}
-footer{text-align:center;color:var(--grey);font-size:11.5px;margin-top:24px}.dash{color:#cbd2e0}
-.hero-kpis{display:flex;gap:30px;flex-wrap:wrap;margin-top:16px}
-.hero-kpi .hv{font-size:27px;font-weight:800;line-height:1}.hero-kpi .hl{font-size:10.5px;opacity:.82;text-transform:uppercase;font-weight:600;letter-spacing:.4px;margin-top:5px}
-.hero-upd{margin-top:14px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
-.ctx{font-size:12px;color:var(--grey);margin:2px 0 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.ctx .c{background:#fff;border:1px solid var(--line);border-radius:16px;padding:3px 10px;font-weight:600}
+<title>AndinaCopilot · Mercado Andino+</title><style>
+:root{--brand:#301B5A;--accent:#4A1FCC;--lav:#D9D2E9;--lav2:#EFEBF7;--hl:#FDEF9F;--ink:#231A3C;--grey:#6A6D77;--bg:#F8F9FB;--card:#fff;--line:#E3E6EC;--red:#C0392B;--green:#1E8449;--amber:#B9770E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;font-size:14px}
+.app{display:flex;min-height:100vh}
+/* ---- sidebar ---- */
+aside{width:210px;min-width:210px;background:var(--brand);color:#fff;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.slogo{padding:18px 16px 14px;font-weight:800;font-size:16px;letter-spacing:.2px}
+.slogo small{display:block;font-weight:400;font-size:10.5px;color:var(--lav);margin-top:2px}
+nav{flex:1;padding:4px 10px 16px}
+nav a{display:flex;align-items:center;gap:8px;color:#DCD5EC;text-decoration:none;padding:8px 10px;border-radius:9px;font-size:13.5px;margin-bottom:2px;cursor:pointer}
+nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+nav a.on{background:var(--accent);color:#fff;font-weight:600}
+nav a .mini{margin-left:auto;font-size:9.5px;background:rgba(255,255,255,.14);padding:1px 6px;border-radius:8px;color:var(--lav)}
+.ngrp{font-size:10px;letter-spacing:1px;color:#9C8FC4;padding:14px 10px 4px;font-weight:700}
+.sfoot{padding:12px 16px;font-size:10.5px;color:#9C8FC4;border-top:1px solid rgba(255,255,255,.1)}
+/* ---- main ---- */
+main{flex:1;min-width:0;padding:0 22px 50px}
+.topbar{display:flex;align-items:center;gap:14px;padding:14px 0 12px;border-bottom:1px solid var(--line);margin-bottom:16px;position:sticky;top:0;background:var(--bg);z-index:5}
+#burger{display:none;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 10px;font-size:15px;cursor:pointer}
+#vtitle{font-size:18px;font-weight:800;color:var(--brand)}
+#vsub{font-size:11.5px;color:var(--grey)}
+.topbar .sp{flex:1}
+#gSearch{padding:8px 12px;border:1px solid var(--line);border-radius:9px;min-width:190px;font-size:13px;background:var(--card)}
+.view{display:none}.view.on{display:block}
+/* ---- comunes ---- */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin:0 0 14px}
+.f label{font-size:10.5px;font-weight:700;color:var(--grey);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
+.f select,.f input{padding:8px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card);font-size:13px;min-width:130px;color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:0 0 14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .lab{font-size:10.5px;color:var(--grey);text-transform:uppercase;font-weight:700}
+.kpi .val{font-size:22px;font-weight:800;color:var(--brand);margin-top:3px}
+.kpi .sub{font-size:11px;color:var(--grey);margin-top:2px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-bottom:12px;min-width:0}
+.card h2{font-size:14px;color:var(--brand);margin-bottom:2px}
+.card .hint{font-size:11.5px;color:var(--grey);margin-bottom:11px}
+.tblwrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:7px 9px;color:var(--grey);font-size:10.5px;text-transform:uppercase;border-bottom:2px solid var(--line);white-space:nowrap}
+th.num,td.num{text-align:right}
+td{padding:7px 9px;border-bottom:1px solid var(--line)}
+tr:hover td{background:var(--lav2)}
+.mk{font-weight:600}
+.clk{cursor:pointer;border-bottom:1px dotted var(--accent)}.clk:hover{color:var(--accent)}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11.5px;font-weight:700}
+.up{color:var(--green);background:#E8F6EE}.down{color:var(--red);background:#FCEBE9}.flat{color:var(--grey);background:#F0F0F3}
+.rank{font-weight:800;color:var(--accent);width:24px}
+.tag{font-size:9.5px;font-weight:800;padding:1px 6px;border-radius:6px;background:var(--hl);color:#7A6A00;margin-left:6px}
+.bar{height:7px;border-radius:5px;background:var(--lav2);position:relative;min-width:30px}
+.bar span{position:absolute;left:0;top:0;height:100%;border-radius:5px;background:var(--accent)}
+.note{font-size:11.5px;color:var(--grey);background:var(--lav2);border:1px solid var(--lav);border-radius:9px;padding:10px 13px;margin-top:8px}
 .alerts{display:flex;gap:8px;flex-wrap:wrap}
-.alert{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:12.5px;font-weight:600}
-.alert.up{border-color:#bfe3cc;background:#f0faf3}.alert.star{border-color:#cfe0f6;background:#f2f7ff}.alert.down{border-color:#f3cfca;background:#fdf2f1}
-.clk{cursor:pointer;border-bottom:1px dotted var(--blue)}.clk:hover{color:var(--blue)}
-.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:flex-start;justify-content:center;z-index:50;padding:38px 16px;overflow:auto}
+.alert{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:5px 12px;font-size:12px;font-weight:600}
+.alert.up{border-color:#BFE3CC;background:#F0FAF3}.alert.star{border-color:var(--lav);background:var(--lav2)}
+a.ext{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--lav)}
+/* ---- modal ---- */
+.modal-bg{position:fixed;inset:0;background:rgba(35,26,60,.55);display:none;align-items:flex-start;justify-content:center;z-index:50;padding:38px 16px;overflow:auto}
 .modal-bg.show{display:flex}
-.modal{background:#fff;border-radius:16px;max-width:760px;width:100%;padding:22px 26px;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden}
-.modal .tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}.modal .tbl table{min-width:520px}
-.modal h3{font-size:19px;color:var(--navy)}.modal .x{float:right;cursor:pointer;font-size:22px;color:var(--grey);border:none;background:none;line-height:1}
-</style></head><body><div class="wrap">
-<header><h1>Mercado Andino+ · Ventas Automotrices</h1>
-<p>Ventas por marca en 8 países de Latinoamérica (Chile, Perú, Ecuador, Colombia, Costa Rica, Guatemala, Panamá y Rep. Dominicana) para priorizar prospección.</p>
-<div class="hero-kpis" id="heroKpis"></div>
-<div class="hero-upd" id="heroUpd"></div></header>
+.modal{background:#fff;border-radius:14px;max-width:780px;width:100%;padding:20px 24px;overflow:hidden}
+.modal h3{font-size:18px;color:var(--brand)}
+.modal .x{float:right;cursor:pointer;font-size:21px;color:var(--grey);border:none;background:none;line-height:1}
+.modal .tbl{overflow-x:auto}
+/* ---- responsive ---- */
+@media(max-width:920px){
+ aside{position:fixed;left:0;top:0;z-index:40;transform:translateX(-100%);transition:transform .2s}
+ aside.open{transform:none}
+ #burger{display:block}
+ main{padding:0 12px 40px}
+}
+</style></head><body>
+<div class="app">
+<aside id="sb">
+<div class="slogo">AndinaCopilot<small>Mercado Andino+ · Tecnom SDR</small></div>
+<nav id="nav">
+<a data-v="radar">🎯 Radar H2</a>
+<a data-v="region">🌎 Región</a>
+<div class="ngrp">PAÍSES</div>
+<a data-v="pais" data-p="Chile">🇨🇱 Chile</a>
+<a data-v="pais" data-p="Peru">🇵🇪 Perú</a>
+<a data-v="pais" data-p="Ecuador">🇪🇨 Ecuador</a>
+<a data-v="pais" data-p="Colombia">🇨🇴 Colombia</a>
+<a data-v="pais" data-p="Guatemala">🇬🇹 Guatemala</a>
+<a data-v="pais" data-p="Costa Rica">🇨🇷 Costa Rica <span class="mini">top-10</span></a>
+<a data-v="pais" data-p="Panama">🇵🇦 Panamá <span class="mini">top-10</span></a>
+<a data-v="pais" data-p="Rep. Dominicana">🇩🇴 Rep. Dom. <span class="mini">top-10</span></a>
+<div class="ngrp">HERRAMIENTAS</div>
+<a data-v="importadoras">🏢 Importadoras</a>
+<a data-v="datos">🗃️ Datos</a>
+</nav>
+<div class="sfoot">ALADDA · CAVEM · AAP · AEADE · ANDI<br><span id="sfecha"></span></div>
+</aside>
+
+<main>
+<div class="topbar">
+<button id="burger">☰</button>
+<div><div id="vtitle"></div><div id="vsub"></div></div>
+<div class="sp"></div>
+<input id="gSearch" list="marcasList" placeholder="🔍 Buscar marca (drill-down)">
+<datalist id="marcasList"></datalist>
+</div>
+
+<section class="view" id="v-radar">
+<div class="card"><h2>Alertas del mes ⚡</h2>
+<div class="hint">Movimientos del último mes con serie mensual. Priorizá las chinas en rampa.</div>
+<div class="alerts" id="rAlertas"></div></div>
+<div class="card"><h2>Radar de prospección H2 2026</h2>
+<div class="hint">Score = <b>40% volumen</b> (rank en su país) + <b>38% crecimiento YoY</b> + <b>22% presencia regional</b> + <b>bonus 12 pts</b> chinas. Sobre el último corte (may-26, ALADDA). Clic en la marca para el detalle.</div>
 <div class="filters">
-<div class="f"><label>País</label><select id="fPais"></select></div>
-<div class="f"><label>Período</label><select id="fPeriodo"></select></div>
-<div class="f"><label>Vista</label><select id="fVista"><option value="acc">Acumulado del año</option><option value="mes">Solo ese mes</option></select></div>
-<div class="f"><label>Origen</label><select id="fOrigen"><option>Todas</option><option>Chinas 🇨🇳</option><option>No chinas</option></select></div>
-<div class="f"><label>Buscar marca</label><input id="fMarca" placeholder="Toyota, BYD, Changan…"></div>
+<div class="f"><label>País</label><select id="rPais"></select></div>
+<div class="f"><label>Prioridad</label><select id="rTier"><option>Todas</option><option>🔴 Alta</option><option>🟡 Media</option><option>⚪ Seguimiento</option></select></div>
+<div class="f"><label>Origen</label><select id="rOrigen"><option>Todas</option><option>Chinas</option><option>No chinas</option></select></div>
 </div>
-<div class="ctx" id="ctx"></div>
-<div class="kpis" id="kpis"></div>
-<div class="tabs">
-<div class="tab active" data-p="prosp">🎯 Prospección H2</div>
-<div class="tab" data-p="top">🏆 Top marcas</div>
-<div class="tab" data-p="emerg">🚀 Emergentes</div>
-<div class="tab" data-p="comp">🌎 Comparar países</div>
-<div class="tab" data-p="trend">📈 Tendencia</div>
-<div class="tab" data-p="mercado">📊 Mercado</div>
-<div class="tab" data-p="grupos">🏢 Importadoras</div>
-<div class="tab" data-p="raw">🗃️ Datos crudos</div></div>
-<div class="panel active" id="p-prosp">
-<div class="card">
-<h2>Alertas del mes ⚡</h2>
-<div class="hint">Movimientos del último mes con dato, derivados de la serie mensual. Priorizá los chips de marcas chinas en rampa.</div>
-<div class="alerts" id="alertas"></div>
-</div>
-<div class="card">
-<h2>Radar de prospección H2 2026 🎯</h2>
-<div class="hint">Score compuesto = <b>40% volumen</b> (rank dentro del país) + <b>38% crecimiento YoY</b> + <b>22% presencia regional</b> (en cuántos países está) + <b>bonus 12 pts</b> si es marca china. <b>Alta</b> = más unidades Y acelerando → contactar primero. Clic en una marca para ver su detalle.</div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
-<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">País</label><select id="prPais" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"></select></div>
-<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">Prioridad</label><select id="prTier" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"><option>Todas</option><option>🔴 Alta</option><option>🟡 Media</option><option>⚪ Seguimiento</option></select></div>
-<div class="f"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase;display:block;margin-bottom:4px">Origen</label><select id="prOrigen" style="padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px"><option>Todas</option><option>Chinas 🇨🇳</option><option>No chinas</option></select></div>
-</div>
-<div id="prSummary" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px"></div>
-<table id="tProsp"></table>
-<div class="note" style="margin-top:12px">
-<b>Cómo usar:</b> Filtrá por país + prioridad → copiá las marcas Alta → buscá sus distribuidores/agencias en LinkedIn/Google → contactar con el contexto de crecimiento como gancho de apertura. Ejemplo: <i>"Vimos que Jetour creció +100% en Chile en H1 — estamos trabajando con marcas en rampa para dar soporte tecnológico a su red."</i>
-</div>
-</div>
-<div class="card">
-<h2>Marcas presentes en múltiples países</h2>
-<div class="hint">Cuántas unidades vende cada marca en cada país (último corte de cada uno) y en cuántos países está presente. Más países = más cuentas potenciales con la misma apertura → priorizar para una secuencia regional. No se muestra un total combinado porque los cortes por país son distintos.</div>
-<table id="tMulti"></table>
-</div>
-</div>
-<div class="panel" id="p-top"><div class="card"><h2 id="topTitle"></h2>
-<div class="hint">Ranking por unidades acumuladas del último período disponible de cada país. Top marcas → buscar agencias → contactar.</div>
-<table id="tTop"></table></div></div>
-<div class="panel" id="p-emerg"><div class="card"><h2>Radar de emergentes 🚀</h2>
-<div class="hint">Marcas con Var.% interanual > 50% y ≥ 300 unidades. Chinas en rampa: contactar antes del pico. Etiqueta <span class="tag">CN</span> = origen China.</div>
-<table id="tEmerg"></table></div></div>
-<div class="panel" id="p-comp"><div class="card"><h2>Comparativa de marcas entre países</h2>
-<div class="hint">Unidades por marca en cada país. Vacío = no aparece en el top reportado. Sirve para ver dónde pega fuerte cada marca y priorizar mercado.</div>
-<table id="tComp"></table>
-<div class="note">Cada país tiene su propio corte de publicación (ver fechas en las etiquetas de arriba). El volumen absoluto entre países <b>no</b> es comparable 1:1 por ese desfase; el ranking y el % interanual sí lo son.</div></div></div>
-<div class="panel" id="p-trend"><div class="card">
-<h2>Tendencia mensual · Perú <span style="font-weight:400;font-size:12px;color:var(--grey)" id="trRango"></span></h2>
-<div class="hint">Evolución de unidades mes a mes por marca (serie mensual de AAP Perú).</div>
-<div style="margin:6px 0 4px"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase">Marca&nbsp;</label>
-<select id="trBrand" style="padding:8px 10px;border:1px solid var(--line);border-radius:10px;font-size:14px"></select>
-<span id="trMom" style="margin-left:12px;font-size:13px"></span></div>
-<div id="trChart" style="overflow-x:auto"></div>
-</div>
-<div class="card"><h2>Ranking de aceleración 🔥</h2>
-<div class="hint">Marcas ordenadas por crecimiento del acumulado Q1-2026 vs Q1-2025. Las de arriba son las que más aceleran: contactar primero.</div>
-<table id="tAccel"></table></div></div>
-<div class="panel" id="p-mercado"><div class="card">
-<h2>Penetración de marcas chinas por país <span style="font-weight:400;font-size:12px;color:var(--grey)">(último dato)</span></h2>
-<div class="hint">% de unidades de marcas chinas sobre el total reportado. El bloque chino ya domina la región — clave para priorizar a quién contactás.</div>
-<table id="tCN"></table></div>
-<div class="card"><h2>Evolución penetración chinas en el tiempo</h2>
-<div class="hint">Chile: % oficial de primeras inscripciones (CAVEM). Perú: % entre marcas top (AAP). Los huecos se completan con el pipeline automatizado.</div>
-<div style="margin:6px 0"><label style="font-size:11px;font-weight:700;color:var(--grey);text-transform:uppercase">País&nbsp;</label>
-<select id="cnPais"><option>Chile</option><option>Peru</option></select></div>
-<div id="cnChart" style="overflow-x:auto"></div></div>
+<div id="rSummary" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px"></div>
+<div class="tblwrap"><table id="rTabla"></table></div></div>
+</section>
+
+<section class="view" id="v-region">
+<div class="kpis" id="regKpis"></div>
+<div class="grid2">
+<div class="card"><h2>Comparativa de marcas entre países</h2>
+<div class="hint">Unidades acumuladas (mismo corte may-26). Vacío = fuera del top reportado.</div>
+<div class="tblwrap"><table id="regComp"></table></div></div>
+<div>
+<div class="card"><h2>Penetración de marcas chinas</h2>
+<div class="hint">% de unidades chinas sobre el total reportado por país.</div>
+<div class="tblwrap"><table id="regCN"></table></div></div>
+<div class="card"><h2>Evolución % chinas <span style="font-weight:400;font-size:11px;color:var(--grey)">(serie mensual propia)</span></h2>
+<div class="filters"><div class="f"><label>País</label><select id="regCnPais"><option>Chile</option><option>Peru</option></select></div></div>
+<div id="regCnChart" style="overflow-x:auto"></div></div>
 <div class="card"><h2>Concentración del mercado</h2>
-<div class="hint">Cuánto del mercado acumulan las primeras N marcas. Mercados más concentrados = menos cuentas, tickets más grandes.</div>
-<table id="tConc"></table></div></div>
-<div class="panel" id="p-grupos">
-<div class="card">
-<h2>Grupos importadores / distribuidores 🏢</h2>
-<div class="hint">La cuenta a prospectar es el <b>grupo</b>, no la marca: un grupo suele manejar varias marcas. Priorizá los que concentran <b>varias marcas en rampa</b> (📈). Filtrá por país arriba. Clic en una marca para su detalle. Red comercial relevada: <a href="https://docs.google.com/spreadsheets/d/1ZcGJMM3-1Zkr1-l49lK-CKgsu1t22Sx13SgYwHSfbDw/edit?gid=1080200214#gid=1080200214" target="_blank" rel="noopener">📋 Agencias Perú</a> · <a href="https://docs.google.com/spreadsheets/d/1JlgS9l07XRyT8Ej0DbTna-H-1TKhH1-8Uwa6XLu26OM/edit?gid=385394837#gid=385394837" target="_blank" rel="noopener">📋 Agencias Chile</a>.</div>
-<table id="tGrupos"></table>
-<div class="note" style="margin-top:12px">Fuente: investigación web (ANAC/AAP/CINAE + webs oficiales), jun-2026. <b>Confianza</b>: 🟢 alta · 🟡 media · ⚪ baja/verificar. Las marcas en rampa se cuentan por Var% YoY &gt; 50%.</div>
-</div>
-<div class="card">
-<h2>Detalle marca → importadora</h2>
-<div class="hint">Una fila por marca-país con su importador/distribuidor, tipo y confianza del dato.</div>
-<table id="tMarcaImport"></table>
+<div class="hint">Cuánto acumulan las primeras N marcas de cada país.</div>
+<div class="tblwrap"><table id="regConc"></table></div></div>
 </div>
 </div>
-<div class="panel" id="p-raw"><div class="card"><h2>BD cruda</h2><div class="hint">Todas las filas tal cual la base. <span id="rawCount"></span></div><table id="tRaw"></table></div></div>
-<footer>Snapshot regional: ALADDA (AMDA) · 8 países, top-10 por marca, acum a Mayo 2026 · <span id="gen"></span><br>Series mensuales (Tendencia/Radar H2) propias: CAVEM (Chile) · AAP/SUNARP (Perú) · AEADE (Ecuador). Profundidad top-25 + segmentos solo para Chile/Perú.</footer>
+</section>
+
+<section class="view" id="v-pais">
+<div class="filters" id="pFiltros">
+<div class="f"><label>Período</label><select id="pYm"></select></div>
+<div class="f"><label>Vista</label><select id="pVista"><option value="acc">Acumulado del año</option><option value="mes">Solo ese mes</option></select></div>
+<div class="f"><label>Origen</label><select id="pOrigen"><option>Todas</option><option>Chinas</option><option>No chinas</option></select></div>
+</div>
+<div class="kpis" id="pKpis"></div>
+<div class="grid2">
+<div class="card"><h2 id="pTopTit">Top marcas</h2>
+<div class="hint">Clic en la marca para el drill-down completo.</div>
+<div class="tblwrap"><table id="pTop"></table></div></div>
+<div>
+<div class="card" id="pTrendCard"><h2>Tendencia mensual</h2>
+<div class="filters"><div class="f"><label>Marca</label><select id="pTrMarca"></select></div></div>
+<div id="pTrChart" style="overflow-x:auto"></div></div>
+<div class="card"><h2>Alertas del país</h2><div class="alerts" id="pAlertas"></div></div>
+<div class="card"><h2>Importadoras y red comercial</h2>
+<div class="hint" id="pImpHint"></div>
+<div class="tblwrap"><table id="pImp"></table></div></div>
+</div>
+</div>
+</section>
+
+<section class="view" id="v-importadoras">
+<div class="card"><h2>Grupos importadores / distribuidores</h2>
+<div class="hint">La cuenta a prospectar es el <b>grupo</b>: suele manejar varias marcas. Priorizá los que concentran marcas en rampa (📈). Planillas de agencias: <a class="ext" href="https://docs.google.com/spreadsheets/d/1ZcGJMM3-1Zkr1-l49lK-CKgsu1t22Sx13SgYwHSfbDw/edit?gid=1080200214#gid=1080200214" target="_blank" rel="noopener">📋 Perú</a> · <a class="ext" href="https://docs.google.com/spreadsheets/d/1JlgS9l07XRyT8Ej0DbTna-H-1TKhH1-8Uwa6XLu26OM/edit?gid=385394837#gid=385394837" target="_blank" rel="noopener">📋 Chile</a></div>
+<div class="filters"><div class="f"><label>País</label><select id="iPais"></select></div></div>
+<div class="tblwrap"><table id="iGrupos"></table></div></div>
+<div class="card"><h2>Detalle marca → importadora</h2>
+<div class="hint">Confianza del dato: 🟢 alta · 🟡 media · ⚪ verificar (relevamiento web jun-2026).</div>
+<div class="tblwrap"><table id="iDetalle"></table></div></div>
+</section>
+
+<section class="view" id="v-datos">
+<div class="card"><h2>BD cruda <span id="dCount" style="font-weight:400;font-size:11.5px;color:var(--grey)"></span></h2>
+<div class="hint">Snapshot regional completo (ALADDA may-26). Clic en un encabezado para ordenar. Descargas: <a class="ext" href="https://github.com/faculopezp/AndinaCopilot/raw/main/Base_Andina_Ventas_Auto.xlsx">Excel</a> · <a class="ext" href="https://github.com/faculopezp/AndinaCopilot/tree/main/data" target="_blank" rel="noopener">CSVs (repo)</a></div>
+<div class="filters"><div class="f"><label>Buscar</label><input id="dQ" placeholder="marca o país…"></div></div>
+<div class="tblwrap"><table id="dTabla"></table></div></div>
+</section>
+
+</main>
 </div>
 <div class="modal-bg" id="modalBg"><div class="modal"><button class="x" onclick="closeMarca()">✕</button><div id="modalBody"></div></div></div>
 <script>
 const DATA=__DATA__;
-const TREND=__TREND__;
 const CN_TL=__CNTL__;
 const MENSUAL=__MENSUAL__;
-const GRUPOS=__GRUPOS__;   // mapeo marca->grupo importador por país
-const RED=__RED__;         // red comercial relevada (puntos/grupos por marca-país + sheets)
-const RIDX={};(RED.items||[]).forEach(r=>{RIDX[r.pais+'|'+r.marca]=r;});
-const SNAP=DATA.slice();   // snapshot original (último corte por país, incluye Colombia)
-const GIDX={};GRUPOS.forEach(g=>{GIDX[g.pais+'|'+g.marca]=g;});
-const GURL={};GRUPOS.forEach(g=>{if(g.grupo_url)GURL[g.pais+'|'+g.grupo]=g.grupo_url;});
-function grupoLink(pais,grupo){const u=GURL[pais+'|'+grupo];return u?`<a href="${u}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--lblue)">${grupo} ↗</a>`:grupo;}
-const CONF_ICON={alta:'🟢',media:'🟡',baja:'⚪'};
-const CC={Peru:'PE',Chile:'CL',Ecuador:'EC',Colombia:'CO','Costa Rica':'CR',Guatemala:'GT',Panama:'PA','Rep. Dominicana':'RD'};
-const FUENTE_PAIS={Peru:'AAP/SUNARP',Chile:'CAVEM',Ecuador:'AEADE',Colombia:'ANDI/Fenalco'};
-// Normalización de nombres de marca (mismo criterio que sources.canon en Python)
+const GRUPOS=__GRUPOS__;
+const RED=__RED__;
+const SNAP=DATA.slice();
+/* ---------- data layer ---------- */
 const ALIAS={GWM:'Great Wall','GREAT WALL':'Great Wall',GREATWALL:'Great Wall',MMC:'Mitsubishi','MITSUBISHI MOTORS':'Mitsubishi',VW:'Volkswagen','MERCEDES-BENZ':'Mercedes Benz','MERCEDES BENZ':'Mercedes Benz',DFM:'Dfsk',SSANGYONG:'Kgm',KGM:'Kgm','ZX AUTO':'Zx Auto',ZXAUTO:'Zx Auto','LAND ROVER':'Land Rover'};
 function canon(m){if(!m)return m;const k=m.normalize('NFD').replace(/[̀-ͯ]/g,'').trim().toUpperCase();if(ALIAS[k])return ALIAS[k];return m.trim().replace(/\S+/g,w=>w[0].toUpperCase()+w.slice(1).toLowerCase());}
+const CC={Peru:'PE',Chile:'CL',Ecuador:'EC',Colombia:'CO','Costa Rica':'CR',Guatemala:'GT',Panama:'PA','Rep. Dominicana':'RD'};
+const FUENTE_PAIS={Peru:'AAP/SUNARP',Chile:'CAVEM',Ecuador:'AEADE',Colombia:'ANDI (RUNT)'};
 const MES_ABBR={enero:'ene',febrero:'feb',marzo:'mar',abril:'abr',mayo:'may',junio:'jun',julio:'jul',agosto:'ago',septiembre:'sep',setiembre:'sep',octubre:'oct',noviembre:'nov',diciembre:'dic'};
-// Índice de la serie mensual: pais|ym|marca -> fila, y último ym por país
-const MIDX={};const ULT_YM={};
-MENSUAL.rows.forEach(r=>{MIDX[r.pais+'|'+r.ym+'|'+r.marca]=r;if(!ULT_YM[r.pais]||r.ym>ULT_YM[r.pais])ULT_YM[r.pais]=r.ym;});
-// Mes anterior de un "YYYY-MM"
-function prevYm(ym){const a=ym.split('-').map(Number);return a[1]===1?(a[0]-1)+'-12':a[0]+'-'+String(a[1]-1).padStart(2,'0');}
-// Var% MoM real (mes vs mes anterior) de una marca/país en un ym dado
-function momOf(pais,ym,marca){
-  if(!ym)return null;
-  const cur=MIDX[pais+'|'+ym+'|'+marca],prev=MIDX[pais+'|'+prevYm(ym)+'|'+marca];
-  if(!cur||cur.mes==null||!prev||prev.mes==null||prev.mes===0)return null;
-  return (cur.mes-prev.mes)/prev.mes*100;
-}
-// YoY (acumulado) y MoM real de una fila, según la vista activa
-function yoyMom(d){
-  const ym=state.periodo==='ultimo'?ULT_YM[d.pais]:state.periodo;
-  if(state.periodo==='ultimo')return {yoy:d.var, mom:momOf(d.pais,ym,d.marca)};
-  const row=MIDX[d.pais+'|'+ym+'|'+d.marca];
-  return {yoy:row?row.accVar:null, mom:momOf(d.pais,ym,d.marca)};
-}
-function periodoCorto(periodo){ // "Acum a Mayo 2026" -> "may-26"
-  const m=(periodo||'').toLowerCase().match(/(\w+)\s+(\d{4})/);
-  if(!m)return periodo||'';
-  return (MES_ABBR[m[1]]||m[1].slice(0,3))+'-'+m[2].slice(2);
-}
+const CN=['Changan','Jetour','Geely','Chery','Dfsk','Shineray','Jac','Foton','Great Wall','Haval','Byd','Jmc','Forland','Kyc','King Long','Dongfeng','Gac','Mg','Baic','Jaecoo','Omoda','Sinotruk','Maxus','Dfm','Kaiyi','Leapmotor','Zeekr','Neta','Wuling','Riddara','Deepal'];
+const isCh=m=>CN.includes(m);
 const fmt=n=>n.toLocaleString('es-PE');const pct=v=>(v>=0?'+':'')+v.toFixed(1)+'%';
 const pill=v=>v===null||v===undefined?'<span class="pill flat">n/d</span>':`<span class="pill ${v>1?'up':v<-1?'down':'flat'}">${v>1000?'>+1000%':pct(v)}</span>`;
-const CN=['Changan','Jetour','Geely','Chery','Dfsk','Shineray','Jac','Foton','Great Wall','Haval','Byd','Jmc','Forland','Kyc','King Long','Dongfeng','Gac','Mg','Baic','Jaecoo','Omoda','Sinotruk','Maxus','Dfm','Kaiyi','Leapmotor','Zeekr','Neta','Wuling','Riddara'];
-const isCh=m=>CN.includes(m);
-let state={pais:'Todos',marca:'',origen:'Todas',periodo:'ultimo',vista:'acc'};
 const uniq=a=>[...new Set(a)];
-// Reemplaza el contenido de DATA in-place (DATA es const pero mutable) y re-renderiza todo
-function setDATA(arr){DATA.length=0;arr.forEach(x=>DATA.push(x));}
-function applyPeriodo(){
-  if(state.periodo==='ultimo'){setDATA(SNAP);}
-  else{
-    const acc=state.vista==='acc';
-    const FUENTE={Peru:'AAP/SUNARP',Chile:'CAVEM',Ecuador:'AEADE'};
-    const rs=MENSUAL.rows.filter(r=>r.ym===state.periodo).map(r=>({
-      pais:r.pais, periodo:(acc?'Acum a ':'Mes ')+r.ym, marca:r.marca,
-      uc:acc?r.acc:r.mes, up:null, var:acc?r.accVar:r.mesVar, fuente:FUENTE[r.pais]||''
-    })).filter(r=>r.uc!=null && r.uc>0);
-    setDATA(rs);
-  }
-  badges();render();
-  try{tProsp();tMulti();}catch(e){console.error('prosp',e);}
+const MIDX={};const ULT_YM={};
+MENSUAL.rows.forEach(r=>{MIDX[r.pais+'|'+r.ym+'|'+r.marca]=r;if(!ULT_YM[r.pais]||r.ym>ULT_YM[r.pais])ULT_YM[r.pais]=r.ym;});
+function prevYm(ym){const a=ym.split('-').map(Number);return a[1]===1?(a[0]-1)+'-12':a[0]+'-'+String(a[1]-1).padStart(2,'0');}
+function momOf(pais,ym,marca){if(!ym)return null;const c=MIDX[pais+'|'+ym+'|'+marca],p=MIDX[pais+'|'+prevYm(ym)+'|'+marca];if(!c||c.mes==null||!p||p.mes==null||p.mes===0)return null;return(c.mes-p.mes)/p.mes*100;}
+const GIDX={};GRUPOS.forEach(g=>{GIDX[g.pais+'|'+g.marca]=g;});
+const GURL={};GRUPOS.forEach(g=>{if(g.grupo_url)GURL[g.pais+'|'+g.grupo]=g.grupo_url;});
+function grupoLink(pais,grupo){const u=GURL[pais+'|'+grupo];return u?`<a class="ext" href="${u}" target="_blank" rel="noopener">${grupo} ↗</a>`:grupo;}
+const RIDX={};(RED.items||[]).forEach(r=>{RIDX[r.pais+'|'+r.marca]=r;});
+const CONF_ICON={alta:'🟢',media:'🟡',baja:'⚪'};
+function periodoCorto(p){const m=(p||'').toLowerCase().match(/(\w+)\s+(\d{4})/);if(!m)return p||'';return(MES_ABBR[m[1]]||m[1].slice(0,3))+'-'+m[2].slice(2);}
+function paisesAll(){return uniq(SNAP.map(d=>d.pais));}
+function rowsFor(pais,ym,vista){
+ if(ym==='ultimo')return SNAP.filter(d=>d.pais===pais);
+ const acc=vista==='acc';
+ return MENSUAL.rows.filter(r=>r.pais===pais&&r.ym===ym).map(r=>({pais:r.pais,periodo:(acc?'Acum a ':'Mes ')+r.ym,marca:r.marca,uc:acc?r.acc:r.mes,up:null,var:acc?r.accVar:r.mesVar,fuente:FUENTE_PAIS[pais]||'ALADDA'})).filter(r=>r.uc!=null&&r.uc>0);
 }
-function paises(){return uniq(DATA.map(d=>d.pais))}
-function matchOrigen(m){return state.origen==='Todas'||(state.origen.startsWith('Chinas')&&isCh(m))||(state.origen==='No chinas'&&!isCh(m))}
-function rows(){return DATA.filter(d=>(state.pais==='Todos'||d.pais===state.pais)&&matchOrigen(d.marca)&&(state.marca===''||d.marca.toLowerCase().includes(state.marca.toLowerCase())))}
-function badges(){ // contexto dinámico de la vista activa (debajo de los filtros)
- const per={};DATA.forEach(d=>per[d.pais]=d.periodo);
- const vista=state.periodo==='ultimo'?'Último por país':(state.periodo+' · '+(state.vista==='acc'?'acumulado':'solo ese mes'));
- document.getElementById('ctx').innerHTML=`<span class="c">Vista: ${vista}</span><span class="c">${uniq(DATA.map(d=>d.marca)).length} marcas</span><span class="c">${DATA.length} filas</span>`+paises().map(p=>`<span class="c">${CC[p]||p}: ${periodoCorto(per[p])}</span>`).join('');
- document.getElementById('gen').textContent='actualizado '+new Date().toLocaleDateString('es-PE');}
-function heroBand(){ // banda fija de escala de mercado, siempre sobre el último corte (SNAP)
- const ps=uniq(SNAP.map(d=>d.pais));
- const tot=SNAP.reduce((s,x)=>s+x.uc,0);
- const wr=SNAP.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
- const yoy=tp?((tc-tp)/tp*100):null;
- const cn=SNAP.filter(x=>isCh(x.marca)).reduce((s,x)=>s+x.uc,0);const cnpct=tot?cn/tot*100:0;
- const hk=[['Unidades acum.',fmt(tot)],['Var. interanual',yoy===null?'n/d':pct(yoy)],['Marcas chinas',cnpct.toFixed(1)+'%'],['Cobertura',ps.length+'/8 países']];
- document.getElementById('heroKpis').innerHTML=hk.map(k=>`<div class="hero-kpi"><div class="hv">${k[1]}</div><div class="hl">${k[0]}</div></div>`).join('');
- const per={};SNAP.forEach(d=>per[d.pais]=d.periodo);
- document.getElementById('heroUpd').innerHTML='<span class="badge">📅 Dato a:</span>'+ps.map(p=>`<span class="badge">${CC[p]||p} ${periodoCorto(per[p])}</span>`).join('')+'<span class="badge" style="opacity:.65">ALADDA · top-10 por país</span>';}
-function alertasMes(){ // movimientos del último mes con dato, por país
- const byPais={};
- MENSUAL.rows.forEach(r=>{(byPais[r.pais]=byPais[r.pais]||{});(byPais[r.pais][r.ym]=byPais[r.pais][r.ym]||[]).push(r);});
+function matchOrigen(origen,m){return origen==='Todas'||(origen==='Chinas'&&isCh(m))||(origen==='No chinas'&&!isCh(m));}
+/* score (radar, sobre SNAP) */
+function scoreData(){
+ const ps=paisesAll();const vol={};
+ ps.forEach(p=>{const r=[...SNAP.filter(d=>d.pais===p)].sort((a,b)=>b.uc-a.uc);const mx=r[0]?r[0].uc:1;r.forEach(d=>{vol[p+'|'+d.marca]=d.uc/mx*100;});});
+ const pc={};SNAP.forEach(d=>{if(!pc[d.marca])pc[d.marca]=new Set();pc[d.marca].add(d.pais);});
+ const nP=Math.max(ps.length,2);
+ return SNAP.map(d=>{
+  const vs=vol[d.pais+'|'+d.marca]||0;
+  const vc=d.var!=null?Math.min(Math.max(d.var,0),250):0;
+  const mp=(pc[d.marca].size-1)/(nP-1)*100;
+  const score=Math.round(vs*.40+(vc/250*100)*.38+mp*.22+(isCh(d.marca)?12:0));
+  const tier=score>=60?'🔴 Alta':score>=38?'🟡 Media':'⚪ Seguimiento';
+  return{...d,score,tier,npaises:pc[d.marca].size,mom:momOf(d.pais,ULT_YM[d.pais],d.marca)};
+ }).sort((a,b)=>b.score-a.score);
+}
+function alertasList(){
+ const byP={};MENSUAL.rows.forEach(r=>{(byP[r.pais]=byP[r.pais]||{});(byP[r.pais][r.ym]=byP[r.pais][r.ym]||[]).push(r);});
  const out=[];
- Object.keys(byPais).forEach(p=>{
-  const yms=Object.keys(byPais[p]).sort();const cur=yms[yms.length-1],prev=yms[yms.length-2];
-  const cR=byPais[p][cur]||[];const pMap={};(byPais[p][prev]||[]).forEach(r=>pMap[r.marca]=r.mes);
-  // crecimiento MoM real, exigiendo base previa razonable para evitar ruido
-  cR.map(r=>{const pb=pMap[r.marca];const mom=(pb&&pb>0&&r.mes!=null)?(r.mes-pb)/pb*100:null;return {...r,mom,pb};})
-    .filter(r=>r.mom!=null&&r.mom>=40&&r.mes>=120&&r.pb>=30)
-    .sort((a,b)=>b.mom-a.mom).slice(0,3)
-    .forEach(r=>out.push({t:'up',cn:isCh(r.marca),txt:`${r.marca} +${Math.round(r.mom)}% MoM en ${CC[p]}`}));
+ Object.keys(byP).forEach(p=>{
+  const yms=Object.keys(byP[p]).sort();const cur=yms[yms.length-1],prev=yms[yms.length-2];
+  const cR=byP[p][cur]||[];const pM={};(byP[p][prev]||[]).forEach(r=>pM[r.marca]=r.mes);
+  cR.map(r=>{const pb=pM[r.marca];const mom=(pb&&pb>0&&r.mes!=null)?(r.mes-pb)/pb*100:null;return{...r,mom,pb};})
+   .filter(r=>r.mom!=null&&r.mom>=40&&r.mes>=120&&r.pb>=30).sort((a,b)=>b.mom-a.mom).slice(0,3)
+   .forEach(r=>out.push({t:'up',pais:p,cn:isCh(r.marca),marca:r.marca,txt:`${r.marca} +${Math.round(r.mom)}% MoM en ${CC[p]}`}));
   if(prev){
-   const rank=rs=>{const s=[...rs].sort((a,b)=>(b.mes||0)-(a.mes||0));const m={};s.forEach((r,i)=>m[r.marca]=i+1);return m;};
-   const rc=rank(cR),rp=rank(byPais[p][prev]||[]);
-   cR.forEach(r=>{if(rc[r.marca]<=10&&(rp[r.marca]>10||rp[r.marca]===undefined))out.push({t:'star',cn:isCh(r.marca),txt:`${r.marca} entró al top 10 en ${CC[p]}`});});
+   const rk=rs=>{const s=[...rs].sort((a,b)=>(b.mes||0)-(a.mes||0));const m={};s.forEach((r,i)=>m[r.marca]=i+1);return m;};
+   const rc=rk(cR),rp=rk(byP[p][prev]||[]);
+   cR.forEach(r=>{if(rc[r.marca]<=10&&(rp[r.marca]>10||rp[r.marca]===undefined))out.push({t:'star',pais:p,cn:isCh(r.marca),marca:r.marca,txt:`${r.marca} entró al top 10 en ${CC[p]}`});});
   }
  });
- out.sort((a,b)=>(b.cn-a.cn));
- const top=out.slice(0,10);
- document.getElementById('alertas').innerHTML=top.length?top.map(a=>`<span class="alert ${a.t}">${a.t==='up'?'📈':'⭐'} ${a.txt}${a.cn?' <span class="tag">CN</span>':''}</span>`).join(''):'<span class="hint">Sin movimientos destacados este mes.</span>';}
-function fillFilters(){
- const fp=document.getElementById('fPais');fp.innerHTML=['Todos',...paises()].map(x=>`<option>${x}</option>`).join('');
- fp.onchange=e=>{state.pais=e.target.value;render()};
- document.getElementById('fMarca').oninput=e=>{state.marca=e.target.value;render()};
- document.getElementById('fOrigen').onchange=e=>{state.origen=e.target.value;render()};}
-function initPeriodo(){
- const fp=document.getElementById('fPeriodo');
- const ops=['<option value="ultimo">Último (por país)</option>']
-   .concat(MENSUAL.periodos.slice().reverse().map(p=>`<option value="${p}">${p}</option>`));
- fp.innerHTML=ops.join('');
- fp.onchange=e=>{state.periodo=e.target.value;applyPeriodo();};
- document.getElementById('fVista').onchange=e=>{state.vista=e.target.value;if(state.periodo!=='ultimo')applyPeriodo();};}
-function kpis(){
- const r=rows();const tot=r.reduce((s,x)=>s+x.uc,0);
- const wr=r.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
- const top=[...r].sort((a,b)=>b.uc-a.uc)[0];const emerg=r.filter(x=>x.var!=null&&x.var>50&&x.uc>=300).length;
- const v=tp?((tc-tp)/tp*100):null;
- const combinado=state.pais==='Todos';
- document.getElementById('kpis').innerHTML=[
-  ['Unidades (acum.)',fmt(tot),combinado?`${paises().length} países · mismo corte`:'top marcas · '+state.pais],
-  ['Var. interanual',v===null?'n/d':pct(v),'YTD vs año anterior'],
-  ['Marca #1',top?top.marca:'—',top?fmt(top.uc)+' u'+(top.var!=null?' · '+pct(top.var):''):''],
+ out.sort((a,b)=>(b.cn-a.cn));return out;
+}
+function alertaChip(a){return `<span class="alert ${a.t}"><span class="clk" onclick="openMarca('${a.marca}')">${a.t==='up'?'📈':'⭐'} ${a.txt}</span>${a.cn?' <span class="tag">CN</span>':''}</span>`;}
+/* ---------- views ---------- */
+const V={cur:'radar',pais:'Chile',
+ radar:{pais:'Todos',tier:'Todas',origen:'Todas'},
+ p:{ym:'ultimo',vista:'acc',origen:'Todas'},
+ imp:{pais:'Todos'},
+ datos:{q:'',k:'uc',d:-1}};
+const TITULOS={radar:['Radar de prospección','score regional + alertas · último corte'],region:['Región','8 países · mismo corte (ALADDA)'],importadoras:['Importadoras y grupos','mapeo marca → grupo → red comercial'],datos:['Datos crudos','snapshot completo + descargas']};
+function setView(v,p){
+ V.cur=v;if(p)V.pais=p;
+ document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+ document.getElementById('v-'+v).classList.add('on');
+ document.querySelectorAll('nav a').forEach(a=>{
+  const on=a.dataset.v===v&&(v!=='pais'||a.dataset.p===V.pais);
+  a.classList.toggle('on',on);
+ });
+ if(v==='pais'){
+  document.getElementById('vtitle').textContent=V.pais;
+  const s=SNAP.find(d=>d.pais===V.pais);
+  document.getElementById('vsub').textContent=(FUENTE_PAIS[V.pais]||'ALADDA')+' · '+(s?s.periodo.toLowerCase():'');
+  V.p={ym:'ultimo',vista:'acc',origen:'Todas'};
+  renderPais();
+ }else{
+  document.getElementById('vtitle').textContent=TITULOS[v][0];
+  document.getElementById('vsub').textContent=TITULOS[v][1];
+  if(v==='radar')renderRadar();
+  if(v==='region')renderRegion();
+  if(v==='importadoras')renderImp();
+  if(v==='datos')renderDatos();
+ }
+ document.getElementById('sb').classList.remove('open');
+ const hash=v==='pais'?'#pais/'+encodeURIComponent(V.pais):'#'+v;
+ if(location.hash!==hash)history.replaceState(null,'',hash);
+ window.scrollTo(0,0);
+}
+/* radar */
+function renderRadar(){
+ document.getElementById('rAlertas').innerHTML=alertasList().slice(0,10).map(alertaChip).join('')||'<span class="hint">Sin movimientos destacados.</span>';
+ const st=V.radar;
+ let rows=scoreData();
+ if(st.pais!=='Todos')rows=rows.filter(r=>r.pais===st.pais);
+ if(st.tier!=='Todas')rows=rows.filter(r=>r.tier===st.tier);
+ rows=rows.filter(r=>matchOrigen(st.origen,r.marca));
+ const alta=rows.filter(r=>r.tier==='🔴 Alta').length,media=rows.filter(r=>r.tier==='🟡 Media').length;
+ document.getElementById('rSummary').innerHTML=`<span class="pill up">🔴 Alta: ${alta}</span><span class="pill flat" style="background:#FFF7DE;color:#8A6D00">🟡 Media: ${media}</span><span class="pill flat">${rows.length} targets</span>`;
+ const showP=st.pais==='Todos';const nP=paisesAll().length;
+ document.getElementById('rTabla').innerHTML=
+  `<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th>Prioridad</th><th class="num">Score</th><th class="num">Unidades</th><th class="num">Var% YoY</th><th class="num">Var% MoM</th><th class="num">Países</th></tr>`+
+  (rows.map((r,i)=>`<tr><td class="rank">${i+1}</td><td class="mk"><span class="clk" onclick="openMarca('${r.marca}')">${r.marca}</span>${isCh(r.marca)?'<span class="tag">CN</span>':''}</td>${showP?`<td>${CC[r.pais]||r.pais}</td>`:''}<td style="font-weight:700;font-size:12.5px">${r.tier}</td><td class="num"><b>${r.score}</b></td><td class="num">${fmt(r.uc)}</td><td class="num">${pill(r.var)}</td><td class="num">${pill(r.mom)}</td><td class="num" style="color:${r.npaises>=3?'var(--green)':'var(--grey)'}">${r.npaises}/${nP}</td></tr>`).join('')||'<tr><td colspan="9" style="color:var(--grey);padding:16px">Sin resultados.</td></tr>');
+}
+/* region */
+function renderRegion(){
+ const tot=SNAP.reduce((s,x)=>s+x.uc,0);
+ const wr=SNAP.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
+ const cn=SNAP.filter(x=>isCh(x.marca)).reduce((s,x)=>s+x.uc,0);
+ const emerg=SNAP.filter(x=>x.var!=null&&x.var>50&&x.uc>=300).length;
+ document.getElementById('regKpis').innerHTML=[
+  ['Unidades acum.',fmt(tot),paisesAll().length+' países · mismo corte'],
+  ['Var. interanual',tp?pct((tc-tp)/tp*100):'n/d','YTD vs año anterior'],
+  ['Marcas chinas',(tot?cn/tot*100:0).toFixed(1)+'%','share del bloque chino'],
   ['Emergentes',emerg,'marcas YoY>50%']
- ].map(k=>`<div class="kpi"><div class="lab">${k[0]}</div><div class="val">${k[1]}</div><div class="sub">${k[2]}</div></div>`).join('');}
-function tTop(){
- let r=[...rows()].sort((a,b)=>b.uc-a.uc);const max=Math.max(...r.map(x=>x.uc),1);
- document.getElementById('topTitle').textContent='Top marcas '+(state.pais==='Todos'?'· '+paises().length+' países (acum a Mayo 2026, mismo corte)':'· '+state.pais);
- const showP=state.pais==='Todos';
- const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th class="num">Unidades</th><th class="num">Var.% YoY</th><th>Volumen</th></tr>`;
- const b=r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk"><span class="clk" onclick="openMarca('${x.marca}')">${x.marca}</span>${isCh(x.marca)?'<span class="tag">CN</span>':''}</td>${showP?'<td class="flag">'+x.pais+'</td>':''}<td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${x.uc/max*100}%"></span></div></td></tr>`).join('');
- document.getElementById('tTop').innerHTML=h+b;}
-function tEmerg(){
- let r=rows().filter(x=>x.var!=null&&x.var>50&&x.uc>=300).sort((a,b)=>b.var-a.var);const cap=v=>Math.min(v,300);const max=Math.max(...r.map(x=>cap(x.var)),1);
- const h=`<tr><th>#</th><th>Marca</th><th>País</th><th class="num">Unidades</th><th class="num">Var.% YoY</th><th>Crecimiento</th></tr>`;
- const b=r.length?r.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk"><span class="clk" onclick="openMarca('${x.marca}')">${x.marca}</span>${isCh(x.marca)?'<span class="tag">CN</span>':''}</td><td class="flag">${x.pais}</td><td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td><div class="bar"><span style="width:${cap(x.var)/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join(''):`<tr><td colspan="6" style="color:var(--grey);padding:18px">Sin marcas sobre el umbral con el filtro actual.</td></tr>`;
- document.getElementById('tEmerg').innerHTML=h+b;}
-function tComp(){
- const ps=paises();const marks={};DATA.forEach(d=>{marks[d.marca]=marks[d.marca]||{};marks[d.marca][d.pais]={uc:d.uc,var:d.var}});
+ ].map(k=>`<div class="kpi"><div class="lab">${k[0]}</div><div class="val">${k[1]}</div><div class="sub">${k[2]}</div></div>`).join('');
+ const ps=paisesAll();
+ const marks={};SNAP.forEach(d=>{marks[d.marca]=marks[d.marca]||{};marks[d.marca][d.pais]={uc:d.uc,var:d.var}});
  const list=Object.entries(marks).map(([m,o])=>({m,o,tot:Object.values(o).reduce((s,x)=>s+x.uc,0),n:Object.keys(o).length})).sort((a,b)=>b.tot-a.tot);
- const h=`<tr><th>Marca</th>${ps.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th></tr>`;
- const b=list.map(it=>`<tr><td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>${ps.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p].uc)} <span style="font-size:11px">${pill(it.o[p].var)}</span></td>`:'<td class="num dash">—</td>').join('')}<td class="num">${it.n}/${ps.length}</td></tr>`).join('');
- document.getElementById('tComp').innerHTML=h+b;}
-let rawSort={k:'uc',d:-1};
-function setRawSort(k){if(rawSort.k===k)rawSort.d*=-1;else rawSort={k,d:(k==='pais'||k==='marca'||k==='periodo'||k==='fuente')?1:-1};tRaw();}
-function tRaw(){
- const cols=[['pais','País',''],['periodo','Período',''],['marca','Marca',''],['uc','Unid. actual','num'],['up','Unid. previo','num'],['var','Var%','num'],['fuente','Fuente','']];
- let r=[...rows()];
- const k=rawSort.k,d=rawSort.d;
- r.sort((a,b)=>{let x=a[k],y=b[k];if(x==null)x=-Infinity;if(y==null)y=-Infinity;if(typeof x==='string'||typeof y==='string'){x=(''+x).toLowerCase();y=(''+y).toLowerCase();return x<y?-d:x>y?d:0;}return (x-y)*d;});
- document.getElementById('rawCount').textContent=`(${r.length} filas · ${uniq(r.map(z=>z.pais)).length} países — clic en encabezado para ordenar)`;
- const arrow=c=>rawSort.k===c?(rawSort.d===1?' ▲':' ▼'):'';
- const h='<tr>'+cols.map(c=>`<th class="${c[2]}" style="cursor:pointer" onclick="setRawSort('${c[0]}')">${c[1]}${arrow(c[0])}</th>`).join('')+'</tr>';
- const b=r.map(d2=>`<tr><td>${d2.pais}</td><td>${d2.periodo}</td><td class="mk">${d2.marca}</td><td class="num">${fmt(d2.uc)}</td><td class="num">${d2.up==null?'—':fmt(d2.up)}</td><td class="num">${pill(d2.var)}</td><td style="font-size:12px;color:var(--grey)">${d2.fuente}</td></tr>`).join('');
- document.getElementById('tRaw').innerHTML=h+b;}
-
-function trendBrandsSorted(){const s=TREND.series;return Object.keys(s).sort((a,b)=>{const sa=s[a].reduce((x,y)=>x+(y.u||0),0),sb=s[b].reduce((x,y)=>x+(y.u||0),0);return sb-sa})}
-function fillTrend(){const sel=document.getElementById('trBrand');sel.innerHTML=trendBrandsSorted().map(m=>`<option>${m}</option>`).join('');sel.onchange=()=>drawTrend(sel.value);drawTrend(sel.value);trendAccel();
- const yms=[];for(const m in TREND.series)TREND.series[m].forEach(p=>yms.push(p.ym));yms.sort();
- const el=document.getElementById('trRango');if(el&&yms.length)el.textContent=`(${yms[0]} → ${yms[yms.length-1]})`;}
-function drawTrend(brand){
- const s=TREND.series[brand]||[];const max=Math.max(...s.map(p=>p.u||0),1);
- const W=Math.max(640,s.length*42),H=230,pad=28,bw=26;
- let bars='';s.forEach((p,i)=>{const x=pad+i*((W-pad*2)/s.length);const h=(p.u||0)/max*(H-60);const y=H-30-h;const c=p.ym.startsWith('2026')?'#C0392B':'#2E5496';
-  bars+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="3" fill="${c}"></rect>`;
-  bars+=`<text x="${x+bw/2}" y="${y-4}" font-size="9" text-anchor="middle" fill="#444">${p.u!=null?p.u.toLocaleString('es-PE'):''}</text>`;
-  bars+=`<text x="${x+bw/2}" y="${H-16}" font-size="8.5" text-anchor="middle" fill="#888" transform="rotate(0 ${x+bw/2} ${H-16})">${p.ym.slice(2)}</text>`;});
- document.getElementById('trChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><line x1="${pad-6}" y1="${H-30}" x2="${W-6}" y2="${H-30}" stroke="#ddd"/>${bars}</svg>`;
- // momentum: Q1 2026 vs Q1 2025 (acum mar)
- const a26=(s.find(p=>p.ym==='2026-03')||{}).acc, a25=(s.find(p=>p.ym==='2025-03')||{}).acc;
- let mom='';if(a26&&a25){const g=(a26-a25)/a25*100;mom=`Q1-2026: <b>${a26.toLocaleString('es-PE')}</b> u · YoY ${pill(g)}`;}
- document.getElementById('trMom').innerHTML=mom;}
-function trendAccel(){
- const s=TREND.series;const list=[];
- for(const m in s){const a26=(s[m].find(p=>p.ym==='2026-03')||{}).acc,a25=(s[m].find(p=>p.ym==='2025-03')||{}).acc;
-  if(a26&&a25&&a26>=300){list.push({m,a26,a25,g:(a26-a25)/a25*100})}}
- list.sort((a,b)=>b.g-a.g);const max=Math.max(...list.map(x=>Math.min(x.g,300)),1);
- const h=`<tr><th>#</th><th>Marca</th><th class="num">Q1-2025</th><th class="num">Q1-2026</th><th class="num">Var.% YoY</th><th>Aceleración</th></tr>`;
- const b=list.map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk">${x.m}${isCh(x.m)?'<span class="tag">CN</span>':''}</td><td class="num">${x.a25.toLocaleString('es-PE')}</td><td class="num">${x.a26.toLocaleString('es-PE')}</td><td class="num">${pill(x.g)}</td><td><div class="bar"><span style="width:${Math.min(x.g,300)/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join('');
- document.getElementById('tAccel').innerHTML=h+b;}
-
-
-function mercadoCN(){
- const ps=paises();const out=ps.map(p=>{const r=DATA.filter(d=>d.pais===p);const tot=r.reduce((s,x)=>s+x.uc,0);const cn=r.filter(x=>isCh(x.marca)).reduce((s,x)=>s+x.uc,0);return{p,pct:tot?cn/tot*100:0,cn,tot}}).sort((a,b)=>b.pct-a.pct);
- const max=Math.max(...out.map(x=>x.pct),1);
- const h=`<tr><th>País</th><th class="num">% chinas</th><th class="num">Unid. chinas</th><th>Peso</th></tr>`;
- const b=out.map(x=>`<tr><td class="flag">${x.p}</td><td class="num"><b>${x.pct.toFixed(1)}%</b></td><td class="num">${fmt(x.cn)}</td><td><div class="bar"><span style="width:${x.pct/max*100}%;background:linear-gradient(90deg,#E67E22,#C0392B)"></span></div></td></tr>`).join('');
- document.getElementById('tCN').innerHTML=h+b;}
-function cnChart(){
- const pais=document.getElementById('cnPais').value;const s=CN_TL[pais]||[];
- const max=Math.max(...s.map(p=>p.pct),1),min=Math.min(...s.map(p=>p.pct),0);
- const W=Math.max(560,s.length*70),H=200,pad=34;
+ document.getElementById('regComp').innerHTML=`<tr><th>Marca</th>${ps.map(p=>`<th class="num">${CC[p]||p}</th>`).join('')}<th class="num">Países</th></tr>`+
+  list.map(it=>`<tr><td class="mk"><span class="clk" onclick="openMarca('${it.m}')">${it.m}</span>${isCh(it.m)?'<span class="tag">CN</span>':''}</td>${ps.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p].uc)}</td>`:'<td class="num" style="color:#CBD2E0">—</td>').join('')}<td class="num">${it.n}/${ps.length}</td></tr>`).join('');
+ const outCN=ps.map(p=>{const r=SNAP.filter(d=>d.pais===p);const t=r.reduce((s,x)=>s+x.uc,0);const c=r.filter(x=>isCh(x.marca)).reduce((s,x)=>s+x.uc,0);return{p,pc:t?c/t*100:0,c}}).sort((a,b)=>b.pc-a.pc);
+ const mx=Math.max(...outCN.map(x=>x.pc),1);
+ document.getElementById('regCN').innerHTML=`<tr><th>País</th><th class="num">% chinas</th><th class="num">Unidades</th><th>Peso</th></tr>`+outCN.map(x=>`<tr><td>${x.p}</td><td class="num"><b>${x.pc.toFixed(1)}%</b></td><td class="num">${fmt(x.c)}</td><td><div class="bar"><span style="width:${x.pc/mx*100}%"></span></div></td></tr>`).join('');
+ document.getElementById('regConc').innerHTML=`<tr><th>País</th><th class="num">Top 5</th><th class="num">Top 10</th><th class="num"># marcas</th></tr>`+
+  ps.map(p=>{const r=SNAP.filter(d=>d.pais===p).sort((a,b)=>b.uc-a.uc);const t=r.reduce((s,x)=>s+x.uc,0)||1;const cum=n=>r.slice(0,n).reduce((s,x)=>s+x.uc,0)/t*100;return`<tr><td>${p}</td><td class="num">${cum(5).toFixed(0)}%</td><td class="num">${cum(10).toFixed(0)}%</td><td class="num">${r.length}</td></tr>`}).join('');
+ regCnChart();
+}
+function regCnChart(){
+ const pais=document.getElementById('regCnPais').value;const s=CN_TL[pais]||[];
+ if(!s.length){document.getElementById('regCnChart').innerHTML='<span class="hint">Sin serie para este país.</span>';return;}
+ const mx=Math.max(...s.map(p=>p.pct),1),mn=Math.min(...s.map(p=>p.pct),0);
+ const W=Math.max(520,s.length*56),H=190,pad=30;
  const x=i=>pad+i*((W-pad*2)/Math.max(s.length-1,1));
- const y=v=>H-28-((v-min)/((max-min)||1))*(H-56);
- let pts=s.map((p,i)=>`${x(i)},${y(p.pct)}`).join(' ');
- let dots=s.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p.pct)}" r="3.5" fill="#C0392B"></circle><text x="${x(i)}" y="${y(p.pct)-8}" font-size="10" text-anchor="middle" fill="#444">${p.pct}%</text><text x="${x(i)}" y="${H-10}" font-size="8.5" text-anchor="middle" fill="#888">${p.ym.slice(2)}</text>`).join('');
- document.getElementById('cnChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><polyline points="${pts}" fill="none" stroke="#C0392B" stroke-width="2"></polyline>${dots}</svg>`;}
-function mercadoConc(){
- const ps=paises();const rowsH=ps.map(p=>{const r=DATA.filter(d=>d.pais===p).sort((a,b)=>b.uc-a.uc);const tot=r.reduce((s,x)=>s+x.uc,0)||1;const cum=n=>r.slice(0,n).reduce((s,x)=>s+x.uc,0)/tot*100;
-  return `<tr><td class="flag">${p}</td><td class="num">${cum(5).toFixed(0)}%</td><td class="num">${cum(10).toFixed(0)}%</td><td class="num">${cum(20).toFixed(0)}%</td><td class="num">${r.length}</td></tr>`}).join('');
- document.getElementById('tConc').innerHTML=`<tr><th>País</th><th class="num">Top 5</th><th class="num">Top 10</th><th class="num">Top 20</th><th class="num"># marcas</th></tr>`+rowsH;}
-
-function tGrupos(){
+ const y=v=>H-26-((v-mn)/((mx-mn)||1))*(H-52);
+ document.getElementById('regCnChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><polyline points="${s.map((p,i)=>`${x(i)},${y(p.pct)}`).join(' ')}" fill="none" stroke="#4A1FCC" stroke-width="2"></polyline>${s.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p.pct)}" r="3.2" fill="#4A1FCC"></circle><text x="${x(i)}" y="${y(p.pct)-8}" font-size="10" text-anchor="middle" fill="#444">${p.pct}%</text><text x="${x(i)}" y="${H-8}" font-size="8.5" text-anchor="middle" fill="#888">${p.ym.slice(2)}</text>`).join('')}</svg>`;
+}
+/* pais */
+function renderPais(){
+ const p=V.pais,st=V.p;
+ const yms=uniq(MENSUAL.rows.filter(r=>r.pais===p).map(r=>r.ym)).sort().reverse();
+ const sel=document.getElementById('pYm');
+ sel.innerHTML='<option value="ultimo">Último corte</option>'+yms.map(y=>`<option value="${y}"${y===st.ym?' selected':''}>${y}</option>`).join('');
+ sel.value=st.ym;
+ document.getElementById('pVista').value=st.vista;
+ document.getElementById('pOrigen').value=st.origen;
+ document.getElementById('pVista').parentElement.style.display=st.ym==='ultimo'?'none':'block';
+ let rows=rowsFor(p,st.ym,st.vista).filter(r=>matchOrigen(st.origen,r.marca));
+ const ymUse=st.ym==='ultimo'?ULT_YM[p]:st.ym;
+ const tot=rows.reduce((s,x)=>s+x.uc,0);
+ const wr=rows.filter(x=>x.up!=null&&x.up>0);const tc=wr.reduce((s,x)=>s+x.uc,0),tp=wr.reduce((s,x)=>s+x.up,0);
+ const varT=tp?(tc-tp)/tp*100:(rows.some(r=>r.var!=null)?null:null);
+ const cn=rows.filter(x=>isCh(x.marca)).reduce((s,x)=>s+x.uc,0);
+ const rampa=rows.filter(x=>x.var!=null&&x.var>50).length;
+ document.getElementById('pKpis').innerHTML=[
+  ['Unidades',fmt(tot),rows[0]?rows[0].periodo.toLowerCase():''],
+  ['Var. interanual',varT!=null?pct(varT):'n/d','donde hay dato previo'],
+  ['% chinas',(tot?cn/tot*100:0).toFixed(1)+'%',''],
+  ['En rampa',rampa,'marcas YoY>50%']
+ ].map(k=>`<div class="kpi"><div class="lab">${k[0]}</div><div class="val">${k[1]}</div><div class="sub">${k[2]}</div></div>`).join('');
+ document.getElementById('pTopTit').textContent='Top marcas · '+p;
+ const mx=Math.max(...rows.map(x=>x.uc),1);
+ document.getElementById('pTop').innerHTML=`<tr><th>#</th><th>Marca</th><th class="num">Unidades</th><th class="num">Var% YoY</th><th class="num">MoM</th><th>Vol.</th></tr>`+
+  [...rows].sort((a,b)=>b.uc-a.uc).map((x,i)=>`<tr><td class="rank">${i+1}</td><td class="mk"><span class="clk" onclick="openMarca('${x.marca}')">${x.marca}</span>${isCh(x.marca)?'<span class="tag">CN</span>':''}</td><td class="num">${fmt(x.uc)}</td><td class="num">${pill(x.var)}</td><td class="num">${pill(momOf(p,ymUse,x.marca))}</td><td><div class="bar"><span style="width:${x.uc/mx*100}%"></span></div></td></tr>`).join('');
+ const tiene=yms.length>0;
+ document.getElementById('pTrendCard').style.display=tiene?'block':'none';
+ if(tiene){
+  const marcas=uniq(MENSUAL.rows.filter(r=>r.pais===p).map(r=>r.marca));
+  marcas.sort((a,b)=>{const A=MIDX[p+'|'+ULT_YM[p]+'|'+a],B=MIDX[p+'|'+ULT_YM[p]+'|'+b];return((B&&B.acc)||0)-((A&&A.acc)||0);});
+  const ms=document.getElementById('pTrMarca');
+  const prev=ms.value;
+  ms.innerHTML=marcas.map(m=>`<option>${m}</option>`).join('');
+  if(marcas.includes(prev))ms.value=prev;
+  drawPaisTrend();
+ }
+ const al=alertasList().filter(a=>a.pais===p);
+ document.getElementById('pAlertas').innerHTML=al.length?al.map(alertaChip).join(''):'<span class="hint">Sin movimientos destacados este mes.</span>';
+ const sIdx={};SNAP.forEach(d=>sIdx[d.pais+'|'+d.marca]=d);
+ const agg={};
+ GRUPOS.filter(g=>g.pais===p&&g.grupo.indexOf('verificar')<0).forEach(g=>{
+  const k=g.grupo;if(!agg[k])agg[k]={grupo:k,marcas:[],uc:0,rampa:0};
+  const s=sIdx[p+'|'+g.marca]||{};const vr=s.var==null?null:s.var;const ram=vr!=null&&vr>50;
+  agg[k].marcas.push({marca:g.marca,uc:s.uc||0,ram,cn:isCh(g.marca)});agg[k].uc+=(s.uc||0);if(ram)agg[k].rampa++;
+ });
+ const gl=Object.values(agg).sort((a,b)=>b.rampa-a.rampa||b.uc-a.uc);
+ const redTot=(RED.items||[]).filter(r=>r.pais===p);
+ document.getElementById('pImpHint').innerHTML=redTot.length?`Red relevada: <b>${redTot.reduce((s,x)=>s+x.puntos,0)} puntos de venta</b> en ${redTot.length} marcas · ${(RED.sheets&&RED.sheets[p])?`<a class="ext" href="${RED.sheets[p]}" target="_blank" rel="noopener">📋 planilla de agencias</a>`:''}`:'Grupos que operan en el país (clic en marca para detalle).';
+ document.getElementById('pImp').innerHTML=`<tr><th>Grupo</th><th class="num">Marcas</th><th class="num">📈 rampa</th><th>Cartera</th></tr>`+
+  (gl.map(it=>`<tr><td class="mk">${grupoLink(p,it.grupo)}</td><td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td><td>${it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 7px;border:1px solid var(--line);border-radius:9px;font-size:11.5px;${m.ram?'background:#F0FAF3;border-color:#BFE3CC':''}">${m.marca}${m.ram?' 📈':''}</span>`).join('')}</td></tr>`).join('')||'<tr><td colspan="4" style="color:var(--grey);padding:14px">Sin mapeo de importadoras para este país todavía.</td></tr>');
+}
+function drawPaisTrend(){
+ const p=V.pais,marca=document.getElementById('pTrMarca').value;
+ const s=MENSUAL.rows.filter(r=>r.pais===p&&r.marca===marca&&r.mes!=null).sort((a,b)=>a.ym<b.ym?-1:1).slice(-18);
+ if(!s.length){document.getElementById('pTrChart').innerHTML='<span class="hint">Sin datos mensuales.</span>';return;}
+ const mx=Math.max(...s.map(x=>x.mes),1);
+ const W=Math.max(420,s.length*40),H=200,pad=10,bw=26;
+ let bars='';
+ s.forEach((x,i)=>{const bx=pad+i*((W-pad*2)/s.length);const h=x.mes/mx*(H-58);const by=H-30-h;
+  bars+=`<rect x="${bx}" y="${by}" width="${bw}" height="${h}" rx="3" fill="${x.ym.startsWith('2026')?'#4A1FCC':'#C9BCE8'}"></rect>`;
+  bars+=`<text x="${bx+bw/2}" y="${by-4}" font-size="9" text-anchor="middle" fill="#555">${x.mes.toLocaleString('es-PE')}</text>`;
+  bars+=`<text x="${bx+bw/2}" y="${H-14}" font-size="8.5" text-anchor="middle" fill="#888">${x.ym.slice(2)}</text>`;});
+ document.getElementById('pTrChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><line x1="${pad-4}" y1="${H-30}" x2="${W-4}" y2="${H-30}" stroke="#E3E6EC"/>${bars}</svg>`;
+}
+/* importadoras */
+function renderImp(){
+ const st=V.imp;
+ const ip=document.getElementById('iPais');
+ if(!ip.options.length)ip.innerHTML=['Todos',...uniq(GRUPOS.map(g=>g.pais))].map(x=>`<option>${x}</option>`).join('');
+ ip.value=st.pais;
  const sIdx={};SNAP.forEach(d=>sIdx[d.pais+'|'+d.marca]=d);
  const agg={};
  GRUPOS.forEach(g=>{
-  if(state.pais!=='Todos'&&g.pais!==state.pais)return;
+  if(st.pais!=='Todos'&&g.pais!==st.pais)return;
   if(g.grupo.indexOf('verificar')>=0)return;
   const k=g.pais+'|'+g.grupo;
   if(!agg[k])agg[k]={pais:g.pais,grupo:g.grupo,marcas:[],uc:0,rampa:0};
-  const s=sIdx[g.pais+'|'+g.marca]||{};const uc=s.uc||0;const vr=(s.var==null?null:s.var);const rampa=vr!=null&&vr>50;
-  agg[k].marcas.push({marca:g.marca,uc,rampa,cn:isCh(g.marca)});agg[k].uc+=uc;if(rampa)agg[k].rampa++;
+  const s=sIdx[g.pais+'|'+g.marca]||{};const vr=s.var==null?null:s.var;const ram=vr!=null&&vr>50;
+  agg[k].marcas.push({marca:g.marca,uc:s.uc||0,ram,cn:isCh(g.marca)});agg[k].uc+=(s.uc||0);if(ram)agg[k].rampa++;
  });
  const list=Object.values(agg).sort((a,b)=>b.rampa-a.rampa||b.uc-a.uc);
- const showP=state.pais==='Todos';
- const h=`<tr><th>Grupo</th>${showP?'<th>País</th>':''}<th class="num"># marcas</th><th class="num">📈 rampa</th><th class="num">Unid. acum</th><th>Marcas que maneja</th></tr>`;
- const b=list.map(it=>{
-  const chips=it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 8px;border:1px solid var(--line);border-radius:10px;font-size:12px;${m.rampa?'background:#f0faf3;border-color:#bfe3cc':''}">${m.marca}${m.cn?' 🇨🇳':''}${m.rampa?' 📈':''}</span>`).join('');
-  return `<tr><td class="mk">${grupoLink(it.pais,it.grupo)}</td>${showP?'<td class="flag">'+(CC[it.pais]||it.pais)+'</td>':''}<td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td><td class="num">${it.uc?fmt(it.uc):'—'}</td><td>${chips}</td></tr>`;
- }).join('');
- document.getElementById('tGrupos').innerHTML=h+(b||'<tr><td colspan="6" style="padding:16px;color:var(--grey)">Sin datos para ese país.</td></tr>');}
-function tMarcaImport(){
- const sIdx={};SNAP.forEach(d=>sIdx[d.pais+'|'+d.marca]=d);
- const rows=GRUPOS.filter(g=>state.pais==='Todos'||g.pais===state.pais)
-   .sort((a,b)=>a.pais<b.pais?-1:a.pais>b.pais?1:(a.marca<b.marca?-1:1));
- const h=`<tr><th>País</th><th>Marca</th><th>Importador / grupo</th><th>Tipo</th><th class="num">Unid.</th><th>Conf.</th></tr>`;
- const b=rows.map(g=>{const s=sIdx[g.pais+'|'+g.marca]||{};return `<tr><td class="flag">${CC[g.pais]||g.pais}</td><td class="mk"><span class="clk" onclick="openMarca('${g.marca}')">${g.marca}</span>${isCh(g.marca)?'<span class="tag">CN</span>':''}</td><td>${grupoLink(g.pais,g.grupo)}${g.nota?' <span style="color:var(--grey);font-size:11px">· '+g.nota+'</span>':''}</td><td style="font-size:12px;color:var(--grey)">${g.tipo}</td><td class="num">${s.uc?fmt(s.uc):'—'}</td><td title="${g.confianza}">${CONF_ICON[g.confianza]||''}</td></tr>`;}).join('');
- document.getElementById('tMarcaImport').innerHTML=h+b;}
-function render(){kpis();tTop();tEmerg();tComp();tRaw();mercadoCN();mercadoConc();cnChart();tGrupos();tMarcaImport();}
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById('p-'+t.dataset.p).classList.add('active')});
-
-// ---- DRILL-DOWN POR MARCA -------------------------------------------------
-function sparkMarca(serie){ // serie=[{ym,mes}] ordenada
- const s=serie.slice(-14);if(!s.length)return '<span class="hint">sin serie mensual</span>';
- const max=Math.max(...s.map(p=>p.mes||0),1);const W=s.length*20+6,H=44;
- const bars=s.map((p,i)=>{const h=(p.mes||0)/max*32;return `<rect x="${i*20+4}" y="${36-h}" width="13" height="${h}" rx="2" fill="${p.ym.startsWith('2026')?'#C0392B':'#2E5496'}"><title>${p.ym}: ${fmt(p.mes||0)}</title></rect>`;}).join('');
- const lbl=`<text x="4" y="${H}" font-size="8" fill="#888">${s[0].ym}</text><text x="${W-2}" y="${H}" font-size="8" fill="#888" text-anchor="end">${s[s.length-1].ym}</text>`;
- return `<svg width="${W}" height="${H}">${bars}${lbl}</svg>`;}
+ const showP=st.pais==='Todos';
+ document.getElementById('iGrupos').innerHTML=`<tr><th>Grupo</th>${showP?'<th>País</th>':''}<th class="num"># marcas</th><th class="num">📈 rampa</th><th class="num">Unid.</th><th>Marcas</th></tr>`+
+  list.map(it=>`<tr><td class="mk">${grupoLink(it.pais,it.grupo)}</td>${showP?'<td>'+(CC[it.pais]||it.pais)+'</td>':''}<td class="num">${it.marcas.length}</td><td class="num" style="font-weight:700;color:${it.rampa>0?'var(--green)':'var(--grey)'}">${it.rampa||'—'}</td><td class="num">${it.uc?fmt(it.uc):'—'}</td><td>${it.marcas.sort((a,b)=>b.uc-a.uc).map(m=>`<span class="clk" onclick="openMarca('${m.marca}')" style="display:inline-block;margin:1px 3px;padding:1px 7px;border:1px solid var(--line);border-radius:9px;font-size:11.5px;${m.ram?'background:#F0FAF3;border-color:#BFE3CC':''}">${m.marca}${m.cn?' 🇨🇳':''}${m.ram?' 📈':''}</span>`).join('')}</td></tr>`).join('');
+ const det=GRUPOS.filter(g=>st.pais==='Todos'||g.pais===st.pais).sort((a,b)=>a.pais<b.pais?-1:a.pais>b.pais?1:(a.marca<b.marca?-1:1));
+ document.getElementById('iDetalle').innerHTML=`<tr><th>País</th><th>Marca</th><th>Importador / grupo</th><th>Tipo</th><th class="num">Unid.</th><th>Conf.</th></tr>`+
+  det.map(g=>{const s=sIdx[g.pais+'|'+g.marca]||{};return`<tr><td>${CC[g.pais]||g.pais}</td><td class="mk"><span class="clk" onclick="openMarca('${g.marca}')">${g.marca}</span>${isCh(g.marca)?'<span class="tag">CN</span>':''}</td><td>${grupoLink(g.pais,g.grupo)}${g.nota?` <span style="color:var(--grey);font-size:11px">· ${g.nota}</span>`:''}</td><td style="font-size:11.5px;color:var(--grey)">${g.tipo}</td><td class="num">${s.uc?fmt(s.uc):'—'}</td><td title="${g.confianza}">${CONF_ICON[g.confianza]||''}</td></tr>`;}).join('');
+}
+/* datos */
+function renderDatos(){
+ const st=V.datos;
+ const cols=[['pais','País'],['periodo','Período'],['marca','Marca'],['uc','Unid. actual','num'],['up','Unid. previo','num'],['var','Var%','num'],['fuente','Fuente']];
+ let rows=SNAP.filter(d=>!st.q||d.marca.toLowerCase().includes(st.q)||d.pais.toLowerCase().includes(st.q));
+ const k=st.k,dir=st.d;
+ rows=[...rows].sort((a,b)=>{let x=a[k],y=b[k];if(x==null)x=-Infinity;if(y==null)y=-Infinity;if(typeof x==='string'||typeof y==='string'){x=(''+x).toLowerCase();y=(''+y).toLowerCase();return x<y?-dir:x>y?dir:0;}return(x-y)*dir;});
+ document.getElementById('dCount').textContent=`(${rows.length} filas · ${uniq(rows.map(r=>r.pais)).length} países)`;
+ const ar=c=>st.k===c?(st.d===1?' ▲':' ▼'):'';
+ document.getElementById('dTabla').innerHTML='<tr>'+cols.map(c=>`<th class="${c[2]||''}" style="cursor:pointer" onclick="dSort('${c[0]}')">${c[1]}${ar(c[0])}</th>`).join('')+'</tr>'+
+  rows.map(d=>`<tr><td>${d.pais}</td><td>${d.periodo}</td><td class="mk"><span class="clk" onclick="openMarca('${d.marca}')">${d.marca}</span></td><td class="num">${fmt(d.uc)}</td><td class="num">${d.up==null?'—':fmt(d.up)}</td><td class="num">${pill(d.var)}</td><td style="font-size:11.5px;color:var(--grey)">${d.fuente}</td></tr>`).join('');
+}
+function dSort(k){if(V.datos.k===k)V.datos.d*=-1;else V.datos={...V.datos,k,d:(k==='uc'||k==='up'||k==='var')?-1:1};renderDatos();}
+/* ---------- drill-down modal ---------- */
+function sparkMarca(serie){
+ const s=serie.slice(-14);if(!s.length)return'<span class="hint">sin serie mensual</span>';
+ const mx=Math.max(...s.map(p=>p.mes||0),1);const W=s.length*20+6,H=44;
+ return`<svg width="${W}" height="${H}">${s.map((p,i)=>{const h=(p.mes||0)/mx*32;return`<rect x="${i*20+4}" y="${36-h}" width="13" height="${h}" rx="2" fill="${p.ym.startsWith('2026')?'#4A1FCC':'#C9BCE8'}"><title>${p.ym}: ${fmt(p.mes||0)}</title></rect>`;}).join('')}<text x="4" y="${H}" font-size="8" fill="#888">${s[0].ym}</text><text x="${W-2}" y="${H}" font-size="8" fill="#888" text-anchor="end">${s[s.length-1].ym}</text></svg>`;}
 function openMarca(marca){
  const cm=canon(marca);
  const snap=SNAP.filter(d=>canon(d.marca)===cm);
  if(!snap.length){
-   document.getElementById('modalBody').innerHTML=`<h3>${marca}</h3><div class="note" style="margin-top:10px">Sin datos de ventas para esta marca en el último corte (ALADDA top-10 por país).</div>`;
-   document.getElementById('modalBg').classList.add('show');return;
+  document.getElementById('modalBody').innerHTML=`<h3>${marca}</h3><div class="note" style="margin-top:10px">Sin datos de ventas para esta marca en el último corte (top-10 por país).</div>`;
+  document.getElementById('modalBg').classList.add('show');return;
  }
- const totPais={};SNAP.forEach(d=>totPais[d.pais]=(totPais[d.pais]||0)+d.uc);
+ const totP={};SNAP.forEach(d=>totP[d.pais]=(totP[d.pais]||0)+d.uc);
  const ev=MENSUAL.rows.filter(r=>canon(r.marca)===cm);
- const evByPais={};ev.forEach(r=>{(evByPais[r.pais]=evByPais[r.pais]||[]).push(r);});
- Object.values(evByPais).forEach(a=>a.sort((x,y)=>x.ym<y.ym?-1:1));
+ const evP={};ev.forEach(r=>{(evP[r.pais]=evP[r.pais]||[]).push(r);});
+ Object.values(evP).forEach(a=>a.sort((x,y)=>x.ym<y.ym?-1:1));
  const filas=snap.sort((a,b)=>b.uc-a.uc).map(d=>{
-   const mm=MIDX[d.pais+'|'+ULT_YM[d.pais]+'|'+d.marca];
-   const share=totPais[d.pais]?(d.uc/totPais[d.pais]*100):null;
-   const sp=evByPais[d.pais]?sparkMarca(evByPais[d.pais].map(r=>({ym:r.ym,mes:r.mes}))):'<span class="hint">—</span>';
-   const g=GIDX[d.pais+'|'+d.marca];
-   const imp=g?`${g.grupo} ${CONF_ICON[g.confianza]||''}`:'<span style="color:#bbb">s/d</span>';
-   const rr=RIDX[d.pais+'|'+d.marca];
-   const sheet=RED.sheets&&RED.sheets[d.pais];
-   const red=rr?`<span${(rr.top&&rr.top.length)?` title="Principales grupos: ${rr.top.join(', ')}"`:''}>${rr.puntos} ptos · ${rr.grupos} grupos</span>${sheet?` <a href="${sheet}" target="_blank" rel="noopener" title="Ver planilla de agencias">📋</a>`:''}`:'<span style="color:#bbb">—</span>';
-   return `<tr><td class="flag">${CC[d.pais]||d.pais}</td><td>${imp}</td><td class="num">${fmt(d.uc)}</td><td class="num">${pill(d.var)}</td><td class="num">${pill(mm?mm.mesVar:null)}</td><td class="num">${share!=null?share.toFixed(1)+'%':'—'}</td><td style="white-space:nowrap;font-size:12.5px">${red}</td><td>${sp}</td></tr>`;
+  const mom=momOf(d.pais,ULT_YM[d.pais],d.marca);
+  const share=totP[d.pais]?(d.uc/totP[d.pais]*100):null;
+  const g=GIDX[d.pais+'|'+d.marca];
+  const imp=g?`${g.grupo} ${CONF_ICON[g.confianza]||''}`:'<span style="color:#BBB">s/d</span>';
+  const rr=RIDX[d.pais+'|'+d.marca];const sheet=RED.sheets&&RED.sheets[d.pais];
+  const red=rr?`<span${(rr.top&&rr.top.length)?` title="Principales grupos: ${rr.top.join(', ')}"`:''}>${rr.puntos} ptos · ${rr.grupos} grupos</span>${sheet?` <a href="${sheet}" target="_blank" rel="noopener" title="Planilla de agencias">📋</a>`:''}`:'<span style="color:#BBB">—</span>';
+  const sp=evP[d.pais]?sparkMarca(evP[d.pais]):'<span class="hint">—</span>';
+  return`<tr><td>${CC[d.pais]||d.pais}</td><td>${imp}</td><td class="num">${fmt(d.uc)}</td><td class="num">${pill(d.var)}</td><td class="num">${pill(mom)}</td><td class="num">${share!=null?share.toFixed(1)+'%':'—'}</td><td style="white-space:nowrap;font-size:12px">${red}</td><td>${sp}</td></tr>`;
  }).join('');
- const npais=snap.length;const cn=isCh(marca);
  document.getElementById('modalBody').innerHTML=
-   `<h3>${marca}${cn?' <span class="tag">CN</span>':''}</h3>`+
-   `<div class="hint">Presente en ${npais} de ${paises().length} países · ${cn?'origen China':'no china'}. Importadora, red comercial relevada (puntos de venta · grupos concesionarios) y performance por país.</div>`+
-   `<div class="tbl"><table><tr><th>País</th><th>Importadora / grupo</th><th class="num">Unid. (acum)</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share país</th><th>Red comercial</th><th>Evolución mensual</th></tr>${filas}</table></div>`+
-   `<div class="note" style="margin-top:12px">Importadora: 🟢 alta · 🟡 media confianza. <b>Red comercial</b>: relevamiento propio jun-2026 (📋 abre la planilla con cada agencia: dirección y teléfono) — hover para ver los grupos principales. Barras rojas = 2026.</div>`;
- document.getElementById('modalBg').classList.add('show');}
+  `<h3>${cm}${isCh(cm)?' <span class="tag">CN</span>':''}</h3>`+
+  `<div class="hint" style="margin:4px 0 10px">Presente en ${snap.length} de ${paisesAll().length} países · ${isCh(cm)?'origen China':'no china'}.</div>`+
+  `<div class="tbl"><table><tr><th>País</th><th>Importadora</th><th class="num">Unid.</th><th class="num">YoY</th><th class="num">MoM</th><th class="num">Share</th><th>Red</th><th>Evolución</th></tr>${filas}</table></div>`+
+  `<div class="note" style="margin-top:10px">Red: relevamiento propio jun-2026 (📋 abre la planilla con cada agencia). Barras violetas = 2026.</div>`;
+ document.getElementById('modalBg').classList.add('show');
+}
 function closeMarca(){document.getElementById('modalBg').classList.remove('show');}
 document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeMarca();});
-
-heroBand();
-badges();fillFilters();initPeriodo();render();
-try{fillTrend();}catch(e){console.error('Tendencia falló:',e);}
-try{alertasMes();}catch(e){console.error('Alertas falló:',e);}
-document.getElementById('cnPais').onchange=cnChart;
-
-// ---- PROSPECCIÓN H2 -------------------------------------------------------
-function scoreData(){
-  // Por país, calcular rank de volumen normalizado (0-100)
-  const ps=uniq(DATA.map(d=>d.pais));
-  const volScore={};
-  ps.forEach(p=>{
-    const r=[...DATA.filter(d=>d.pais===p)].sort((a,b)=>b.uc-a.uc);
-    const max=r[0]?r[0].uc:1;
-    r.forEach(d=>{volScore[p+'|'+d.marca]=d.uc/max*100;});
-  });
-  // Presencia multi-país: cuántos países tiene cada marca
-  const paisCount={};
-  DATA.forEach(d=>{if(!paisCount[d.marca])paisCount[d.marca]=new Set();paisCount[d.marca].add(d.pais);});
-  const nPaises=Math.max(paises().length,2);
-  // Score final por fila
-  return DATA.map(d=>{
-    const vs=volScore[d.pais+'|'+d.marca]||0;
-    const varCap=d.var!=null?Math.min(Math.max(d.var,0),250):0;
-    const gs=varCap/250*100;
-    const mp=(paisCount[d.marca].size-1)/(nPaises-1)*100; // 0-100
-    const cnBonus=isCh(d.marca)?12:0;
-    const score=Math.round(vs*0.40+gs*0.38+mp*0.22+cnBonus);
-    const tier=score>=60?'🔴 Alta':score>=38?'🟡 Media':'⚪ Seguimiento';
-    return{...d,score,tier,npaises:paisCount[d.marca].size};
-  }).sort((a,b)=>b.score-a.score);
+/* ---------- wiring ---------- */
+document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>setView(a.dataset.v,a.dataset.p));
+document.getElementById('burger').onclick=()=>document.getElementById('sb').classList.toggle('open');
+document.getElementById('rPais').innerHTML=['Todos',...paisesAll()].map(x=>`<option>${x}</option>`).join('');
+['rPais','rTier','rOrigen'].forEach((id,i)=>{document.getElementById(id).onchange=e=>{V.radar[['pais','tier','origen'][i]]=e.target.value;renderRadar();};});
+document.getElementById('regCnPais').onchange=regCnChart;
+document.getElementById('pYm').onchange=e=>{V.p.ym=e.target.value;renderPais();};
+document.getElementById('pVista').onchange=e=>{V.p.vista=e.target.value;renderPais();};
+document.getElementById('pOrigen').onchange=e=>{V.p.origen=e.target.value;renderPais();};
+document.getElementById('pTrMarca').onchange=drawPaisTrend;
+document.getElementById('iPais').onchange=e=>{V.imp.pais=e.target.value;renderImp();};
+document.getElementById('dQ').oninput=e=>{V.datos.q=e.target.value.toLowerCase();renderDatos();};
+const gs=document.getElementById('gSearch');
+document.getElementById('marcasList').innerHTML=uniq(SNAP.map(d=>d.marca)).sort().map(m=>`<option value="${m}">`).join('');
+gs.addEventListener('change',()=>{if(gs.value){openMarca(gs.value);gs.value='';}});
+gs.addEventListener('keydown',e=>{if(e.key==='Enter'&&gs.value){openMarca(gs.value);gs.value='';}});
+document.getElementById('sfecha').textContent='actualizado '+new Date().toLocaleDateString('es-PE');
+/* routing */
+function fromHash(){
+ const h=decodeURIComponent(location.hash||'');
+ if(h.startsWith('#pais/')){setView('pais',h.slice(6));return;}
+ const v=h.replace('#','');
+ setView(['radar','region','importadoras','datos'].includes(v)?v:'radar');
 }
-
-function tProsp(){
-  const paisFil=document.getElementById('prPais').value;
-  const tierFil=document.getElementById('prTier').value;
-  const origenFil=document.getElementById('prOrigen').value;
-  let rows=scoreData();
-  if(paisFil!=='Todos')rows=rows.filter(r=>r.pais===paisFil);
-  if(tierFil!=='Todas')rows=rows.filter(r=>r.tier===tierFil);
-  if(origenFil==='Chinas 🇨🇳')rows=rows.filter(r=>isCh(r.marca));
-  else if(origenFil==='No chinas')rows=rows.filter(r=>!isCh(r.marca));
-
-  // Summary chips
-  const alta=rows.filter(r=>r.tier==='🔴 Alta').length;
-  const media=rows.filter(r=>r.tier==='🟡 Media').length;
-  document.getElementById('prSummary').innerHTML=
-    `<span class="pill up" style="font-size:12px">🔴 Alta: ${alta}</span>`+
-    `<span class="pill flat" style="font-size:12px;background:#fff9ec;color:#B9770E">🟡 Media: ${media}</span>`+
-    `<span class="pill flat" style="font-size:12px">Total: ${rows.length} targets</span>`;
-
-  const showP=paisFil==='Todos';
-  const h=`<tr><th>#</th><th>Marca</th>${showP?'<th>País</th>':''}<th>Prioridad</th><th class="num">Score</th><th class="num">Unidades</th><th class="num">Var% YoY</th><th class="num">Var% MoM</th><th class="num">Países</th></tr>`;
-  const b=rows.map((r,i)=>{const m=yoyMom(r);return `<tr>
-    <td class="rank">${i+1}</td>
-    <td class="mk"><span class="clk" onclick="openMarca('${r.marca}')">${r.marca}</span>${isCh(r.marca)?'<span class="tag">CN</span>':''}</td>
-    ${showP?`<td class="flag">${r.pais}</td>`:''}
-    <td><span style="font-size:13px;font-weight:700">${r.tier}</span></td>
-    <td class="num"><b>${r.score}</b></td>
-    <td class="num">${fmt(r.uc)}</td>
-    <td class="num">${pill(m.yoy)}</td>
-    <td class="num">${pill(m.mom)}</td>
-    <td class="num" style="color:${r.npaises>=3?'var(--green)':r.npaises===2?'var(--blue)':'var(--grey)'}">${r.npaises}/${paises().length}</td>
-  </tr>`}).join('');
-  document.getElementById('tProsp').innerHTML=h+(b||'<tr><td colspan="9" style="color:var(--grey);padding:18px">Sin resultados con ese filtro.</td></tr>');
-}
-
-function tMulti(){
-  const paisCount={};
-  DATA.forEach(d=>{if(!paisCount[d.marca])paisCount[d.marca]={};paisCount[d.marca][d.pais]=d.uc;});
-  const multi=Object.entries(paisCount).filter(([,o])=>Object.keys(o).length>=2)
-    .map(([m,o])=>({m,ps:Object.keys(o),tot:Object.values(o).reduce((s,x)=>s+x,0),o}))
-    .sort((a,b)=>b.ps.length-a.ps.length||b.tot-a.tot);
-  const allPs=uniq(DATA.map(d=>d.pais));
-  const h=`<tr><th>Marca</th>${allPs.map(p=>`<th class="num">${p}</th>`).join('')}<th class="num">Países</th></tr>`;
-  const b=multi.map(it=>`<tr>
-    <td class="mk">${it.m}${isCh(it.m)?'<span class="tag">CN</span>':''}</td>
-    ${allPs.map(p=>it.o[p]?`<td class="num">${fmt(it.o[p])}</td>`:`<td class="num dash" style="color:#ccc">—</td>`).join('')}
-    <td class="num" style="font-weight:800;color:${it.ps.length>=3?'var(--green)':'var(--blue)'}">${it.ps.length}</td>
-  </tr>`).join('');
-  document.getElementById('tMulti').innerHTML=h+b;
-}
-
-function initProsp(){
-  const sel=document.getElementById('prPais');
-  sel.innerHTML=['Todos',...uniq(DATA.map(d=>d.pais))].map(x=>`<option>${x}</option>`).join('');
-  sel.onchange=tProsp;
-  document.getElementById('prTier').onchange=tProsp;
-  document.getElementById('prOrigen').onchange=tProsp;
-  tProsp();tMulti();
-}
-initProsp();
+window.addEventListener('hashchange',fromHash);
+fromHash();
 </script></body></html>
