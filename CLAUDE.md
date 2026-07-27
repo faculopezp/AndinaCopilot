@@ -93,8 +93,21 @@ Cada parser tiene su núcleo de texto aislado (`_peru_national_from_text`, `_chi
 `_colombia_from_text`, `_parse_ecuador_new_format`) validado contra un fixture que reproduce el
 layout real del PDF. Antes de tocar un parser o cuando una fuente cambie de formato, correr:
 ```bash
-python scripts/ingest.py --selftest   # valida Perú·Chile·Colombia·Ecuador·ALADDA, sin descargar nada
+python scripts/ingest.py --selftest            # PDFs: Perú·Chile·Colombia·Ecuador·ALADDA
+python scripts/ingest_dealers_ec.py --selftest # web: patiotuerca (directorio Ecuador)
+python scripts/ingest_afiliados_ec.py --selftest # web: AEADE afiliados (importadores/concesionarios)
 ```
-Si una fuente cambia el formato del PDF, el selftest falla ahí (no en producción). Al arreglar un
-parser, actualizá su fixture (`_FX_PERU` / `_FX_CHILE` / `_FX_COLOMBIA` / `_FX_ECUADOR` en `ingest.py`).
+Si una fuente cambia el formato del PDF/HTML, el selftest falla ahí (no en producción). Al arreglar un
+parser, actualizá su fixture (`_FX_PERU` / `_FX_CHILE` / … en `ingest.py`; `_FX` en los scrapers web).
 Ojo Perú: el fixture verifica que se toma el **bloque nacional** (Total mayor), no la suma de segmentos.
+
+## Red comercial / afiliados de Ecuador (capa de contacto)
+Dos fuentes web públicas, cada una a su propia tabla (NO se mezclan con la red oficial PE/CL):
+- **AEADE afiliados** (`scripts/ingest_afiliados_ec.py` → `data/afiliados_aeade_ec.csv`): importadores y
+  concesionarios OFICIALES de marca, con marca representada + dirección + ciudad + **teléfono** + web.
+  Es la capa de mayor calidad para marca→importador→contacto. `build_dashboard.enrich_grupos_ec()`
+  la cruza por marca contra el mapeo curado `grupos_importadores.csv`: enriquece las filas de Ecuador
+  con teléfono/# concesionarios y agrega las marcas que faltaban (confianza 🟡). NO pisa lo curado.
+- **patiotuerca** (`scripts/ingest_dealers_ec.py` → `data/dealers_ecuador.csv`): directorio de ~225
+  agencias de seminuevos (multimarca), con ciudad/dirección/stock/rating. Base de contactos del mercado;
+  se baja del JSON-LD server-rendered (`"@type":"AutoDealer"`), sin navegador.

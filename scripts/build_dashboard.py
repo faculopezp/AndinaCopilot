@@ -146,6 +146,75 @@ def load_grupos():
     return out
 
 
+def load_afiliados_ec():
+    """Afiliados oficiales de AEADE (data/afiliados_aeade_ec.csv), indexados por marca.
+
+    Devuelve (importador_por_marca, conces_por_marca):
+      importador_por_marca[marca] = {empresa, ciudad, tel, web}   (categoría Importador)
+      conces_por_marca[marca]     = nº de concesionarios oficiales de esa marca
+    """
+    imp, conc = {}, {}
+    path = DATA / "afiliados_aeade_ec.csv"
+    if not path.exists():
+        return imp, conc
+    with open(path, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            marcas = [canon(m.strip()) for m in (r.get("marcas") or "").split(";") if m.strip()]
+            for m in marcas:
+                if r["categoria"] == "Importador":
+                    imp.setdefault(m, {"empresa": r["empresa"], "ciudad": r["ciudad"],
+                                       "tel": r["telefono"], "web": r["web"]})
+                elif r["categoria"] == "Concesionario":
+                    conc[m] = conc.get(m, 0) + 1
+    return imp, conc
+
+
+def _norm_url(u: str) -> str:
+    u = (u or "").strip()
+    if u and not u.startswith("http"):
+        u = "https://" + u
+    return u
+
+
+def enrich_grupos_ec(grupos, imp, conc):
+    """Cruza AEADE con el mapeo curado marca→grupo de Ecuador.
+
+    - Enriquece las filas curadas de Ecuador con teléfono/web/# concesionarios (AEADE).
+    - Agrega las marcas que AEADE tiene y la curación aún no (confianza media 🟡).
+    NO pisa los nombres/confianza curados (hechos a mano); solo suma contacto.
+    """
+    have = {(g["pais"], g["marca"]) for g in grupos}
+    for g in grupos:
+        if g["pais"] != "Ecuador":
+            continue
+        extra = []
+        a = imp.get(g["marca"])
+        if a and a["tel"]:
+            extra.append("☎ " + a["tel"])
+        c = conc.get(g["marca"])
+        if c:
+            extra.append(f"{c} conces. oficiales")
+        if extra:
+            g["nota"] = (g["nota"] + " · " if g.get("nota") else "") + " · ".join(extra)
+        if a and a["web"] and not g.get("grupo_url"):
+            g["grupo_url"] = _norm_url(a["web"])
+    for m, a in imp.items():
+        if ("Ecuador", m) in have:
+            continue
+        nota = a["ciudad"] or ""
+        if a["tel"]:
+            nota += (" · " if nota else "") + "☎ " + a["tel"]
+        c = conc.get(m)
+        if c:
+            nota += (" · " if nota else "") + f"{c} conces. oficiales"
+        grupos.append({
+            "pais": "Ecuador", "marca": m, "grupo": a["empresa"],
+            "tipo": "Importador (AEADE)", "confianza": "media",
+            "web": a["web"], "nota": nota, "grupo_url": _norm_url(a["web"]),
+        })
+    return grupos
+
+
 RED_SHEETS = {
     "Peru": "https://docs.google.com/spreadsheets/d/1ZcGJMM3-1Zkr1-l49lK-CKgsu1t22Sx13SgYwHSfbDw/edit?gid=1080200214#gid=1080200214",
     "Chile": "https://docs.google.com/spreadsheets/d/1JlgS9l07XRyT8Ej0DbTna-H-1TKhH1-8Uwa6XLu26OM/edit?gid=385394837#gid=385394837",
@@ -187,6 +256,8 @@ def main():
     cntl = json.loads((DATA / "china_tl.json").read_text(encoding="utf-8"))
     mensual = build_mensual()
     grupos = load_grupos()
+    imp_ec, conc_ec = load_afiliados_ec()
+    grupos = enrich_grupos_ec(grupos, imp_ec, conc_ec)
     red = load_red()
 
     html = (DASH / "template.html").read_text(encoding="utf-8")
