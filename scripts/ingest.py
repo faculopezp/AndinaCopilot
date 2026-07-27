@@ -114,57 +114,73 @@ PERU_ENTRY = re.compile(
 PERU_HDR   = re.compile(r'Rank\.\s*Marca\s+(\d{4})\s+(\d{4})')
 # Página con el resumen nacional por marca (tiene ranking + "de cada año")
 PERU_PAGE = re.compile(r'Venta de veh[íi]culos livianos a \w+ de cada a', re.IGNORECASE)
+PERU_TOTAL = re.compile(r'Total\s+([\d,]+)\s+([\d,]+)')
 
 
 def parse_peru_pdf(pdf_bytes: bytes) -> tuple[list[tuple], int | None]:
-    """Parsea las tablas de vehículos livianos del PDF mensual de AAP.
+    """Parsea el ranking NACIONAL de livianos por marca del PDF mensual de AAP.
 
-    Busca la página con 'Venta de vehículos livianos a {mes} de cada año'
-    y extrae las 4 tablas (2 columnas) sumando por marca.
+    La página "Venta de vehículos livianos a {mes} de cada año" tiene 4 bloques
+    (3 segmentos + el TOTAL nacional), en layout de 2 columnas por 2 bandas.
+    El bloque nacional es el del "Total" más grande. Sumar segmentos es inestable
+    (una marca entra/sale del top-N de un segmento y el acumulado "baja"), así que
+    tomamos SOLO el bloque nacional (top-10, monótono, consistente con ALADDA).
 
     Devuelve ([(marca, acum_curr, acum_prev), ...], anio_acum).
     """
-    target_page = None
-    anio_acum = None
-
+    target = None
     with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
         for page in pdf.pages:
             text = page.extract_text(x_tolerance=3, y_tolerance=3) or ""
             if PERU_PAGE.search(text) and PERU_HDR.search(text):
-                target_page = text
+                target = text
                 break
-
-    if not target_page:
+    if not target:
         return [], None
 
-    lines = [l.strip() for l in target_page.splitlines() if l.strip()]
+    lines = [l.strip() for l in target.splitlines() if l.strip()]
 
-    # Detectar año del acumulado desde la primera cabecera de tabla
-    for line in lines:
-        hm = PERU_HDR.search(line)
+    # Cada fila "Rank. Marca ..." abre una banda de 2 bloques (izquierda|derecha).
+    bands, cur, anio = [], None, None
+    for ln in lines:
+        hm = PERU_HDR.search(ln)
         if hm:
-            anio_acum = int(hm.group(2))
-            break
-
-    if not anio_acum:
+            anio = int(hm.group(2))
+            cur = []
+            bands.append(cur)
+        elif cur is not None:
+            cur.append(ln)
+    if not anio:
         return [], None
 
-    # Acumular unidades por marca (todas las entradas de las 4 tablas)
-    acum: dict[str, list[int]] = {}  # marca -> [curr, prev]
-    for line in lines:
-        if line.startswith(("Total", "Otros", "Fuente", "Rank")):
-            continue
-        for m in PERU_ENTRY.finditer(line):
-            marca = m.group(2).strip().title()
-            prev  = int(m.group(3).replace(",", ""))
-            curr  = int(m.group(4).replace(",", ""))
-            if marca not in acum:
-                acum[marca] = [0, 0]
-            acum[marca][0] += curr
-            acum[marca][1] += prev
+    # 4 streams (izq/der por banda); cada uno con su Total. El de Total mayor = nacional.
+    streams = []  # (total_curr, {marca: (prev, curr)})
+    for band in bands:
+        left, right, tl, tr = {}, {}, None, None
+        for ln in band:
+            ms = list(PERU_ENTRY.finditer(ln))
+            if ms:
+                m = ms[0]
+                left[m.group(2).strip().title()] = (int(m.group(3).replace(",", "")), int(m.group(4).replace(",", "")))
+                if len(ms) >= 2:
+                    m2 = ms[1]
+                    right[m2.group(2).strip().title()] = (int(m2.group(3).replace(",", "")), int(m2.group(4).replace(",", "")))
+            tot = list(PERU_TOTAL.finditer(ln))
+            if tot:
+                tl = int(tot[0].group(2).replace(",", ""))
+                if len(tot) >= 2:
+                    tr = int(tot[1].group(2).replace(",", ""))
+        if left:
+            streams.append((tl or 0, left))
+        if right:
+            streams.append((tr or 0, right))
+    if not streams:
+        return [], None
 
-    out = [(marca, vals[0], vals[1]) for marca, vals in acum.items() if vals[0] > 0]
-    return out, anio_acum
+    streams.sort(key=lambda s: -s[0])
+    nacional = streams[0][1]
+    out = [(mk, cur, prev) for mk, (prev, cur) in nacional.items() if cur > 0]
+    return out, anio
 
 
 def peru_url(anio: int, mes: int) -> str | None:
@@ -226,10 +242,12 @@ def ingest_peru(backfill: bool = False) -> list[dict]:
         print("  Perú: sin datos nuevos.")
         return existing
 
-    # Reconstruir serie completa combinando existing + new
+    # Serie completa. En backfill se reconstruye limpio desde lo parseado;
+    # incremental preserva los meses no re-descargados del CSV existente.
     combined: dict[tuple, int] = {}
-    for r in existing:
-        combined[(int(r["anio"]), int(r["mes"]), r["marca"])] = int(r["unid_acum"])
+    if not backfill:
+        for r in existing:
+            combined[(int(r["anio"]), int(r["mes"]), r["marca"])] = int(r["unid_acum"])
     combined.update(new_rows)
 
     return _build_monthly_series(combined, "Peru")
