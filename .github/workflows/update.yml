@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       pais:
-        description: "País a procesar (all / chile / peru / ecuador)"
+        description: "País a procesar (all / chile / peru / ecuador / colombia)"
         required: false
         default: "all"
       backfill:

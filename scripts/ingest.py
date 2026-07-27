@@ -868,9 +868,18 @@ def _load_monthly_csv(filename: str) -> list[dict]:
 
 
 def _build_monthly_series(combined: dict[tuple, int], pais: str) -> list[dict]:
-    """Convierte {(anio,mes,marca): acum} en lista de dicts con unid_mes calculado."""
-    meses_por_marca: dict[str, list[tuple[int, int, int]]] = defaultdict(list)
+    """Convierte {(anio,mes,marca): acum} en lista de dicts con unid_mes calculado.
+
+    Normaliza el nombre de marca con canon() (evita splits por casing entre meses,
+    ej. 'JAC' vs 'Jac'); si dos casings caen en el mismo (marca,año,mes), toma el mayor.
+    """
+    agg: dict[tuple, int] = {}
     for (a, m, marca), acum in combined.items():
+        k = (canon(marca), a, m)
+        if k not in agg or acum > agg[k]:
+            agg[k] = acum
+    meses_por_marca: dict[str, list[tuple[int, int, int]]] = defaultdict(list)
+    for (marca, a, m), acum in agg.items():
         meses_por_marca[marca].append((a, m, acum))
 
     rows = []
@@ -891,6 +900,30 @@ def _build_monthly_series(combined: dict[tuple, int], pais: str) -> list[dict]:
 
     rows.sort(key=lambda r: (r["anio"], r["mes"], r["marca"]))
     return rows
+
+
+def validate_monotonic(rows: list[dict], pais: str) -> list[str]:
+    """Detecta acumulados NO monótonos dentro de un año (síntoma de parseo malo).
+
+    El acumulado Ene-M de una marca no puede bajar de un mes al siguiente dentro
+    del mismo año. Si baja, alguna de las dos lecturas está mal (no se puede saber
+    cuál) -> se marca para revisión, no se autocorrige.
+    """
+    by: dict = defaultdict(list)
+    for r in rows:
+        try:
+            by[(r["marca"], int(r["anio"]))].append((int(r["mes"]), int(r["unid_acum"])))
+        except (ValueError, KeyError):
+            continue
+    warns = []
+    for (marca, anio), pts in by.items():
+        pts.sort()
+        for i in range(1, len(pts)):
+            if pts[i][1] < pts[i - 1][1]:
+                warns.append(f"{pais}/{marca} {anio}: acum baja {pts[i-1][0]:02d}→{pts[i][0]:02d} "
+                             f"({pts[i-1][1]}→{pts[i][1]})")
+                break
+    return warns
 
 
 def save_monthly_csv(rows: list[dict], filename: str):
@@ -1169,6 +1202,12 @@ def _write_report(report: dict):
     lines.append("")
     lines.append("Resumen: " + ("se actualizó al menos un país." if hubo_nuevos
                                 else "ningún país trajo datos nuevos."))
+    cal = report.get("calidad") or []
+    if cal:
+        lines.append("")
+        lines.append(f"[CALIDAD] {len(cal)} series con acumulado no monótono (revisar parser):")
+        for x in cal[:12]:
+            lines.append(f"  - {x}")
     lines.append("")
     lines.append("Dashboard: https://andina-copilot.vercel.app")
     (ROOT / "run_report.txt").write_text("\n".join(lines), encoding="utf-8")
@@ -1256,6 +1295,17 @@ def main():
         ingest_aladda_mensual(backfill=args.backfill)   # serie mensual CO/CR/GT/PA/RD (incremental)
     except Exception as e:
         print(f"  [WARN] ALADDA mensual: {e}")
+
+    print("\n=== Validación de calidad (acumulado monótono) ===")
+    report["calidad"] = []
+    for fn, pais in [("peru_nacional_mensual.csv", "Peru"), ("chile_mensual.csv", "Chile"),
+                     ("ecuador_mensual.csv", "Ecuador"), ("colombia_mensual.csv", "Colombia")]:
+        w = validate_monotonic(_load_monthly_csv(fn), pais)
+        report["calidad"].extend(w)
+        for x in w:
+            print(f"  [!] {x}")
+    if not report["calidad"]:
+        print("  OK — sin series con acumulado no monótono.")
 
     print("\n=== Reconstruyendo JSONs ===")
     rebuild_base_nacional()  # snapshot desde ALADDA (8 países)

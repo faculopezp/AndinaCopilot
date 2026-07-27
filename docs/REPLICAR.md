@@ -149,7 +149,7 @@ Extras: routing por hash (`#pais/Chile`), buscador global de marca (drill-down),
 ## 8. Enrichment (importadoras + red comercial)
 
 - **Importadoras** (`grupos_importadores.csv`): Claude releva por web la asociación/registro y las webs de importadores. Fuente autoritativa: **directorios de socios** de cada asociación (el socio = el importador de la marca). Marcar `confianza` y `grupo_url`.
-- **Red comercial** (`concesionarios_*.csv`): relevamiento de las webs de marca (dealer locators) — muchas bloquean bots o son mapas JS. Práctica real: el equipo lo carga en **planillas de Drive**, y `scripts/_import_concesionarios.py` las importa al repo. En el dashboard aparece como columna **"Red (ptos)"** por grupo + puntos por marca.
+- **Red comercial** (`concesionarios_*.csv`): relevamiento de las webs de marca (dealer locators) — muchas bloquean bots o son mapas JS. Práctica real: el equipo lo carga en **planillas de Drive**; se bajan como `.xlsx` a `data/_drive_raw/` (gitignoreado) y `scripts/import_concesionarios.py` las importa al repo (durable, re-ejecutable). En el dashboard aparece como columna **"Red (ptos)"** por grupo + puntos por marca.
 - **Etapa siguiente (no hecha aún)**: contactos (director comercial, LinkedIn) vía **Apollo** (ya conectado) — marca → grupo → decisor.
 
 ---

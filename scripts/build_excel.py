@@ -186,12 +186,13 @@ def sheet_prosp(wb):
     for d in data:
         pais_count[d["marca"]].add(d["pais"])
 
+    n_paises = max(len({d["pais"] for d in data}), 2)
     scored = []
     for d in data:
         vs = vol_score.get((d["pais"], d["marca"]), 0)
         var_cap = min(max(d["var"] or 0, 0), 250)
         gs = var_cap / 250 * 100
-        mp = (len(pais_count[d["marca"]]) - 1) / 3 * 100
+        mp = (len(pais_count[d["marca"]]) - 1) / (n_paises - 1) * 100
         cn_bonus = 12 if d["marca"] in MARCAS_CHINAS else 0
         score = round(vs * 0.40 + gs * 0.38 + mp * 0.22 + cn_bonus)
         tier = "Alta" if score >= 60 else "Media" if score >= 38 else "Seguimiento"
@@ -210,7 +211,7 @@ def sheet_prosp(wb):
     for i, r in enumerate(scored, 1):
         var_str = f"+{r['var']:.1f}%" if r["var"] and r["var"] > 0 else (f"{r['var']:.1f}%" if r["var"] is not None else "n/d")
         ws.append([i, r["marca"], r["pais"], r["origen"], r["tier"],
-                   r["score"], r["uc"], var_str, f"{r['npaises']}/4"])
+                   r["score"], r["uc"], var_str, f"{r['npaises']}/{n_paises}"])
         row_idx = ws.max_row
         # Color tier cell
         tier_cell = ws.cell(row_idx, 5)
@@ -230,6 +231,8 @@ def main():
     sheet_mensual(wb, "peru_nacional_mensual.csv", "Peru mensual")
     sheet_mensual(wb, "chile_mensual.csv",          "Chile mensual")
     sheet_mensual(wb, "ecuador_mensual.csv",        "Ecuador mensual")
+    sheet_mensual(wb, "colombia_mensual.csv",       "Colombia mensual")
+    sheet_mensual(wb, "aladda_mensual.csv",         "Regional mensual (ALADDA)")
     sheet_prosp(wb)
 
     out = ROOT / "Base_Andina_Ventas_Auto.xlsx"
