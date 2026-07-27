@@ -22,3 +22,6 @@ run_report.json
 
 # Planillas crudas del Drive (se bajan a mano; los CSV derivados sí se versionan)
 data/_drive_raw/
+
+# Config local de preview (Claude Code)
+.claude/
