@@ -167,9 +167,10 @@ Decile esto a Claude, en este orden:
 
 **Paso 2 — Series mensuales propias (solo prioritarios)**
 4. Por cada país prioritario: pedile a Claude que **busque la asociación** con data parseable (§5B). Si existe, que **inspeccione el PDF real con pdfplumber** antes de escribir el parser (el layout siempre sorprende).
-5. Que escriba `parse_{pais}()` + `ingest_{pais}()` en `ingest.py` siguiendo el molde de Colombia (`ingest_colombia`, el más limpio: patrón de URL + fallback discovery). Schema de salida: `pais,anio,mes,marca,unid_acum,unid_mes`.
-6. Agregá `{pais}_mensual.csv` a la lista `files` en `build_dashboard.build_mensual()`.
-7. Backfill: `python scripts/ingest.py --pais {pais} --backfill`.
+5. Que escriba `parse_{pais}()` + `ingest_{pais}()` en `ingest.py` siguiendo el molde de Colombia (`ingest_colombia`, el más limpio: patrón de URL + fallback discovery). Schema de salida: `pais,anio,mes,marca,unid_acum,unid_mes`. **Separá el parseo de texto del pdfplumber**: que `parse_{pais}_pdf(bytes)` solo encuentre la página y delegue en un núcleo puro `_{pais}_from_text(text)` (así se puede testear sin red — mirá `_colombia_from_text` / `_peru_national_from_text`).
+6. **Fixture + selftest**: agregá `_FX_{PAIS}` (un recorte del texto real del PDF) y una aserción en `selftest_parsers()`. Corré `python scripts/ingest.py --selftest`. Esto caza el *format drift* (cuando la fuente cambia el layout) en el selftest y no en producción.
+7. Agregá `{pais}_mensual.csv` a la lista `files` en `build_dashboard.build_mensual()`.
+8. Backfill: `python scripts/ingest.py --pais {pais} --backfill`.
 
 **Paso 3 — Importadoras (web)**
 8. Pedile a Claude una pasada de investigación web: por cada marca top de cada país, el grupo importador. Cargar `grupos_importadores.csv` con `confianza` + `grupo_url`. (Ojo cambios de representación año a año.)
@@ -190,13 +191,15 @@ Decile esto a Claude, en este orden:
 - **Inspeccioná el PDF con pdfplumber antes de escribir el regex.** Siempre. Los números vienen partidos (`6 .654`), en 2 columnas, con glyphs raros. No asumas el layout.
 - **`fetch_pdf` con retry.** Varios servers cortan la conexión (transitorio). Reintentá 3 veces; no reintentes en 404.
 - **Series propias solo donde valga.** No inviertas en parsers frágiles para mercados chicos: el snapshot los cubre. (Panamá/Papermark, Costa Rica/prensa → no vale.)
+- **Selftest por parser = red de seguridad contra el format drift.** Las fuentes cambian el layout del PDF sin avisar (nos pasó: el parser de Perú sumaba segmentos y el acumulado "bajaba"). Cada parser tiene un fixture + aserción en `selftest_parsers()`; corré `python scripts/ingest.py --selftest` antes de tocar un parser. Si falla, arreglás el parser y actualizás el fixture — nunca al revés.
 - **No inventar.** Donde la fuente no reporta → vacío/null. Confianza explícita en importadoras.
 - **PDFs pesados** (ALADDA ~7MB): en CI corre bien; local usá background para no cortar por timeout.
 
 ---
 
 ## 11. Checklist final
-- [ ] `parse_aladda.py --selftest` pasa
+- [ ] `python scripts/ingest.py --selftest` pasa (todos los parsers, incluido ALADDA)
+- [ ] cada parser propio nuevo tiene su `_FX_{PAIS}` + aserción en `selftest_parsers()`
 - [ ] `aladda_top10.csv` con tus N países, sin duplicados
 - [ ] `base_nacional.json` = N países al mismo corte
 - [ ] 1+ país con serie mensual propia (Tendencia/MoM andando)

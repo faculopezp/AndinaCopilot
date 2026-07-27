@@ -87,3 +87,14 @@ vercel.json                     # deploy del dashboard
 pip install -r requirements.txt
 python scripts/build_dashboard.py   # regenera dashboard/Dashboard_Andino_Ventas_Auto.html
 ```
+
+## Selftests de parsers (regresión sin red)
+Cada parser tiene su núcleo de texto aislado (`_peru_national_from_text`, `_chile_acum_from_text`,
+`_colombia_from_text`, `_parse_ecuador_new_format`) validado contra un fixture que reproduce el
+layout real del PDF. Antes de tocar un parser o cuando una fuente cambie de formato, correr:
+```bash
+python scripts/ingest.py --selftest   # valida Perú·Chile·Colombia·Ecuador·ALADDA, sin descargar nada
+```
+Si una fuente cambia el formato del PDF, el selftest falla ahí (no en producción). Al arreglar un
+parser, actualizá su fixture (`_FX_PERU` / `_FX_CHILE` / `_FX_COLOMBIA` / `_FX_ECUADOR` en `ingest.py`).
+Ojo Perú: el fixture verifica que se toma el **bloque nacional** (Total mayor), no la suma de segmentos.

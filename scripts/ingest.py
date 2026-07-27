@@ -137,7 +137,12 @@ def parse_peru_pdf(pdf_bytes: bytes) -> tuple[list[tuple], int | None]:
                 break
     if not target:
         return [], None
+    return _peru_national_from_text(target)
 
+
+def _peru_national_from_text(target: str) -> tuple[list[tuple], int | None]:
+    """Núcleo puro (testeable): del texto de la página nacional saca el bloque
+    del Total más grande. Ver parse_peru_pdf para el detalle."""
     lines = [l.strip() for l in target.splitlines() if l.strip()]
 
     # Cada fila "Rank. Marca ..." abre una banda de 2 bloques (izquierda|derecha).
@@ -318,7 +323,11 @@ def parse_chile_pdf(pdf_bytes: bytes) -> list[tuple]:
                 break
     if not target_page:
         return []
+    return _chile_acum_from_text(target_page)
 
+
+def _chile_acum_from_text(target_page: str) -> list[tuple]:
+    """Núcleo puro (testeable) del ranking acumulado CAVEM (bloque derecho)."""
     lines = [l.strip() for l in target_page.splitlines() if l.strip()]
     out = []
     in_table = False
@@ -742,24 +751,29 @@ def parse_colombia_andi(pdf_bytes: bytes) -> tuple[list[tuple], int | None, int 
             up = text.upper()
             if "TOP 20" not in up or "MARCAS" not in up:
                 continue
-            anio = mes = None
-            for line in text.splitlines()[:8]:
-                m = CO_PERIODO.search(line)
-                if m:
-                    mes = CO_MESES[m.group(1).lower()]
-                    anio = int(m.group(2))
-                    break
-            out = []
-            for line in text.splitlines():
-                if line.upper().startswith(("OTRAS", "TOTAL")):
-                    continue
-                m = CO_ROW.match(line.strip())
-                if m:
-                    marca = canon(m.group(1).strip())
-                    out.append((marca, int(m.group(2).replace(".", ""))))
-            if out:
-                return out, anio, mes
+            res = _colombia_from_text(text)
+            if res[0]:
+                return res
     return [], None, None
+
+
+def _colombia_from_text(text: str) -> tuple[list[tuple], int | None, int | None]:
+    """Núcleo puro (testeable) del boletín ANDI: fila '1 RENAULT 2.582 1.653 % %'."""
+    anio = mes = None
+    for line in text.splitlines()[:8]:
+        m = CO_PERIODO.search(line)
+        if m:
+            mes = CO_MESES[m.group(1).lower()]
+            anio = int(m.group(2))
+            break
+    out = []
+    for line in text.splitlines():
+        if line.upper().startswith(("OTRAS", "TOTAL")):
+            continue
+        m = CO_ROW.match(line.strip())
+        if m:
+            out.append((canon(m.group(1).strip()), int(m.group(2).replace(".", ""))))
+    return out, anio, mes
 
 
 FENALCO_INDEX = "https://www.fenalco.com.co/blog/gremial-4"
@@ -1234,6 +1248,95 @@ def _write_report(report: dict):
 
 
 # ---------------------------------------------------------------------------
+# Selftests de parsers (fixtures que reproducen el layout real de cada PDF).
+# Corren sin red:  python scripts/ingest.py --selftest
+# Cazan el "format drift" (cuando la fuente cambia el formato y el parser rompe).
+# ---------------------------------------------------------------------------
+
+_FX_PERU = (
+    "Venta de vehículos livianos a marzo de cada año\n"
+    "Rank. Marca 2024 2025 Var.% Part.% 2025 Rank. Marca 2024 2025 Var.% Part.% 2025\n"
+    "1 Toyota 2,563 3,723 45.3% 38.5% 1 Foton 117 164 40.2% 2.6%\n"
+    "7 Suzuki 549 227 -58.7% 3.4% 7 King Long 136 122 -10.3% 2.9%\n"
+    "Total 7,361 6,625 -10.0% 100.0% Total 5,872 6,413 9.2% 100.0%\n"
+    "Rank. Marca 2024 2025 Var.% Part.% 2025 Rank. Marca 2024 2025 Var.% Part.% 2025\n"
+    "1 Kia 500 700 45.3% 38.5% 1 Toyota 2,967 8,497 17.9% 15.5%\n"
+    "5 Jetour 100 400 45.3% 3.4% 6 Suzuki 464 900 21.8% 3.7%\n"
+    "Total 3,000 4,000 -10.0% 100.0% Total 18,981 22,535 18.7% 100.0%\n"
+)
+_FX_CHILE = (
+    "RANKING MARCAS\n"
+    "Ranking Mes de Mayo Ranking Acumulado Mayo\n"
+    "MARCA Mayo 2026 Mayo 2025 Var MARCA 2026 2025 Var\n"
+    "1 TOYOTA 1.991 1.850 7,6% 8,0% 7,5% 1 TOYOTA 10.497 9.736 7,8% 8,2% 7,9%\n"
+    "2 SUZUKI 1.862 1.841 1,1% 7,5% 7,4% 2 SUZUKI 9.781 9.550 2,4% 7,6% 7,8%\n"
+    "TOTAL 24.805 24.722 0,3% 100,0% 100,0% TOTAL 128.235 123.152 4,1% 100,0% 100,0%\n"
+)
+_FX_COLOMBIA = (
+    "BOLETÍN VEHÍCULOS NUEVOS\n"
+    "TOP 20 marcas\n"
+    "Marzo 2025\n"
+    "Posición MARCAS 2025 2024 mes mes\n"
+    "1 RENAULT 2.582 1.653 14,1% 56,2%\n"
+    "2 KIA 2.442 981 13,3% 148,9%\n"
+    "OTRAS MARCAS 1.644 1.231 9,0% 33,5%\n"
+    "Total matrículas 18.347 13.346 100% 37,5%\n"
+)
+_FX_ECUADOR = (
+    "TOP 20 – MARCAS DE VEHÍCULOS MÁS VENDIDAS\n"
+    "Power BI Desktop\n"
+    "Marca Jun 24 Jun 25 Ene-Jun 24 Ene-Jun 25\n"
+    "KIA 1300 1711 8839 9118\n"
+    "CHEVROLET 1594 1149 10630 8042\n"
+    "OTRAS MARCAS 1461 1583 8857 8627\n"
+)
+
+
+def selftest_parsers() -> int:
+    """Valida cada parser contra un fixture. Devuelve 0 si todo pasa."""
+    fallas = []
+
+    # Perú: toma el bloque NACIONAL (Total mayor = 22,535), no suma segmentos.
+    pe, anio = _peru_national_from_text(_FX_PERU)
+    d = {mk: cur for mk, cur, _ in pe}
+    if not (anio == 2025 and d.get("Toyota") == 8497 and d.get("Suzuki") == 900 and "King Long" not in d):
+        fallas.append(f"Perú: {sorted(d.items())} anio={anio}")
+
+    # Chile: bloque acumulado (lado derecho).
+    ch = {mk: cur for mk, cur, _ in _chile_acum_from_text(_FX_CHILE)}
+    if not (ch.get("Toyota") == 10497 and ch.get("Suzuki") == 9781):
+        fallas.append(f"Chile: {sorted(ch.items())}")
+
+    # Colombia: unidades del mes (primera Cantidad), período del encabezado.
+    co, ay, am = _colombia_from_text(_FX_COLOMBIA)
+    dco = dict(co)
+    if not (ay == 2025 and am == 3 and dco.get("Renault") == 2582 and dco.get("Kia") == 2442):
+        fallas.append(f"Colombia: {co} {ay}-{am}")
+
+    # Ecuador (formato Power BI): acumulado = última columna.
+    ec, ey, em = _parse_ecuador_new_format(_FX_ECUADOR)
+    dec = dict(ec)
+    if not (ey == 2025 and em == 6 and dec.get("Kia") == 9118 and dec.get("Chevrolet") == 8042):
+        fallas.append(f"Ecuador: {ec} {ey}-{em}")
+
+    # ALADDA (regional): reusa el selftest propio de parse_aladda.
+    try:
+        import parse_aladda
+        if parse_aladda.selftest() != 0:
+            fallas.append("ALADDA: selftest devolvió !=0")
+    except Exception as e:
+        fallas.append(f"ALADDA: {e}")
+
+    if fallas:
+        print("SELFTEST FALLÓ:")
+        for f in fallas:
+            print("  [X]", f)
+        return 1
+    print("selftest parsers OK: Perú(nacional) · Chile(acum) · Colombia(ANDI) · Ecuador(PowerBI) · ALADDA(regional)")
+    return 0
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -1241,7 +1344,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pais", default="all", choices=["chile", "peru", "ecuador", "colombia", "all"])
     ap.add_argument("--backfill", action="store_true", help="Reprocesar todos los meses conocidos")
+    ap.add_argument("--selftest", action="store_true",
+                    help="Corre los selftests de parsers contra fixtures (sin red) y sale")
     args = ap.parse_args()
+
+    if args.selftest:
+        sys.exit(selftest_parsers())
 
     run_peru     = args.pais in ("peru",     "all")
     run_chile    = args.pais in ("chile",    "all")
