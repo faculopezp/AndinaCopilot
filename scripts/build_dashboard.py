@@ -141,7 +141,7 @@ def load_grupos():
                 "pais": r["pais"], "marca": canon(r["marca"]), "grupo": r["grupo"],
                 "tipo": r["tipo"], "confianza": r["confianza"],
                 "web": r.get("fuente", ""), "nota": r.get("nota", ""),
-                "grupo_url": (r.get("grupo_url") or "").strip(),
+                "grupo_url": (r.get("grupo_url") or "").strip(), "tel": "",
             })
     return out
 
@@ -149,14 +149,15 @@ def load_grupos():
 def load_afiliados_ec():
     """Afiliados oficiales de AEADE (data/afiliados_aeade_ec.csv), indexados por marca.
 
-    Devuelve (importador_por_marca, conces_por_marca):
+    Devuelve (importador_por_marca, conces_count, conces_list):
       importador_por_marca[marca] = {empresa, ciudad, tel, web}   (categoría Importador)
-      conces_por_marca[marca]     = nº de concesionarios oficiales de esa marca
+      conces_count[marca]         = nº de concesionarios oficiales de esa marca
+      conces_list[marca]          = [{empresa, ciudad, tel, web}, ...]  (para el drill-down)
     """
-    imp, conc = {}, {}
+    imp, conc, clist = {}, {}, {}
     path = DATA / "afiliados_aeade_ec.csv"
     if not path.exists():
-        return imp, conc
+        return imp, conc, clist
     with open(path, newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             marcas = [canon(m.strip()) for m in (r.get("marcas") or "").split(";") if m.strip()]
@@ -166,7 +167,10 @@ def load_afiliados_ec():
                                        "tel": r["telefono"], "web": r["web"]})
                 elif r["categoria"] == "Concesionario":
                     conc[m] = conc.get(m, 0) + 1
-    return imp, conc
+                    clist.setdefault(m, []).append({
+                        "empresa": r["empresa"], "ciudad": r["ciudad"],
+                        "tel": r["telefono"], "web": r["web"]})
+    return imp, conc, clist
 
 
 def _norm_url(u: str) -> str:
@@ -191,6 +195,7 @@ def enrich_grupos_ec(grupos, imp, conc):
         a = imp.get(g["marca"])
         if a and a["tel"]:
             extra.append("☎ " + a["tel"])
+            g["tel"] = a["tel"]
         c = conc.get(g["marca"])
         if c:
             extra.append(f"{c} conces. oficiales")
@@ -211,6 +216,7 @@ def enrich_grupos_ec(grupos, imp, conc):
             "pais": "Ecuador", "marca": m, "grupo": a["empresa"],
             "tipo": "Importador (AEADE)", "confianza": "media",
             "web": a["web"], "nota": nota, "grupo_url": _norm_url(a["web"]),
+            "tel": a["tel"],
         })
     return grupos
 
@@ -256,9 +262,10 @@ def main():
     cntl = json.loads((DATA / "china_tl.json").read_text(encoding="utf-8"))
     mensual = build_mensual()
     grupos = load_grupos()
-    imp_ec, conc_ec = load_afiliados_ec()
+    imp_ec, conc_ec, conc_list_ec = load_afiliados_ec()
     grupos = enrich_grupos_ec(grupos, imp_ec, conc_ec)
     red = load_red()
+    afil_ec = {"conces": conc_list_ec}  # concesionarios oficiales AEADE por marca (drill-down)
 
     html = (DASH / "template.html").read_text(encoding="utf-8")
     html = (html
@@ -267,7 +274,8 @@ def main():
             .replace("__CNTL__", json.dumps(cntl, ensure_ascii=False))
             .replace("__MENSUAL__", json.dumps(mensual, ensure_ascii=False))
             .replace("__GRUPOS__", json.dumps(grupos, ensure_ascii=False))
-            .replace("__RED__", json.dumps(red, ensure_ascii=False)))
+            .replace("__RED__", json.dumps(red, ensure_ascii=False))
+            .replace("__AFIL_EC__", json.dumps(afil_ec, ensure_ascii=False)))
 
     out = DASH / "Dashboard_Andino_Ventas_Auto.html"
     out.write_text(html, encoding="utf-8")
