@@ -9,6 +9,7 @@ Chile,2025,1,Great Wall,1033,1033
 Chile,2025,1,Hyundai,1667,1667
 Chile,2025,1,Jetour,361,361
 Chile,2025,1,Jmc,291,291
+Chile,2025,1,Kgm,283,283
 Chile,2025,1,Kia,1838,1838
 Chile,2025,1,Maxus,564,564
 Chile,2025,1,Mazda,778,778
@@ -19,7 +20,6 @@ Chile,2025,1,Omoda,343,343
 Chile,2025,1,Opel,366,366
 Chile,2025,1,Peugeot,1409,1409
 Chile,2025,1,Ram,356,356
-Chile,2025,1,Ssangyong,283,283
 Chile,2025,1,Subaru,557,557
 Chile,2025,1,Suzuki,1946,1946
 Chile,2025,1,Toyota,1842,1842
@@ -34,6 +34,7 @@ Chile,2025,2,Great Wall,1965,932
 Chile,2025,2,Hyundai,2999,1332
 Chile,2025,2,Jac,634,
 Chile,2025,2,Jetour,605,244
+Chile,2025,2,Kgm,534,251
 Chile,2025,2,Kia,3180,1342
 Chile,2025,2,Maxus,1073,509
 Chile,2025,2,Mazda,1404,626
@@ -44,7 +45,6 @@ Chile,2025,2,Omoda,671,328
 Chile,2025,2,Opel,679,313
 Chile,2025,2,Peugeot,2565,1156
 Chile,2025,2,Ram,595,239
-Chile,2025,2,Ssangyong,534,251
 Chile,2025,2,Subaru,1032,475
 Chile,2025,2,Suzuki,3736,1790
 Chile,2025,2,Toyota,3601,1759
@@ -59,6 +59,7 @@ Chile,2025,3,Great Wall,3004,1039
 Chile,2025,3,Hyundai,4788,1789
 Chile,2025,3,Jac,1024,390
 Chile,2025,3,Jetour,871,266
+Chile,2025,3,Kgm,780,246
 Chile,2025,3,Kia,4717,1537
 Chile,2025,3,Maxus,1528,455
 Chile,2025,3,Mazda,2188,784
@@ -69,7 +70,6 @@ Chile,2025,3,Omoda,1064,393
 Chile,2025,3,Opel,1019,340
 Chile,2025,3,Peugeot,3947,1382
 Chile,2025,3,Ram,993,398
-Chile,2025,3,Ssangyong,780,246
 Chile,2025,3,Subaru,1632,600
 Chile,2025,3,Suzuki,5693,1957
 Chile,2025,3,Toyota,5412,1811
@@ -84,6 +84,7 @@ Chile,2025,4,Great Wall,4127,1123
 Chile,2025,4,Hyundai,6518,1730
 Chile,2025,4,Jac,1492,468
 Chile,2025,4,Jetour,1173,302
+Chile,2025,4,Kgm,1015,235
 Chile,2025,4,Kia,6327,1610
 Chile,2025,4,Maxus,2443,915
 Chile,2025,4,Mazda,2911,723
@@ -94,7 +95,6 @@ Chile,2025,4,Omoda,1433,369
 Chile,2025,4,Opel,1379,360
 Chile,2025,4,Peugeot,5268,1321
 Chile,2025,4,Ram,1310,317
-Chile,2025,4,Ssangyong,1015,235
 Chile,2025,4,Subaru,2227,595
 Chile,2025,4,Suzuki,7709,2016
 Chile,2025,4,Toyota,7886,2474
@@ -109,6 +109,7 @@ Chile,2025,5,Great Wall,5268,1141
 Chile,2025,5,Hyundai,8007,1489
 Chile,2025,5,Jac,1961,469
 Chile,2025,5,Jetour,1467,294
+Chile,2025,5,Kgm,1240,225
 Chile,2025,5,Kia,7735,1408
 Chile,2025,5,Maxus,2967,524
 Chile,2025,5,Mazda,3661,750
@@ -119,7 +120,6 @@ Chile,2025,5,Omoda,1888,455
 Chile,2025,5,Opel,1693,314
 Chile,2025,5,Peugeot,6683,1415
 Chile,2025,5,Ram,1701,391
-Chile,2025,5,Ssangyong,1240,225
 Chile,2025,5,Subaru,2774,547
 Chile,2025,5,Suzuki,9550,1841
 Chile,2025,5,Toyota,9736,1850
@@ -134,6 +134,7 @@ Chile,2025,6,Great Wall,6390,1122
 Chile,2025,6,Hyundai,9592,1585
 Chile,2025,6,Jac,2413,452
 Chile,2025,6,Jetour,1851,384
+Chile,2025,6,Kgm,1499,259
 Chile,2025,6,Kia,9042,1307
 Chile,2025,6,Maxus,3425,458
 Chile,2025,6,Mazda,4458,797
@@ -144,7 +145,6 @@ Chile,2025,6,Omoda,2334,446
 Chile,2025,6,Opel,1953,260
 Chile,2025,6,Peugeot,8141,1458
 Chile,2025,6,Ram,2039,338
-Chile,2025,6,Ssangyong,1499,259
 Chile,2025,6,Subaru,3303,529
 Chile,2025,6,Suzuki,11188,1638
 Chile,2025,6,Toyota,11686,1950
@@ -159,6 +159,7 @@ Chile,2025,7,Great Wall,7796,1406
 Chile,2025,7,Hyundai,11398,1806
 Chile,2025,7,Jac,2965,552
 Chile,2025,7,Jetour,2282,431
+Chile,2025,7,Kgm,1789,290
 Chile,2025,7,Kia,10678,1636
 Chile,2025,7,Maxus,3947,522
 Chile,2025,7,Mazda,5316,858
@@ -169,7 +170,6 @@ Chile,2025,7,Omoda,2771,437
 Chile,2025,7,Opel,2108,155
 Chile,2025,7,Peugeot,9401,1260
 Chile,2025,7,Ram,2392,353
-Chile,2025,7,Ssangyong,1789,290
 Chile,2025,7,Subaru,3941,638
 Chile,2025,7,Suzuki,13014,1826
 Chile,2025,7,Toyota,13832,2146
@@ -278,7 +278,7 @@ Chile,2026,1,Changan,1288,1288
 Chile,2026,1,Chery,680,680
 Chile,2026,1,Chevrolet,1332,1332
 Chile,2026,1,Citroen,488,488
-Chile,2026,1,Dfm,260,260
+Chile,2026,1,Dfsk,260,260
 Chile,2026,1,Ford,1311,1311
 Chile,2026,1,Foton,460,460
 Chile,2026,1,Geely,521,521

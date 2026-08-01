@@ -224,7 +224,7 @@ Ecuador,2024,8,Chevrolet,14214,
 Ecuador,2024,8,Dfsk,1815,
 Ecuador,2024,8,Dongfeng,1436,
 Ecuador,2024,8,Ford,1248,
-Ecuador,2024,8,Gwm,2074,
+Ecuador,2024,8,Great Wall,2074,
 Ecuador,2024,8,Hino,1665,
 Ecuador,2024,8,Hyundai,3697,
 Ecuador,2024,8,Jac,2003,
@@ -245,7 +245,7 @@ Ecuador,2024,12,Chevrolet,19969,
 Ecuador,2024,12,Dfsk,2626,
 Ecuador,2024,12,Dongfeng,2152,
 Ecuador,2024,12,Ford,1705,
-Ecuador,2024,12,Gwm,3608,
+Ecuador,2024,12,Great Wall,3608,
 Ecuador,2024,12,Hino,2532,
 Ecuador,2024,12,Hyundai,5158,
 Ecuador,2024,12,Jac,2969,
@@ -265,7 +265,7 @@ Ecuador,2025,1,Chevrolet,1363,1363
 Ecuador,2025,1,Dfsk,125,125
 Ecuador,2025,1,Dongfeng,171,171
 Ecuador,2025,1,Foton,122,122
-Ecuador,2025,1,Gwm,317,317
+Ecuador,2025,1,Great Wall,317,317
 Ecuador,2025,1,Hino,218,218
 Ecuador,2025,1,Hyundai,528,528
 Ecuador,2025,1,Jac,206,206
@@ -286,7 +286,7 @@ Ecuador,2025,2,Dfsk,320,195
 Ecuador,2025,2,Dongfeng,394,223
 Ecuador,2025,2,Ford,210,
 Ecuador,2025,2,Foton,212,90
-Ecuador,2025,2,Gwm,695,378
+Ecuador,2025,2,Great Wall,695,378
 Ecuador,2025,2,Hino,470,252
 Ecuador,2025,2,Hyundai,1050,522
 Ecuador,2025,2,Jac,473,267
@@ -305,7 +305,7 @@ Ecuador,2025,3,Chevrolet,3916,1412
 Ecuador,2025,3,Dfsk,527,207
 Ecuador,2025,3,Dongfeng,609,215
 Ecuador,2025,3,Foton,311,99
-Ecuador,2025,3,Gwm,1296,601
+Ecuador,2025,3,Great Wall,1296,601
 Ecuador,2025,3,Hino,680,210
 Ecuador,2025,3,Hyundai,1601,551
 Ecuador,2025,3,Jac,698,225
@@ -325,7 +325,7 @@ Ecuador,2025,5,Chevrolet,6893,
 Ecuador,2025,5,Dfsk,1040,
 Ecuador,2025,5,Dongfeng,1129,
 Ecuador,2025,5,Foton,638,
-Ecuador,2025,5,Gwm,2334,
+Ecuador,2025,5,Great Wall,2334,
 Ecuador,2025,5,Hino,1122,
 Ecuador,2025,5,Hyundai,2779,
 Ecuador,2025,5,Jac,1266,
@@ -345,7 +345,7 @@ Ecuador,2025,6,Chevrolet,8042,1149
 Ecuador,2025,6,Dfsk,1287,247
 Ecuador,2025,6,Dongfeng,1425,296
 Ecuador,2025,6,Foton,844,206
-Ecuador,2025,6,Gwm,2818,484
+Ecuador,2025,6,Great Wall,2818,484
 Ecuador,2025,6,Hino,1347,225
 Ecuador,2025,6,Hyundai,3361,582
 Ecuador,2025,6,Jac,1611,345
@@ -365,7 +365,7 @@ Ecuador,2025,7,Chevrolet,9362,1320
 Ecuador,2025,7,Dfsk,1569,282
 Ecuador,2025,7,Dongfeng,1723,298
 Ecuador,2025,7,Foton,1071,227
-Ecuador,2025,7,Gwm,3427,609
+Ecuador,2025,7,Great Wall,3427,609
 Ecuador,2025,7,Hino,1574,227
 Ecuador,2025,7,Hyundai,4078,717
 Ecuador,2025,7,Jac,1973,362
@@ -385,7 +385,7 @@ Ecuador,2025,8,Chevrolet,10600,1238
 Ecuador,2025,8,Dfsk,1860,291
 Ecuador,2025,8,Dongfeng,2087,364
 Ecuador,2025,8,Foton,1265,194
-Ecuador,2025,8,Gwm,3872,445
+Ecuador,2025,8,Great Wall,3872,445
 Ecuador,2025,8,Hino,1766,192
 Ecuador,2025,8,Hyundai,4829,751
 Ecuador,2025,8,Jac,2342,369
@@ -405,7 +405,7 @@ Ecuador,2025,9,Chevrolet,11911,1311
 Ecuador,2025,9,Dfsk,2253,393
 Ecuador,2025,9,Dongfeng,2425,338
 Ecuador,2025,9,Foton,1541,276
-Ecuador,2025,9,Gwm,4378,506
+Ecuador,2025,9,Great Wall,4378,506
 Ecuador,2025,9,Hino,1998,232
 Ecuador,2025,9,Hyundai,5505,676
 Ecuador,2025,9,Jac,2720,378
@@ -425,7 +425,7 @@ Ecuador,2025,10,Chevrolet,13194,1283
 Ecuador,2025,10,Dfsk,2626,373
 Ecuador,2025,10,Dongfeng,2852,427
 Ecuador,2025,10,Foton,1727,186
-Ecuador,2025,10,Gwm,4919,541
+Ecuador,2025,10,Great Wall,4919,541
 Ecuador,2025,10,Hino,2215,217
 Ecuador,2025,10,Hyundai,6227,722
 Ecuador,2025,10,Jac,3130,410
@@ -445,7 +445,7 @@ Ecuador,2025,11,Chevrolet,14517,1323
 Ecuador,2025,11,Dfsk,2971,345
 Ecuador,2025,11,Dongfeng,3170,318
 Ecuador,2025,11,Foton,1846,119
-Ecuador,2025,11,Gwm,5657,738
+Ecuador,2025,11,Great Wall,5657,738
 Ecuador,2025,11,Hino,2463,248
 Ecuador,2025,11,Hyundai,7028,801
 Ecuador,2025,11,Jac,3546,416
@@ -466,7 +466,7 @@ Ecuador,2025,12,Dfsk,3320,349
 Ecuador,2025,12,Dongfeng,3479,309
 Ecuador,2025,12,Ford,210,
 Ecuador,2025,12,Foton,2077,231
-Ecuador,2025,12,Gwm,6678,1021
+Ecuador,2025,12,Great Wall,6678,1021
 Ecuador,2025,12,Hino,2699,236
 Ecuador,2025,12,Hyundai,7554,526
 Ecuador,2025,12,Jac,4047,501
@@ -490,7 +490,7 @@ Ecuador,2026,1,Dfsk,298,298
 Ecuador,2026,1,Dongfeng,419,419
 Ecuador,2026,1,Ford,146,146
 Ecuador,2026,1,Foton,200,200
-Ecuador,2026,1,Gwm,584,584
+Ecuador,2026,1,Great Wall,584,584
 Ecuador,2026,1,Hino,158,158
 Ecuador,2026,1,Hyundai,686,686
 Ecuador,2026,1,Jac,397,397
@@ -510,7 +510,7 @@ Ecuador,2026,2,Dfsk,592,294
 Ecuador,2026,2,Dongfeng,762,343
 Ecuador,2026,2,Ford,308,162
 Ecuador,2026,2,Foton,364,164
-Ecuador,2026,2,Gwm,1229,645
+Ecuador,2026,2,Great Wall,1229,645
 Ecuador,2026,2,Hino,331,173
 Ecuador,2026,2,Hyundai,1330,644
 Ecuador,2026,2,Jac,772,375
@@ -530,7 +530,7 @@ Ecuador,2026,3,Dfsk,1009,417
 Ecuador,2026,3,Dongfeng,1256,494
 Ecuador,2026,3,Ford,530,222
 Ecuador,2026,3,Foton,610,246
-Ecuador,2026,3,Gwm,2126,897
+Ecuador,2026,3,Great Wall,2126,897
 Ecuador,2026,3,Hino,504,173
 Ecuador,2026,3,Hyundai,2092,762
 Ecuador,2026,3,Jac,1268,496
@@ -550,7 +550,7 @@ Ecuador,2026,4,Dfsk,1394,385
 Ecuador,2026,4,Dongfeng,1790,534
 Ecuador,2026,4,Ford,690,160
 Ecuador,2026,4,Foton,853,243
-Ecuador,2026,4,Gwm,2790,664
+Ecuador,2026,4,Great Wall,2790,664
 Ecuador,2026,4,Hyundai,2888,796
 Ecuador,2026,4,Isuzu,692,
 Ecuador,2026,4,Jac,1783,515
@@ -570,7 +570,7 @@ Ecuador,2026,5,Dfsk,1832,438
 Ecuador,2026,5,Dongfeng,2247,457
 Ecuador,2026,5,Ford,814,124
 Ecuador,2026,5,Foton,1110,257
-Ecuador,2026,5,Gwm,3508,718
+Ecuador,2026,5,Great Wall,3508,718
 Ecuador,2026,5,Hino,865,
 Ecuador,2026,5,Hyundai,3602,714
 Ecuador,2026,5,Jac,2228,445
@@ -582,3 +582,23 @@ Ecuador,2026,5,Sinotruk,2086,458
 Ecuador,2026,5,Suzuki,1875,292
 Ecuador,2026,5,Toyota,3044,608
 Ecuador,2026,5,Volkswagen,1322,224
+Ecuador,2026,6,Byd,2490,714
+Ecuador,2026,6,Changan,1451,290
+Ecuador,2026,6,Chery,3785,643
+Ecuador,2026,6,Chevrolet,9341,1609
+Ecuador,2026,6,Dfsk,2228,396
+Ecuador,2026,6,Dongfeng,2780,533
+Ecuador,2026,6,Foton,1341,231
+Ecuador,2026,6,Great Wall,4329,821
+Ecuador,2026,6,Hino,1033,168
+Ecuador,2026,6,Hyundai,4232,630
+Ecuador,2026,6,Jac,2773,545
+Ecuador,2026,6,Jetour,1817,315
+Ecuador,2026,6,Kia,12512,2271
+Ecuador,2026,6,Mazda,1733,276
+Ecuador,2026,6,Mg,1007,
+Ecuador,2026,6,Renault,1089,54
+Ecuador,2026,6,Sinotruk,2571,485
+Ecuador,2026,6,Suzuki,2311,436
+Ecuador,2026,6,Toyota,3808,764
+Ecuador,2026,6,Volkswagen,1616,294
